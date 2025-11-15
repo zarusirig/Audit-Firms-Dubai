@@ -3,13 +3,15 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Logo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 import { MAIN_NAVIGATION, SITE_CONFIG } from '@/lib/constants';
 import type { NavigationItem } from '@/types';
+import type { Locale } from '@/lib/i18n/config';
 
 /**
  * Main Navigation Component
@@ -19,8 +21,10 @@ import type { NavigationItem } from '@/types';
  * - Mobile drawer menu
  * - Active state indicators
  * - CTA buttons
+ * - Language switcher
+ * - i18n support
  */
-export function Navigation() {
+export function Navigation({ locale, dict }: { locale: Locale; dict: any }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -62,8 +66,9 @@ export function Navigation() {
               <Phone className="h-4 w-4" />
               <span className="hidden xl:inline">{SITE_CONFIG.phone}</span>
             </a>
+            <LanguageSwitcher currentLocale={locale} />
             <Button asChild>
-              <Link href="/contact">Get Free Consultation</Link>
+              <Link href={`/${locale}/contact`}>{dict.common.getQuote}</Link>
             </Button>
           </div>
 
@@ -76,7 +81,12 @@ export function Navigation() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <MobileNav pathname={pathname} onClose={() => setMobileMenuOpen(false)} />
+              <MobileNav
+                pathname={pathname}
+                locale={locale}
+                dict={dict}
+                onClose={() => setMobileMenuOpen(false)}
+              />
             </SheetContent>
           </Sheet>
         </div>
@@ -152,7 +162,17 @@ function NavItem({ item, pathname }: { item: NavigationItem; pathname: string })
  * Mobile Navigation
  * Drawer menu for mobile devices
  */
-function MobileNav({ pathname, onClose }: { pathname: string; onClose: () => void }) {
+function MobileNav({
+  pathname,
+  locale,
+  dict,
+  onClose,
+}: {
+  pathname: string
+  locale: Locale
+  dict: any
+  onClose: () => void
+}) {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
@@ -234,11 +254,14 @@ function MobileNav({ pathname, onClose }: { pathname: string; onClose: () => voi
           <Phone className="h-5 w-5" />
           {SITE_CONFIG.phone}
         </a>
-        <Button asChild className="w-full">
-          <Link href="/contact" onClick={onClose}>
-            Get Free Consultation
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher currentLocale={locale} />
+          <Button asChild className="flex-1">
+            <Link href={`/${locale}/contact`} onClick={onClose}>
+              {dict.common.getQuote}
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

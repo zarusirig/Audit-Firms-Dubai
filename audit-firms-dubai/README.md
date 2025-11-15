@@ -191,6 +191,9 @@ Project documentation is located in the parent directory:
 - [Content Strategy](../content/content-style-guide.md) - Writing standards
 - [SEO Framework](../strategy/semantic-seo-framework.md) - SEO methodology
 
+### 🚨 **Critical Development Guidelines**
+- **[Fixes & Standards](./fixes.md)** - **REQUIRED READING** - All fixes applied, development rules, and troubleshooting guide
+
 ## 👥 Company Background
 
 - **Parent Company**: Farahat & Co (Est. 1985)

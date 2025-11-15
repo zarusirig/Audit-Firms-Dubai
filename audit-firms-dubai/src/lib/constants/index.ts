@@ -2,6 +2,8 @@
  * Site-wide constants for Elite Audit Dubai
  */
 
+import type { NavigationItems } from '@/types';
+
 // Site Configuration
 export const SITE_CONFIG = {
   name: 'Elite Audit Dubai',
@@ -26,7 +28,7 @@ export const COMPANY_STATS = {
 } as const;
 
 // Navigation Menu Structure
-export const MAIN_NAVIGATION = [
+export const MAIN_NAVIGATION: NavigationItems = [
   {
     label: 'Services',
     href: '/services',
@@ -72,7 +74,7 @@ export const MAIN_NAVIGATION = [
     label: 'Contact',
     href: '/contact',
   },
-] as const;
+];
 
 // Services List
 export const SERVICES = [

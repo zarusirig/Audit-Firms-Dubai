@@ -210,18 +210,18 @@ export interface PriceBreakdown {
 /**
  * Navigation Types
  */
-export interface NavItem {
-  label: string;
-  href: string;
-  children?: NavItem[];
-  icon?: string;
-  description?: string;
-}
+export type NavigationChild = {
+  readonly label: string;
+  readonly href: string;
+};
 
-export interface MegaMenuSection {
-  title: string;
-  items: NavItem[];
-}
+export type NavigationItem = {
+  readonly label: string;
+  readonly href: string;
+  readonly children?: readonly NavigationChild[];
+};
+
+export type NavigationItems = readonly NavigationItem[];
 
 /**
  * SEO Types

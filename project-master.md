@@ -131,7 +131,9 @@ Building a rank-and-rent SEO-optimized website targeting audit services in Dubai
 - [SEMANTIC_SEO_FRAMEWORK.md](./SEMANTIC_SEO_FRAMEWORK.md)
 - [NEXTJS_ARCHITECTURE.md](../technical/NEXTJS_ARCHITECTURE.md)
 - [CONTENT_CALENDAR.md](../implementation/CONTENT_CALENDAR.md)
+- [Fixes & Development Standards](./audit-firms-dubai/fixes.md) - Critical fixes and development guidelines
 
 ## Update Log
 - 2024-11-14: Initial creation
-- Version: 1.0.0
+- 2025-11-15: Applied critical fixes - TypeScript navigation types, prerendering errors, dev server conflicts
+- Version: 1.0.1

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { MAIN_NAVIGATION, SITE_CONFIG } from '@/lib/constants';
+import type { NavigationItem } from '@/types';
 
 /**
  * Main Navigation Component
@@ -88,7 +89,7 @@ export function Navigation() {
  * Desktop Navigation Item
  * Handles dropdown menus
  */
-function NavItem({ item, pathname }: { item: typeof MAIN_NAVIGATION[0]; pathname: string }) {
+function NavItem({ item, pathname }: { item: NavigationItem; pathname: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
 

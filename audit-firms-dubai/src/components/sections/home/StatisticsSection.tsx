@@ -38,7 +38,7 @@ export function StatisticsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6">
           <AnimatedStat
             end={BRAND_STATS.experience.value}
             suffix="+"

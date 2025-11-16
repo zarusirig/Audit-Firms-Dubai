@@ -91,7 +91,7 @@ export default function AboutPage() {
             </p>
 
             {/* Quick Stats */}
-            <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4">
               <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
                 <div className="mb-1 text-3xl font-bold">37+</div>
                 <div className="text-sm text-white/80">Years Experience</div>

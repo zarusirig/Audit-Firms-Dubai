@@ -150,7 +150,7 @@ export default async function TeamPage({
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {partners.map((member) => (
                 <TeamMemberCard key={member.id} member={member} featured locale={locale} />
               ))}
@@ -193,7 +193,7 @@ export default async function TeamPage({
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {[...managers, ...specialists].map((member) => (
               <TeamMemberCard key={member.id} member={member} locale={locale} />
             ))}
@@ -214,7 +214,7 @@ export default async function TeamPage({
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {seniors.map((member) => (
                 <TeamMemberCard key={member.id} member={member} compact locale={locale} />
               ))}

@@ -50,7 +50,7 @@ export function WhyChooseUs() {
         </motion.div>
 
         {/* USP Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {WHY_CHOOSE_US.map((item, index) => (
             <USPCard key={item.title} item={item} index={index} />
           ))}

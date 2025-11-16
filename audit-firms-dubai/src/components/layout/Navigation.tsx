@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { MAIN_NAVIGATION, SITE_CONFIG } from '@/lib/constants';
 import type { NavigationItem } from '@/types';
 import type { Locale } from '@/lib/i18n/config';
+import type { Dictionary } from '@/lib/i18n/types';
 
 /**
  * Main Navigation Component
@@ -24,7 +25,7 @@ import type { Locale } from '@/lib/i18n/config';
  * - Language switcher
  * - i18n support
  */
-export function Navigation({ locale, dict }: { locale: Locale; dict: any }) {
+export function Navigation({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();

@@ -7,6 +7,7 @@
 import { NextResponse } from 'next/server'
 import { quickContactSchema, contactFormSchema, formatZodErrors } from '@/components/forms/validation'
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from '@/components/forms/validation'
+import { ContactApiRequest } from '../types'
 
 // Rate limiting
 const rateLimitMap = new Map<string, number[]>()
@@ -43,7 +44,7 @@ function checkRateLimit(identifier: string): boolean {
 }
 
 // Honeypot spam detection
-function detectSpam(body: any): boolean {
+function detectSpam(body: ContactApiRequest): boolean {
   // Check honeypot fields
   if (body.website || body.url || body.honeypot) {
     return true

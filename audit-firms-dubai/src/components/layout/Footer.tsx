@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { SITE_CONFIG, SERVICES, INDUSTRIES, SOCIAL_LINKS, TRUST_BADGES } from '@/lib/constants';
 import type { Locale } from '@/lib/i18n/config';
+import type { Dictionary } from '@/lib/i18n/types';
 
 /**
  * Main Footer Component
@@ -21,7 +22,7 @@ import type { Locale } from '@/lib/i18n/config';
  * - Legal links
  * - i18n support
  */
-export function Footer({ locale, dict }: { locale: Locale; dict: any }) {
+export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const currentYear = new Date().getFullYear();
 
   return (

@@ -6,6 +6,7 @@
  */
 
 import React, { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Badge, CheckCircle2, Award, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -103,10 +104,12 @@ export default function CertificationsShowcase({
               {/* Logo/Icon */}
               <div className="mb-4 flex h-20 items-center justify-center rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 p-4">
                 {cert.logo ? (
-                  <img
+                  <Image
                     src={cert.logo}
                     alt={cert.name}
-                    className="max-h-full max-w-full object-contain"
+                    width={200}
+                    height={100}
+                    className="object-contain"
                   />
                 ) : (
                   <CategoryIcon className="h-10 w-10 text-primary" />

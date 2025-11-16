@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Mail, Linkedin } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -69,10 +70,11 @@ function TeamMemberCard({ member, variant, index }: TeamMemberCardProps) {
         {/* Image */}
         <div className="relative h-80 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
           {member.image ? (
-            <img
+            <Image
               src={member.image}
               alt={member.name}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
             <div className="flex h-full items-center justify-center">
@@ -141,7 +143,7 @@ function TeamMemberCard({ member, variant, index }: TeamMemberCardProps) {
             )}
             {member.linkedin && (
               <Button size="sm" variant="outline" asChild>
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
                   <Linkedin className="h-4 w-4" />
                 </a>
               </Button>

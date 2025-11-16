@@ -296,3 +296,74 @@ export function quoteNotification(data: {
     html: emailWrapper(content, 'New Quote Request'),
   }
 }
+
+// Download Confirmation Email
+export function downloadConfirmation(data: {
+  name: string
+  resourceTitle: string
+  downloadUrl: string
+  downloadId: string
+}): { subject: string; html: string } {
+  const content = `
+<h2 style="margin: 0 0 20px; color: #1e293b; font-size: 24px;">
+  Your Download is Ready, ${data.name}!
+</h2>
+
+<p style="margin: 0 0 15px; color: #475569; font-size: 16px; line-height: 1.6;">
+  Thank you for downloading <strong>${data.resourceTitle}</strong> from Farahat & Co.
+</p>
+
+<div style="text-align: center; margin: 30px 0;">
+  <a href="${data.downloadUrl}" style="display: inline-block; background-color: #1e40af; color: #ffffff; padding: 16px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 16px;">
+    Download Now
+  </a>
+</div>
+
+<div style="background-color: #f1f5f9; padding: 20px; border-radius: 6px; margin: 25px 0;">
+  <p style="margin: 0 0 10px; color: #334155; font-size: 14px; font-weight: 600;">
+    Download Reference: <span style="color: #1e40af;">${data.downloadId}</span>
+  </p>
+  <p style="margin: 0; color: #64748b; font-size: 14px;">
+    This link will remain active for 30 days. Save it for future reference.
+  </p>
+</div>
+
+<h3 style="margin: 25px 0 15px; color: #1e293b; font-size: 18px;">
+  Need Help with Implementation?
+</h3>
+
+<p style="margin: 0 0 15px; color: #475569; font-size: 15px; line-height: 1.6;">
+  Our audit and compliance experts are here to help you make the most of this resource. We offer:
+</p>
+
+<ul style="margin: 0 0 20px; padding-left: 20px; color: #475569; font-size: 15px; line-height: 1.8;">
+  <li>Free 30-minute consultation</li>
+  <li>Custom audit and compliance solutions</li>
+  <li>Training and implementation support</li>
+  <li>Ongoing advisory services</li>
+</ul>
+
+<div style="text-align: center; margin: 30px 0;">
+  <a href="${SITE_CONFIG.url}/contact" style="display: inline-block; background-color: #ffffff; color: #1e40af; border: 2px solid #1e40af; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
+    Schedule a Consultation
+  </a>
+</div>
+
+<div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 25px 0;">
+  <p style="margin: 0; color: #92400e; font-size: 14px;">
+    <strong>Explore More Resources</strong><br>
+    Visit our <a href="${SITE_CONFIG.url}/tools" style="color: #b45309; text-decoration: none; font-weight: 600;">Tools Hub</a> for more free guides, templates, and checklists.
+  </p>
+</div>
+
+<p style="margin: 25px 0 0; color: #475569; font-size: 15px; line-height: 1.6;">
+  Best regards,<br>
+  <strong>The Farahat & Co Team</strong>
+</p>
+  `
+
+  return {
+    subject: `Your Download: ${data.resourceTitle}`,
+    html: emailWrapper(content, 'Download Confirmation'),
+  }
+}

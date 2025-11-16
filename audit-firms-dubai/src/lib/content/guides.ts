@@ -26,6 +26,22 @@ export interface Guide {
   featured: boolean
   tags: string[]
 
+  // Author information
+  author: {
+    name: string
+    title: string
+    avatar?: string
+  }
+
+  // Table of contents
+  tableOfContents: {
+    section: string
+    subsections?: string[]
+  }[]
+
+  // Key benefits/takeaways
+  benefits: string[]
+
   // Full guide content
   introduction: string[]
   sections: GuideSection[]
@@ -67,6 +83,35 @@ export const GUIDES: Record<string, Guide> = {
     access: 'gated',
     featured: true,
     tags: ['External Audit', 'Compliance', 'UAE Law', 'Audit Preparation'],
+
+    author: {
+      name: 'Ayman Farahat',
+      title: 'Managing Partner, Certified Public Accountant',
+    },
+
+    tableOfContents: [
+      { section: 'What is External Audit?' },
+      { section: 'Who Needs External Audit in UAE?' },
+      { section: 'Legal and Regulatory Framework' },
+      { section: 'The External Audit Process (Step-by-Step)' },
+      { section: 'Audit Preparation: Essential Checklist' },
+      { section: 'Common Audit Challenges & Solutions' },
+      { section: 'Audit Costs and Pricing' },
+      { section: 'Timeline and Deadlines' },
+      { section: 'Choosing the Right Auditor' },
+      { section: 'Maximizing Value from Your Audit' },
+    ],
+
+    benefits: [
+      'Understand which UAE entities require mandatory external audit',
+      'Learn the complete audit process from planning to final report',
+      'Get a 50-point preparation checklist to ensure audit readiness',
+      'Understand typical audit fees by company size (AED 15K-150K+)',
+      'Know key deadlines and Ministry filing requirements',
+      'Avoid common audit challenges with proven solutions',
+      'Select the right auditor for your business needs',
+      'Maximize business value beyond compliance',
+    ],
 
     introduction: [
       'External audit is a mandatory requirement for most companies operating in the United Arab Emirates. Under Federal Law No. 32 of 2021 (UAE Commercial Companies Law), all Limited Liability Companies (LLCs), public and private joint stock companies, branches of foreign companies, and most free zone entities must have their annual financial statements audited by a ministry-approved auditor.',
@@ -232,6 +277,33 @@ export const GUIDES: Record<string, Guide> = {
     featured: true,
     tags: ['VAT', 'Tax Compliance', 'FTA', 'UAE Tax'],
 
+    author: {
+      name: 'Ayman Farahat',
+      title: 'Managing Partner, Certified Public Accountant',
+    },
+
+    tableOfContents: [
+      { section: 'VAT Registration Requirements' },
+      { section: 'VAT Return Filing' },
+      { section: 'Common VAT Compliance Mistakes' },
+      { section: 'Industry-Specific VAT Considerations' },
+      { section: 'FTA Audits and Inspections' },
+      { section: 'Voluntary Disclosure' },
+      { section: 'VAT Penalties and Fines' },
+      { section: 'Input Tax Recovery' },
+    ],
+
+    benefits: [
+      'Know mandatory and voluntary VAT registration thresholds',
+      'Understand filing deadlines and late payment penalties',
+      'Avoid the 6 most common VAT compliance mistakes',
+      'Learn industry-specific VAT rules (real estate, healthcare, education, etc.)',
+      'Prepare for FTA audits with confidence',
+      'Use voluntary disclosure to reduce penalties from 50% to 5%',
+      'Master input tax recovery rules and documentation',
+      'Save thousands in penalties through proper compliance',
+    ],
+
     introduction: [
       'Value Added Tax (VAT) was introduced in the United Arab Emirates on January 1, 2018, at a standard rate of 5%. Since then, VAT compliance has become a critical obligation for thousands of UAE businesses, with the Federal Tax Authority (FTA) conducting regular audits and imposing significant penalties for non-compliance.',
       'This comprehensive guide provides everything you need to ensure VAT compliance in 2025. Whether you\'re newly registered for VAT, concerned about compliance gaps, or preparing for an FTA audit, this guide covers all aspects of UAE VAT compliance.',
@@ -375,6 +447,31 @@ export const GUIDES: Record<string, Guide> = {
     featured: false,
     tags: ['RERA', 'Real Estate', 'Compliance', 'Property Management'],
 
+    author: {
+      name: 'Ayman Farahat',
+      title: 'Managing Partner, Certified Public Accountant',
+    },
+
+    tableOfContents: [
+      { section: 'Who Needs RERA Audit?' },
+      { section: 'Escrow Account Requirements' },
+      { section: 'Service Charge Audits' },
+      { section: 'DLD Submission Requirements' },
+      { section: 'Revenue Recognition for Real Estate' },
+      { section: 'Common RERA Audit Findings' },
+      { section: 'Audit Preparation Checklist' },
+    ],
+
+    benefits: [
+      'Understand which real estate entities require RERA audits',
+      'Master escrow account compliance and fund release criteria',
+      'Properly audit service charge funds and disclose to owners',
+      'Meet DLD submission deadlines and requirements',
+      'Apply IFRS 15 revenue recognition correctly',
+      'Avoid common RERA audit findings and penalties',
+      'Prepare comprehensive documentation for smooth audits',
+    ],
+
     introduction: [
       'The Real Estate Regulatory Agency (RERA) in Dubai enforces strict audit and compliance requirements for real estate developers, property management companies, and owners associations. Understanding and meeting these requirements is essential to maintain good standing with Dubai Land Department (DLD) and avoid penalties.',
       'This comprehensive guide covers everything real estate professionals need to know about RERA audit requirements. Whether you\'re a property developer managing escrow accounts, a property management company handling service charges, or an owners association preparing for your first audit, this guide provides practical, actionable guidance.',
@@ -503,6 +600,32 @@ export const GUIDES: Record<string, Guide> = {
     featured: false,
     tags: ['Internal Audit', 'Risk Management', 'Controls', 'Governance'],
 
+    author: {
+      name: 'Ayman Farahat',
+      title: 'Managing Partner, Certified Public Accountant',
+    },
+
+    tableOfContents: [
+      { section: 'Building a Risk-Based Internal Audit Program' },
+      { section: 'Internal Audit Methodology' },
+      { section: 'Key Areas for Internal Audit Focus' },
+      { section: 'Control Testing Techniques' },
+      { section: 'Fraud Detection and Prevention' },
+      { section: 'SOX Compliance for UAE Subsidiaries' },
+      { section: 'Building Internal Audit Capability' },
+    ],
+
+    benefits: [
+      'Build a risk-based internal audit program from scratch',
+      'Learn proven audit methodology (planning, fieldwork, reporting)',
+      'Focus audit resources on highest-risk areas',
+      'Master control testing techniques and sampling',
+      'Detect and prevent common fraud schemes',
+      'Meet SOX 404 requirements for US-listed subsidiaries',
+      'Decide between in-house, outsourced, or co-sourced models',
+      'Add real business value beyond compliance',
+    ],
+
     introduction: [
       'Internal audit provides independent, objective assurance that your organization\'s risk management, governance, and internal control processes are operating effectively. Unlike external audit (which is legally mandated), internal audit is voluntary but highly valuable for businesses seeking to strengthen controls, prevent fraud, and improve operations.',
       'This guide provides comprehensive best practices for implementing or enhancing internal audit programs in UAE businesses. Whether you\'re establishing your first internal audit function, improving existing processes, or preparing for SOX compliance, this guide offers practical, proven approaches.',
@@ -629,6 +752,32 @@ export const GUIDES: Record<string, Guide> = {
     featured: true,
     tags: ['Due Diligence', 'M&A', 'Acquisitions', 'Investment'],
 
+    author: {
+      name: 'Ayman Farahat',
+      title: 'Managing Partner, Certified Public Accountant',
+    },
+
+    tableOfContents: [
+      { section: 'Financial Due Diligence Checklist' },
+      { section: 'Commercial Due Diligence Checklist' },
+      { section: 'Operational Due Diligence Checklist' },
+      { section: 'Legal & Compliance Due Diligence' },
+      { section: 'Tax Due Diligence Checklist' },
+      { section: 'Deal-Specific Considerations' },
+      { section: 'Red Flags to Watch For' },
+    ],
+
+    benefits: [
+      'Comprehensive checklist covering all M&A due diligence areas',
+      'Verify quality of earnings and normalize EBITDA',
+      'Assess commercial viability and growth potential',
+      'Evaluate operational efficiency and scalability',
+      'Identify legal and compliance risks',
+      'Uncover tax exposures and optimization opportunities',
+      'Recognize 20+ red flags that kill deals',
+      'Based on 500+ UAE M&A transactions',
+    ],
+
     introduction: [
       'Due diligence is the comprehensive investigation conducted before completing a business acquisition, merger, or significant investment. In Dubai\'s fast-paced M&A environment, thorough due diligence is your protection against costly surprises and deal-breaking discoveries.',
       'This comprehensive checklist guides you through all aspects of due diligence for UAE transactions. Whether you\'re acquiring a competitor, investing in a startup, evaluating a franchise, or entering a joint venture, this checklist ensures you cover all critical areas.',
@@ -753,6 +902,31 @@ export const GUIDES: Record<string, Guide> = {
     access: 'free',
     featured: false,
     tags: ['Audit Preparation', 'Checklist', 'Documentation', 'Best Practices'],
+
+    author: {
+      name: 'Ayman Farahat',
+      title: 'Managing Partner, Certified Public Accountant',
+    },
+
+    tableOfContents: [
+      { section: 'Financial Records (Items 1-15)' },
+      { section: 'Sales & Revenue Documentation (Items 16-22)' },
+      { section: 'Purchases & Expenses (Items 23-29)' },
+      { section: 'Payroll & HR (Items 30-35)' },
+      { section: 'Corporate & Legal (Items 36-42)' },
+      { section: 'Tax & Compliance (Items 43-47)' },
+      { section: 'Final Preparation (Items 48-50)' },
+    ],
+
+    benefits: [
+      'Complete 50-point checklist organized by category',
+      'Know exactly which documents auditors will request',
+      'Reduce audit time by 30-50% with proper preparation',
+      'Avoid common preparation gaps that delay audits',
+      'Minimize audit fees through efficiency',
+      'Create audit-ready workspace and processes',
+      'Free download - no email gate required',
+    ],
 
     introduction: [
       'Proper preparation is the key to a smooth, efficient, and cost-effective external audit. Well-prepared companies complete audits faster, incur lower fees, receive fewer audit findings, and maximize value from the engagement.',

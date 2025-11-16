@@ -21,16 +21,19 @@ export async function generateMetadata({
   const locale = resolvedParams.locale as Locale
 
   return {
-    title: 'Our Locations in Dubai - 5 Offices Across Dubai | Farahat & Co',
-    description: 'Find our audit and accounting offices across Dubai. DIFC, Business Bay, Dubai Marina, JLT, Downtown Dubai. Ministry-approved auditors. Call +971 42 500 251',
+    title: 'Our Locations in UAE - Dubai & Abu Dhabi Offices | Farahat & Co',
+    description: 'Find our audit and accounting offices across UAE. Dubai offices: DIFC, Business Bay, Dubai Marina, JLT, Downtown. Abu Dhabi Corniche office. Call +971 42 500 251',
     keywords: [
       'audit firm dubai locations',
+      'audit firm abu dhabi',
       'auditors in dubai',
+      'auditors in abu dhabi',
       'difc auditors',
       'business bay audit firm',
       'dubai marina auditors',
       'jlt accounting',
       'downtown dubai auditors',
+      'abu dhabi audit services',
     ],
     alternates: {
       canonical: `${SITE_CONFIG.url}/${locale}/locations`,
@@ -69,17 +72,17 @@ export default async function LocationsPage({
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <MapPin className="h-4 w-4" />
-              5 Offices Across Dubai
+              7 Offices Across UAE
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Our Locations in Dubai
+              Our Locations Across the UAE
             </h1>
 
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-              Conveniently located offices across Dubai's major business districts.
+              Conveniently located offices across Dubai and Abu Dhabi.
               Choose the location nearest to you for personalized audit and
-              accounting services.
+              accounting services delivered by Ministry-approved auditors.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

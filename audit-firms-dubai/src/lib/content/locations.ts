@@ -594,4 +594,115 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
       'Private Equity Backed Companies',
     ],
   },
+
+  'abu-dhabi': {
+    slug: 'abu-dhabi',
+    title: 'Abu Dhabi Office - UAE Capital',
+    metaTitle: 'Audit Firm in Abu Dhabi - ADGM Approved Auditors | Farahat & Co',
+    metaDescription: 'Leading audit firm in Abu Dhabi with ADGM expertise. Government entities, oil & gas, healthcare audit. Corniche office. Call +971 2 555 1234',
+    keywords: [
+      'audit firm abu dhabi',
+      'adgm approved auditors',
+      'abu dhabi auditors',
+      'government audit abu dhabi',
+      'oil and gas audit uae',
+      'healthcare audit abu dhabi',
+      'statutory audit abu dhabi',
+      'external audit adgm',
+    ],
+
+    heroHeadline: 'Audit Firm in Abu Dhabi',
+    heroSubheadline: 'Serving the UAE Capital',
+    heroDescription: 'Comprehensive audit and assurance services for Abu Dhabi-based businesses. Specialized expertise in government entities, oil & gas, healthcare, and ADGM regulatory compliance.',
+
+    location: {
+      name: 'Farahat & Co - Abu Dhabi Office',
+      address: 'Al Manara Tower, Floor 15, Corniche Road West, Abu Dhabi, UAE',
+      phone: '+971 2 555 1234',
+      email: 'abudhabi@farahatco.com',
+      hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM',
+      coordinates: { lat: 24.4762, lng: 54.3220 },
+      mapUrl: 'https://maps.google.com/?q=24.4762,54.3220',
+    },
+
+    aboutTitle: 'About Our Abu Dhabi Office',
+    aboutContent: [
+      'Our Abu Dhabi office serves as our gateway to the capital of the UAE, providing comprehensive audit and assurance services to a diverse range of clients including government entities, oil & gas companies, healthcare providers, and ADGM-registered businesses.',
+      'With deep understanding of Abu Dhabi\'s unique regulatory environment including ADGM regulations, federal government requirements, and sector-specific compliance, our team delivers specialized audit services that meet the highest standards of quality and professionalism.',
+      'We have established strong relationships with key regulatory bodies including the Department of Economic Development Abu Dhabi, Abu Dhabi Global Market (ADGM), and sector regulators such as the Department of Health (DOH) and ADNOC for oil & gas companies.',
+    ],
+
+    whyThisLocation: [
+      {
+        title: 'ADGM Expertise',
+        description: 'Specialized knowledge of Abu Dhabi Global Market regulations and compliance requirements for financial services firms.',
+      },
+      {
+        title: 'Government & Public Sector',
+        description: 'Extensive experience auditing government entities, semi-government organizations, and public sector companies.',
+      },
+      {
+        title: 'Oil & Gas Specialization',
+        description: 'Deep industry expertise in upstream, midstream, and downstream oil & gas operations with understanding of ADNOC requirements.',
+      },
+      {
+        title: 'Healthcare Compliance',
+        description: 'DOH-approved auditors with expertise in healthcare provider compliance, HAAD regulations, and medical facility audits.',
+      },
+      {
+        title: 'Strategic Location',
+        description: 'Prime Corniche location providing easy access to government offices, major corporations, and regulatory bodies.',
+      },
+      {
+        title: 'Bilingual Team',
+        description: 'Arabic and English speaking professionals to serve both local and international clients seamlessly.',
+      },
+    ],
+
+    nearbyLandmarks: [
+      'Corniche Beach - 5 min walk',
+      'Emirates Palace - 10 min drive',
+      'ADGM Square - 8 min drive',
+      'Abu Dhabi Mall - 6 min drive',
+      'Department of Economic Development - 7 min drive',
+      'Central Bank of UAE - 5 min drive',
+      'Abu Dhabi National Exhibition Centre (ADNEC) - 15 min drive',
+    ],
+
+    directions: {
+      byMetro: 'Abu Dhabi Metro is under construction. We recommend taxi or private car. Our office is located on the Corniche with clear signage.',
+      byCar: 'From Sheikh Zayed Road (E11), take exit towards Abu Dhabi Corniche. Follow Corniche Road West. Al Manara Tower is on the right side with prominent entrance. Valet parking available.',
+      parking: 'Dedicated parking in Al Manara Tower basement levels B1-B3. Visitor parking spaces available. Valet service at main entrance. Street parking along Corniche Road (metered).',
+    },
+
+    servicesOffered: [
+      'External Audit for Abu Dhabi Companies',
+      'ADGM Regulatory Compliance',
+      'Government Entity Audits',
+      'Oil & Gas Industry Audit',
+      'Healthcare Provider Audits (DOH Approved)',
+      'Internal Audit Services',
+      'IFRS Financial Reporting',
+      'Statutory Audit (DED Abu Dhabi)',
+      'Construction & Real Estate Audit',
+      'Manufacturing & Industrial Audit',
+      'Education Sector Audit',
+      'Hospitality & Tourism Audit',
+    ],
+
+    clientFocus: [
+      'Government Entities and Semi-Government Organizations',
+      'Oil & Gas Companies (ADNOC Partners)',
+      'Healthcare Providers and Hospitals',
+      'Construction and Real Estate Developers',
+      'Manufacturing and Industrial Companies',
+      'Educational Institutions',
+      'Hotels and Hospitality Groups',
+      'Trading and Distribution Companies',
+      'Investment Companies and Family Offices',
+      'Transportation and Logistics Companies',
+      'Technology and Telecom Companies',
+      'ADGM-Registered Financial Services Firms',
+    ],
+  },
 }

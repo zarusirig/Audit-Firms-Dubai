@@ -113,8 +113,57 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      {/* Quick Links */}
+      {/* Interactive Tools Section */}
       <section className="container mx-auto max-w-6xl px-4 py-12">
+        <div className="mb-8">
+          <h2 className="mb-2 text-3xl font-bold text-gray-900">Interactive Tools</h2>
+          <p className="text-gray-600">Free online calculators and assessment tools</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          <Link
+            href="/calculator"
+            className="group rounded-lg border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8 transition-all hover:border-blue-400 hover:shadow-lg"
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100">
+              <Calculator className="h-7 w-7 text-blue-600" />
+            </div>
+            <h3 className="mb-2 text-2xl font-bold text-gray-900 group-hover:text-blue-600">
+              Audit Fee Calculator
+            </h3>
+            <p className="mb-4 text-gray-600">
+              Get an instant estimate of your audit costs based on company size, industry, and complexity. Free 3-step calculator.
+            </p>
+            <Badge variant="default" className="bg-blue-600">
+              Most Popular
+            </Badge>
+          </Link>
+
+          <Link
+            href="/tools/audit-readiness-score"
+            className="group rounded-lg border-2 border-green-200 bg-gradient-to-br from-green-50 to-white p-8 transition-all hover:border-green-400 hover:shadow-lg"
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
+              <TrendingUp className="h-7 w-7 text-green-600" />
+            </div>
+            <h3 className="mb-2 text-2xl font-bold text-gray-900 group-hover:text-green-600">
+              Audit Readiness Score
+            </h3>
+            <p className="mb-4 text-gray-600">
+              Take our 15-question assessment to discover your audit readiness score (0-100) with personalized recommendations.
+            </p>
+            <Badge variant="default" className="bg-green-600">
+              New Tool
+            </Badge>
+          </Link>
+        </div>
+      </section>
+
+      {/* Downloadable Resources */}
+      <section className="container mx-auto max-w-6xl px-4 py-12">
+        <div className="mb-8">
+          <h2 className="mb-2 text-3xl font-bold text-gray-900">Downloadable Resources</h2>
+          <p className="text-gray-600">Templates, checklists, and guides by category</p>
+        </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           <Link
             href="#audit-checklists"

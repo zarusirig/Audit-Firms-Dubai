@@ -1,0 +1,6 @@
+export { LocationHero } from './LocationHero'
+export { LocationAbout } from './LocationAbout'
+export { LocationAdvantages } from './LocationAdvantages'
+export { LocationMap } from './LocationMap'
+export { LocationDirections } from './LocationDirections'
+export { LocationServices } from './LocationServices'

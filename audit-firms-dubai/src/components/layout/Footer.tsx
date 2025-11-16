@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { SITE_CONFIG, SERVICES, INDUSTRIES, SOCIAL_LINKS, TRUST_BADGES } from '@/lib/constants';
+import type { Locale } from '@/lib/i18n/config';
 
 /**
  * Main Footer Component
@@ -18,8 +19,9 @@ import { SITE_CONFIG, SERVICES, INDUSTRIES, SOCIAL_LINKS, TRUST_BADGES } from '@
  * - Trust badges
  * - Contact information
  * - Legal links
+ * - i18n support
  */
-export function Footer() {
+export function Footer({ locale, dict }: { locale: Locale; dict: any }) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -75,7 +77,7 @@ export function Footer() {
               {SERVICES.slice(0, 6).map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={`/${locale}/services/${service.slug}`}
                     className="text-sm text-neutral-600 hover:text-primary-600 transition-colors"
                   >
                     {service.name}
@@ -94,7 +96,7 @@ export function Footer() {
               {INDUSTRIES.slice(0, 6).map((industry) => (
                 <li key={industry.slug}>
                   <Link
-                    href={`/industries/${industry.slug}`}
+                    href={`/${locale}/industries/${industry.slug}`}
                     className="text-sm text-neutral-600 hover:text-primary-600 transition-colors"
                   >
                     {industry.name}
@@ -179,17 +181,17 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/about`} className="text-sm text-neutral-600 hover:text-primary-600">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/team`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Our Team
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/careers`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Careers
                 </Link>
               </li>
@@ -202,22 +204,22 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/resources/guides" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/resources/guides`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Guides
                 </Link>
               </li>
               <li>
-                <Link href="/resources/blog" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/resources/blog`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/resources/tools" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/resources/tools`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Tools
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/faq`} className="text-sm text-neutral-600 hover:text-primary-600">
                   FAQ
                 </Link>
               </li>
@@ -230,17 +232,17 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/locations/difc" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/locations/difc`} className="text-sm text-neutral-600 hover:text-primary-600">
                   DIFC
                 </Link>
               </li>
               <li>
-                <Link href="/locations/business-bay" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/locations/business-bay`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Business Bay
                 </Link>
               </li>
               <li>
-                <Link href="/locations/dubai-marina" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/locations/dubai-marina`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Dubai Marina
                 </Link>
               </li>
@@ -253,17 +255,17 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/privacy" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/privacy`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/terms`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-sm text-neutral-600 hover:text-primary-600">
+                <Link href={`/${locale}/cookies`} className="text-sm text-neutral-600 hover:text-primary-600">
                   Cookie Policy
                 </Link>
               </li>

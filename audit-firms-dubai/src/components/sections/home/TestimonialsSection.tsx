@@ -25,7 +25,7 @@ export function TestimonialsSection() {
           <h2 className="mb-4 font-serif text-3xl font-bold text-primary-900 md:text-4xl">
             What Our Clients Say
           </h2>
-          <p className="mx-auto max-w-2xl text-center text-lg text-neutral-700">
+          <p className="mx-auto max-w-2xl whitespace-normal text-center text-lg text-neutral-700">
             Trusted by thousands of businesses across the UAE and beyond
           </p>
         </motion.div>

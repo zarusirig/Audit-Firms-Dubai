@@ -532,7 +532,7 @@ export function AuditReadinessAssessment() {
               {Object.entries(categoryScores).map(([category, categoryScore]) => {
                 const cat = category as QuestionCategory
                 const CategoryIcon = CATEGORY_INFO[cat].icon
-                const catRisk = getRiskLevel(categoryScore)
+                const catRisk = getRiskLevel(categoryScore as number)
 
                 return (
                   <div key={category}>
@@ -543,14 +543,14 @@ export function AuditReadinessAssessment() {
                       </div>
                       <div className="flex items-center gap-3">
                         <span className={`text-lg font-bold ${catRisk.color}`}>
-                          {categoryScore}%
+                          {categoryScore as number}%
                         </span>
                         <Badge variant="outline" className="text-xs">
                           {CATEGORY_INFO[cat].weight}% of total
                         </Badge>
                       </div>
                     </div>
-                    <Progress value={categoryScore} className="h-2" />
+                    <Progress value={categoryScore as number} className="h-2" />
                   </div>
                 )
               })}

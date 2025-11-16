@@ -1,15 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  BadgeCheck, 
-  Award, 
-  Globe, 
-  Zap, 
-  DollarSign, 
-  Users, 
-  Languages, 
-  Star 
+import {
+  BadgeCheck,
+  Award,
+  Globe,
+  Clock,
+  FileText,
+  Users,
+  Languages,
+  Star
 } from 'lucide-react';
 import { WHY_CHOOSE_US } from '@/lib/constants/brand';
 
@@ -22,8 +22,8 @@ const iconMap = {
   BadgeCheck,
   Award,
   Globe,
-  Zap,
-  DollarSign,
+  Clock,
+  FileText,
   Users,
   Languages,
   Star,

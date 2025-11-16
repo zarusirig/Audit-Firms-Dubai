@@ -705,4 +705,115 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
       'ADGM-Registered Financial Services Firms',
     ],
   },
+
+  'dubai-silicon-oasis': {
+    slug: 'dubai-silicon-oasis',
+    title: 'Dubai Silicon Oasis Office - Technology & Innovation Hub',
+    metaTitle: 'Audit Firm in Dubai Silicon Oasis - Tech Startup Auditors | Farahat & Co',
+    metaDescription: 'Specialized audit services for tech startups and innovation companies in Dubai Silicon Oasis. SaaS, fintech, AI audit expertise. Call +971 4 333 8888',
+    keywords: [
+      'audit firm dubai silicon oasis',
+      'tech startup audit dubai',
+      'saas audit uae',
+      'fintech audit dubai',
+      'technology audit dso',
+      'startup auditors dubai',
+      'innovation audit services',
+      'ai company audit',
+    ],
+
+    heroHeadline: 'Audit Firm in Dubai Silicon Oasis',
+    heroSubheadline: 'Technology & Innovation Hub',
+    heroDescription: 'Specialized audit services for technology companies, startups, and innovation-driven businesses. Expert guidance for SaaS, fintech, AI, and tech companies navigating growth and funding rounds.',
+
+    location: {
+      name: 'Farahat & Co - Dubai Silicon Oasis Office',
+      address: 'DSO HQ Building, Office 412, Dubai Silicon Oasis, Dubai, UAE',
+      phone: '+971 4 333 8888',
+      email: 'dso@farahatco.com',
+      hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM',
+      coordinates: { lat: 25.1242, lng: 55.3794 },
+      mapUrl: 'https://maps.google.com/?q=25.1242,55.3794',
+    },
+
+    aboutTitle: 'About Our Dubai Silicon Oasis Office',
+    aboutContent: [
+      'Our Dubai Silicon Oasis office is strategically located in Dubai\'s premier technology and innovation free zone, serving the unique needs of tech startups, SaaS companies, fintech firms, and innovation-driven businesses.',
+      'We understand the fast-paced nature of technology companies and provide audit services that align with startup timelines, funding rounds, and regulatory compliance requirements specific to the tech sector.',
+      'With expertise in revenue recognition for subscription models, intellectual property valuation, R&D capitalization, and investor readiness audits, we help tech companies navigate complex accounting challenges while maintaining agility and growth focus.',
+    ],
+
+    whyThisLocation: [
+      {
+        title: 'Tech Startup Expertise',
+        description: 'Deep understanding of startup business models, SaaS metrics, and technology company valuation methodologies.',
+      },
+      {
+        title: 'Funding Round Support',
+        description: 'Specialized due diligence and investor readiness audits for Series A, B, C funding and IPO preparation.',
+      },
+      {
+        title: 'SaaS Revenue Recognition',
+        description: 'Expert guidance on ASC 606 revenue recognition for subscription-based business models and deferred revenue.',
+      },
+      {
+        title: 'Fast Turnaround',
+        description: 'Agile audit approach aligned with startup speed, delivering quality audits in compressed timeframes for funding deadlines.',
+      },
+      {
+        title: 'Innovation Focus',
+        description: 'Experience with emerging technologies including AI, blockchain, IoT, and deep tech companies.',
+      },
+      {
+        title: 'Startup-Friendly Pricing',
+        description: 'Flexible pricing models and packages designed for early-stage companies and growth-stage startups.',
+      },
+    ],
+
+    nearbyLandmarks: [
+      'DSO HQ Building - In building',
+      'Dubai Silicon Oasis Authority - 3 min walk',
+      'Academic City - 5 min drive',
+      'Dubai Outlet Mall - 8 min drive',
+      'International City - 10 min drive',
+      'Dubai International Airport - 15 min drive',
+      'GITEX Technology Week Venue - 20 min drive',
+    ],
+
+    directions: {
+      byMetro: 'Take the Red Line to Academic City Metro Station (under construction). Current recommendation: Taxi or private car to DSO. Our office is in DSO HQ Building with clear signage.',
+      byCar: 'From Emirates Road (E611), take DSO exit. Follow signs to DSO HQ Building. Our office is on the 4th floor. Free visitor parking available in basement.',
+      parking: 'Complimentary parking for all visitors in DSO HQ basement levels B1-B2. Visitor spaces clearly marked. EV charging stations available.',
+    },
+
+    servicesOffered: [
+      'Startup Audit & Assurance',
+      'Investor Readiness Audits',
+      'Due Diligence for Funding Rounds',
+      'SaaS Revenue Recognition',
+      'Intellectual Property Valuation',
+      'R&D Capitalization Advisory',
+      'Internal Controls for Startups',
+      'Financial Modeling Review',
+      'Cap Table Management Support',
+      'Bridge Financing Audits',
+      'IPO Readiness Services',
+      'Regulatory Compliance (VARA, DFSA)',
+    ],
+
+    clientFocus: [
+      'SaaS and Software Companies',
+      'Fintech and Payment Platforms',
+      'AI and Machine Learning Startups',
+      'Blockchain and Crypto Companies',
+      'E-commerce and Marketplace Platforms',
+      'EdTech and Online Learning',
+      'HealthTech and Digital Health',
+      'IoT and Smart Device Manufacturers',
+      'Gaming and Entertainment Tech',
+      'CleanTech and GreenTech',
+      'Deep Tech and Research Companies',
+      'Venture Capital Backed Startups',
+    ],
+  },
 }

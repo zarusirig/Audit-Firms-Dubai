@@ -97,7 +97,7 @@ export function PriceDisplay({ result, onRequestQuote, onShare, onDownload }: Pr
                 <span className="font-semibold">{timelineEstimate.weeks} weeks</span>
               </div>
               <Separator orientation="vertical" className="h-6" />
-              <p className="text-sm text-muted-foreground max-w-md">
+              <p className="text-sm text-muted-foreground max-w-md whitespace-normal">
                 {timelineEstimate.description}
               </p>
             </div>
@@ -213,7 +213,7 @@ export function PriceDisplay({ result, onRequestQuote, onShare, onDownload }: Pr
               <CheckCircle2 className="h-5 w-5 text-green-600" />
               What's Included
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="whitespace-normal">
               Your comprehensive audit package includes the following services
             </CardDescription>
           </CardHeader>
@@ -222,7 +222,7 @@ export function PriceDisplay({ result, onRequestQuote, onShare, onDownload }: Pr
               {whatsIncluded.map((item, index) => (
                 <div key={index} className="flex items-start gap-2">
                   <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">{item}</span>
+                  <span className="text-sm whitespace-normal">{item}</span>
                 </div>
               ))}
             </div>
@@ -323,7 +323,7 @@ export function PriceDisplay({ result, onRequestQuote, onShare, onDownload }: Pr
           <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8">
             <div className="text-center sm:text-left">
               <h3 className="text-2xl font-bold mb-2">Ready to Get Started?</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground whitespace-normal">
                 Speak with our audit specialists today for a personalized consultation
               </p>
             </div>

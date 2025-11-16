@@ -120,7 +120,7 @@ export default async function CalculatorPage({
               Audit Fee Calculator
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto whitespace-normal">
               Get an accurate estimate of your audit costs in just 3 simple steps. Our intelligent
               calculator considers your company size, industry, complexity, and timeline to provide
               personalized pricing.
@@ -133,8 +133,8 @@ export default async function CalculatorPage({
                   <Shield className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-sm">Ministry Approved</p>
-                  <p className="text-xs text-muted-foreground">Since 1985</p>
+                  <p className="font-bold text-sm whitespace-normal">Ministry Approved</p>
+                  <p className="text-xs text-muted-foreground whitespace-normal">Since 1985</p>
                 </div>
               </div>
 
@@ -143,8 +143,8 @@ export default async function CalculatorPage({
                   <Building2 className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-sm">28,000+</p>
-                  <p className="text-xs text-muted-foreground">Clients Served</p>
+                  <p className="font-bold text-sm whitespace-normal">28,000+</p>
+                  <p className="text-xs text-muted-foreground whitespace-normal">Clients Served</p>
                 </div>
               </div>
 
@@ -153,8 +153,8 @@ export default async function CalculatorPage({
                   <Award className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-sm">140 Countries</p>
-                  <p className="text-xs text-muted-foreground">Global Reach</p>
+                  <p className="font-bold text-sm whitespace-normal">140 Countries</p>
+                  <p className="text-xs text-muted-foreground whitespace-normal">Global Reach</p>
                 </div>
               </div>
 
@@ -163,8 +163,8 @@ export default async function CalculatorPage({
                   <TrendingUp className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-sm">37 Years</p>
-                  <p className="text-xs text-muted-foreground">Experience</p>
+                  <p className="font-bold text-sm whitespace-normal">37 Years</p>
+                  <p className="text-xs text-muted-foreground whitespace-normal">Experience</p>
                 </div>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default async function CalculatorPage({
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-4">How Our Calculator Works</h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto whitespace-normal">
               Our sophisticated pricing algorithm considers multiple factors to provide you with the most
               accurate audit fee estimate
             </p>
@@ -207,7 +207,7 @@ export default async function CalculatorPage({
                     <span className="text-2xl font-bold text-primary">1</span>
                   </div>
                   <h3 className="font-bold text-lg mb-2">Enter Company Details</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground whitespace-normal">
                     Provide information about your company type, industry, and size. All data is kept
                     confidential and never stored without your consent.
                   </p>
@@ -220,7 +220,7 @@ export default async function CalculatorPage({
                     <span className="text-2xl font-bold text-primary">2</span>
                   </div>
                   <h3 className="font-bold text-lg mb-2">Specify Requirements</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground whitespace-normal">
                     Select complexity factors and timeline needs. Our calculator adjusts pricing based on
                     audit scope and urgency.
                   </p>
@@ -233,7 +233,7 @@ export default async function CalculatorPage({
                     <span className="text-2xl font-bold text-primary">3</span>
                   </div>
                   <h3 className="font-bold text-lg mb-2">Get Instant Estimate</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground whitespace-normal">
                     Receive a detailed price breakdown, timeline estimate, and personalized recommendations
                     for your audit engagement.
                   </p>
@@ -249,7 +249,7 @@ export default async function CalculatorPage({
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-4">Factors We Consider</h2>
-            <p className="text-center text-muted-foreground mb-12">
+            <p className="text-center text-muted-foreground mb-12 whitespace-normal">
               Our calculator uses industry-standard pricing models and our 37 years of experience to
               estimate your audit fees based on:
             </p>
@@ -295,7 +295,7 @@ export default async function CalculatorPage({
               ].map((factor, index) => (
                 <div key={index} className="p-4 rounded-lg border bg-card hover:shadow-md transition-shadow">
                   <h3 className="font-semibold mb-1">{factor.title}</h3>
-                  <p className="text-sm text-muted-foreground">{factor.desc}</p>
+                  <p className="text-sm text-muted-foreground whitespace-normal">{factor.desc}</p>
                 </div>
               ))}
             </div>
@@ -308,7 +308,7 @@ export default async function CalculatorPage({
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Why Choose Farahat & Co</h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground mb-8 whitespace-normal">
               With 37 years of experience and 28,000+ satisfied clients, we're Dubai's trusted audit
               partner
             </p>
@@ -316,28 +316,28 @@ export default async function CalculatorPage({
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
               <div>
                 <h3 className="font-bold mb-2">Transparent Pricing</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground whitespace-normal">
                   No hidden fees. Clear, upfront pricing with detailed breakdowns.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold mb-2">Fast Turnaround</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground whitespace-normal">
                   Express service available. Meet your deadlines without compromising quality.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold mb-2">Expert Team</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground whitespace-normal">
                   Certified professionals (CPA, CA, ACCA, CIA) with deep UAE expertise.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold mb-2">Ministry Approved</h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground whitespace-normal">
                   Officially recognized by UAE Ministry of Economy and regulatory bodies.
                 </p>
               </div>
@@ -349,7 +349,7 @@ export default async function CalculatorPage({
       {/* Educational Content for SEO */}
       <section className="py-12 sm:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto prose prose-slate max-w-none">
+          <div className="max-w-4xl mx-auto prose prose-slate whitespace-normal">
             <h2>Understanding Audit Fees in Dubai</h2>
 
             <p>
@@ -421,7 +421,7 @@ export default async function CalculatorPage({
 
             <div className="not-prose mt-8 p-6 bg-primary/5 rounded-lg border-l-4 border-primary">
               <h3 className="text-lg font-bold mb-2">Need a Detailed Quote?</h3>
-              <p className="mb-4">
+              <p className="mb-4 whitespace-normal">
                 Get a customized proposal from our audit specialists within 24 hours. Call us at{' '}
                 <a href="tel:+97142500251" className="text-primary font-semibold">
                   +971 42 500 251

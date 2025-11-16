@@ -208,7 +208,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                       <Building2 className="h-6 w-6 text-primary" />
                       Company Information
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="whitespace-normal">
                       Tell us about your company structure and industry
                     </CardDescription>
                   </CardHeader>
@@ -234,7 +234,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             The legal structure of your business in the UAE
                           </FormDescription>
                           <FormMessage />
@@ -263,7 +263,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             Your primary business activity or industry
                           </FormDescription>
                           <FormMessage />
@@ -290,7 +290,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                       <DollarSign className="h-6 w-6 text-primary" />
                       Financial & Operational Details
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="whitespace-normal">
                       Help us understand the size and scope of your operations
                     </CardDescription>
                   </CardHeader>
@@ -316,7 +316,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             Your approximate annual revenue in AED
                           </FormDescription>
                           <FormMessage />
@@ -348,7 +348,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             Total number of employees in your organization
                           </FormDescription>
                           <FormMessage />
@@ -376,7 +376,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               className="max-w-xs"
                             />
                           </FormControl>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             How many physical locations or branches does your business have?
                           </FormDescription>
                           <FormMessage />
@@ -403,7 +403,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                       <FileCheck className="h-6 w-6 text-primary" />
                       Audit Requirements
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="whitespace-normal">
                       Final details about your audit needs
                     </CardDescription>
                   </CardHeader>
@@ -429,7 +429,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             Has your company been audited before?
                           </FormDescription>
                           <FormMessage />
@@ -461,7 +461,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
+                          <FormDescription className="whitespace-normal">
                             How quickly do you need the audit completed?
                           </FormDescription>
                           <FormMessage />
@@ -476,7 +476,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                           <AlertCircle className="h-4 w-4" />
                           Complexity Factors
                         </FormLabel>
-                        <p className="text-sm text-muted-foreground mb-4">
+                        <p className="text-sm text-muted-foreground mb-4 whitespace-normal">
                           Select all that apply to your business (affects pricing and timeline)
                         </p>
                       </div>
@@ -502,7 +502,7 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
                                     <FormLabel className="font-medium cursor-pointer">
                                       {COMPLEXITY_FACTOR_LABELS[key]}
                                     </FormLabel>
-                                    <FormDescription className="text-xs">
+                                    <FormDescription className="text-xs whitespace-normal">
                                       {COMPLEXITY_FACTOR_DESCRIPTIONS[key]}
                                     </FormDescription>
                                   </div>

@@ -1,116 +1,74 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { ChevronRight, Home } from 'lucide-react'
-import { BreadcrumbSchema, type BreadcrumbItem } from './schemas/BreadcrumbSchema'
-import { cn } from '@/lib/utils'
-
-interface BreadcrumbsProps {
-  locale: string
-  customItems?: BreadcrumbItem[]
-  className?: string
-}
+import Link from 'next/link';
+import { ChevronRight, Home } from 'lucide-react';
+import { BreadcrumbSchema, type BreadcrumbItem as BreadcrumbSchemaItem } from './schemas/BreadcrumbSchema';
 
 /**
- * Breadcrumbs Component
- * - Automatically generates breadcrumbs from pathname
- * - Includes structured data markup
- * - Customizable via customItems prop
- * - RTL support for Arabic
+ * Breadcrumbs Component with Schema Markup
+ * Provides navigation and SEO benefits
  */
-export function Breadcrumbs({ locale, customItems, className }: BreadcrumbsProps) {
-  const pathname = usePathname()
 
-  // Generate breadcrumb items from pathname if not provided
-  const items: BreadcrumbItem[] = customItems || generateBreadcrumbItems(pathname, locale)
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
 
-  if (items.length === 0) return null
+interface BreadcrumbsProps {
+  items: BreadcrumbItem[];
+  locale?: 'en' | 'ar';
+}
+
+export function Breadcrumbs({ items, locale = 'en' }: BreadcrumbsProps) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsindubai.com';
+  
+  // Add home to the beginning
+  const fullItems: BreadcrumbItem[] = [
+    { label: 'Home', href: `/${locale}` },
+    ...items,
+  ];
+
+  // Prepare schema items
+  const schemaItems: BreadcrumbSchemaItem[] = fullItems.map((item) => ({
+    name: item.label,
+    url: `${siteUrl}${item.href}`,
+  }));
 
   return (
     <>
-      <BreadcrumbSchema items={items} />
-      <nav
-        aria-label="Breadcrumb"
-        className={cn('flex items-center gap-2 text-sm', className)}
-      >
-        <ol className="flex items-center gap-2">
-          {items.map((item, index) => {
-            const isLast = index === items.length - 1
+      <BreadcrumbSchema items={schemaItems} />
+      <nav aria-label="Breadcrumb" className="py-4">
+        <ol className="flex items-center gap-2 text-sm text-neutral-600">
+          {fullItems.map((item, index) => {
+            const isLast = index === fullItems.length - 1;
+            const isFirst = index === 0;
 
             return (
               <li key={item.href} className="flex items-center gap-2">
-                {index === 0 && (
-                  <Home className="h-4 w-4 text-neutral-500" aria-hidden="true" />
+                {isFirst && (
+                  <Home className="w-4 h-4" aria-hidden="true" />
                 )}
-
+                
                 {!isLast ? (
                   <>
                     <Link
                       href={item.href}
-                      className="text-neutral-600 hover:text-primary-600 transition-colors"
+                      className="hover:text-primary-700 transition-colors"
                     >
-                      {item.name}
+                      {item.label}
                     </Link>
-                    <ChevronRight
-                      className="h-4 w-4 text-neutral-400"
-                      aria-hidden="true"
-                    />
+                    <ChevronRight className="w-4 h-4" aria-hidden="true" />
                   </>
                 ) : (
-                  <span className="font-medium text-neutral-900" aria-current="page">
-                    {item.name}
+                  <span className="text-neutral-900 font-medium" aria-current="page">
+                    {item.label}
                   </span>
                 )}
               </li>
-            )
+            );
           })}
         </ol>
       </nav>
     </>
-  )
-}
-
-/**
- * Generate breadcrumb items from pathname
- */
-function generateBreadcrumbItems(pathname: string, locale: string): BreadcrumbItem[] {
-  // Remove locale prefix and split path
-  const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
-  const segments = pathWithoutLocale.split('/').filter(Boolean)
-
-  // Start with home
-  const items: BreadcrumbItem[] = [
-    {
-      name: 'Home',
-      href: `/${locale}`,
-    },
-  ]
-
-  // Build breadcrumb items from path segments
-  let currentPath = `/${locale}`
-
-  segments.forEach((segment) => {
-    currentPath += `/${segment}`
-
-    // Format segment name (replace hyphens with spaces, capitalize)
-    const name = formatSegmentName(segment)
-
-    items.push({
-      name,
-      href: currentPath,
-    })
-  })
-
-  return items
-}
-
-/**
- * Format URL segment into readable name
- */
-function formatSegmentName(segment: string): string {
-  return segment
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
+  );
 }

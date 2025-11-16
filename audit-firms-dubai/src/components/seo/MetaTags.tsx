@@ -1,78 +1,70 @@
-import { Metadata } from 'next'
-import { SITE_CONFIG } from '@/lib/constants'
-
-export interface MetaTagsProps {
-  title: string
-  description: string
-  keywords?: string[]
-  image?: string
-  canonical?: string
-  locale?: string
-  type?: 'website' | 'article' | 'profile'
-  publishedTime?: string
-  modifiedTime?: string
-  author?: string
-  section?: string
-  tags?: string[]
-  noindex?: boolean
-}
+import { Metadata } from 'next';
 
 /**
- * Generate SEO metadata for pages
- * Used in page.tsx files with generateMetadata function
+ * SEO Meta Tags Generator for Audit Firms Dubai
+ * Generates optimized meta tags, Open Graph, and Twitter Cards
  */
-export function generateSEOMetadata(props: MetaTagsProps): Metadata {
-  const {
-    title,
-    description,
-    keywords = [],
-    image = '/og-image.jpg',
-    canonical,
-    locale = 'en_AE',
-    type = 'website',
-    publishedTime,
-    modifiedTime,
-    author,
-    section,
-    tags = [],
-    noindex = false,
-  } = props
 
-  const fullTitle = title.includes(SITE_CONFIG.name)
+interface MetaTagsProps {
+  title: string;
+  description: string;
+  canonical?: string;
+  keywords?: string[];
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  locale?: 'en' | 'ar';
+  alternateLocales?: { locale: string; url: string }[];
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  noindex?: boolean;
+}
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsindubai.com';
+const SITE_NAME = 'Audit Firms Dubai - Farahat & Co';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+/**
+ * Generate comprehensive metadata for Next.js pages
+ */
+export function generateMetaTags({
+  title,
+  description,
+  canonical,
+  keywords = [],
+  ogImage = DEFAULT_OG_IMAGE,
+  ogType = 'website',
+  locale = 'en',
+  alternateLocales = [],
+  publishedTime,
+  modifiedTime,
+  author,
+  noindex = false,
+}: MetaTagsProps): Metadata {
+  const fullTitle = title.includes('Audit Firms Dubai')
     ? title
-    : `${title} | ${SITE_CONFIG.name}`
+    : `${title} | Audit Firms Dubai`;
 
-  const ogImage = image.startsWith('http')
-    ? image
-    : `${SITE_CONFIG.url}${image}`
-
-  const canonicalUrl = canonical || SITE_CONFIG.url
+  const canonicalUrl = canonical || SITE_URL;
 
   return {
     title: fullTitle,
     description,
-    keywords: keywords.length > 0 ? keywords : undefined,
-    authors: author ? [{ name: author }] : [{ name: SITE_CONFIG.name }],
-    creator: SITE_CONFIG.name,
-    publisher: SITE_CONFIG.name,
-    robots: {
-      index: !noindex,
-      follow: !noindex,
-      googleBot: {
-        index: !noindex,
-        follow: !noindex,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
+    keywords: keywords.join(', '),
+
+    alternates: {
+      canonical: canonicalUrl,
+      languages: alternateLocales.reduce((acc, alt) => {
+        acc[alt.locale] = alt.url;
+        return acc;
+      }, {} as Record<string, string>),
     },
+
     openGraph: {
-      type,
-      locale,
-      url: canonicalUrl,
-      siteName: SITE_CONFIG.name,
       title: fullTitle,
       description,
+      url: canonicalUrl,
+      siteName: SITE_NAME,
       images: [
         {
           url: ogImage,
@@ -81,134 +73,76 @@ export function generateSEOMetadata(props: MetaTagsProps): Metadata {
           alt: title,
         },
       ],
-      ...(type === 'article' && {
-        publishedTime,
-        modifiedTime,
-        authors: author ? [author] : undefined,
-        section,
-        tags,
-      }),
+      locale: locale === 'en' ? 'en_US' : 'ar_AE',
+      type: ogType,
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
     },
+
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
       images: [ogImage],
-      creator: '@eliteauditdubai',
+      creator: '@auditfirmsdubai',
+      site: '@auditfirmsdubai',
     },
-    alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        en: `${canonicalUrl.replace('/ar/', '/en/')}`,
-        ar: `${canonicalUrl.replace('/en/', '/ar/')}`,
-      },
+
+    robots: noindex
+      ? {
+          index: false,
+          follow: false,
+          nocache: true,
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+          },
+        },
+
+    ...(author && { authors: [{ name: author }] }),
+
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
     },
-  }
+  };
 }
 
-/**
- * Helper to generate metadata for service pages
- */
-export function generateServiceMetadata(params: {
-  serviceName: string
-  description: string
-  locale: string
-  slug: string
-}): Metadata {
-  const { serviceName, description, locale, slug } = params
-
-  return generateSEOMetadata({
-    title: `${serviceName} Services in Dubai`,
-    description: `Professional ${serviceName.toLowerCase()} services in Dubai and UAE. ${description}`,
-    keywords: [
-      `${serviceName.toLowerCase()} dubai`,
-      `${serviceName.toLowerCase()} uae`,
-      `${serviceName.toLowerCase()} services`,
-      'audit firm dubai',
-      'professional audit services',
-    ],
-    canonical: `${SITE_CONFIG.url}/${locale}/services/${slug}`,
-    locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
-  })
-}
-
-/**
- * Helper to generate metadata for industry pages
- */
-export function generateIndustryMetadata(params: {
-  industryName: string
-  description: string
-  locale: string
-  slug: string
-}): Metadata {
-  const { industryName, description, locale, slug } = params
-
-  return generateSEOMetadata({
-    title: `${industryName} Audit Services in Dubai`,
-    description: `Specialized audit services for ${industryName.toLowerCase()} companies in Dubai. ${description}`,
-    keywords: [
-      `${industryName.toLowerCase()} audit dubai`,
-      `${industryName.toLowerCase()} audit uae`,
-      'industry-specific audit',
-      'audit firm dubai',
-    ],
-    canonical: `${SITE_CONFIG.url}/${locale}/industries/${slug}`,
-    locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
-  })
-}
-
-/**
- * Helper to generate metadata for blog articles
- */
-export function generateArticleMetadata(params: {
-  title: string
-  description: string
-  author: string
-  publishedTime: string
-  modifiedTime?: string
-  tags: string[]
-  locale: string
-  slug: string
-  image?: string
-}): Metadata {
-  const { title, description, author, publishedTime, modifiedTime, tags, locale, slug, image } = params
-
-  return generateSEOMetadata({
-    title,
-    description,
-    author,
-    publishedTime,
-    modifiedTime,
-    tags,
-    type: 'article',
-    section: 'Audit & Compliance',
-    canonical: `${SITE_CONFIG.url}/${locale}/resources/blog/${slug}`,
-    locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
-    image,
-  })
-}
-
-/**
- * Helper to generate metadata for location pages
- */
-export function generateLocationMetadata(params: {
-  locationName: string
-  description: string
-  locale: string
-  slug: string
-}): Metadata {
-  const { locationName, description, locale, slug } = params
-
-  return generateSEOMetadata({
-    title: `Audit Firm in ${locationName}`,
-    description: `Professional audit services in ${locationName}, Dubai. ${description}`,
-    keywords: [
-      `audit firm ${locationName.toLowerCase()}`,
-      `auditors ${locationName.toLowerCase()}`,
-      `audit services ${locationName.toLowerCase()}`,
-      'dubai audit firm',
-    ],
-    canonical: `${SITE_CONFIG.url}/${locale}/locations/${slug}`,
-    locale: locale === 'ar' ? 'ar_AE' : 'en_AE',
-  })
-}
+export const defaultMetadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Audit Firms Dubai | Ministry Approved Auditors Since 1985 | Farahat & Co',
+    template: '%s | Audit Firms Dubai',
+  },
+  description:
+    'Leading audit firm in Dubai since 1985. Ministry-approved auditors with 28,000+ clients across 140 countries. ✓ External audit ✓ Internal audit ✓ RERA audit ✓ VAT compliance. Call +971 42 500 251',
+  keywords: [
+    'audit firms in dubai',
+    'audit firm dubai',
+    'external audit dubai',
+    'internal audit uae',
+    'rera audit',
+    'vat audit dubai',
+    'auditors in dubai',
+    'ministry approved auditors',
+    'farahat and co',
+  ],
+  authors: [{ name: 'Farahat & Co' }],
+  creator: 'Audit Firms Dubai',
+  publisher: 'Farahat & Co',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+};

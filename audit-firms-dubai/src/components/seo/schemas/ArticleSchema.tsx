@@ -1,81 +1,59 @@
-import Script from 'next/script'
-import { SITE_CONFIG } from '@/lib/constants'
+'use client';
+
+/**
+ * Article Schema for blog posts and guides
+ * Implements schema.org/Article
+ */
 
 export interface ArticleSchemaProps {
-  title: string
-  description: string
-  slug: string
-  author: string
-  publishedTime: string
-  modifiedTime?: string
-  image?: string
-  tags?: string[]
-  wordCount?: number
+  title: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  author: string;
+  url: string;
 }
 
 export function ArticleSchema({
   title,
   description,
-  slug,
+  image,
+  datePublished,
+  dateModified,
   author,
-  publishedTime,
-  modifiedTime,
-  image = '/og-image.jpg',
-  tags = [],
-  wordCount = 2000,
+  url,
 }: ArticleSchemaProps) {
-  const imageUrl = image.startsWith('http') ? image : `${SITE_CONFIG.url}${image}`
-
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    '@id': `${SITE_CONFIG.url}/resources/blog/${slug}#article`,
     headline: title,
     description,
-    image: {
-      '@type': 'ImageObject',
-      url: imageUrl,
-      width: 1200,
-      height: 630,
-    },
-    datePublished: publishedTime,
-    dateModified: modifiedTime || publishedTime,
+    image,
+    datePublished,
+    dateModified: dateModified || datePublished,
     author: {
       '@type': 'Person',
       name: author,
-      url: `${SITE_CONFIG.url}/team`,
     },
     publisher: {
       '@type': 'Organization',
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
+      name: 'Farahat & Co',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/logo.png`,
-        width: 240,
-        height: 80,
+        url: 'https://auditfirmsindubai.com/logo.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${SITE_CONFIG.url}/resources/blog/${slug}`,
+      '@id': url,
     },
-    articleSection: 'Audit & Compliance',
-    keywords: tags.join(', '),
-    wordCount,
-    inLanguage: 'en-AE',
-    isAccessibleForFree: true,
-    about: {
-      '@type': 'Thing',
-      name: 'Audit Services',
-    },
-  }
+  };
 
   return (
-    <Script
-      id={`article-schema-${slug}`}
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-  )
+  );
 }

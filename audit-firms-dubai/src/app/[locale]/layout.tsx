@@ -1,7 +1,4 @@
 import type { Metadata } from 'next'
-// Temporary: Using system fonts due to Google Fonts network restrictions in build environment
-// TODO: Re-enable Google Fonts when deploying to production
-// import { Inter, Playfair_Display } from 'next/font/google'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import { Toaster } from '@/components/ui/sonner'
@@ -9,20 +6,11 @@ import { SITE_CONFIG } from '@/lib/constants'
 import { i18n, type Locale, localeDirections } from '@/lib/i18n/config'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { notFound } from 'next/navigation'
+import { OrganizationSchema } from '@/components/seo/schemas/OrganizationSchema'
 import '../globals.css'
 
-// Font configurations - Using system fonts temporarily
-// const inter = Inter({
-//   subsets: ['latin'],
-//   variable: '--font-inter',
-//   display: 'swap',
-// })
-
-// const playfair = Playfair_Display({
-//   subsets: ['latin'],
-//   variable: '--font-playfair',
-//   display: 'swap',
-// })
+// NOTE: Google Fonts temporarily disabled due to build environment network restrictions
+// Fonts are configured in app/fonts.ts and will be enabled in production deployment
 
 // Generate static params for all locales
 export async function generateStaticParams() {
@@ -133,6 +121,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased">
+        <OrganizationSchema />
         <div className="flex min-h-screen flex-col">
           <Navigation locale={locale} dict={dict} />
           <main className="flex-1">{children}</main>

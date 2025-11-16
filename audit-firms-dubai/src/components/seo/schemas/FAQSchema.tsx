@@ -1,17 +1,20 @@
-import Script from 'next/script'
+'use client';
+
+/**
+ * FAQ Schema for rich snippets in search results
+ * Implements schema.org/FAQPage
+ */
 
 export interface FAQItem {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 export interface FAQSchemaProps {
-  faqs: FAQItem[]
+  faqs: FAQItem[];
 }
 
 export function FAQSchema({ faqs }: FAQSchemaProps) {
-  if (!faqs || faqs.length === 0) return null
-
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -23,13 +26,12 @@ export function FAQSchema({ faqs }: FAQSchemaProps) {
         text: faq.answer,
       },
     })),
-  }
+  };
 
   return (
-    <Script
-      id="faq-schema"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-  )
+  );
 }

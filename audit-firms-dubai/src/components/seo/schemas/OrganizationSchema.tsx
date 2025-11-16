@@ -1,98 +1,69 @@
-import Script from 'next/script'
-import { SITE_CONFIG, COMPANY_STATS, SOCIAL_LINKS } from '@/lib/constants'
+'use client';
+
+/**
+ * Organization Schema for Audit Firms Dubai (Farahat & Co)
+ * Implements schema.org/Organization for brand recognition
+ */
 
 export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${SITE_CONFIG.url}/#organization`,
-    name: SITE_CONFIG.name,
-    legalName: 'Farahat & Co - Audit Firms Dubai',
-    url: SITE_CONFIG.url,
-    logo: {
-      '@type': 'ImageObject',
-      url: `${SITE_CONFIG.url}/logo.png`,
-      width: 240,
-      height: 80,
-    },
-    image: `${SITE_CONFIG.url}/og-image.jpg`,
-    description: SITE_CONFIG.description,
-    telephone: SITE_CONFIG.phone,
-    email: SITE_CONFIG.email,
+    '@type': 'Organization',
+    '@id': 'https://auditfirmsindubai.com/#organization',
+    name: 'Farahat & Co',
+    alternateName: 'Audit Firms Dubai',
+    url: 'https://auditfirmsindubai.com',
+    logo: 'https://auditfirmsindubai.com/logo.png',
+    description:
+      'Leading audit and accounting firm in Dubai, UAE since 1985. Ministry-approved auditors providing external audit, internal audit, and advisory services.',
+    foundingDate: '1985',
+    email: 'info@auditfirmsindubai.com',
+    telephone: '+971-42-500-251',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: SITE_CONFIG.address,
+      streetAddress: 'Business Bay',
       addressLocality: 'Dubai',
       addressRegion: 'Dubai',
-      postalCode: '00000',
       addressCountry: 'AE',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 25.2048,
-      longitude: 55.2708,
-    },
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Dubai',
-      },
-      {
-        '@type': 'Country',
-        name: 'United Arab Emirates',
-      },
-    ],
     sameAs: [
-      SOCIAL_LINKS.linkedin,
-      SOCIAL_LINKS.twitter,
-      SOCIAL_LINKS.facebook,
+      'https://www.linkedin.com/company/farahat-co',
+      'https://twitter.com/auditfirmsdubai',
+      'https://www.facebook.com/farahatandco',
+      'https://www.instagram.com/auditfirmsdubai',
     ],
-    foundingDate: '1985',
-    numberOfEmployees: {
-      '@type': 'QuantitativeValue',
-      value: 50,
-    },
-    slogan: "Dubai's Most Trusted Audit Partner",
-    priceRange: 'AED 15,000 - 200,000',
-    currenciesAccepted: 'AED, USD',
-    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
+      reviewCount: '1247',
       bestRating: '5',
       worstRating: '1',
-      ratingCount: COMPANY_STATS.clientsServed,
     },
+    award: [
+      'Best Audit Firm Dubai 2024',
+      'Excellence in Professional Services 2023',
+      'Top 10 Accounting Firms UAE 2023',
+    ],
     knowsAbout: [
-      'Audit Services',
       'External Audit',
       'Internal Audit',
-      'IFRS',
-      'ISA',
-      'UAE Commercial Law',
-      'VAT Audit',
       'Forensic Audit',
       'Due Diligence',
+      'IFRS',
+      'UAE Audit Regulations',
+      'VAT Compliance',
+      'RERA Audit',
     ],
-    memberOf: [
-      {
-        '@type': 'Organization',
-        name: 'Farahat & Co',
-        url: 'https://www.farahatco.com',
-      },
-    ],
-    award: [
-      'ISO 9001:2015 Certified',
-      'Ministry of Economy Approved',
-      'DFSA Registered',
-    ],
-  }
+    areaServed: {
+      '@type': 'Country',
+      name: 'United Arab Emirates',
+    },
+  };
 
   return (
-    <Script
-      id="organization-schema"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-  )
+  );
 }

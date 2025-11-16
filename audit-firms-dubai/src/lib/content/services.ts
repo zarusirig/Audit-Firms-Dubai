@@ -1100,4 +1100,290 @@ export const SERVICES: Record<string, ServicePageContent> = {
       { title: 'External Audit', slug: 'external-audit', description: 'Financial statement verification' },
     ],
   },
+
+  'vat-audit': {
+    slug: 'vat-audit',
+    title: 'VAT Audit Services',
+    metaTitle: 'VAT Audit Services in Dubai - FTA Compliance & VAT Return Review | Farahat & Co',
+    metaDescription: 'Expert VAT audit services in Dubai. FTA compliance verification, VAT return review, voluntary disclosure support. Avoid penalties. Call +971 42 500 251',
+    keywords: [
+      'vat audit dubai',
+      'vat audit services uae',
+      'fta audit dubai',
+      'vat compliance audit',
+      'vat return review',
+      'vat refund support',
+      'voluntary disclosure uae',
+      'vat penalty assistance',
+    ],
+
+    heroHeadline: 'FTA-Approved VAT Audit Services in Dubai',
+    heroSubheadline: 'Expert VAT Compliance & FTA Audit Support',
+    heroPainPoint: 'Ensure VAT compliance and avoid costly FTA penalties. Our VAT audit specialists verify your VAT returns, identify risks, and support voluntary disclosure to keep you compliant.',
+    heroUSP: 'Trusted by 300+ UAE businesses to navigate complex VAT regulations and maintain FTA compliance.',
+
+    overviewTitle: 'What is VAT Audit?',
+    overviewContent: [
+      'VAT audit is a specialized examination of your Value Added Tax compliance, focusing on VAT registration, return filing accuracy, input tax recovery, and adherence to Federal Tax Authority (FTA) regulations. Whether triggered by an FTA audit notice or conducted proactively for compliance assurance, VAT audits help identify and correct errors before they result in penalties.',
+      'The UAE\'s VAT system requires businesses to maintain detailed records, file accurate returns, and comply with specific rules around input tax recovery, exempt vs. taxable supplies, and cross-border transactions. Our VAT audit team has deep expertise in FTA regulations and industry-specific VAT challenges across real estate, trading, healthcare, and other sectors.',
+      'From pre-audit health checks to full FTA audit support and voluntary disclosure assistance, we help you navigate VAT complexities with confidence. Our proactive approach identifies potential issues early, minimizes penalty exposure, and ensures your VAT processes are robust and compliant.',
+    ],
+    whoNeedsIt: [
+      'Businesses receiving FTA audit notifications',
+      'Companies concerned about VAT compliance gaps',
+      'Organizations preparing for voluntary disclosure',
+      'Businesses with complex VAT scenarios (real estate, import/export)',
+      'Companies seeking VAT refund verification',
+      'New VAT registrants needing compliance validation',
+      'Businesses with previous VAT penalties',
+      'Companies with multi-entity or cross-border operations',
+    ],
+
+    methodologyTitle: 'Our VAT Audit Process',
+    processSteps: [
+      {
+        week: 'Week 1',
+        title: 'VAT Compliance Assessment',
+        description: 'We review your VAT registration status, filing history, and identify potential compliance risks.',
+        deliverables: [
+          'VAT registration verification',
+          'Filing history review',
+          'Compliance gap analysis',
+          'Risk assessment report',
+        ],
+      },
+      {
+        week: 'Weeks 2-3',
+        title: 'Detailed VAT Review & Testing',
+        description: 'Comprehensive examination of VAT returns, input tax claims, exempt supplies, and transaction categorization.',
+        deliverables: [
+          'VAT return reconciliation',
+          'Input tax recovery validation',
+          'Transaction testing results',
+          'Exception identification',
+        ],
+      },
+      {
+        week: 'Week 4',
+        title: 'Reporting & FTA Support',
+        description: 'We deliver findings, support voluntary disclosure if needed, and provide ongoing FTA audit assistance.',
+        deliverables: [
+          'Comprehensive VAT audit report',
+          'Voluntary disclosure preparation (if required)',
+          'FTA response support',
+          'Remediation recommendations',
+        ],
+      },
+    ],
+
+    benefitsTitle: 'Why Choose Our VAT Audit Services',
+    benefits: [
+      {
+        title: 'FTA Penalty Avoidance',
+        description: 'Identify and correct VAT errors before FTA audits to minimize penalty exposure.',
+        icon: 'shield-check',
+      },
+      {
+        title: 'Compliance Assurance',
+        description: 'Verify that your VAT processes meet all FTA requirements and regulations.',
+        icon: 'award',
+      },
+      {
+        title: 'Voluntary Disclosure Support',
+        description: 'Expert guidance through voluntary disclosure to FTA with penalty reduction strategies.',
+        icon: 'briefcase',
+      },
+      {
+        title: 'Input Tax Optimization',
+        description: 'Maximize legitimate input tax recovery while ensuring full compliance.',
+        icon: 'trending-up',
+      },
+      {
+        title: 'Industry Expertise',
+        description: 'Specialized knowledge of VAT challenges in real estate, healthcare, trading, and more.',
+        icon: 'lightbulb',
+      },
+      {
+        title: 'FTA Audit Defense',
+        description: 'Full support during FTA audits including document preparation and representation.',
+        icon: 'users',
+      },
+      {
+        title: 'Risk Mitigation',
+        description: 'Proactive identification of VAT risks before they trigger FTA scrutiny.',
+        icon: 'alert-triangle',
+      },
+      {
+        title: 'VAT Refund Verification',
+        description: 'Ensure accuracy of VAT refund claims to avoid rejection and penalties.',
+        icon: 'zap',
+      },
+      {
+        title: 'Process Improvement',
+        description: 'Recommendations to strengthen VAT processes and internal controls.',
+        icon: 'message-circle',
+      },
+      {
+        title: 'Regulatory Updates',
+        description: 'Stay current with evolving FTA regulations and compliance requirements.',
+        icon: 'globe',
+      },
+    ],
+
+    industriesTitle: 'Industry-Specific VAT Services',
+    industries: [
+      {
+        name: 'Real Estate',
+        description: 'First supply rules, commercial vs. residential, margin scheme, building materials recovery.',
+        icon: 'building',
+      },
+      {
+        name: 'Trading & Import/Export',
+        description: 'Cross-border VAT, customs duty interaction, designated zones, reverse charge.',
+        icon: 'truck',
+      },
+      {
+        name: 'Healthcare',
+        description: 'Exempt vs. zero-rated supplies, medical equipment, pharmaceutical VAT treatment.',
+        icon: 'heart-pulse',
+      },
+      {
+        name: 'Hospitality',
+        description: 'Tourism services, restaurant VAT, hotel supplies, entertainment VAT.',
+        icon: 'plane',
+      },
+      {
+        name: 'Financial Services',
+        description: 'Exempt financial services, fee-based income, insurance VAT treatment.',
+        icon: 'landmark',
+      },
+      {
+        name: 'E-commerce',
+        description: 'Digital services, marketplace VAT, cross-border online sales, platform fees.',
+        icon: 'cpu',
+      },
+      {
+        name: 'Manufacturing',
+        description: 'Production input recovery, inventory valuation, waste and scrap treatment.',
+        icon: 'factory',
+      },
+      {
+        name: 'Education',
+        description: 'Exempt education services, ancillary supplies, tuition vs. other income.',
+        icon: 'briefcase',
+      },
+    ],
+
+    pricingTitle: 'VAT Audit Pricing',
+    pricingIntro: 'Our VAT audit fees are based on business complexity, transaction volume, and scope of review. We offer transparent, fixed-fee pricing.',
+    pricingTiers: [
+      {
+        name: 'Basic VAT Health Check',
+        range: 'AED 5,000 - 10,000',
+        ideal: 'Small businesses with straightforward VAT',
+        features: [
+          'VAT registration review',
+          'Recent return verification (3-6 months)',
+          'Basic compliance assessment',
+          'Summary findings report',
+          '1-2 week completion',
+        ],
+      },
+      {
+        name: 'Comprehensive VAT Audit',
+        range: 'AED 10,000 - 25,000',
+        ideal: 'Medium businesses or complex scenarios',
+        features: [
+          'Full VAT compliance review',
+          '12-month return reconciliation',
+          'Input tax recovery verification',
+          'Detailed audit report',
+          'Voluntary disclosure support',
+          '3-4 week completion',
+        ],
+      },
+      {
+        name: 'FTA Audit Defense',
+        range: 'AED 15,000 - 40,000',
+        ideal: 'FTA audit notice received',
+        features: [
+          'Complete FTA audit preparation',
+          'Multi-year VAT review',
+          'Document compilation',
+          'FTA representation',
+          'Penalty negotiation support',
+          'Timeline varies (FTA-driven)',
+        ],
+      },
+    ],
+    pricingFactors: [
+      'Annual revenue and transaction volume',
+      'Number of VAT returns to review',
+      'Industry complexity (real estate, healthcare, etc.)',
+      'FTA audit involvement',
+      'Voluntary disclosure requirements',
+      'Multi-entity or cross-border operations',
+    ],
+
+    faqs: [
+      {
+        question: 'What triggers an FTA VAT audit?',
+        answer: 'FTA may audit businesses based on risk indicators including frequent late filings, large refund claims, industry-specific patterns, inconsistent returns, or random selection. Proactive VAT audits help you prepare and identify issues before FTA scrutiny.',
+      },
+      {
+        question: 'How long does a VAT audit take?',
+        answer: 'A proactive VAT health check takes 1-2 weeks. Comprehensive VAT audits typically take 3-4 weeks. If you\'ve received an FTA audit notice, timeline is often driven by FTA deadlines (usually 20 business days to respond).',
+      },
+      {
+        question: 'What is voluntary disclosure and when should I use it?',
+        answer: 'Voluntary disclosure is proactively reporting VAT errors to FTA before they discover them. If you identify VAT mistakes (under-reported output tax, over-claimed input tax), voluntary disclosure can reduce penalties from 50% to as low as 5% of the tax amount.',
+      },
+      {
+        question: 'What are common VAT compliance mistakes?',
+        answer: 'Common errors include incorrect VAT treatment of transactions, input tax claimed on exempt supplies, missing or incomplete tax invoices, late filings, errors in cross-border transaction treatment, and improper use of reverse charge mechanism.',
+      },
+      {
+        question: 'Can you represent us during an FTA audit?',
+        answer: 'Yes, we provide full FTA audit support including document preparation, response drafting, representation in FTA meetings, and penalty negotiation. Our expertise helps minimize exposure and resolve audits efficiently.',
+      },
+      {
+        question: 'What documents do I need for VAT audit?',
+        answer: 'You\'ll need VAT returns, general ledger, tax invoices (sales and purchases), import/export documentation, exemption certificates, credit/debit notes, adjustment records, and VAT account reconciliations. We provide a detailed checklist.',
+      },
+      {
+        question: 'How much are FTA penalties for VAT violations?',
+        answer: 'Penalties vary: AED 1,000-15,000 for administrative violations (late filing, no tax invoice), 50% of tax for late payment, 50% of tax difference for errors (reducible to 5-30% via voluntary disclosure), and up to 300% for tax evasion.',
+      },
+      {
+        question: 'Do all businesses need VAT audit?',
+        answer: 'VAT audit is not legally mandatory for all businesses (unlike financial statement audit). However, it\'s highly recommended if you receive FTA audit notice, have complex VAT scenarios, claim large refunds, or want proactive compliance assurance.',
+      },
+      {
+        question: 'Can you help with VAT refund applications?',
+        answer: 'Yes, we verify VAT refund claims for accuracy and supporting documentation before submission to FTA. This reduces rejection risk and ensures you can substantiate all input tax recovery claims if questioned.',
+      },
+      {
+        question: 'What if we made VAT errors in previous years?',
+        answer: 'If you discover historical VAT errors, we recommend immediate voluntary disclosure to FTA to minimize penalties. We help quantify the error, prepare disclosure documentation, and manage the submission process to achieve the best outcome.',
+      },
+    ],
+
+    relatedServices: [
+      {
+        title: 'External Audit',
+        slug: 'external-audit',
+        description: 'Statutory financial statement audits',
+      },
+      {
+        title: 'Internal Audit',
+        slug: 'internal-audit',
+        description: 'Ongoing compliance and controls review',
+      },
+      {
+        title: 'Due Diligence',
+        slug: 'due-diligence',
+        description: 'VAT compliance review in M&A transactions',
+      },
+    ],
+  },
 }

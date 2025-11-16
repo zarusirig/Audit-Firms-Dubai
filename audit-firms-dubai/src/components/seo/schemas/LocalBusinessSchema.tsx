@@ -1,42 +1,52 @@
-import Script from 'next/script'
-import { SITE_CONFIG } from '@/lib/constants'
+'use client';
+
+/**
+ * LocalBusiness Schema for Audit Firms Dubai
+ * Optimized for local SEO in Dubai, UAE
+ */
 
 interface LocalBusinessSchemaProps {
-  locationName?: string
-  address?: string
-  latitude?: number
-  longitude?: number
+  location?: {
+    name: string;
+    address: string;
+    latitude?: number;
+    longitude?: number;
+  };
 }
 
-export function LocalBusinessSchema({
-  locationName = 'Dubai',
-  address = SITE_CONFIG.address,
-  latitude = 25.2048,
-  longitude = 55.2708,
-}: LocalBusinessSchemaProps = {}) {
+export function LocalBusinessSchema({ location }: LocalBusinessSchemaProps = {}) {
+  const defaultLocation = {
+    name: 'Audit Firms Dubai - Business Bay Office',
+    address: 'Business Bay, Dubai, UAE',
+    latitude: 25.1872,
+    longitude: 55.2631,
+  };
+
+  const loc = location || defaultLocation;
+
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'AccountingService',
-    '@id': `${SITE_CONFIG.url}/#localbusiness`,
-    name: `${SITE_CONFIG.name} - ${locationName}`,
-    image: `${SITE_CONFIG.url}/og-image.jpg`,
-    url: SITE_CONFIG.url,
-    telephone: SITE_CONFIG.phone,
-    email: SITE_CONFIG.email,
-    priceRange: 'AED 15,000 - 200,000',
+    '@type': 'ProfessionalService',
+    '@id': 'https://auditfirmsindubai.com/#localbusiness',
+    name: loc.name,
+    image: 'https://auditfirmsindubai.com/office.jpg',
+    url: 'https://auditfirmsindubai.com',
+    telephone: '+971-42-500-251',
+    email: 'info@auditfirmsindubai.com',
+    priceRange: 'AED 15,000 - AED 100,000',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: address,
-      addressLocality: locationName,
+      streetAddress: loc.address,
+      addressLocality: 'Dubai',
       addressRegion: 'Dubai',
-      postalCode: '00000',
+      postalCode: '',
       addressCountry: 'AE',
     },
-    geo: {
+    geo: loc.latitude && loc.longitude ? {
       '@type': 'GeoCoordinates',
-      latitude,
-      longitude,
-    },
+      latitude: loc.latitude,
+      longitude: loc.longitude,
+    } : undefined,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -45,84 +55,20 @@ export function LocalBusinessSchema({
         closes: '18:00',
       },
     ],
+    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+    currenciesAccepted: 'AED, USD, EUR',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: '28058',
+      reviewCount: '1247',
     },
-    review: [
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Person',
-          name: 'Ahmed Al Mansoori',
-        },
-        datePublished: '2024-01-15',
-        reviewBody:
-          'Excellent audit services. Professional team that completed our external audit on time with detailed recommendations.',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-          worstRating: '1',
-        },
-      },
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Person',
-          name: 'Sarah Johnson',
-        },
-        datePublished: '2024-02-20',
-        reviewBody:
-          'Very knowledgeable about UAE regulations and IFRS. Made the audit process smooth and stress-free.',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-          worstRating: '1',
-        },
-      },
-    ],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Audit Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'External Audit',
-            description: 'Statutory audit services for UAE businesses',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Internal Audit',
-            description: 'Internal control and risk assessment services',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Due Diligence',
-            description: 'Financial due diligence for M&A transactions',
-          },
-        },
-      ],
-    },
-  }
+    hasMap: 'https://goo.gl/maps/example',
+  };
 
   return (
-    <Script
-      id="local-business-schema"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-  )
+  );
 }

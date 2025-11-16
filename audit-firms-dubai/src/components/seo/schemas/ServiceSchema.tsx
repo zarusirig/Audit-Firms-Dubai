@@ -1,89 +1,63 @@
-import Script from 'next/script'
-import { SITE_CONFIG } from '@/lib/constants'
+'use client';
+
+/**
+ * Service Schema for individual service pages
+ * Helps search engines understand service offerings
+ */
 
 export interface ServiceSchemaProps {
-  name: string
-  description: string
-  slug: string
-  priceRange?: string
-  features?: string[]
-  deliveryTime?: string
+  name: string;
+  description: string;
+  serviceType: string;
+  areaServed?: string;
+  provider?: string;
+  priceRange?: string;
+  url?: string;
 }
 
 export function ServiceSchema({
   name,
   description,
-  slug,
-  priceRange = 'AED 15,000 - 50,000',
-  features = [],
-  deliveryTime = '7-10 business days',
+  serviceType,
+  areaServed = 'Dubai, UAE',
+  provider = 'Farahat & Co',
+  priceRange,
+  url,
 }: ServiceSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': `${SITE_CONFIG.url}/services/${slug}#service`,
-    serviceType: name,
-    name: `${name} Services in Dubai`,
+    name,
     description,
+    serviceType,
     provider: {
-      '@type': 'ProfessionalService',
-      name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
-      telephone: SITE_CONFIG.phone,
-      email: SITE_CONFIG.email,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Dubai',
-        addressCountry: 'AE',
-      },
+      '@type': 'Organization',
+      name: provider,
+      url: 'https://auditfirmsindubai.com',
     },
     areaServed: {
-      '@type': 'Country',
-      name: 'United Arab Emirates',
+      '@type': 'City',
+      name: areaServed,
     },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: `${name} Package`,
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          priceSpecification: {
-            '@type': 'PriceSpecification',
-            price: priceRange,
-            priceCurrency: 'AED',
-          },
-          itemOffered: {
-            '@type': 'Service',
-            name,
-            description,
-          },
-          deliveryLeadTime: {
-            '@type': 'QuantitativeValue',
-            value: deliveryTime,
-          },
-        },
-      ],
+    ...(priceRange && { priceRange }),
+    ...(url && { url }),
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: url || 'https://auditfirmsindubai.com/contact',
+      servicePhone: {
+        '@type': 'ContactPoint',
+        telephone: '+971-42-500-251',
+        contactType: 'Customer Service',
+        areaServed: 'AE',
+        availableLanguage: ['English', 'Arabic'],
+      },
     },
-    ...(features.length > 0 && {
-      serviceOutput: features.map((feature) => ({
-        '@type': 'Thing',
-        name: feature,
-      })),
-    }),
-    termsOfService: `${SITE_CONFIG.url}/terms`,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      bestRating: '5',
-      ratingCount: '500',
-    },
-  }
+  };
 
   return (
-    <Script
-      id={`service-schema-${slug}`}
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-  )
+  );
 }

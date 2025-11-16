@@ -1,18 +1,20 @@
-import Script from 'next/script'
-import { SITE_CONFIG } from '@/lib/constants'
+'use client';
+
+/**
+ * Breadcrumb Schema for navigation
+ * Implements schema.org/BreadcrumbList
+ */
 
 export interface BreadcrumbItem {
-  name: string
-  href: string
+  name: string;
+  url: string;
 }
 
 export interface BreadcrumbSchemaProps {
-  items: BreadcrumbItem[]
+  items: BreadcrumbItem[];
 }
 
 export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
-  if (!items || items.length === 0) return null
-
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -20,15 +22,14 @@ export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${SITE_CONFIG.url}${item.href}`,
+      item: item.url,
     })),
-  }
+  };
 
   return (
-    <Script
-      id="breadcrumb-schema"
+    <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
-  )
+  );
 }

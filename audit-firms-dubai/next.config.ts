@@ -76,8 +76,28 @@ const nextConfig: NextConfig = {
   // Redirect configuration
   async redirects() {
     return [
-      // Redirect www to non-www (handled by middleware)
-      // Add specific redirects here as needed
+      // Redirect root to default locale
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
+      // Redirect old paths (add as needed)
+      {
+        source: '/services',
+        destination: '/en/services/external-audit',
+        permanent: true,
+      },
+      {
+        source: '/contact-us',
+        destination: '/en/contact',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/en/about',
+        permanent: true,
+      },
     ];
   },
 

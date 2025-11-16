@@ -44,7 +44,7 @@ export function ServicesGrid() {
           <h2 className="mb-4 font-serif text-3xl font-bold text-primary-900 md:text-4xl">
             Comprehensive Audit Services
           </h2>
-          <p className="mx-auto max-w-2xl text-center text-lg text-neutral-700">
+          <p className="max-w-2xl w-full mx-auto text-center px-4 text-lg text-neutral-700">
             From statutory compliance to specialized audits, we provide complete audit solutions
             tailored to your business needs
           </p>

@@ -53,7 +53,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8 text-lg text-neutral-700 md:text-xl lg:text-2xl"
+            className="mb-8 text-lg text-neutral-700 md:text-xl lg:text-2xl max-w-2xl w-full mx-auto text-center"
           >
             Expert external audit, internal audit, and advisory services for UAE businesses.
             <br className="hidden md:block" />

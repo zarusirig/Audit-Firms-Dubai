@@ -13,7 +13,7 @@ This is a rank-and-rent SEO website targeting audit services in Dubai, UAE. The 
 
 - **Framework**: Next.js 16.0.3 (App Router with Turbopack)
 - **Language**: TypeScript (Strict Mode)
-- **Styling**: Tailwind CSS v4
+- **Styling**: Tailwind CSS v4 (Custom @theme inline configuration)
 - **UI Components**: Radix UI Primitives + shadcn/ui
 - **Icons**: Lucide React
 - **Animations**: Framer Motion
@@ -91,6 +91,21 @@ npm run start        # Start production server
 npm run lint         # Run ESLint
 ```
 
+## 🔧 Recent Fixes & Improvements
+
+### ✅ **Tailwind CSS v4 Max-Width Fix**
+- **Issue**: `max-w-2xl` was compiling to 48px instead of 672px due to missing max-width definitions
+- **Solution**: Added complete max-width scale to `@theme inline` configuration in `globals.css`
+- **Impact**: Proper text wrapping and layout consistency across all pages
+
+### ✅ **Site-wide Text Centering**
+- **Issue**: Description paragraphs had inconsistent alignment and poor readability
+- **Solution**: Added `text-center`, `max-w-2xl`, `w-full`, and `mx-auto` classes to all description paragraphs
+- **Locations Updated**:
+  - Calculator page (hero, sections, factors)
+  - Home sections (hero, services, testimonials, FAQ, why choose us)
+- **Impact**: Improved visual hierarchy, better readability, professional appearance
+
 ## 🎯 Key Features
 
 ### SEO Optimized
@@ -147,7 +162,7 @@ Security headers, image optimization, and redirects are configured in `next.conf
 
 ### Tailwind Configuration
 
-Brand colors, typography, and design tokens are defined in `src/app/globals.css` using Tailwind v4's `@theme inline`.
+Brand colors, typography, design tokens, and custom max-width scale are defined in `src/app/globals.css` using Tailwind v4's `@theme inline` configuration for optimal performance and custom utility generation.
 
 ## 📈 Performance Targets
 
@@ -213,6 +228,7 @@ For technical support or questions, refer to project documentation in the parent
 ---
 
 **Created**: November 15, 2024
-**Version**: 0.1.0 (Development Phase)
-**Status**: ✅ Day 1 Complete - Development Environment Setup
-**Next Steps**: Build Next.js architecture and UI components
+**Version**: 0.2.0 (Development Phase)
+**Status**: ✅ Critical Fixes Complete - Tailwind CSS v4 & Text Layout Optimized
+**Last Updated**: November 16, 2025
+**Next Steps**: Continue building Next.js architecture and UI components

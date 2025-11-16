@@ -172,7 +172,7 @@ export function AuditFeeCalculator({ initialData }: AuditFeeCalculatorProps) {
                 <Calculator className="h-8 w-8 text-primary" />
               </div>
               <h2 className="text-3xl font-bold mb-2">Calculate Your Audit Fee</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto whitespace-normal">
+              <p className="text-muted-foreground max-w-2xl w-full mx-auto text-center px-4 whitespace-normal">
                 Get an instant estimate of your audit costs in just 3 simple steps. Our calculator
                 considers all relevant factors to provide you with an accurate price range.
               </p>

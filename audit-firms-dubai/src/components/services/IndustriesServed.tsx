@@ -42,7 +42,7 @@ export function IndustriesServed({ title, industries }: IndustriesServedProps) {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {title}
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl w-full mx-auto text-center px-4">
               Deep expertise across diverse sectors with specialized knowledge of
               industry-specific regulations and challenges
             </p>

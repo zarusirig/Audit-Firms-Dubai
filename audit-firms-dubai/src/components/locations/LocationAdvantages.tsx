@@ -19,7 +19,7 @@ export function LocationAdvantages({ advantages }: LocationAdvantagesProps) {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose This Location
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl w-full mx-auto text-center px-4">
               Strategic advantages and specialized expertise at our office
             </p>
           </div>

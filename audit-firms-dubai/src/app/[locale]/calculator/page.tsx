@@ -120,7 +120,7 @@ export default async function CalculatorPage({
               Audit Fee Calculator
             </h1>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto whitespace-normal">
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl w-full mx-auto text-center px-4 whitespace-normal">
               Get an accurate estimate of your audit costs in just 3 simple steps. Our intelligent
               calculator considers your company size, industry, complexity, and timeline to provide
               personalized pricing.
@@ -195,7 +195,7 @@ export default async function CalculatorPage({
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-4">How Our Calculator Works</h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto whitespace-normal">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl w-full mx-auto text-center px-4 whitespace-normal">
               Our sophisticated pricing algorithm considers multiple factors to provide you with the most
               accurate audit fee estimate
             </p>
@@ -249,7 +249,7 @@ export default async function CalculatorPage({
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-4">Factors We Consider</h2>
-            <p className="text-center text-muted-foreground mb-12 whitespace-normal">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl w-full mx-auto text-center whitespace-normal">
               Our calculator uses industry-standard pricing models and our 37 years of experience to
               estimate your audit fees based on:
             </p>
@@ -308,7 +308,7 @@ export default async function CalculatorPage({
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Why Choose Farahat & Co</h2>
-            <p className="text-muted-foreground mb-8 whitespace-normal">
+            <p className="text-muted-foreground mb-8 max-w-2xl w-full mx-auto text-center whitespace-normal">
               With 37 years of experience and 28,000+ satisfied clients, we're Dubai's trusted audit
               partner
             </p>

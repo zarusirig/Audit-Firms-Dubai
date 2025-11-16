@@ -32,7 +32,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: any }) {
           {/* Company Info & Newsletter */}
           <div className="lg:col-span-2">
             <Logo size="md" className="mb-4" />
-            <p className="mb-6 text-sm text-neutral-600 max-w-md">
+            <p className="mb-6 text-sm text-neutral-600 max-w-md w-full text-center">
               {SITE_CONFIG.description}
             </p>
 

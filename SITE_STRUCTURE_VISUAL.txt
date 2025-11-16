@@ -1,0 +1,344 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    AUDIT FIRMS DUBAI - SITE STRUCTURE                      ║
+║                         Next.js 16 | TypeScript                           ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ NAVIGATION HIERARCHY                                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  HEADER (Sticky)                                                           │
+│  ├── Logo (Elite Audit Dubai)                                              │
+│  ├── Main Menu (Desktop: Hover Dropdowns | Mobile: Drawer)                │
+│  │   ├── Services ▼                                                        │
+│  │   │   ├── External Audit                                                │
+│  │   │   ├── Internal Audit                                                │
+│  │   │   ├── Due Diligence                                                 │
+│  │   │   ├── Forensic Audit                                                │
+│  │   │   ├── RERA Audit                                                    │
+│  │   │   └── VAT Audit                                                     │
+│  │   ├── Industries ▼                                                      │
+│  │   │   ├── Real Estate                                                   │
+│  │   │   ├── Trading                                                       │
+│  │   │   ├── Manufacturing                                                 │
+│  │   │   ├── Financial Services                                            │
+│  │   │   └── Healthcare                                                    │
+│  │   ├── Locations                                                         │
+│  │   ├── Resources ▼                                                       │
+│  │   │   ├── Guides                                                        │
+│  │   │   ├── Tools                                                         │
+│  │   │   ├── Blog                                                          │
+│  │   │   └── FAQ                                                           │
+│  │   ├── About                                                             │
+│  │   └── Contact (Primary CTA)                                             │
+│  ├── Phone Icon + Number (Desktop)                                         │
+│  ├── Language Switcher (EN/AR)                                             │
+│  └── "Get Quote" Button (Primary CTA)                                     │
+│                                                                              │
+│  FOOTER (Multi-Column)                                                      │
+│  ├── Company Info + Newsletter Signup                                       │
+│  ├── Services Column (6 links)                                             │
+│  ├── Industries Column (6 links)                                           │
+│  ├── Contact Info (Phone, Email, Address)                                  │
+│  │   └── Social Icons (LinkedIn, Twitter, Facebook)                        │
+│  ├── Quick Links (Company, Resources, Locations, Legal)                    │
+│  └── Bottom Bar (Parent Company Logo, Copyright, Certifications)           │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PAGE STRUCTURE - 22 MAIN PAGES                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  CORE PAGES (7)                                                            │
+│  ├── /                          (Home Page)                                 │
+│  ├── /about                     (Company Information)                       │
+│  ├── /faq                       (FAQ Accordion)                             │
+│  ├── /calculator                (Audit Fee Calculator)                      │
+│  ├── /tools                     (Tools Hub)                                 │
+│  ├── /contact                   (Contact Form - Implied)                    │
+│  └── /thank-you                 (Confirmation Page)                         │
+│                                                                              │
+│  SERVICE PAGES (6)                                                         │
+│  ├── /services/external-audit   (Statutory Audit)                          │
+│  ├── /services/internal-audit   (Risk Assessment)                          │
+│  ├── /services/due-diligence    (M&A Due Diligence)                        │
+│  ├── /services/forensic-audit   (Fraud Investigation)                      │
+│  ├── /services/rera-audit       (Real Estate Audit)                        │
+│  └── /services/vat-audit        (VAT Compliance - Planned)                 │
+│                                                                              │
+│  LOCATION PAGES (6)                                                        │
+│  ├── /locations                 (Locations Hub)                             │
+│  ├── /locations/difc            (DIFC Office)                               │
+│  ├── /locations/business-bay    (Business Bay)                              │
+│  ├── /locations/dubai-marina    (Dubai Marina)                              │
+│  ├── /locations/jlt             (Jumeirah Lake Towers)                      │
+│  └── /locations/downtown-dubai  (Downtown Dubai)                            │
+│                                                                              │
+│  INDUSTRY PAGES (5 Built / 8 Planned)                                      │
+│  ├── /industries/real-estate    (Real Estate)                               │
+│  ├── /industries/trading        (Trading)                                   │
+│  ├── /industries/manufacturing  (Manufacturing)                             │
+│  ├── /industries/financial-services (Financial Services)                   │
+│  ├── /industries/healthcare     (Healthcare)                                │
+│  ├── /industries/hospitality    (Hospitality - Planned)                     │
+│  ├── /industries/technology     (Technology - Planned)                      │
+│  └── /industries/ecommerce      (E-commerce - Planned)                      │
+│                                                                              │
+│  API ROUTES (4)                                                            │
+│  ├── /api/newsletter            (Newsletter Signup)                         │
+│  ├── /api/calculate-fee         (Fee Calculation)                           │
+│  ├── /api/contact               (Contact Form)                              │
+│  └── /api/quote                 (Quote Request)                             │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ HOME PAGE SECTIONS (7)                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. HeroSection              Hero banner with headline + primary CTA        │
+│  2. StatisticsSection        Company stats (28K+ clients, 37 years, etc)   │
+│  3. ServicesGrid             Grid of 6 core services with icons            │
+│  4. WhyChooseUs              8 key differentiators/USPs                     │
+│  5. TestimonialsSection      Client testimonials carousel                   │
+│  6. FAQSection               8 common questions + answers                   │
+│  7. CTASection               Final call-to-action section                   │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SERVICES OFFERED (6)                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. EXTERNAL AUDIT (FileCheck Icon)                                        │
+│     └─ Statutory audit | Ministry Approved | IFRS Compliant | 7-Day        │
+│                                                                              │
+│  2. INTERNAL AUDIT (Shield Icon)                                           │
+│     └─ Risk Assessment | Fraud Prevention | Process Improvement            │
+│                                                                              │
+│  3. DUE DILIGENCE (Search Icon)                                            │
+│     └─ M&A Support | Investment Analysis | Risk Identification             │
+│                                                                              │
+│  4. FORENSIC AUDIT (Scale Icon)                                            │
+│     └─ Fraud Detection | Legal Support | Expert Witness                    │
+│                                                                              │
+│  5. RERA AUDIT (Building2 Icon)                                            │
+│     └─ RERA Compliance | Escrow Accounts | Real Estate Focus               │
+│                                                                              │
+│  6. VAT AUDIT (ReceiptText Icon)                                           │
+│     └─ FTA Approved | Tax Planning | Compliance Review                     │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ TECHNOLOGY STACK                                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Framework          Next.js 16.0.3 (App Router + Turbopack)               │
+│  Language           TypeScript (Strict Mode)                               │
+│  Styling            Tailwind CSS v4                                        │
+│  UI Components      Radix UI + shadcn/ui (84 components)                   │
+│  Icons              Lucide React                                           │
+│  Animations         Framer Motion                                          │
+│  Forms              React Hook Form + Zod validation                       │
+│  SEO                next-seo + custom schemas                              │
+│  i18n               Custom middleware (EN + AR)                            │
+│  Package Manager    npm                                                    │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PROJECT COMPONENTS (84 Total)                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Layout Components (3)                                                     │
+│  ├── Navigation.tsx          (Sticky header + mega menu + mobile drawer)   │
+│  ├── Footer.tsx              (Multi-column footer)                         │
+│  └── LanguageSwitcher.tsx    (EN/AR language toggle)                       │
+│                                                                              │
+│  Home Page Sections (7)                                                    │
+│  ├── HeroSection.tsx         (Hero banner)                                 │
+│  ├── StatisticsSection.tsx   (Company metrics)                             │
+│  ├── ServicesGrid.tsx        (Services showcase)                           │
+│  ├── WhyChooseUs.tsx         (USP section)                                 │
+│  ├── TestimonialsSection.tsx (Reviews carousel)                            │
+│  ├── FAQSection.tsx          (FAQ accordion)                               │
+│  └── CTASection.tsx          (Call-to-action)                              │
+│                                                                              │
+│  Feature Components                                                        │
+│  ├── Forms                   (Contact, Quote, Newsletter)                  │
+│  ├── Calculator              (Audit fee estimator)                         │
+│  ├── FAQ Accordion           (Expandable Q&A)                              │
+│  ├── Service Cards           (Service details)                             │
+│  ├── Industry Pages          (Industry-specific content)                   │
+│  ├── Location Cards          (Office locations)                            │
+│  ├── Testimonials            (Client reviews)                              │
+│  └── Brand Components        (Logo, branding)                              │
+│                                                                              │
+│  SEO Components                                                            │
+│  ├── OrganizationSchema      (Organization markup)                         │
+│  ├── LocalBusinessSchema     (Local business data)                         │
+│  └── Additional Schemas      (Service, FAQ, Article)                       │
+│                                                                              │
+│  UI Components (shadcn/ui)                                                 │
+│  ├── Button, Card, Dialog    (Core interactions)                           │
+│  ├── Accordion, Tabs         (Content organization)                        │
+│  ├── Form Elements           (Input, Select, Checkbox)                     │
+│  └── And 70+ more...                                                       │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ INTERNATIONALIZATION (i18n)                                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Languages Supported                                                       │
+│  ├── English (en)    LTR - Default language                                │
+│  └── Arabic (ar)     RTL - Full Arabic support                             │
+│                                                                              │
+│  Implementation                                                            │
+│  ├── Dynamic routing with [locale] parameter                               │
+│  ├── Separate translation dictionaries                                     │
+│  ├── RTL layout support for Arabic                                         │
+│  ├── Language switcher in header/footer                                    │
+│  └── Hreflang tags for search engines                                      │
+│                                                                              │
+│  All URLs Structure: /{locale}/route                                       │
+│  Example: /en/services/external-audit                                     │
+│           /ar/services/external-audit                                     │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ LEAD GENERATION & CONVERSION                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Conversion Tools (5)                                                      │
+│  ├── Contact Form            (Full inquiry form)                           │
+│  ├── Quote Request           (Service-specific quotes)                     │
+│  ├── Fee Calculator          (Instant cost estimates)                      │
+│  ├── Newsletter Signup       (Email collection)                            │
+│  └── Phone CTA               (Direct calls)                                │
+│                                                                              │
+│  API Endpoints for Forms                                                   │
+│  ├── /api/contact            (Contact submissions)                         │
+│  ├── /api/quote              (Quote requests)                              │
+│  ├── /api/calculate-fee      (Calculator backend)                          │
+│  └── /api/newsletter         (Newsletter signups)                          │
+│                                                                              │
+│  CTA Placement Strategy                                                    │
+│  ├── Header               "Get Quote" button (always visible)              │
+│  ├── Hero Section         Primary CTA + phone button                       │
+│  ├── Services Grid        Individual service CTAs                          │
+│  ├── Calculator Tool      Instant estimate button                          │
+│  ├── FAQ Section          CTA between questions                            │
+│  ├── Footer               Newsletter + contact info                        │
+│  └── Mobile               Floating phone button + sticky CTA               │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ COMPANY PROFILE & BRANDING                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Company Name        Elite Audit Dubai                                      │
+│  Parent Company      Farahat & Co (Est. 1985)                              │
+│  Experience          37 years in audit services                            │
+│  Clients Served      28,058+                                               │
+│  Countries Covered   140+                                                  │
+│  Awards Received     112+                                                  │
+│  Team Size           150+ professionals (95% CPA/CA certified)             │
+│  Satisfaction Rate   98%                                                   │
+│                                                                              │
+│  Brand Colors                                                              │
+│  ├── Primary Blue    #0066FF (Professional authority)                      │
+│  ├── Secondary Gold  #FFC233 (Trust and prestige)                          │
+│  └── Neutral         Grayscale palette                                     │
+│                                                                              │
+│  Trust Certifications                                                      │
+│  ├── Ministry of Economy Approved                                          │
+│  ├── DFSA Registered (Dubai Financial Services Authority)                  │
+│  ├── ADGM Registered (Abu Dhabi Global Market)                             │
+│  ├── ISO 9001:2015 Certified                                               │
+│  ├── IFRS Certified                                                        │
+│  └── Member of ICAI (Institute of Chartered Accountants)                   │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SEO STRATEGY & GOALS                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  12-Month Targets                                                          │
+│  ├── 50+ keywords in top 3 rankings                                        │
+│  ├── 10,000+ monthly organic visitors                                      │
+│  ├── Domain Rating (DR) 50+                                                │
+│  ├── 500+ referring domains                                                │
+│  ├── 150+ qualified leads/month                                            │
+│  └── $8,000/month rental income                                            │
+│                                                                              │
+│  SEO Features Implemented                                                  │
+│  ├── Schema markup (Organization, LocalBusiness, Service, FAQ)             │
+│  ├── Dynamic sitemap generation                                            │
+│  ├── Open Graph tags for social sharing                                    │
+│  ├── Hreflang tags for bilingual content                                   │
+│  ├── Canonical URLs                                                        │
+│  ├── Meta descriptions and keywords                                        │
+│  └── Image optimization (AVIF/WebP)                                        │
+│                                                                              │
+│  Content Strategy                                                          │
+│  ├── 100+ pages goal                                                       │
+│  ├── Pillar content (5,000+ words)                                         │
+│  ├── Blog articles (regular updates)                                       │
+│  ├── Interactive tools (calculators)                                       │
+│  ├── FAQ pages                                                             │
+│  └── Local SEO (3+ office locations)                                       │
+│                                                                              │
+│  Primary Keywords                                                          │
+│  ├── audit firms in uae                                                    │
+│  ├── audit firm in dubai                                                   │
+│  ├── best audit firm in dubai                                              │
+│  ├── external audit dubai                                                  │
+│  ├── internal audit uae                                                    │
+│  ├── statutory audit uae                                                   │
+│  ├── audit services dubai                                                  │
+│  ├── rera audit dubai                                                      │
+│  ├── vat audit dubai                                                       │
+│  └── auditors in dubai                                                     │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DEVELOPMENT STATUS                                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ✅ COMPLETED (Foundation Phase)                                           │
+│     ├── Next.js 16 setup and configuration                                 │
+│     ├── Navigation and footer components                                   │
+│     ├── Home page with 7 major sections                                    │
+│     ├── 5/6 service pages (External, Internal, Due Diligence, Forensic,   │
+│     │   RERA)                                                              │
+│     ├── 6 location pages                                                   │
+│     ├── 5/8 industry pages                                                 │
+│     ├── About, FAQ, Calculator pages                                       │
+│     ├── English + Arabic support                                           │
+│     ├── Schema markup and SEO setup                                        │
+│     └── Form components (Contact, Quote, Newsletter)                       │
+│                                                                              │
+│  ⏳ IN PROGRESS (Content Expansion)                                        │
+│     ├── VAT Audit service page                                             │
+│     ├── Additional industry pages (Hospitality, Tech, E-commerce)          │
+│     ├── Team and careers pages                                             │
+│     ├── Blog infrastructure and articles                                   │
+│     └── Advanced calculators and tools                                     │
+│                                                                              │
+│  📋 PLANNED (Phase 2+)                                                     │
+│     ├── 100+ content pages                                                 │
+│     ├── Legal pages (Privacy, Terms, Cookies)                              │
+│     ├── Resource guides and tutorials                                      │
+│     ├── Link building and citations                                        │
+│     └── Performance optimization                                           │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+

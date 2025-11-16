@@ -4,6 +4,7 @@ import {
   StatisticsSection,
   ServicesGrid,
   WhyChooseUs,
+  OurClients,
   TestimonialsSection,
   FAQSection,
   CTASection,
@@ -75,6 +76,8 @@ export default async function HomePage({
       <ServicesGrid />
 
       <WhyChooseUs />
+
+      <OurClients />
 
       <TestimonialsSection />
 

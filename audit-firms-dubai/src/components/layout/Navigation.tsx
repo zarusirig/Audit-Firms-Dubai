@@ -123,7 +123,7 @@ function NavItem({ item, pathname }: { item: NavigationItem; pathname: string })
         {/* Dropdown Menu */}
         {isOpen && (
           <div className="absolute left-0 top-full pt-2">
-            <div className="min-w-[200px] rounded-lg border bg-white p-2 shadow-lg">
+            <div className="min-w-[240px] rounded-lg border bg-white p-2 shadow-lg">
               {item.children.map((child) => (
                 <Link
                   key={child.href}

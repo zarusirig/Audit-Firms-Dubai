@@ -6,7 +6,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { FileText, Scale, AlertCircle, CheckCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { FileText, Scale, AlertCircle, CheckCircle, Mail, Phone, MapPin, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/lib/constants';
 

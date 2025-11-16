@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
 type Props = {
-  params: { slug: string; locale: string }
+  params: Promise<{ slug: string; locale: string }>
 }
 
 // Generate static params for all blog posts
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = BLOG_POSTS[params.slug]
+  const { slug } = await params
+  const post = BLOG_POSTS[slug]
 
   if (!post) {
     return {
@@ -51,8 +52,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = BLOG_POSTS[params.slug]
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  const post = BLOG_POSTS[slug]
 
   if (!post) {
     notFound()

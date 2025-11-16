@@ -45,7 +45,7 @@ export function FAQSection() {
             <h2 className="mb-4 font-serif text-3xl font-bold text-primary-900 md:text-4xl">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-neutral-700">
+            <p className="text-center text-lg text-neutral-700">
               Get answers to common questions about audit services in Dubai
             </p>
           </motion.div>

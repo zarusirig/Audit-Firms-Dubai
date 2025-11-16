@@ -44,7 +44,7 @@ export function WhyChooseUs() {
           <h2 className="mb-4 font-serif text-3xl font-bold text-primary-900 md:text-4xl">
             Why Choose Farahat & Co?
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-neutral-700">
+          <p className="mx-auto max-w-2xl text-center text-lg text-neutral-700">
             37 years of excellence, 28,000+ satisfied clients, and unwavering commitment to quality
           </p>
         </motion.div>

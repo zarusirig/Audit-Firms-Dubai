@@ -73,7 +73,7 @@ export const CORE_SERVICES = [
   {
     id: 'forensic-audit',
     name: 'Forensic Audit',
-    icon: 'AlertTriangle',
+    icon: 'Scale',
     description: 'Fraud investigation and litigation support by certified fraud examiners',
     href: '/services/forensic-audit',
     features: ['Fraud Detection', 'Legal Support', 'Expert Witness'],
@@ -81,7 +81,7 @@ export const CORE_SERVICES = [
   {
     id: 'rera-audit',
     name: 'RERA Audit',
-    icon: 'Building',
+    icon: 'Building2',
     description: 'Specialized audit services for Dubai real estate developers and property managers',
     href: '/services/rera-audit',
     features: ['RERA Compliance', 'Escrow Accounts', 'Real Estate Focus'],
@@ -89,7 +89,7 @@ export const CORE_SERVICES = [
   {
     id: 'vat-audit',
     name: 'VAT Audit',
-    icon: 'Receipt',
+    icon: 'ReceiptText',
     description: 'VAT compliance audit and corporate tax advisory services for UAE businesses',
     href: '/services/vat-audit',
     features: ['FTA Approved', 'Tax Planning', 'Compliance Review'],
@@ -116,12 +116,12 @@ export const WHY_CHOOSE_US = [
   {
     title: 'Fast Turnaround',
     description: '7-day audit delivery for most engagements with express service available',
-    icon: 'Zap',
+    icon: 'Clock',
   },
   {
     title: 'Fixed Pricing',
     description: 'Transparent, competitive pricing with no hidden fees or surprise charges',
-    icon: 'DollarSign',
+    icon: 'FileText',
   },
   {
     title: 'Expert Team',

@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { 
-  FileCheck, 
-  Shield, 
-  Search, 
-  AlertTriangle, 
-  Building, 
-  Receipt,
-  ArrowRight 
+import {
+  FileCheck,
+  Shield,
+  Search,
+  Scale,
+  Building2,
+  ReceiptText,
+  ArrowRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -24,9 +24,9 @@ const iconMap = {
   FileCheck,
   Shield,
   Search,
-  AlertTriangle,
-  Building,
-  Receipt,
+  Scale,
+  Building2,
+  ReceiptText,
 };
 
 export function ServicesGrid() {

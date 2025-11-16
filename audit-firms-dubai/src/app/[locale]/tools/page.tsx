@@ -119,7 +119,7 @@ export default function ToolsPage() {
           <h2 className="mb-2 text-3xl font-bold text-gray-900">Interactive Tools</h2>
           <p className="text-gray-600">Free online calculators and assessment tools</p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Link
             href="/calculator"
             className="group rounded-lg border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8 transition-all hover:border-blue-400 hover:shadow-lg"
@@ -152,7 +152,25 @@ export default function ToolsPage() {
               Take our 15-question assessment to discover your audit readiness score (0-100) with personalized recommendations.
             </p>
             <Badge variant="default" className="bg-green-600">
-              New Tool
+              Assessment Tool
+            </Badge>
+          </Link>
+
+          <Link
+            href="/tools/materiality-calculator"
+            className="group rounded-lg border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-white p-8 transition-all hover:border-purple-400 hover:shadow-lg"
+          >
+            <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-purple-100">
+              <Calculator className="h-7 w-7 text-purple-600" />
+            </div>
+            <h3 className="mb-2 text-2xl font-bold text-gray-900 group-hover:text-purple-600">
+              Materiality Calculator
+            </h3>
+            <p className="mb-4 text-gray-600">
+              Calculate audit materiality thresholds based on revenue, assets, or profit with industry benchmarks.
+            </p>
+            <Badge variant="default" className="bg-purple-600">
+              Professional Tool
             </Badge>
           </Link>
         </div>

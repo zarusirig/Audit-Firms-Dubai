@@ -108,14 +108,16 @@ export function CalculatorForm({ onCalculate, initialData, isLoading }: Calculat
   // Load from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined' && !initialData) {
-      const saved = localStorage.getItem('calculator-draft')
-      if (saved) {
-        try {
+      try {
+        const saved = localStorage.getItem('calculator-draft')
+        if (saved) {
           const data = JSON.parse(saved)
           form.reset(data)
-        } catch {
-          // Ignore parse errors
         }
+      } catch (error) {
+        console.warn('Corrupted calculator draft data, ignoring:', error)
+        // Clear corrupted data
+        localStorage.removeItem('calculator-draft')
       }
     }
   }, [form, initialData])

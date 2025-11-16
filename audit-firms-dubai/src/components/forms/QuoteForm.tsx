@@ -116,14 +116,16 @@ export function QuoteForm() {
   // Load from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('quote-form-draft')
-      if (saved) {
-        try {
+      try {
+        const saved = localStorage.getItem('quote-form-draft')
+        if (saved) {
           const data = JSON.parse(saved)
           form.reset(data)
-        } catch {
-          // Ignore parse errors
         }
+      } catch (error) {
+        console.warn('Corrupted quote form draft data, ignoring:', error)
+        // Clear corrupted data
+        localStorage.removeItem('quote-form-draft')
       }
     }
   }, [form])

@@ -66,7 +66,23 @@ export function AuditFeeCalculator({ initialData }: AuditFeeCalculatorProps) {
         shareUrl: generateShareUrl(inputs),
       }
 
-      const saved = JSON.parse(localStorage.getItem('calculator-history') || '[]')
+      let saved: SavedCalculation[] = []
+      try {
+        const savedData = localStorage.getItem('calculator-history')
+        if (savedData) {
+          saved = JSON.parse(savedData)
+          // Validate that saved is an array
+          if (!Array.isArray(saved)) {
+            saved = []
+          }
+        }
+      } catch (parseError) {
+        console.warn('Corrupted calculator history data, resetting:', parseError)
+        saved = []
+        // Clear corrupted data
+        localStorage.removeItem('calculator-history')
+      }
+
       const updated = [calculation, ...saved].slice(0, 10) // Keep last 10
       localStorage.setItem('calculator-history', JSON.stringify(updated))
     } catch (error) {

@@ -61,6 +61,8 @@ export default async function TechnologyIndustryPage({
   if (!data) {
     notFound()
   }
+  // TypeScript: notFound() never returns, data is guaranteed defined here
+  const pageData = data!
 
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
@@ -68,67 +70,67 @@ export default async function TechnologyIndustryPage({
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Industries', href: `/${locale}/industries` },
-    { label: data.title, href: `/${locale}/industries/${data.slug}` },
+    { label: pageData.title, href: `/${locale}/industries/${pageData.slug}` },
   ]
 
   return (
     <>
       <ServiceSchema
-        name={data.title}
-        description={data.metaDescription}
+        name={pageData.title}
+        description={pageData.metaDescription}
         serviceType="Industry-Specialized Audit Services"
         provider={SITE_CONFIG.name}
         areaServed="Dubai, UAE"
-        url={`${SITE_CONFIG.url}/${locale}/industries/${data.slug}`}
+        url={`${SITE_CONFIG.url}/${locale}/industries/${pageData.slug}`}
       />
-      <FAQSchema faqs={data.faqs} />
+      <FAQSchema faqs={pageData.faqs} />
 
       <div className="container mx-auto px-4 py-4">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
       <IndustryHero
-        headline={data.heroHeadline}
-        subheadline={data.heroSubheadline}
-        description={data.heroDescription}
+        headline={pageData.heroHeadline}
+        subheadline={pageData.heroSubheadline}
+        description={pageData.heroDescription}
       />
 
       <IndustryOverview
-        title={data.industryOverview.title}
-        content={data.industryOverview.content}
+        title={pageData.industryOverview.title}
+        content={pageData.industryOverview.content}
       />
 
       <IndustryChallenges
-        title={data.challenges.title}
-        challenges={data.challenges.items}
+        title={pageData.challenges.title}
+        challenges={pageData.challenges.items}
       />
 
       <IndustryCompliance
-        title={data.compliance.title}
-        regulations={data.compliance.regulations}
+        title={pageData.compliance.title}
+        regulations={pageData.compliance.regulations}
       />
 
       <IndustryApproach
-        title={data.ourApproach.title}
-        description={data.ourApproach.description}
-        steps={data.ourApproach.steps}
+        title={pageData.ourApproach.title}
+        description={pageData.ourApproach.description}
+        steps={pageData.ourApproach.steps}
       />
 
       <IndustryBenefits
-        title={data.benefits.title}
-        benefits={data.benefits.items}
+        title={pageData.benefits.title}
+        benefits={pageData.benefits.items}
       />
 
       <IndustryFindings
-        title={data.commonFindings.title}
-        findings={data.commonFindings.findings}
+        title={pageData.commonFindings.title}
+        findings={pageData.commonFindings.findings}
       />
 
-      <IndustryCaseStudy caseStudy={data.caseStudy} />
+      <IndustryCaseStudy caseStudy={pageData.caseStudy} />
 
-      <IndustryFAQ faqs={data.faqs} />
+      <IndustryFAQ faqs={pageData.faqs} />
 
-      <IndustryRelated services={data.relatedServices} locale={locale} />
+      <IndustryRelated services={pageData.relatedServices} locale={locale} />
     </>
   )
 }

@@ -67,6 +67,8 @@ export default async function ForensicAuditPage({
   if (!data) {
     notFound()
   }
+  // TypeScript: notFound() never returns, data is guaranteed defined here
+  const pageData = data!
 
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
@@ -74,64 +76,64 @@ export default async function ForensicAuditPage({
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Services', href: `/${locale}/services` },
-    { label: data.title, href: `/${locale}/services/${data.slug}` },
+    { label: pageData.title, href: `/${locale}/services/${pageData.slug}` },
   ]
 
   return (
     <>
       <ServiceSchema
-        name={data.title}
-        description={data.metaDescription}
+        name={pageData.title}
+        description={pageData.metaDescription}
         serviceType="Forensic Audit Services"
         provider={SITE_CONFIG.name}
         areaServed="Dubai, UAE"
-        url={`${SITE_CONFIG.url}/${locale}/services/${data.slug}`}
+        url={`${SITE_CONFIG.url}/${locale}/services/${pageData.slug}`}
       />
-      <FAQSchema faqs={data.faqs} />
+      <FAQSchema faqs={pageData.faqs} />
 
       <div className="container mx-auto px-4 py-4">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
       <ServiceHero
-        headline={data.heroHeadline}
-        subheadline={data.heroSubheadline}
-        painPoint={data.heroPainPoint}
-        usp={data.heroUSP}
+        headline={pageData.heroHeadline}
+        subheadline={pageData.heroSubheadline}
+        painPoint={pageData.heroPainPoint}
+        usp={pageData.heroUSP}
       />
 
       <ServiceOverview
-        title={data.overviewTitle}
-        content={data.overviewContent}
-        legalRequirement={data.legalRequirement}
-        whoNeedsIt={data.whoNeedsIt}
+        title={pageData.overviewTitle}
+        content={pageData.overviewContent}
+        legalRequirement={pageData.legalRequirement}
+        whoNeedsIt={pageData.whoNeedsIt}
       />
 
       <ProcessTimeline
-        title={data.methodologyTitle}
-        steps={data.processSteps}
+        title={pageData.methodologyTitle}
+        steps={pageData.processSteps}
       />
 
       <BenefitsList
-        title={data.benefitsTitle}
-        benefits={data.benefits}
+        title={pageData.benefitsTitle}
+        benefits={pageData.benefits}
       />
 
       <IndustriesServed
-        title={data.industriesTitle}
-        industries={data.industries}
+        title={pageData.industriesTitle}
+        industries={pageData.industries}
       />
 
       <PricingSection
-        title={data.pricingTitle}
-        intro={data.pricingIntro}
-        tiers={data.pricingTiers}
-        factors={data.pricingFactors}
+        title={pageData.pricingTitle}
+        intro={pageData.pricingIntro}
+        tiers={pageData.pricingTiers}
+        factors={pageData.pricingFactors}
       />
 
-      <ServiceFAQ faqs={data.faqs} />
+      <ServiceFAQ faqs={pageData.faqs} />
 
-      <RelatedServices services={data.relatedServices} />
+      <RelatedServices services={pageData.relatedServices} />
     </>
   )
 }

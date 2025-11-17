@@ -64,6 +64,8 @@ export default async function AbuDhabiLocationPage({
   if (!data) {
     notFound()
   }
+  // TypeScript: notFound() never returns, data is guaranteed defined here
+  const pageData = data!
 
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
@@ -71,17 +73,17 @@ export default async function AbuDhabiLocationPage({
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Locations', href: `/${locale}/locations` },
-    { label: data.title, href: `/${locale}/locations/${data.slug}` },
+    { label: pageData.title, href: `/${locale}/locations/${pageData.slug}` },
   ]
 
   return (
     <>
       <LocalBusinessSchema
         location={{
-          name: data.location.name,
-          address: data.location.address,
-          latitude: data.location.coordinates.lat,
-          longitude: data.location.coordinates.lng,
+          name: pageData.location.name,
+          address: pageData.location.address,
+          latitude: pageData.location.coordinates.lat,
+          longitude: pageData.location.coordinates.lng,
         }}
       />
 
@@ -90,32 +92,32 @@ export default async function AbuDhabiLocationPage({
       </div>
 
       <LocationHero
-        headline={data.heroHeadline}
-        subheadline={data.heroSubheadline}
-        description={data.heroDescription}
-        address={data.location.address}
-        phone={data.location.phone}
-        hours={data.location.hours}
+        headline={pageData.heroHeadline}
+        subheadline={pageData.heroSubheadline}
+        description={pageData.heroDescription}
+        address={pageData.location.address}
+        phone={pageData.location.phone}
+        hours={pageData.location.hours}
       />
 
       <LocationAbout
-        title={data.aboutTitle}
-        content={data.aboutContent}
+        title={pageData.aboutTitle}
+        content={pageData.aboutContent}
       />
 
-      <LocationAdvantages advantages={data.whyThisLocation} />
+      <LocationAdvantages advantages={pageData.whyThisLocation} />
 
       <LocationMap
-        mapUrl={data.location.mapUrl}
-        coordinates={data.location.coordinates}
-        landmarks={data.nearbyLandmarks}
+        mapUrl={pageData.location.mapUrl}
+        coordinates={pageData.location.coordinates}
+        landmarks={pageData.nearbyLandmarks}
       />
 
-      <LocationDirections directions={data.directions} />
+      <LocationDirections directions={pageData.directions} />
 
       <LocationServices
-        services={data.servicesOffered}
-        clientFocus={data.clientFocus}
+        services={pageData.servicesOffered}
+        clientFocus={pageData.clientFocus}
       />
     </>
   )

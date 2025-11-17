@@ -58,7 +58,7 @@ export default async function LocationsPage({
     { label: 'Locations', href: `/${locale}/locations` },
   ]
 
-  const locations = Object.values(LOCATIONS)
+  const locations = await serverLoaders.getAllLocations()
 
   return (
     <>

@@ -107,7 +107,8 @@ export default async function TeamMemberPage({
   ]
 
   // Get related team members from same department
-  const relatedMembers = serverLoaders.getAllTeamMembers()
+  const allMembers = await serverLoaders.getAllTeamMembers()
+  const relatedMembers = allMembers
     .filter((m) => m.department === member.department && m.id !== member.id)
     .slice(0, 3)
 

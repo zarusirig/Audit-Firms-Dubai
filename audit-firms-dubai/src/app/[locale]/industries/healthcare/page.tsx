@@ -37,31 +37,33 @@ export default async function HealthcareIndustryPage({ params }: { params: Promi
 
   if (!data) {
     notFound()
+  }
+  // TypeScript: notFound() never returns, data is guaranteed defined here
+  const pageData = data!
 
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Industries', href: `/${locale}/industries` },
-    { label: data.title, href: `/${locale}/industries/${data.slug}` },
+    { label: pageData.title, href: `/${locale}/industries/${pageData.slug}` },
   ]
 
   return (
     <>
-      <ServiceSchema name={data.title} description={data.metaDescription} serviceType="Industry-Specialized Audit Services" provider={SITE_CONFIG.name} areaServed="Dubai, UAE" url={`${SITE_CONFIG.url}/${locale}/industries/${data.slug}`} />
-      <FAQSchema faqs={data.faqs} />
+      <ServiceSchema name={pageData.title} description={pageData.metaDescription} serviceType="Industry-Specialized Audit Services" provider={SITE_CONFIG.name} areaServed="Dubai, UAE" url={`${SITE_CONFIG.url}/${locale}/industries/${pageData.slug}`} />
+      <FAQSchema faqs={pageData.faqs} />
       <div className="container mx-auto px-4 py-4"><Breadcrumbs items={breadcrumbItems} /></div>
-      <IndustryHero headline={data.heroHeadline} subheadline={data.heroSubheadline} description={data.heroDescription} />
-      <IndustryOverview title={data.industryOverview.title} content={data.industryOverview.content} />
-      <IndustryChallenges title={data.challenges.title} challenges={data.challenges.items} />
-      <IndustryCompliance title={data.compliance.title} regulations={data.compliance.regulations} />
-      <IndustryApproach title={data.ourApproach.title} description={data.ourApproach.description} steps={data.ourApproach.steps} />
-      <IndustryBenefits title={data.benefits.title} benefits={data.benefits.items} />
-      <IndustryFindings title={data.commonFindings.title} findings={data.commonFindings.findings} />
-      <IndustryCaseStudy caseStudy={data.caseStudy} />
-      <IndustryFAQ faqs={data.faqs} />
-      <IndustryRelated services={data.relatedServices} locale={locale} />
+      <IndustryHero headline={pageData.heroHeadline} subheadline={pageData.heroSubheadline} description={pageData.heroDescription} />
+      <IndustryOverview title={pageData.industryOverview.title} content={pageData.industryOverview.content} />
+      <IndustryChallenges title={pageData.challenges.title} challenges={pageData.challenges.items} />
+      <IndustryCompliance title={pageData.compliance.title} regulations={pageData.compliance.regulations} />
+      <IndustryApproach title={pageData.ourApproach.title} description={pageData.ourApproach.description} steps={pageData.ourApproach.steps} />
+      <IndustryBenefits title={pageData.benefits.title} benefits={pageData.benefits.items} />
+      <IndustryFindings title={pageData.commonFindings.title} findings={pageData.commonFindings.findings} />
+      <IndustryCaseStudy caseStudy={pageData.caseStudy} />
+      <IndustryFAQ faqs={pageData.faqs} />
+      <IndustryRelated services={pageData.relatedServices} locale={locale} />
     </>
   )
-}
 }

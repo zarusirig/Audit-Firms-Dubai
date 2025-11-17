@@ -285,9 +285,11 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Smooth scrolling - only for users who haven't requested reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Focus visible for accessibility */
@@ -342,6 +344,25 @@ a {
 @media print {
   body {
     @apply bg-white text-black;
+  }
+}
+
+/* Reduced Motion Support - WCAG 2.1 Level AA Compliance */
+/* Respects user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable Framer Motion animations for users with vestibular disorders */
+  [data-framer-motion] {
+    animation: none !important;
+    transition: none !important;
   }
 }
 

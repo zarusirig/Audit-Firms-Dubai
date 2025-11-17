@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
-import { TEAM_MEMBERS, getAllTeamMembers, type TeamMember } from '@/lib/content/team'
+import { serverLoaders } from '@/lib/content-loaders'
+import type { TeamMember } from '@/types/content'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -19,7 +20,7 @@ import {
 } from 'lucide-react'
 
 export async function generateStaticParams() {
-  const teamMembers = getAllTeamMembers()
+  const teamMembers = await serverLoaders.getAllTeamMembers()
   const params: { locale: string; slug: string }[] = []
 
   i18n.locales.forEach((locale) => {
@@ -43,7 +44,7 @@ export async function generateMetadata({
   const locale = resolvedParams.locale as Locale
   const slug = resolvedParams.slug
 
-  const member = TEAM_MEMBERS[slug]
+  const member = await serverLoaders.getTeamMemberById(slug)
 
   if (!member) {
     return {
@@ -93,7 +94,7 @@ export default async function TeamMemberPage({
   const locale = resolvedParams.locale as Locale
   const slug = resolvedParams.slug
 
-  const member = TEAM_MEMBERS[slug]
+  const member = await serverLoaders.getTeamMemberById(slug)
 
   if (!member) {
     notFound()
@@ -106,7 +107,7 @@ export default async function TeamMemberPage({
   ]
 
   // Get related team members from same department
-  const relatedMembers = getAllTeamMembers()
+  const relatedMembers = serverLoaders.getAllTeamMembers()
     .filter((m) => m.department === member.department && m.id !== member.id)
     .slice(0, 3)
 

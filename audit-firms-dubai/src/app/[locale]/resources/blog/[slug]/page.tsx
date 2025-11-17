@@ -2,7 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Calendar, Clock, User, Tag, ArrowLeft, Share2 } from 'lucide-react'
-import { BLOG_POSTS, BlogPost } from '@/lib/content/blog'
+import { serverLoaders } from '@/lib/content-loaders'
+import type { BlogPost } from '@/types/content'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -14,15 +15,16 @@ type Props = {
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
-  return Object.keys(BLOG_POSTS).map((slug) => ({
-    slug,
+  const posts = await serverLoaders.getAllBlogPosts()
+  return posts.map((post) => ({
+    slug: post.slug,
   }))
 }
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = BLOG_POSTS[slug]
+  const post = await serverLoaders.getBlogPostBySlug(slug)
 
   if (!post) {
     return {
@@ -54,15 +56,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = BLOG_POSTS[slug]
+  const post = await serverLoaders.getBlogPostBySlug(slug)
 
   if (!post) {
     notFound()
   }
 
-  const relatedPosts = post.relatedPosts
-    .map((slug) => BLOG_POSTS[slug])
-    .filter((p) => p !== undefined)
+  // Load related posts
+  const relatedPostsData = await Promise.all(
+    post.relatedPosts.map((relatedSlug) => serverLoaders.getBlogPostBySlug(relatedSlug))
+  )
+  const relatedPosts = relatedPostsData.filter((p) => p !== undefined) as BlogPost[]
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)

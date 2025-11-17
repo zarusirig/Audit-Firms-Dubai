@@ -1,5 +1,6 @@
+import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { SERVICES } from '@/lib/content/services'
+import { serverLoaders } from '@/lib/content-loaders'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -16,7 +17,6 @@ import {
   RelatedServices,
 } from '@/components/services'
 
-const serviceData = SERVICES['vat-audit']
 
 // Generate static params for all locales
 export async function generateStaticParams() {
@@ -32,21 +32,26 @@ export async function generateMetadata({
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
+  const data = await serverLoaders.getServiceBySlug('vat-audit')
+  if (!data) {
+    return { title: 'Service Not Found' }
+  }
+
   return {
-    title: serviceData.metaTitle,
-    description: serviceData.metaDescription,
-    keywords: serviceData.keywords,
+    title: data.metaTitle,
+    description: data.metaDescription,
+    keywords: data.keywords,
     alternates: {
-      canonical: `${SITE_CONFIG.url}/${locale}/services/${serviceData.slug}`,
+      canonical: `${SITE_CONFIG.url}/${locale}/services/${data.slug}`,
       languages: {
-        en: `${SITE_CONFIG.url}/en/services/${serviceData.slug}`,
-        ar: `${SITE_CONFIG.url}/ar/services/${serviceData.slug}`,
+        en: `${SITE_CONFIG.url}/en/services/${data.slug}`,
+        ar: `${SITE_CONFIG.url}/ar/services/${data.slug}`,
       },
     },
     openGraph: {
-      title: serviceData.metaTitle,
-      description: serviceData.metaDescription,
-      url: `${SITE_CONFIG.url}/${locale}/services/${serviceData.slug}`,
+      title: data.metaTitle,
+      description: data.metaDescription,
+      url: `${SITE_CONFIG.url}/${locale}/services/${data.slug}`,
       siteName: SITE_CONFIG.name,
       locale: locale,
       type: 'website',
@@ -59,27 +64,33 @@ export default async function VATAuditPage({
 }: {
   params: Promise<{ locale: string }>
 }) {
+  const data = await serverLoaders.getServiceBySlug('vat-audit')
+
+  if (!data) {
+    notFound()
+  }
+
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Services', href: `/${locale}/services` },
-    { label: serviceData.title, href: `/${locale}/services/${serviceData.slug}` },
+    { label: data.title, href: `/${locale}/services/${data.slug}` },
   ]
 
   return (
     <>
       {/* Schema Markup */}
       <ServiceSchema
-        name={serviceData.title}
-        description={serviceData.metaDescription}
+        name={data.title}
+        description={data.metaDescription}
         serviceType="VAT Audit Services"
         provider={SITE_CONFIG.name}
         areaServed="Dubai, UAE"
-        url={`${SITE_CONFIG.url}/${locale}/services/${serviceData.slug}`}
+        url={`${SITE_CONFIG.url}/${locale}/services/${data.slug}`}
       />
-      <FAQSchema faqs={serviceData.faqs} />
+      <FAQSchema faqs={data.faqs} />
 
       {/* Breadcrumbs */}
       <div className="container mx-auto px-4 py-4">
@@ -88,44 +99,44 @@ export default async function VATAuditPage({
 
       {/* Page Content */}
       <ServiceHero
-        headline={serviceData.heroHeadline}
-        subheadline={serviceData.heroSubheadline}
-        painPoint={serviceData.heroPainPoint}
-        usp={serviceData.heroUSP}
+        headline={data.heroHeadline}
+        subheadline={data.heroSubheadline}
+        painPoint={data.heroPainPoint}
+        usp={data.heroUSP}
       />
 
       <ServiceOverview
-        title={serviceData.overviewTitle}
-        content={serviceData.overviewContent}
-        legalRequirement={serviceData.legalRequirement}
-        whoNeedsIt={serviceData.whoNeedsIt}
+        title={data.overviewTitle}
+        content={data.overviewContent}
+        legalRequirement={data.legalRequirement}
+        whoNeedsIt={data.whoNeedsIt}
       />
 
       <ProcessTimeline
-        title={serviceData.methodologyTitle}
-        steps={serviceData.processSteps}
+        title={data.methodologyTitle}
+        steps={data.processSteps}
       />
 
       <BenefitsList
-        title={serviceData.benefitsTitle}
-        benefits={serviceData.benefits}
+        title={data.benefitsTitle}
+        benefits={data.benefits}
       />
 
       <IndustriesServed
-        title={serviceData.industriesTitle}
-        industries={serviceData.industries}
+        title={data.industriesTitle}
+        industries={data.industries}
       />
 
       <PricingSection
-        title={serviceData.pricingTitle}
-        intro={serviceData.pricingIntro}
-        tiers={serviceData.pricingTiers}
-        factors={serviceData.pricingFactors}
+        title={data.pricingTitle}
+        intro={data.pricingIntro}
+        tiers={data.pricingTiers}
+        factors={data.pricingFactors}
       />
 
-      <ServiceFAQ faqs={serviceData.faqs} />
+      <ServiceFAQ faqs={data.faqs} />
 
-      <RelatedServices services={serviceData.relatedServices} />
+      <RelatedServices services={data.relatedServices} />
     </>
   )
 }

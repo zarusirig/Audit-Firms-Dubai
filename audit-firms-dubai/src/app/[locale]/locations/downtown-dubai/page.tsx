@@ -1,12 +1,12 @@
+import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { LOCATIONS } from '@/lib/content/locations'
+import { serverLoaders } from '@/lib/content-loaders'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { LocalBusinessSchema } from '@/components/seo/schemas/LocalBusinessSchema'
 import { LocationHero, LocationAbout, LocationAdvantages, LocationMap, LocationDirections, LocationServices } from '@/components/locations'
 
-const locationData = LOCATIONS['downtown-dubai']
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
@@ -15,36 +15,47 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
+
+  const data = await serverLoaders.getLocationBySlug('downtown-dubai')
+  if (!data) {
+    return { title: 'Location Not Found' }
+  }
   return {
-    title: locationData.metaTitle,
-    description: locationData.metaDescription,
-    keywords: locationData.keywords,
+    title: data.metaTitle,
+    description: data.metaDescription,
+    keywords: data.keywords,
     alternates: {
-      canonical: `${SITE_CONFIG.url}/${locale}/locations/${locationData.slug}`,
-      languages: { en: `${SITE_CONFIG.url}/en/locations/${locationData.slug}`, ar: `${SITE_CONFIG.url}/ar/locations/${locationData.slug}` },
+      canonical: `${SITE_CONFIG.url}/${locale}/locations/${data.slug}`,
+      languages: { en: `${SITE_CONFIG.url}/en/locations/${data.slug}`, ar: `${SITE_CONFIG.url}/ar/locations/${data.slug}` },
     },
   }
 }
 
 export default async function DowntownDubaiLocationPage({ params }: { params: Promise<{ locale: string }> }) {
+  const data = await serverLoaders.getLocationBySlug('downtown-dubai')
+
+  if (!data) {
+    notFound()
+
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Locations', href: `/${locale}/locations` },
-    { label: locationData.title, href: `/${locale}/locations/${locationData.slug}` },
+    { label: data.title, href: `/${locale}/locations/${data.slug}` },
   ]
 
   return (
     <>
-      <LocalBusinessSchema location={{ name: locationData.location.name, address: locationData.location.address, latitude: locationData.location.coordinates.lat, longitude: locationData.location.coordinates.lng }} />
+      <LocalBusinessSchema location={{ name: data.location.name, address: data.location.address, latitude: data.location.coordinates.lat, longitude: data.location.coordinates.lng }} />
       <div className="container mx-auto px-4 py-4"><Breadcrumbs items={breadcrumbItems} /></div>
-      <LocationHero headline={locationData.heroHeadline} subheadline={locationData.heroSubheadline} description={locationData.heroDescription} address={locationData.location.address} phone={locationData.location.phone} hours={locationData.location.hours} />
-      <LocationAbout title={locationData.aboutTitle} content={locationData.aboutContent} />
-      <LocationAdvantages advantages={locationData.whyThisLocation} />
-      <LocationMap mapUrl={locationData.location.mapUrl} coordinates={locationData.location.coordinates} landmarks={locationData.nearbyLandmarks} />
-      <LocationDirections directions={locationData.directions} />
-      <LocationServices services={locationData.servicesOffered} clientFocus={locationData.clientFocus} />
+      <LocationHero headline={data.heroHeadline} subheadline={data.heroSubheadline} description={data.heroDescription} address={data.location.address} phone={data.location.phone} hours={data.location.hours} />
+      <LocationAbout title={data.aboutTitle} content={data.aboutContent} />
+      <LocationAdvantages advantages={data.whyThisLocation} />
+      <LocationMap mapUrl={data.location.mapUrl} coordinates={data.location.coordinates} landmarks={data.nearbyLandmarks} />
+      <LocationDirections directions={data.directions} />
+      <LocationServices services={data.servicesOffered} clientFocus={data.clientFocus} />
     </>
   )
+}
 }

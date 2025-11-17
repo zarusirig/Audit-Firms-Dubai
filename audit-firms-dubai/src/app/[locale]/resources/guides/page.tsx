@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
-import { GUIDES } from '@/lib/content/guides'
+import { serverLoaders } from '@/lib/content-loaders'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'

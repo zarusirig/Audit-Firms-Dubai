@@ -7,7 +7,7 @@
 import { NextResponse } from 'next/server'
 import { quoteFormSchema, formatZodErrors } from '@/components/forms/validation'
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from '@/components/forms/validation'
-import { QuoteApiRequest } from '../types'
+import { QuoteApiRequest, SpamDetectionResult } from '../types'
 
 // Rate limiting
 const rateLimitMap = new Map<string, number[]>()
@@ -42,8 +42,6 @@ function checkRateLimit(identifier: string): boolean {
 
   return true
 }
-
-import { QuoteApiRequest, SpamDetectionResult } from '../types';
 
 // Spam detection
 function detectSpam(body: QuoteApiRequest): boolean {

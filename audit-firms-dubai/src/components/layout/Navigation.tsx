@@ -171,7 +171,7 @@ function MobileNav({
 }: {
   pathname: string
   locale: Locale
-  dict: any
+  dict: Dictionary
   onClose: () => void
 }) {
   const [openSection, setOpenSection] = useState<string | null>(null);

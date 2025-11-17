@@ -1,5 +1,6 @@
+import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { LOCATIONS } from '@/lib/content/locations'
+import { serverLoaders } from '@/lib/content-loaders'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -13,7 +14,6 @@ import {
   LocationServices,
 } from '@/components/locations'
 
-const locationData = LOCATIONS['difc']
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
@@ -27,21 +27,26 @@ export async function generateMetadata({
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
+  const data = await serverLoaders.getLocationBySlug('difc')
+  if (!data) {
+    return { title: 'Location Not Found' }
+  }
+
   return {
-    title: locationData.metaTitle,
-    description: locationData.metaDescription,
-    keywords: locationData.keywords,
+    title: data.metaTitle,
+    description: data.metaDescription,
+    keywords: data.keywords,
     alternates: {
-      canonical: `${SITE_CONFIG.url}/${locale}/locations/${locationData.slug}`,
+      canonical: `${SITE_CONFIG.url}/${locale}/locations/${data.slug}`,
       languages: {
-        en: `${SITE_CONFIG.url}/en/locations/${locationData.slug}`,
-        ar: `${SITE_CONFIG.url}/ar/locations/${locationData.slug}`,
+        en: `${SITE_CONFIG.url}/en/locations/${data.slug}`,
+        ar: `${SITE_CONFIG.url}/ar/locations/${data.slug}`,
       },
     },
     openGraph: {
-      title: locationData.metaTitle,
-      description: locationData.metaDescription,
-      url: `${SITE_CONFIG.url}/${locale}/locations/${locationData.slug}`,
+      title: data.metaTitle,
+      description: data.metaDescription,
+      url: `${SITE_CONFIG.url}/${locale}/locations/${data.slug}`,
       siteName: SITE_CONFIG.name,
       locale: locale,
       type: 'website',
@@ -54,23 +59,31 @@ export default async function DIFCLocationPage({
 }: {
   params: Promise<{ locale: string }>
 }) {
+  const data = await serverLoaders.getLocationBySlug('difc')
+
+  if (!data) {
+    notFound()
+  }
+  // TypeScript: notFound() never returns, data is guaranteed defined here
+  const pageData = data!
+
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Locations', href: `/${locale}/locations` },
-    { label: locationData.title, href: `/${locale}/locations/${locationData.slug}` },
+    { label: pageData.title, href: `/${locale}/locations/${pageData.slug}` },
   ]
 
   return (
     <>
       <LocalBusinessSchema
         location={{
-          name: locationData.location.name,
-          address: locationData.location.address,
-          latitude: locationData.location.coordinates.lat,
-          longitude: locationData.location.coordinates.lng,
+          name: pageData.location.name,
+          address: pageData.location.address,
+          latitude: pageData.location.coordinates.lat,
+          longitude: pageData.location.coordinates.lng,
         }}
       />
 
@@ -79,32 +92,32 @@ export default async function DIFCLocationPage({
       </div>
 
       <LocationHero
-        headline={locationData.heroHeadline}
-        subheadline={locationData.heroSubheadline}
-        description={locationData.heroDescription}
-        address={locationData.location.address}
-        phone={locationData.location.phone}
-        hours={locationData.location.hours}
+        headline={pageData.heroHeadline}
+        subheadline={pageData.heroSubheadline}
+        description={pageData.heroDescription}
+        address={pageData.location.address}
+        phone={pageData.location.phone}
+        hours={pageData.location.hours}
       />
 
       <LocationAbout
-        title={locationData.aboutTitle}
-        content={locationData.aboutContent}
+        title={pageData.aboutTitle}
+        content={pageData.aboutContent}
       />
 
-      <LocationAdvantages advantages={locationData.whyThisLocation} />
+      <LocationAdvantages advantages={pageData.whyThisLocation} />
 
       <LocationMap
-        mapUrl={locationData.location.mapUrl}
-        coordinates={locationData.location.coordinates}
-        landmarks={locationData.nearbyLandmarks}
+        mapUrl={pageData.location.mapUrl}
+        coordinates={pageData.location.coordinates}
+        landmarks={pageData.nearbyLandmarks}
       />
 
-      <LocationDirections directions={locationData.directions} />
+      <LocationDirections directions={pageData.directions} />
 
       <LocationServices
-        services={locationData.servicesOffered}
-        clientFocus={locationData.clientFocus}
+        services={pageData.servicesOffered}
+        clientFocus={pageData.clientFocus}
       />
     </>
   )

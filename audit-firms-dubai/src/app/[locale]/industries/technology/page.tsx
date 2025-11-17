@@ -1,5 +1,6 @@
+import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { INDUSTRIES } from '@/lib/content/industries'
+import { serverLoaders } from '@/lib/content-loaders'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -18,7 +19,6 @@ import {
   IndustryRelated,
 } from '@/components/industries'
 
-const industryData = INDUSTRIES['technology']
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
@@ -32,15 +32,20 @@ export async function generateMetadata({
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
+  const data = await serverLoaders.getIndustryBySlug('technology')
+  if (!data) {
+    return { title: 'Industry Not Found' }
+  }
+
   return {
-    title: industryData.metaTitle,
-    description: industryData.metaDescription,
-    keywords: industryData.keywords,
+    title: data.metaTitle,
+    description: data.metaDescription,
+    keywords: data.keywords,
     alternates: {
-      canonical: `${SITE_CONFIG.url}/${locale}/industries/${industryData.slug}`,
+      canonical: `${SITE_CONFIG.url}/${locale}/industries/${data.slug}`,
       languages: {
-        en: `${SITE_CONFIG.url}/en/industries/${industryData.slug}`,
-        ar: `${SITE_CONFIG.url}/ar/industries/${industryData.slug}`,
+        en: `${SITE_CONFIG.url}/en/industries/${data.slug}`,
+        ar: `${SITE_CONFIG.url}/ar/industries/${data.slug}`,
       },
     },
   }
@@ -51,73 +56,81 @@ export default async function TechnologyIndustryPage({
 }: {
   params: Promise<{ locale: string }>
 }) {
+  const data = await serverLoaders.getIndustryBySlug('technology')
+
+  if (!data) {
+    notFound()
+  }
+  // TypeScript: notFound() never returns, data is guaranteed defined here
+  const pageData = data!
+
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Industries', href: `/${locale}/industries` },
-    { label: industryData.title, href: `/${locale}/industries/${industryData.slug}` },
+    { label: pageData.title, href: `/${locale}/industries/${pageData.slug}` },
   ]
 
   return (
     <>
       <ServiceSchema
-        name={industryData.title}
-        description={industryData.metaDescription}
+        name={pageData.title}
+        description={pageData.metaDescription}
         serviceType="Industry-Specialized Audit Services"
         provider={SITE_CONFIG.name}
         areaServed="Dubai, UAE"
-        url={`${SITE_CONFIG.url}/${locale}/industries/${industryData.slug}`}
+        url={`${SITE_CONFIG.url}/${locale}/industries/${pageData.slug}`}
       />
-      <FAQSchema faqs={industryData.faqs} />
+      <FAQSchema faqs={pageData.faqs} />
 
       <div className="container mx-auto px-4 py-4">
         <Breadcrumbs items={breadcrumbItems} />
       </div>
 
       <IndustryHero
-        headline={industryData.heroHeadline}
-        subheadline={industryData.heroSubheadline}
-        description={industryData.heroDescription}
+        headline={pageData.heroHeadline}
+        subheadline={pageData.heroSubheadline}
+        description={pageData.heroDescription}
       />
 
       <IndustryOverview
-        title={industryData.industryOverview.title}
-        content={industryData.industryOverview.content}
+        title={pageData.industryOverview.title}
+        content={pageData.industryOverview.content}
       />
 
       <IndustryChallenges
-        title={industryData.challenges.title}
-        challenges={industryData.challenges.items}
+        title={pageData.challenges.title}
+        challenges={pageData.challenges.items}
       />
 
       <IndustryCompliance
-        title={industryData.compliance.title}
-        regulations={industryData.compliance.regulations}
+        title={pageData.compliance.title}
+        regulations={pageData.compliance.regulations}
       />
 
       <IndustryApproach
-        title={industryData.ourApproach.title}
-        description={industryData.ourApproach.description}
-        steps={industryData.ourApproach.steps}
+        title={pageData.ourApproach.title}
+        description={pageData.ourApproach.description}
+        steps={pageData.ourApproach.steps}
       />
 
       <IndustryBenefits
-        title={industryData.benefits.title}
-        benefits={industryData.benefits.items}
+        title={pageData.benefits.title}
+        benefits={pageData.benefits.items}
       />
 
       <IndustryFindings
-        title={industryData.commonFindings.title}
-        findings={industryData.commonFindings.findings}
+        title={pageData.commonFindings.title}
+        findings={pageData.commonFindings.findings}
       />
 
-      <IndustryCaseStudy caseStudy={industryData.caseStudy} />
+      <IndustryCaseStudy caseStudy={pageData.caseStudy} />
 
-      <IndustryFAQ faqs={industryData.faqs} />
+      <IndustryFAQ faqs={pageData.faqs} />
 
-      <IndustryRelated services={industryData.relatedServices} locale={locale} />
+      <IndustryRelated services={pageData.relatedServices} locale={locale} />
     </>
   )
 }

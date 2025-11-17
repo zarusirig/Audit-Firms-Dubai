@@ -10,7 +10,8 @@ import {
   ArrowLeft,
   Share2,
 } from 'lucide-react'
-import { GUIDES, Guide } from '@/lib/content/guides'
+import { serverLoaders } from '@/lib/content-loaders'
+import type { Guide } from '@/types/content'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,13 +24,13 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const guides = Object.keys(GUIDES)
+  const allGuides = await serverLoaders.getAllGuides()
   const locales = i18n.locales
 
   const params = []
   for (const locale of locales) {
-    for (const slug of guides) {
-      params.push({ locale, slug })
+    for (const guide of allGuides) {
+      params.push({ locale, slug: guide.slug })
     }
   }
   return params
@@ -37,7 +38,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params
-  const guide = GUIDES[resolvedParams.slug]
+  const guide = await serverLoaders.getGuideBySlug(resolvedParams.slug)
 
   if (!guide) {
     return {
@@ -73,15 +74,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function GuidePage({ params }: Props) {
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
-  const guide = GUIDES[resolvedParams.slug]
+  const guide = await serverLoaders.getGuideBySlug(resolvedParams.slug)
 
   if (!guide) {
     notFound()
   }
 
-  const relatedGuides = guide.relatedGuides
-    .map((slug) => GUIDES[slug])
-    .filter((g) => g !== undefined)
+  // Load related guides
+  const relatedGuidesData = await Promise.all(
+    guide.relatedGuides.map((relatedSlug) => serverLoaders.getGuideBySlug(relatedSlug))
+  )
+  const relatedGuides = relatedGuidesData.filter((g) => g !== undefined) as Guide[]
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)

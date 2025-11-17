@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Calendar, Clock, Tag, TrendingUp } from 'lucide-react'
-import { BLOG_POSTS, BlogPost } from '@/lib/content/blog'
+import { serverLoaders } from '@/lib/content-loaders'
+import type { BlogPost } from '@/types/content'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -25,23 +26,6 @@ export const metadata: Metadata = {
   },
 }
 
-// Get all blog posts as array and sort by date (newest first)
-const getAllPosts = (): BlogPost[] => {
-  return Object.values(BLOG_POSTS).sort(
-    (a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-  )
-}
-
-// Get featured posts
-const getFeaturedPosts = (): BlogPost[] => {
-  return getAllPosts().filter((post) => post.featured)
-}
-
-// Get posts by category
-const getPostsByCategory = (category: string): BlogPost[] => {
-  return getAllPosts().filter((post) => post.category === category)
-}
-
 // Category definitions
 const categories = [
   { value: 'all', label: 'All Articles', icon: TrendingUp },
@@ -53,9 +37,9 @@ const categories = [
   { value: 'news', label: 'News & Updates', icon: Tag },
 ]
 
-export default function BlogPage() {
-  const allPosts = getAllPosts()
-  const featuredPosts = getFeaturedPosts()
+export default async function BlogPage() {
+  const allPosts = await serverLoaders.getAllBlogPosts()
+  const featuredPosts = allPosts.filter((post) => post.featured)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">

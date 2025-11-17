@@ -1,0 +1,597 @@
+{
+  "abdulla-al-shamssi": {
+    "id": "abdulla-al-shamssi",
+    "name": "Abdulla Al Shamssi",
+    "title": "Partner – Dubai Office",
+    "role": "partner",
+    "department": "audit",
+    "image": "/images/team/Abdulla-Al-Shamssi.jpg",
+    "bio": "Abdulla is a Chartered Accountant advising UAE businesses on audit & assurance, financial reporting, and internal controls. He coordinates multi-disciplinary teams to deliver clear, defensible findings for boards, management, and stakeholders.",
+    "specializations": [
+      "Audit & Assurance",
+      "Financial reporting and accounting advisory (IFRS)",
+      "Internal controls, risk, and process improvement",
+      "Corporate tax readiness"
+    ],
+    "qualifications": [
+      "Chartered Accountant (CA)",
+      "Partner — Dubai Office",
+      "Senior Consultant"
+    ],
+    "experience": "15+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": true,
+    "order": 1
+  },
+  "ma-farahat": {
+    "id": "ma-farahat",
+    "name": "M. A Farahat",
+    "title": "Partner – Dubai Office",
+    "role": "partner",
+    "department": "audit",
+    "image": "/images/team/MA-Farahat.jpg",
+    "bio": "M.A. Farahat is a renowned expert with over 30 years of experience. He has handled more than 600 cases in commercial disputes, fraud investigations, bankruptcy, and corporate liquidations. He serves as a Regulated Court Expert and DIFC Registered Liquidator.",
+    "specializations": [
+      "Commercial disputes",
+      "Fraud & financial crimes",
+      "Corporate liquidations",
+      "Bankruptcy and Insolvency",
+      "Court Expert Witness"
+    ],
+    "qualifications": [
+      "ACPA, CFE, CICA, CAMS",
+      "Regulated Court Expert",
+      "Regulated Bankruptcy Expert / Trustee",
+      "Certified Fraud Examiner/Forensic Accountant",
+      "Certified GCC VAT Specialist / UAE Regulated Tax Agent",
+      "DIFC Registered Liquidator"
+    ],
+    "experience": "30+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": true,
+    "order": 2
+  },
+  "jose-varghese": {
+    "id": "jose-varghese",
+    "name": "Jose Varghese",
+    "title": "Associate Partner – Dubai",
+    "role": "partner",
+    "department": "audit",
+    "image": "/images/team/Jose-Varghese.jpg",
+    "bio": "Jose is a Chartered Accountant with deep experience in statutory and internal audits, forensic accounting, and tax-related reviews. He delivers practical, defendable outcomes for mainland and free-zone clients across the UAE.",
+    "specializations": [
+      "Audit & Assurance",
+      "Forensic accounting and fraud investigations",
+      "VAT and excise audits",
+      "Internal controls and process improvement"
+    ],
+    "qualifications": [
+      "Chartered Accountant (CA)",
+      "Associate Partner — Dubai",
+      "Senior Consultant"
+    ],
+    "experience": "25+ years",
+    "languages": [
+      "Hindi",
+      "English"
+    ],
+    "featured": true,
+    "order": 3
+  },
+  "m-al-khairy": {
+    "id": "m-al-khairy",
+    "name": "M Al-Khairy",
+    "title": "Associate Consultant – Dubai",
+    "role": "specialist",
+    "department": "legal",
+    "image": "/images/team/M-Al-Khairy.jpg",
+    "bio": "Al Khairy advises on corporate & commercial matters, employment law, and procedural execution—including liquidation formalities. He provides crisp, defensible documentation and coordinated stakeholder handling across complex engagements.",
+    "specializations": [
+      "Corporate & commercial law",
+      "Employment law",
+      "Banking dispute resolution",
+      "Company liquidation & procedural formalities"
+    ],
+    "qualifications": [
+      "LL.B. (Bachelor of Laws)",
+      "Associate Consultant — Dubai (Corporate & Employment Law)"
+    ],
+    "experience": "10+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": false,
+    "order": 4
+  },
+  "bilal-al-abdulla": {
+    "id": "bilal-al-abdulla",
+    "name": "Bilal Al Abdulla",
+    "title": "Associate Partner – Qatar",
+    "role": "partner",
+    "department": "audit",
+    "image": "/images/team/Bilal-Al-Abdulla.jpg",
+    "bio": "Bilal is a Chartered Accountant leading forensic reviews, statutory and special-purpose audits, and court-expert assignments. He combines meticulous documentation with business-first judgment to uncover facts, strengthen controls, and present defensible conclusions.",
+    "specializations": [
+      "Forensic accounting and investigations",
+      "Audit and assurance",
+      "Court-expert opinions and documentation",
+      "Controls strengthening and risk remediation"
+    ],
+    "qualifications": [
+      "Chartered Accountant (CA)",
+      "Associate Partner — Qatar",
+      "Senior Consultant"
+    ],
+    "experience": "25+ years",
+    "languages": [
+      "Arabic"
+    ],
+    "featured": false,
+    "order": 5
+  },
+  "mamdouh-ali": {
+    "id": "mamdouh-ali",
+    "name": "Mamdouh Ali",
+    "title": "Senior Consultant – Dubai | Audit & Advisory",
+    "role": "senior",
+    "department": "audit",
+    "image": "/images/team/Mamdouh-Ali.jpg",
+    "bio": "Mamdouh advises finance leaders on audit & assurance, reporting quality, and controls. He blends hands-on execution with pragmatic judgment—strengthening close routines, elevating documentation discipline, and producing evidence-based conclusions that stand up to management, boards, and external stakeholders.",
+    "specializations": [
+      "Audit & Assurance",
+      "Financial reporting & IFRS advisory",
+      "Internal controls testing & remediation",
+      "Corporate tax readiness & documentation",
+      "Process improvement and governance"
+    ],
+    "qualifications": [
+      "Senior Consultant — Dubai"
+    ],
+    "experience": "12+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": false,
+    "order": 6
+  },
+  "dr-imad-kutum": {
+    "id": "dr-imad-kutum",
+    "name": "Dr. Imad Kutum",
+    "title": "Senior Advisor – Dubai | Risk & Advisory",
+    "role": "senior",
+    "department": "advisory",
+    "image": "/images/team/Dr-Imad-Kutum.jpg",
+    "bio": "Dr. Imad partners with boards and executives to prioritize risks, structure controls, and design pragmatic remediation programs. He emphasizes clarity, pace, and measurable outcomes that withstand scrutiny.",
+    "specializations": [
+      "Enterprise risk and controls",
+      "Special-purpose reviews and investigations",
+      "Governance and policy design",
+      "Finance transformation support",
+      "Stakeholder reporting and assurance"
+    ],
+    "qualifications": [
+      "Senior Advisor — Risk & Advisory"
+    ],
+    "experience": "20+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": false,
+    "order": 7
+  },
+  "v-ramakrishnan": {
+    "id": "v-ramakrishnan",
+    "name": "V. Ramakrishnan",
+    "title": "Senior Consultant – Dubai | Audit & Reporting",
+    "role": "senior",
+    "department": "audit",
+    "image": "/images/team/V-Ramakrishnan.jpg",
+    "bio": "Ramakrishnan drives disciplined statutory and internal audits, reconciliations, and reporting improvements. He focuses on evidence, traceability, and crisp documentation that accelerates close cycles and strengthens control maturity.",
+    "specializations": [
+      "Statutory and internal audits",
+      "Financial reporting and reconciliations",
+      "Controls testing and remediation",
+      "Close acceleration and process discipline",
+      "Audit documentation and workpapers"
+    ],
+    "qualifications": [
+      "Senior Consultant — Audit & Reporting"
+    ],
+    "experience": "15+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 8
+  },
+  "eng-raymond-arancon": {
+    "id": "eng-raymond-arancon",
+    "name": "Eng. Raymond Arancon",
+    "title": "Engineering Consultant – Dubai | Systems & Operations",
+    "role": "specialist",
+    "department": "advisory",
+    "image": "/images/team/Eng-Raymond-Arancon.jpg",
+    "bio": "Raymond aligns technical design with operational constraints—mapping workflows, hardening access and controls, and delivering dependable outcomes across change and incident scenarios.",
+    "specializations": [
+      "Systems design and documentation",
+      "Access and controls hardening",
+      "Process mapping and SOPs",
+      "Incident response playbooks",
+      "Change management and rollout"
+    ],
+    "qualifications": [
+      "Engineering Consultant — Systems & Operations"
+    ],
+    "experience": "12+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 9
+  },
+  "dalia-rashid": {
+    "id": "dalia-rashid",
+    "name": "Dalia Rashid",
+    "title": "Consultant – Dubai | Corporate Services",
+    "role": "specialist",
+    "department": "management",
+    "image": "/images/team/Dalia-Rashid.jpg",
+    "bio": "Dalia coordinates corporate filings, process timelines, and documentation standards. She streamlines handovers, keeps records clean, and manages predictable interactions with authorities and counterparties.",
+    "specializations": [
+      "Company formation and amendments",
+      "Licensing and regulatory filings",
+      "Corporate housekeeping and records",
+      "Process mapping and SLAs",
+      "Client communications and scheduling"
+    ],
+    "qualifications": [
+      "Consultant — Corporate Services"
+    ],
+    "experience": "10+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": false,
+    "order": 10
+  },
+  "romany-shayb": {
+    "id": "romany-shayb",
+    "name": "Romany Shayb",
+    "title": "Corporate Tax & Transfer Pricing Consultant",
+    "role": "specialist",
+    "department": "tax",
+    "image": "/images/team/Romany-Shayb.jpg",
+    "bio": "Romany is a seasoned tax professional with over two decades of experience spanning corporate tax, VAT, and end-to-end compliance. He leads health checks, translates evolving regulations into practical bookkeeping and reporting, and coordinates closely with finance and leadership teams to embed clear controls and predictable filing routines.",
+    "specializations": [
+      "Corporate Tax advisory, planning, and filings",
+      "VAT compliance, health checks, and reporting",
+      "Tax audits, inspections, reconsiderations & appeals (FTA)",
+      "Internal controls for tax",
+      "Transfer pricing fundamentals"
+    ],
+    "qualifications": [
+      "Certified Tax Agent (FTA)",
+      "Ain Shams University — Accounting"
+    ],
+    "experience": "20+ years",
+    "languages": [
+      "English",
+      "Arabic",
+      "French"
+    ],
+    "featured": false,
+    "order": 11
+  },
+  "saeb-khabshnih": {
+    "id": "saeb-khabshnih",
+    "name": "Saeb Khabshnih",
+    "title": "Consultant – Dubai | Corporate & Compliance",
+    "role": "specialist",
+    "department": "management",
+    "image": "/images/team/Saeb-Khabshnih.jpg",
+    "bio": "Saeb supports clients with coordinated filings, disciplined record-keeping, and practical compliance routines. He brings predictability, transparency, and follow-through to corporate operations.",
+    "specializations": [
+      "Corporate services and licensing",
+      "Compliance workflows and logs",
+      "Document control and templates",
+      "Client updates and communications",
+      "Coordination with authorities"
+    ],
+    "qualifications": [
+      "Consultant — Corporate & Compliance"
+    ],
+    "experience": "12+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 12
+  },
+  "md-kamruzzaman": {
+    "id": "md-kamruzzaman",
+    "name": "Md. Kamruzzaman, FCA",
+    "title": "Corporate Tax & Transfer Pricing Consultant",
+    "role": "specialist",
+    "department": "tax",
+    "image": "/images/team/Md-Kamruzzaman.jpg",
+    "bio": "Md. Kamruzzaman is a Fellow Chartered Accountant. He advises multinational and local clients on corporate tax, VAT, and transfer pricing—covering policy design, benchmarking and documentation—while coordinating audit, tax and regulatory engagements. A frequent speaker and trainer, he has led programs across Hong Kong, Singapore, India and Thailand.",
+    "specializations": [
+      "Corporate Tax & International Tax",
+      "Transfer Pricing policies & documentation",
+      "VAT advisory & compliance",
+      "Audit coordination",
+      "Internal controls & ERP implementation",
+      "Training & workshops"
+    ],
+    "qualifications": [
+      "FCA — Fellow Chartered Accountant (ICAB)",
+      "ITP (NBR listed) & VAT Consultant",
+      "BBA — University of Dhaka",
+      "Faculty Member — ICAB"
+    ],
+    "experience": "14+ years",
+    "languages": [
+      "English",
+      "Bengali"
+    ],
+    "featured": false,
+    "order": 13
+  },
+  "ahmad-ali-jourieh": {
+    "id": "ahmad-ali-jourieh",
+    "name": "Ahmad Ali Jourieh",
+    "title": "Tax Consultant & Approved Tax Agent – UAE",
+    "role": "specialist",
+    "department": "tax",
+    "image": "/images/team/Ahmad-Ali-Jourieh.jpg",
+    "bio": "Ahmad is an Approved Tax Agent and consultant focused on Corporate Tax and VAT across the UAE. He represents clients before the Federal Tax Authority on audits, assessments and appeals; manages registrations, returns and refunds; and delivers health checks, reconciliations and due diligence to ensure compliance and optimize tax positions.",
+    "specializations": [
+      "Corporate Tax advisory, planning & filings",
+      "VAT compliance and reporting",
+      "FTA representations: audits, assessments & appeals",
+      "Tax registrations, returns & refunds",
+      "Tax health checks & due diligence",
+      "Training & workshops"
+    ],
+    "qualifications": [
+      "Approved Tax Agent (FTA)",
+      "PwC Academy — Corporate Tax Diploma",
+      "World Bank Group — Transfer Pricing e-Learning"
+    ],
+    "experience": "15+ years",
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "featured": false,
+    "order": 14
+  },
+  "mohamed-ali-ghoraba": {
+    "id": "mohamed-ali-ghoraba",
+    "name": "Mohamed Ali Ghoraba",
+    "title": "ACPAI, Tax Agent / Court Expert",
+    "role": "specialist",
+    "department": "audit",
+    "image": "/images/team/Mohamed-Ali-Ghoraba.jpg",
+    "bio": "Mohamed Ali Ghoraba is a seasoned accounting and audit professional with over 14 years of diverse experience across Egypt and the UAE. As a Registered Auditor with the UAE Ministry of Economy and a Certified Tax Agent with the Federal Tax Authority, he has led multiple external audit engagements, tax filings, and compliance reports.",
+    "specializations": [
+      "External audit reviews",
+      "Tax advisory",
+      "Financial reports (IFRS)",
+      "Court-related financial expertise",
+      "Liquidation support"
+    ],
+    "qualifications": [
+      "ACPAI",
+      "Tax Agent",
+      "Registered Auditor - UAE Ministry of Economy",
+      "Certified Tax Agent - FTA"
+    ],
+    "experience": "14+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": false,
+    "order": 15
+  },
+  "mohamed-zahran": {
+    "id": "mohamed-zahran",
+    "name": "Mohamed Zahran",
+    "title": "Audit Manager",
+    "role": "manager",
+    "department": "audit",
+    "image": "/images/team/Mohamed-Zahran.jpg",
+    "bio": "Mohamed Zahran is an accomplished Audit Manager bringing over 16 years of audit and assurance experience, including more than 9 years at managerial level within Big Four firms. A qualified member of the Institute of Chartered Accountants (CASLS), he possesses in-depth expertise in IFRS, IFRS for SMEs, and International Standards on Auditing (ISA).",
+    "specializations": [
+      "Audit and Assurance",
+      "Finance and accounting",
+      "Corporate Finance",
+      "Financial Advisory",
+      "IFRS & ISA"
+    ],
+    "qualifications": [
+      "Member - Institute of Chartered Accountants (CASLS)",
+      "Big Four Experience"
+    ],
+    "experience": "16+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 16
+  },
+  "nayomi-jayaweera": {
+    "id": "nayomi-jayaweera",
+    "name": "Nayomi Jayaweera",
+    "title": "Tax Manager",
+    "role": "manager",
+    "department": "tax",
+    "image": "/images/team/Nayomi-Jayaweera.jpg",
+    "bio": "Experienced and ambitious professional with over seven years of hands-on experience in taxation, auditing, and financial compliance. Possesses a deep understanding of tax laws, financial regulations, and audit standards. Developed strong expertise in statutory audits, tax planning, and regulatory reporting across various industries.",
+    "specializations": [
+      "Income tax computation",
+      "VAT/SSCL/WHT/Stamp Duty",
+      "Financial Reporting",
+      "Auditing & Assurance",
+      "Tax planning"
+    ],
+    "qualifications": [
+      "Following Strategic Level CA",
+      "Following BSc. Applied Accounting (ICASL)",
+      "AAT of Sri Lanka (Passed finalist)"
+    ],
+    "experience": "7+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 17
+  },
+  "dulmini-assalaarachchi": {
+    "id": "dulmini-assalaarachchi",
+    "name": "Dulmini Assalaarachchi",
+    "title": "Assistant Manager – Audit",
+    "role": "manager",
+    "department": "audit",
+    "image": "/images/team/Dulmini-Assalaarachchi.jpg",
+    "bio": "An experienced professional with over four years of experience in Big Four audit firm and currently employed at Farhat Office & CO L.L.C UAE. Specialized in accounting and auditing. Extensive expertise spans external audits, preparation and analysis of financial statements (including consolidated financial statements), financial reporting, management accounting, and internal auditing.",
+    "specializations": [
+      "External audits",
+      "Financial statements analysis",
+      "Financial reporting",
+      "Management accounting",
+      "Internal auditing"
+    ],
+    "qualifications": [
+      "CGMA",
+      "ACMA",
+      "B.Sc. Accounting (Special)",
+      "CA Passed Finalist"
+    ],
+    "experience": "3+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 18
+  },
+  "abdurrahman-rizvi": {
+    "id": "abdurrahman-rizvi",
+    "name": "Abdurrahman Rizvi",
+    "title": "Audit Senior",
+    "role": "senior",
+    "department": "audit",
+    "image": "/images/team/Abdurrahman-Rizvi.jpg",
+    "bio": "Currently working as an Audit Senior at Farahat & Co, with over four years of experience in assurance, finance, and accounting. Worked with top audit firms including Ernst & Young, Grant Thornton, and Crowe UAE, where gained strong knowledge of IFRS and ISA. Handled a wide range of clients across industries such as manufacturing, FMCG, trading, NGOs, leisure, and mixed development projects.",
+    "specializations": [
+      "Assurance & auditing",
+      "Financial reporting/IFRS",
+      "Financial analysis",
+      "Audit management tools (Case Ware, smart audit)"
+    ],
+    "qualifications": [
+      "Audit Senior",
+      "Experience with EY, Grant Thornton, Crowe UAE"
+    ],
+    "experience": "4+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 19
+  },
+  "menali-madhurika": {
+    "id": "menali-madhurika",
+    "name": "Menali Madhurika",
+    "title": "Consultant – Dubai | Tax & Compliance",
+    "role": "specialist",
+    "department": "tax",
+    "image": "/images/team/Menali-Madhurika.jpg",
+    "bio": "Menali is a consultant specializing in tax advisory and compliance support for businesses operating in the UAE. She assists companies in navigating corporate tax and VAT requirements, preparing documentation, and coordinating with regulators. Her expertise extends to client onboarding, KYC compliance, and policy alignment—ensuring businesses remain compliant while focusing on growth.",
+    "specializations": [
+      "Corporate tax advisory and filings",
+      "VAT compliance and reporting",
+      "Regulatory documentation and licensing",
+      "AML/KYC compliance routines",
+      "Client onboarding and process streamlining"
+    ],
+    "qualifications": [
+      "Consultant — Tax & Compliance"
+    ],
+    "experience": "8+ years",
+    "languages": [
+      "English"
+    ],
+    "featured": false,
+    "order": 20
+  },
+  "tareq-badarin": {
+    "id": "tareq-badarin",
+    "name": "Tareq Badarin",
+    "title": "AML Manager",
+    "role": "manager",
+    "department": "management",
+    "image": "/images/team/Tareq-Badarin.jpg",
+    "bio": "Tareq is a highly skilled AML professional with over five years of experience in UAE Anti-Money Laundering, Compliance, and Financial Crime Prevention. He demonstrates immense expertise in transaction monitoring, risk assessment, and regulatory reporting, with a solid understanding of UAE's AML/CTF regulations and compliance standards, including FATF guidelines.",
+    "specializations": [
+      "Transaction monitoring & risk assessment",
+      "Filing Suspicious Activity Reports (SARs)",
+      "AML/CTF audits and inspections",
+      "Enhanced Due Diligence (EDD)",
+      "Sanctions screening (OFAC, UN, EU)",
+      "AML/CTF training delivery"
+    ],
+    "qualifications": [
+      "AML Manager",
+      "FATF guidelines expert",
+      "UAE FIU reporting experience"
+    ],
+    "experience": "20+ years",
+    "languages": [
+      "Arabic",
+      "English"
+    ],
+    "featured": false,
+    "order": 21
+  },
+  "sarwat-jahan": {
+    "id": "sarwat-jahan",
+    "name": "Sarwat Jahan",
+    "title": "HR Consultant",
+    "role": "specialist",
+    "department": "management",
+    "image": "/images/team/Sarwat-Jahan.jpg",
+    "bio": "Sarwat is a seasoned Human Resources professional with a comprehensive background in managing and executing a broad spectrum of HR functions. With deep expertise in employee engagement, HR operations, and payroll management, she brings a strategic and solutions-oriented approach to HR service delivery. Well-versed in employment law and occupational safety, she is committed to fostering a compliant, fair, and high-performing workplace.",
+    "specializations": [
+      "HCM Implementation",
+      "Payroll Management",
+      "Benefits Administration",
+      "Performance Appraisal",
+      "Recruiting",
+      "Employment Law"
+    ],
+    "qualifications": [
+      "HR Consultant",
+      "Business Administration",
+      "HCM Implementation expertise"
+    ],
+    "experience": "15+ years",
+    "languages": [
+      "English",
+      "Urdu"
+    ],
+    "featured": false,
+    "order": 22
+  }
+}

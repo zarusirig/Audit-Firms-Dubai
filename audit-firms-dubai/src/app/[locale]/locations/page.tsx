@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { LOCATIONS } from '@/lib/content/locations'
+import { serverLoaders } from '@/lib/content-loaders'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
@@ -58,7 +58,7 @@ export default async function LocationsPage({
     { label: 'Locations', href: `/${locale}/locations` },
   ]
 
-  const locations = Object.values(LOCATIONS)
+  const locations = await serverLoaders.getAllLocations()
 
   return (
     <>

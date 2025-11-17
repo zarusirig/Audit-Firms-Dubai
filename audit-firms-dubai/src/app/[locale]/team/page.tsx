@@ -3,12 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
-import {
-  getAllTeamMembers,
-  getTeamMembersByRole,
-  getFeaturedTeamMembers,
-  type TeamMember,
-} from '@/lib/content/team'
+import { serverLoaders } from '@/lib/content-loaders'
+import type { TeamMember } from '@/types/content'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -69,11 +65,12 @@ export default async function TeamPage({
     { label: 'Team', href: `/${locale}/team` },
   ]
 
-  const partners = getTeamMembersByRole('partner')
-  const directors = getTeamMembersByRole('director')
-  const managers = getTeamMembersByRole('manager')
-  const seniors = getTeamMembersByRole('senior')
-  const specialists = getTeamMembersByRole('specialist')
+  const allMembers = await serverLoaders.getAllTeamMembers()
+  const partners = allMembers.filter(m => m.role === 'partner')
+  const directors = allMembers.filter(m => m.role === 'director')
+  const managers = allMembers.filter(m => m.role === 'manager')
+  const seniors = allMembers.filter(m => m.role === 'senior')
+  const specialists = allMembers.filter(m => m.role === 'specialist')
 
   return (
     <div className="min-h-screen bg-gray-50">

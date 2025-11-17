@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
-import { GUIDES } from '@/lib/content/guides'
+import { serverLoaders } from '@/lib/content-loaders'
+import type { Guide } from '@/types/content'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -64,7 +65,7 @@ export default async function GuidesHubPage({
     { label: 'Guides', href: `/${locale}/resources/guides` },
   ]
 
-  const guides = Object.values(GUIDES)
+  const guides = await serverLoaders.getAllGuides()
   const featuredGuides = guides.filter((g) => g.featured)
   const guidesByCategory = {
     audit: guides.filter((g) => g.category === 'audit'),
@@ -280,7 +281,7 @@ function GuideCard({
   guide,
   locale,
 }: {
-  guide: (typeof GUIDES)[keyof typeof GUIDES]
+  guide: Guide
   locale: string
 }) {
   return (

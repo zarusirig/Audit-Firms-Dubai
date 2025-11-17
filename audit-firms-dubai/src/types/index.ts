@@ -251,13 +251,13 @@ export interface AnalyticsEvent {
 /**
  * Response Types
  */
-export interface APIResponse<T = any> {
+export interface APIResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: {
     message: string;
     code?: string;
-    details?: any;
+    details?: Record<string, unknown>;
   };
 }
 

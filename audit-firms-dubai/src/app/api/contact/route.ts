@@ -134,7 +134,7 @@ export async function POST(request: Request) {
     }
 
     // Sanitize data - handle both form types
-    const sanitizedData: any = {
+    const sanitizedData: Record<string, unknown> = {
       ...validationResult.data,
       name: sanitizeInput(validationResult.data.name),
       email: sanitizeEmail(validationResult.data.email),

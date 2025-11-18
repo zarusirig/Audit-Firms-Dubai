@@ -2,15 +2,14 @@ import type { Metadata } from 'next'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import { Toaster } from '@/components/ui/sonner'
+import { ConversionOptimization } from '@/components/conversion/ConversionOptimization'
 import { SITE_CONFIG } from '@/lib/constants'
 import { i18n, type Locale, localeDirections } from '@/lib/i18n/config'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 import { notFound } from 'next/navigation'
 import { OrganizationSchema } from '@/components/seo/schemas/OrganizationSchema'
+import { inter, playfair } from '@/app/fonts'
 import '../globals.css'
-
-// NOTE: Google Fonts temporarily disabled due to build environment network restrictions
-// Fonts are configured in app/fonts.ts and will be enabled in production deployment
 
 // Generate static params for all locales
 export async function generateStaticParams() {
@@ -117,7 +116,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={direction}
-      className="font-sans"
+      className={`${inter.variable} ${playfair.variable} font-sans`}
       suppressHydrationWarning
     >
       <body className="font-sans antialiased">
@@ -128,6 +127,8 @@ export default async function LocaleLayout({
           <Footer locale={locale} dict={dict} />
         </div>
         <Toaster />
+        {/* Conversion Optimization Components */}
+        <ConversionOptimization />
       </body>
     </html>
   )

@@ -33,12 +33,14 @@ export interface NavigationDictionary {
   healthcare: string;
   hospitality: string;
   technology: string;
+  financialServices: string;
   about: string;
   contact: string;
   resources: string;
   guides: string;
   tools: string;
   blog: string;
+  locations: string;
 }
 
 export interface HeroDictionary {
@@ -77,6 +79,29 @@ export interface FooterDictionary {
   offices: string;
   dubaiBranch: string;
   abuDhabiBranch: string;
+  stayUpdated: string;
+  newsletterDesc: string;
+  contactUs: string;
+  company: string;
+  aboutUs: string;
+  ourTeam: string;
+  careers: string;
+  resources: string;
+  guides: string;
+  blog: string;
+  tools: string;
+  faq: string;
+  locations: string;
+  difc: string;
+  businessBay: string;
+  dubaiMarina: string;
+  legal: string;
+  privacyPolicy: string;
+  termsOfService: string;
+  cookiePolicy: string;
+  allRightsReserved: string;
+  ministryApproved: string;
+  isoCertified: string;
 }
 
 export interface ContactDictionary {
@@ -105,9 +130,31 @@ export interface SeoDictionary {
   tableOfContents: string;
 }
 
+export interface ServicesDictionary {
+  externalAudit: string;
+  internalAudit: string;
+  dueDiligence: string;
+  forensicAudit: string;
+  reraAudit: string;
+  vatAudit: string;
+}
+
+export interface IndustriesDictionary {
+  realEstate: string;
+  trading: string;
+  manufacturing: string;
+  financialServices: string;
+  healthcare: string;
+  hospitality: string;
+  technology: string;
+  ecommerce: string;
+}
+
 export interface Dictionary {
   common: CommonDictionary;
   navigation: NavigationDictionary;
+  services: ServicesDictionary;
+  industries: IndustriesDictionary;
   hero: HeroDictionary;
   trust: TrustDictionary;
   footer: FooterDictionary;

@@ -26,7 +26,7 @@ import {
 } from '@/lib/resources/catalog'
 import { RESOURCE_CATEGORY_LABELS } from '@/lib/resources/types'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Free Audit Tools & Resources | Templates, Checklists & Guides | Farahat & Co',
   description:
     'Download free audit checklists, compliance guides, tax templates, and financial tools. Professional resources for UAE businesses from Ministry-approved auditors.',
@@ -49,14 +49,6 @@ export const metadata: Metadata = {
     description:
       'Access professional audit tools, compliance guides, and financial templates. Free downloads for UAE businesses.',
     type: 'website',
-    images: [
-      {
-        url: '/og-tools.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Farahat & Co Tools & Resources',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -66,7 +58,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ToolsPage() {
+export default async function ToolsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const resolvedParams = await params
+  const locale = resolvedParams.locale
+
   const featuredResources = getFeaturedResources()
   const categoryStats = getCategoryStats()
   const totalResources = RESOURCE_CATALOG.length
@@ -121,7 +120,7 @@ export default function ToolsPage() {
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           <Link
-            href="/calculator"
+            href={`/${locale}/calculator`}
             className="group rounded-lg border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8 transition-all hover:border-blue-400 hover:shadow-lg"
           >
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100">
@@ -139,7 +138,7 @@ export default function ToolsPage() {
           </Link>
 
           <Link
-            href="/tools/audit-readiness-score"
+            href={`/${locale}/tools/audit-readiness-score`}
             className="group rounded-lg border-2 border-green-200 bg-gradient-to-br from-green-50 to-white p-8 transition-all hover:border-green-400 hover:shadow-lg"
           >
             <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
@@ -389,13 +388,13 @@ export default function ToolsPage() {
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/contact">
+              <Link href={`/${locale}/contact`}>
                 <Download className="mr-2 h-5 w-5" />
                 Request a Consultation
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <Link href="/calculator">
+              <Link href={`/${locale}/calculator`}>
                 <Calculator className="mr-2 h-5 w-5" />
                 Calculate Audit Fees
               </Link>

@@ -199,19 +199,21 @@ export default async function GuidePage({ params }: Props) {
                           : 'Download the complete guide immediately'}
                       </p>
                     </div>
-                    <Button size="lg" className="gap-2">
-                      {guide.access === 'gated' ? (
-                        <>
+                    {guide.access === 'gated' ? (
+                      <Button size="lg" className="gap-2" asChild>
+                        <Link href={`/${locale}/resources/guides/${guide.slug}/download`}>
                           <Lock className="h-5 w-5" />
                           Get Free Access
-                        </>
-                      ) : (
-                        <>
+                        </Link>
+                      </Button>
+                    ) : (
+                      <Button size="lg" className="gap-2" asChild>
+                        <Link href={guide.fileUrl} target="_blank">
                           <Download className="h-5 w-5" />
                           Download PDF
-                        </>
-                      )}
-                    </Button>
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -326,19 +328,21 @@ export default async function GuidePage({ params }: Props) {
                     <p className="mb-6 text-gray-600">
                       Get the full {guide.pageCount}-page PDF guide delivered to your inbox
                     </p>
-                    <Button size="lg" className="gap-2">
-                      {guide.access === 'gated' ? (
-                        <>
+                    {guide.access === 'gated' ? (
+                      <Button size="lg" className="gap-2" asChild>
+                        <Link href={`/${locale}/resources/guides/${guide.slug}/download`}>
                           <Lock className="h-5 w-5" />
                           Get Free Access
-                        </>
-                      ) : (
-                        <>
+                        </Link>
+                      </Button>
+                    ) : (
+                      <Button size="lg" className="gap-2" asChild>
+                        <Link href={guide.fileUrl} target="_blank">
                           <Download className="h-5 w-5" />
                           Download PDF
-                        </>
-                      )}
-                    </Button>
+                        </Link>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

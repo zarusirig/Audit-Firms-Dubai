@@ -54,7 +54,7 @@ export function Navigation({ locale, dict }: { locale: Locale; dict: Dictionary 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {MAIN_NAVIGATION.map((item) => (
-              <NavItem key={item.href} item={item} pathname={pathname} />
+              <NavItem key={item.href} item={item} pathname={pathname} locale={locale} dict={dict} />
             ))}
           </div>
 
@@ -100,9 +100,61 @@ export function Navigation({ locale, dict }: { locale: Locale; dict: Dictionary 
  * Desktop Navigation Item
  * Handles dropdown menus
  */
-function NavItem({ item, pathname }: { item: NavigationItem; pathname: string }) {
+function NavItem({
+  item,
+  pathname,
+  locale,
+  dict
+}: {
+  item: NavigationItem
+  pathname: string
+  locale: Locale
+  dict: Dictionary
+}) {
   const [isOpen, setIsOpen] = useState(false);
-  const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+
+  // Remove locale prefix from pathname for comparison
+  const pathWithoutLocale = pathname.replace(`/${locale}`, '');
+  const isActive = pathWithoutLocale === item.href || pathWithoutLocale.startsWith(item.href + '/');
+
+  // Get translated label
+  const getLabel = (href: string) => {
+    const key = href.split('/').filter(Boolean).pop() || '';
+
+    // Map navigation items to dictionary keys
+    const navMap: Record<string, string> = {
+      'services': dict.navigation.services,
+      'external-audit': dict.navigation.externalAudit,
+      'internal-audit': dict.navigation.internalAudit,
+      'due-diligence': dict.navigation.dueDiligence,
+      'forensic-audit': dict.navigation.forensicAudit,
+      'vat-audit': dict.navigation.vatAudit,
+      'rera-audit': dict.navigation.reraAudit,
+      'industries': dict.navigation.industries,
+      'real-estate': dict.navigation.realEstate,
+      'trading': dict.navigation.trading,
+      'manufacturing': dict.navigation.manufacturing,
+      'healthcare': dict.navigation.healthcare,
+      'hospitality': dict.navigation.hospitality,
+      'technology': dict.navigation.technology,
+      'about': dict.navigation.about,
+      'contact': dict.navigation.contact,
+      'resources': dict.navigation.resources,
+      'guides': dict.navigation.guides,
+      'tools': dict.navigation.tools,
+      'blog': dict.navigation.blog,
+    };
+
+    // Handle special cases
+    if (href === '/services') return dict.navigation.services;
+    if (href === '/industries') return dict.navigation.industries;
+    if (href === '/locations') return dict.navigation.locations;
+    if (href === '/resources') return dict.navigation.resources;
+    if (href === '/about') return dict.navigation.about;
+    if (href === '/contact') return dict.navigation.contact;
+
+    return navMap[key] || item.label;
+  };
 
   if (item.children && item.children.length > 0) {
     return (
@@ -117,7 +169,7 @@ function NavItem({ item, pathname }: { item: NavigationItem; pathname: string })
             isActive ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'
           )}
         >
-          {item.label}
+          {getLabel(item.href)}
           <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
         </button>
 
@@ -128,15 +180,15 @@ function NavItem({ item, pathname }: { item: NavigationItem; pathname: string })
               {item.children.map((child) => (
                 <Link
                   key={child.href}
-                  href={child.href}
+                  href={`/${locale}${child.href}`}
                   className={cn(
                     'block rounded-md px-4 py-2 text-sm transition-colors',
-                    pathname === child.href
+                    pathWithoutLocale === child.href
                       ? 'bg-primary-50 text-primary-600 font-medium'
                       : 'text-neutral-700 hover:bg-neutral-50 hover:text-primary-600'
                   )}
                 >
-                  {child.label}
+                  {getLabel(child.href)}
                 </Link>
               ))}
             </div>
@@ -148,13 +200,13 @@ function NavItem({ item, pathname }: { item: NavigationItem; pathname: string })
 
   return (
     <Link
-      href={item.href}
+      href={`/${locale}${item.href}`}
       className={cn(
         'text-sm font-medium transition-colors',
         isActive ? 'text-primary-600' : 'text-neutral-700 hover:text-primary-600'
       )}
     >
-      {item.label}
+      {getLabel(item.href)}
     </Link>
   );
 }
@@ -171,10 +223,52 @@ function MobileNav({
 }: {
   pathname: string
   locale: Locale
-  dict: any
+  dict: Dictionary
   onClose: () => void
 }) {
   const [openSection, setOpenSection] = useState<string | null>(null);
+
+  // Remove locale prefix from pathname for comparison
+  const pathWithoutLocale = pathname.replace(`/${locale}`, '');
+
+  // Get translated label
+  const getLabel = (href: string) => {
+    const key = href.split('/').filter(Boolean).pop() || '';
+
+    // Map navigation items to dictionary keys
+    const navMap: Record<string, string> = {
+      'services': dict.navigation.services,
+      'external-audit': dict.navigation.externalAudit,
+      'internal-audit': dict.navigation.internalAudit,
+      'due-diligence': dict.navigation.dueDiligence,
+      'forensic-audit': dict.navigation.forensicAudit,
+      'vat-audit': dict.navigation.vatAudit,
+      'rera-audit': dict.navigation.reraAudit,
+      'industries': dict.navigation.industries,
+      'real-estate': dict.navigation.realEstate,
+      'trading': dict.navigation.trading,
+      'manufacturing': dict.navigation.manufacturing,
+      'healthcare': dict.navigation.healthcare,
+      'hospitality': dict.navigation.hospitality,
+      'technology': dict.navigation.technology,
+      'about': dict.navigation.about,
+      'contact': dict.navigation.contact,
+      'resources': dict.navigation.resources,
+      'guides': dict.navigation.guides,
+      'tools': dict.navigation.tools,
+      'blog': dict.navigation.blog,
+    };
+
+    // Handle special cases
+    if (href === '/services') return dict.navigation.services;
+    if (href === '/industries') return dict.navigation.industries;
+    if (href === '/locations') return dict.navigation.locations;
+    if (href === '/resources') return dict.navigation.resources;
+    if (href === '/about') return dict.navigation.about;
+    if (href === '/contact') return dict.navigation.contact;
+
+    return navMap[key] || href;
+  };
 
   return (
     <div className="flex h-full flex-col">
@@ -194,12 +288,12 @@ function MobileNav({
                     onClick={() => setOpenSection(openSection === item.href ? null : item.href)}
                     className={cn(
                       'flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors',
-                      pathname.startsWith(item.href)
+                      pathWithoutLocale.startsWith(item.href)
                         ? 'bg-primary-50 text-primary-600'
                         : 'text-neutral-700 hover:bg-neutral-50'
                     )}
                   >
-                    {item.label}
+                    {getLabel(item.href)}
                     <ChevronDown
                       className={cn(
                         'h-4 w-4 transition-transform',
@@ -212,16 +306,16 @@ function MobileNav({
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
-                          href={child.href}
+                          href={`/${locale}${child.href}`}
                           onClick={onClose}
                           className={cn(
                             'block rounded-lg px-4 py-2 text-sm transition-colors',
-                            pathname === child.href
+                            pathWithoutLocale === child.href
                               ? 'bg-primary-50 text-primary-600 font-medium'
                               : 'text-neutral-600 hover:bg-neutral-50 hover:text-primary-600'
                           )}
                         >
-                          {child.label}
+                          {getLabel(child.href)}
                         </Link>
                       ))}
                     </div>
@@ -229,16 +323,16 @@ function MobileNav({
                 </div>
               ) : (
                 <Link
-                  href={item.href}
+                  href={`/${locale}${item.href}`}
                   onClick={onClose}
                   className={cn(
                     'block rounded-lg px-4 py-3 text-sm font-medium transition-colors',
-                    pathname === item.href
+                    pathWithoutLocale === item.href
                       ? 'bg-primary-50 text-primary-600'
                       : 'text-neutral-700 hover:bg-neutral-50'
                   )}
                 >
-                  {item.label}
+                  {getLabel(item.href)}
                 </Link>
               )}
             </div>

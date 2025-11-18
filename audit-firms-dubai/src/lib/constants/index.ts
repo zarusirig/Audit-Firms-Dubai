@@ -61,7 +61,7 @@ export const MAIN_NAVIGATION: NavigationItems = [
     href: '/resources',
     children: [
       { label: 'Guides', href: '/resources/guides' },
-      { label: 'Tools', href: '/resources/tools' },
+      { label: 'Tools', href: '/tools' },
       { label: 'Blog', href: '/resources/blog' },
       { label: 'FAQ', href: '/faq' },
     ],

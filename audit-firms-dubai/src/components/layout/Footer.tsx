@@ -34,25 +34,25 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <div className="lg:col-span-2">
             <Logo size="md" className="mb-4" />
             <p className="mb-6 text-sm text-neutral-600 max-w-md w-full text-center">
-              {SITE_CONFIG.description}
+              {dict.footer.tagline}
             </p>
 
             {/* Newsletter Signup */}
             <div className="mb-6">
               <h3 className="mb-3 text-sm font-semibold text-neutral-900">
-                Stay Updated
+                {dict.footer.stayUpdated}
               </h3>
               <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={dict.footer.newsletterPlaceholder}
                   className="flex-1"
                   required
                 />
-                <Button type="submit">Subscribe</Button>
+                <Button type="submit">{dict.footer.subscribe}</Button>
               </form>
               <p className="mt-2 text-xs text-neutral-500">
-                Get audit insights and regulatory updates monthly
+                {dict.footer.newsletterDesc}
               </p>
             </div>
 
@@ -72,45 +72,67 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           {/* Services Links */}
           <div>
             <h3 className="mb-4 text-sm font-semibold text-neutral-900">
-              Services
+              {dict.footer.services}
             </h3>
             <ul className="space-y-3">
-              {SERVICES.slice(0, 6).map((service) => (
-                <li key={service.slug}>
-                  <Link
-                    href={`/${locale}/services/${service.slug}`}
-                    className="text-sm text-neutral-600 hover:text-primary-600 transition-colors"
-                  >
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
+              {SERVICES.slice(0, 6).map((service) => {
+                const serviceName = (dict.services as any)[
+                  service.slug === 'external-audit' ? 'externalAudit' :
+                  service.slug === 'internal-audit' ? 'internalAudit' :
+                  service.slug === 'due-diligence' ? 'dueDiligence' :
+                  service.slug === 'forensic-audit' ? 'forensicAudit' :
+                  service.slug === 'rera-audit' ? 'reraAudit' :
+                  service.slug === 'vat-audit' ? 'vatAudit' : ''
+                ] || service.name;
+
+                return (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/${locale}/services/${service.slug}`}
+                      className="text-sm text-neutral-600 hover:text-primary-600 transition-colors"
+                    >
+                      {serviceName}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Industries Links */}
           <div>
             <h3 className="mb-4 text-sm font-semibold text-neutral-900">
-              Industries
+              {dict.footer.industries}
             </h3>
             <ul className="space-y-3">
-              {INDUSTRIES.slice(0, 6).map((industry) => (
-                <li key={industry.slug}>
-                  <Link
-                    href={`/${locale}/industries/${industry.slug}`}
-                    className="text-sm text-neutral-600 hover:text-primary-600 transition-colors"
-                  >
-                    {industry.name}
-                  </Link>
-                </li>
-              ))}
+              {INDUSTRIES.slice(0, 6).map((industry) => {
+                const industryName = (dict.industries as any)[
+                  industry.slug === 'real-estate' ? 'realEstate' :
+                  industry.slug === 'trading' ? 'trading' :
+                  industry.slug === 'manufacturing' ? 'manufacturing' :
+                  industry.slug === 'financial-services' ? 'financialServices' :
+                  industry.slug === 'healthcare' ? 'healthcare' :
+                  industry.slug === 'hospitality' ? 'hospitality' : ''
+                ] || industry.name;
+
+                return (
+                  <li key={industry.slug}>
+                    <Link
+                      href={`/${locale}/industries/${industry.slug}`}
+                      className="text-sm text-neutral-600 hover:text-primary-600 transition-colors"
+                    >
+                      {industryName}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
             <h3 className="mb-4 text-sm font-semibold text-neutral-900">
-              Contact Us
+              {dict.footer.contactUs}
             </h3>
             <ul className="space-y-4">
               <li>
@@ -178,22 +200,22 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <div className="grid gap-6 md:grid-cols-4">
           <div>
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              Company
+              {dict.footer.company}
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href={`/${locale}/about`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  About Us
+                  {dict.footer.aboutUs}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/team`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Our Team
+                  {dict.footer.ourTeam}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/careers`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Careers
+                  {dict.footer.careers}
                 </Link>
               </li>
             </ul>
@@ -201,27 +223,27 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
 
           <div>
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              Resources
+              {dict.footer.resources}
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href={`/${locale}/resources/guides`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Guides
+                  {dict.footer.guides}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/resources/blog`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Blog
+                  {dict.footer.blog}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/resources/tools`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Tools
+                <Link href={`/${locale}/tools`} className="text-sm text-neutral-600 hover:text-primary-600">
+                  {dict.footer.tools}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/faq`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  FAQ
+                  {dict.footer.faq}
                 </Link>
               </li>
             </ul>
@@ -229,22 +251,22 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
 
           <div>
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              Locations
+              {dict.footer.locations}
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href={`/${locale}/locations/difc`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  DIFC
+                  {dict.footer.difc}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/locations/business-bay`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Business Bay
+                  {dict.footer.businessBay}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/locations/dubai-marina`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Dubai Marina
+                  {dict.footer.dubaiMarina}
                 </Link>
               </li>
             </ul>
@@ -252,22 +274,22 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
 
           <div>
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500">
-              Legal
+              {dict.footer.legal}
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href={`/${locale}/privacy`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Privacy Policy
+                  {dict.footer.privacyPolicy}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/terms`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Terms of Service
+                  {dict.footer.termsOfService}
                 </Link>
               </li>
               <li>
                 <Link href={`/${locale}/cookies`} className="text-sm text-neutral-600 hover:text-primary-600">
-                  Cookie Policy
+                  {dict.footer.cookiePolicy}
                 </Link>
               </li>
             </ul>
@@ -281,12 +303,12 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <ParentCompanyLogo />
             <p className="text-center text-sm text-neutral-600">
-              © {currentYear} {SITE_CONFIG.name}. All rights reserved.
+              © {currentYear} {SITE_CONFIG.name}. {dict.footer.allRightsReserved}
             </p>
             <div className="flex items-center gap-4 text-xs text-neutral-500">
-              <span>Ministry of Economy Approved</span>
+              <span>{dict.footer.ministryApproved}</span>
               <span>•</span>
-              <span>ISO 9001:2015 Certified</span>
+              <span>{dict.footer.isoCertified}</span>
             </div>
           </div>
         </div>

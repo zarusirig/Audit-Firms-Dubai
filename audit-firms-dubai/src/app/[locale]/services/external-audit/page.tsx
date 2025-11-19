@@ -92,6 +92,7 @@ export default async function ExternalAuditPage({
         subheadline={serviceData.heroSubheadline}
         painPoint={serviceData.heroPainPoint}
         usp={serviceData.heroUSP}
+        image={serviceData.heroImage}
       />
 
       <ServiceOverview

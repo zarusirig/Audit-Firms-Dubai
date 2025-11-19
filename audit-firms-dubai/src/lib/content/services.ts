@@ -42,6 +42,7 @@ export interface ServicePageContent {
   heroSubheadline: string
   heroPainPoint: string
   heroUSP: string
+  heroImage?: string
 
   // Overview Section
   overviewTitle: string
@@ -99,6 +100,7 @@ export const SERVICES: Record<string, ServicePageContent> = {
     heroSubheadline: 'Ministry Approved Auditors Since 1985',
     heroPainPoint: 'Meet UAE legal requirements with confidence. Our external audit services ensure full compliance with Ministry of Economy regulations while providing valuable business insights.',
     heroUSP: '28,058 clients across 140 countries trust our expertise. Get your audit completed on time, every time.',
+    heroImage: '/images/services/external-audit-hero.jpg',
 
     overviewTitle: 'What is External Audit?',
     overviewContent: [
@@ -384,6 +386,7 @@ export const SERVICES: Record<string, ServicePageContent> = {
     heroSubheadline: 'Risk-Based Internal Control Evaluation',
     heroPainPoint: 'Identify and mitigate risks before they impact your business. Our internal audit services provide independent assurance that your operations, controls, and processes are effective.',
     heroUSP: 'Trusted by 500+ UAE companies to strengthen their internal controls and reduce operational risks.',
+    heroImage: '/images/services/internal-audit-hero.jpg',
 
     overviewTitle: 'What is Internal Audit?',
     overviewContent: [
@@ -669,6 +672,7 @@ export const SERVICES: Record<string, ServicePageContent> = {
     heroSubheadline: 'Make Informed Investment & Acquisition Decisions',
     heroPainPoint: 'Minimize risk and maximize value in M&A transactions. Our comprehensive due diligence services uncover critical financial, operational, and commercial insights before you commit.',
     heroUSP: 'Trusted by investors and acquirers across 500+ transactions in the UAE and GCC region.',
+    heroImage: '/images/services/due-diligence-hero.jpg',
 
     overviewTitle: 'What is Due Diligence?',
     overviewContent: [
@@ -947,6 +951,7 @@ export const SERVICES: Record<string, ServicePageContent> = {
     heroSubheadline: 'Real Estate Regulatory Authority Compliance',
     heroPainPoint: 'Navigate Dubai real estate regulations with confidence. Our RERA-specialized auditors ensure full compliance with Dubai Land Department and RERA requirements for developers, property managers, and brokers.',
     heroUSP: 'Trusted by 200+ real estate companies across Dubai for RERA audit and compliance services.',
+    heroImage: '/images/services/rera-audit-hero.jpg',
 
     overviewTitle: 'What is RERA Audit?',
     overviewContent: [
@@ -1030,6 +1035,7 @@ export const SERVICES: Record<string, ServicePageContent> = {
     heroSubheadline: 'Fraud Investigation & Litigation Support',
     heroPainPoint: 'Protect your business from financial fraud. Our Certified Fraud Examiners conduct discreet, thorough investigations to detect misconduct, trace assets, and provide court-admissible evidence.',
     heroUSP: 'Trusted by UAE businesses and legal firms for sensitive fraud investigations with complete confidentiality.',
+    heroImage: '/images/services/forensic-audit-hero.jpg',
 
     overviewTitle: 'What is Forensic Audit?',
     overviewContent: [
@@ -1121,6 +1127,7 @@ export const SERVICES: Record<string, ServicePageContent> = {
     heroSubheadline: 'Expert VAT Compliance & FTA Audit Support',
     heroPainPoint: 'Ensure VAT compliance and avoid costly FTA penalties. Our VAT audit specialists verify your VAT returns, identify risks, and support voluntary disclosure to keep you compliant.',
     heroUSP: 'Trusted by 300+ UAE businesses to navigate complex VAT regulations and maintain FTA compliance.',
+    heroImage: '/images/services/vat-audit-hero.jpg',
 
     overviewTitle: 'What is VAT Audit?',
     overviewContent: [

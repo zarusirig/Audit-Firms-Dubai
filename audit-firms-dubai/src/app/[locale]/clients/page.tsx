@@ -3,9 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { i18n, type Locale } from '@/lib/i18n/config'
 import { SITE_CONFIG } from '@/lib/constants'
+import { getDictionary } from '@/lib/i18n/dictionaries'
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { TestimonialsSection } from '@/components/sections/home/TestimonialsSection'
 import {
   Building2,
   Globe,
@@ -13,6 +15,12 @@ import {
   Award,
   Users,
   CheckCircle2,
+  Briefcase,
+  LayoutGrid,
+  ShieldCheck,
+  Zap,
+  Phone,
+  MessageSquare,
 } from 'lucide-react'
 
 export async function generateStaticParams() {
@@ -98,13 +106,16 @@ export default async function ClientsPage({
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
+  // Get translations
+  const dict = await getDictionary(locale)
+
   const breadcrumbItems = [
     { label: 'Home', href: `/${locale}` },
     { label: 'Our Clients', href: `/${locale}/clients` },
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Breadcrumbs */}
       <div className="border-b border-gray-200 bg-white">
         <div className="container mx-auto px-4 py-4">
@@ -112,87 +123,89 @@ export default async function ClientsPage({
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-white to-primary/5 py-16">
-        <div className="container mx-auto px-4">
+      {/* Hero Section - Improved Design */}
+      <section className="relative overflow-hidden bg-primary-950 py-20 text-white md:py-32">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-700/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary-900/20 rounded-full blur-3xl" />
+
+        <div className="container relative mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <Badge className="mb-4 bg-primary/10 text-primary">
-              <Globe className="mr-1 h-3 w-3" />
-              140+ Countries Worldwide
-            </Badge>
-            <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
-              Trusted by Leading Global Businesses
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium backdrop-blur-sm mb-8">
+              <Globe className="h-4 w-4 text-secondary-400" />
+              <span className="text-primary-100">Serving Clients Across 140+ Countries</span>
+            </div>
+
+            <h1 className="mb-6 font-serif text-4xl font-bold leading-tight md:text-6xl">
+              Trusted by Leading <br />
+              <span className="text-secondary-400">Global Businesses</span>
             </h1>
-            <p className="mb-8 text-lg text-gray-600">
-              For over 37 years, we have been the trusted audit and advisory partner for
-              international companies across diverse industries. From Fortune 500 corporations
-              to innovative startups in the UAE, we deliver excellence in every engagement.
+            
+            <p className="mb-10 text-xl text-primary-100 md:text-2xl max-w-3xl mx-auto leading-relaxed">
+              For over 37 years, we have been the audit and advisory partner of choice for 
+              Fortune 500 corporations and innovative startups alike.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <div className="mb-2 flex justify-center">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">28,000+</div>
-                <div className="text-sm text-gray-600">Clients Served</div>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 border-t border-white/10 pt-10">
+              <div className="text-center">
+                <div className="mb-2 text-3xl font-bold text-white md:text-4xl">28k+</div>
+                <div className="text-sm text-primary-300">Clients Served</div>
               </div>
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <div className="mb-2 flex justify-center">
-                  <Globe className="h-8 w-8 text-primary" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">140+</div>
-                <div className="text-sm text-gray-600">Countries</div>
+              <div className="text-center">
+                <div className="mb-2 text-3xl font-bold text-white md:text-4xl">140+</div>
+                <div className="text-sm text-primary-300">Countries</div>
               </div>
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <div className="mb-2 flex justify-center">
-                  <Building2 className="h-8 w-8 text-primary" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">15+</div>
-                <div className="text-sm text-gray-600">Industries</div>
+              <div className="text-center">
+                <div className="mb-2 text-3xl font-bold text-white md:text-4xl">15+</div>
+                <div className="text-sm text-primary-300">Industries</div>
               </div>
-              <div className="rounded-lg bg-white p-6 shadow-sm">
-                <div className="mb-2 flex justify-center">
-                  <Award className="h-8 w-8 text-primary" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900">37+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
+              <div className="text-center">
+                <div className="mb-2 text-3xl font-bold text-white md:text-4xl">37+</div>
+                <div className="text-sm text-primary-300">Years Experience</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Client Logos Section */}
-      <section className="bg-white py-16">
+      {/* Client Logos Section - Enhanced Grid */}
+      <section className="bg-white py-20">
         <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-bold text-gray-900">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="mb-4 font-serif text-3xl font-bold text-gray-900 md:text-4xl">
               Our Distinguished Clients
             </h2>
+            <div className="h-1 w-20 bg-secondary-500 mx-auto mb-6 rounded-full"></div>
             <p className="text-lg text-gray-600">
-              We are proud to serve leading international organizations across the globe
+              We are proud to serve a diverse portfolio of leading international organizations, 
+              delivering excellence and strategic value in every engagement.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {clients.map((client, index) => (
               <div
                 key={index}
-                className="group relative flex items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-white p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+                className="group relative flex flex-col items-center justify-center rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-100 hover:shadow-md"
               >
-                <div className="relative h-20 w-full">
+                <div className="relative h-16 w-full mb-4">
                   <Image
                     src={client.logo}
                     alt={`${client.name} - Audit Client`}
                     fill
-                    className="object-contain transition-transform duration-300 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                    className="object-contain opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-primary/95 to-primary/90 p-3 text-center text-xs text-white transition-transform duration-300 group-hover:translate-y-0">
-                  <div className="font-semibold">{client.name}</div>
-                  <div className="text-white/90">{client.country}</div>
+                <div className="text-center">
+                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary-700 transition-colors">
+                    {client.name}
+                  </h3>
+                  <span className="mt-1 inline-block rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-500">
+                    {client.country}
+                  </span>
                 </div>
               </div>
             ))}
@@ -200,165 +213,192 @@ export default async function ClientsPage({
         </div>
       </section>
 
-      {/* Why Companies Trust Us */}
-      <section className="bg-gray-50 py-16">
+      {/* Why Companies Trust Us - New Card Design */}
+      <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-bold text-gray-900">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="mb-4 font-serif text-3xl font-bold text-gray-900 md:text-4xl">
               Why Global Companies Choose Us
             </h2>
             <p className="text-lg text-gray-600">
-              We deliver more than compliance—we provide strategic value to every client
+              We deliver more than just compliance—we provide strategic value that empowers your business growth.
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <Award className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-900">
-                Ministry Approved
-              </h3>
-              <p className="text-gray-600">
-                Officially recognized and approved by UAE regulatory authorities to conduct
-                statutory audits and compliance services
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <Globe className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-900">
-                Global Expertise
-              </h3>
-              <p className="text-gray-600">
-                Experience serving multinational corporations with cross-border operations
-                and complex international compliance requirements
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <Building2 className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-900">
-                Industry Specialists
-              </h3>
-              <p className="text-gray-600">
-                Deep sector knowledge across 15+ industries including technology, finance,
-                manufacturing, real estate, and healthcare
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <CheckCircle2 className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-900">
-                Quality Assurance
-              </h3>
-              <p className="text-gray-600">
-                Rigorous quality control processes and continuous professional development
-                ensure the highest audit standards
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <TrendingUp className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-900">
-                Strategic Insights
-              </h3>
-              <p className="text-gray-600">
-                Beyond compliance, we provide actionable business intelligence to help
-                clients optimize operations and drive growth
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <Users className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mb-2 text-xl font-bold text-gray-900">
-                Dedicated Teams
-              </h3>
-              <p className="text-gray-600">
-                Multilingual professionals who understand local regulations and
-                international business practices across diverse markets
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries We Serve */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-bold text-gray-900">
-              Industries We Serve
-            </h2>
-            <p className="text-lg text-gray-600">
-              Comprehensive audit and advisory services across all major sectors
-            </p>
-          </div>
-
-          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              'Technology & IT',
-              'Financial Services',
-              'Manufacturing',
-              'Real Estate',
-              'Healthcare',
-              'Retail & E-commerce',
-              'Hospitality',
-              'Construction',
-              'Transportation',
-              'Professional Services',
-              'Telecommunications',
-              'Energy & Utilities',
-              'Education',
-              'Media & Entertainment',
-              'Automotive',
-              'Food & Beverage',
-            ].map((industry) => (
-              <div
-                key={industry}
-                className="flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 p-4 text-center text-sm font-medium text-gray-700 transition-colors hover:border-primary/50 hover:bg-primary/5"
-              >
-                {industry}
+              {
+                icon: Award,
+                title: 'Ministry Approved',
+                description: 'Officially recognized by UAE regulatory authorities for statutory audits and compliance services.',
+              },
+              {
+                icon: Globe,
+                title: 'Global Expertise',
+                description: 'Deep experience serving multinational corporations with cross-border operations and complex requirements.',
+              },
+              {
+                icon: Building2,
+                title: 'Industry Specialists',
+                description: 'Specialized knowledge across 15+ sectors including finance, real estate, and technology.',
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Quality Assurance',
+                description: 'Rigorous quality control processes ensuring the highest international audit standards.',
+              },
+              {
+                icon: TrendingUp,
+                title: 'Strategic Insights',
+                description: 'Actionable business intelligence to optimize operations and drive sustainable growth.',
+              },
+              {
+                icon: Users,
+                title: 'Dedicated Teams',
+                description: 'Multilingual professionals understanding local regulations and international best practices.',
+              },
+            ].map((feature, idx) => (
+              <div key={idx} className="group relative rounded-xl bg-white p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-lg bg-primary-50 text-primary-600 transition-colors group-hover:bg-primary-600 group-hover:text-white">
+                  <feature.icon className="h-7 w-7" />
+                </div>
+                <h3 className="mb-3 text-xl font-bold text-gray-900">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="border-t border-gray-200 bg-gradient-to-br from-primary/5 via-white to-primary/10 py-16">
+      {/* Industries We Serve - Icon Grid */}
+      <section className="bg-white py-20">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">
-              Join Our Growing List of Satisfied Clients
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 font-serif text-3xl font-bold text-gray-900 md:text-4xl">
+              Industries We Serve
             </h2>
-            <p className="mb-8 text-lg text-gray-600">
-              Whether you're a multinational corporation or a growing business in the UAE,
-              we deliver the same level of excellence and dedication to every engagement.
-              Let's discuss how we can support your success.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Comprehensive audit and advisory services tailored to the unique challenges of each sector.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg">
-                <Link href={`/${locale}/contact`}>Schedule a Consultation</Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 max-w-5xl mx-auto">
+            {[
+              { name: 'Technology & IT', icon: Zap },
+              { name: 'Financial Services', icon: TrendingUp },
+              { name: 'Manufacturing', icon: Building2 },
+              { name: 'Real Estate', icon: Building2 },
+              { name: 'Healthcare', icon: ShieldCheck },
+              { name: 'Retail & E-commerce', icon: Briefcase },
+              { name: 'Hospitality', icon: Building2 },
+              { name: 'Construction', icon: LayoutGrid },
+              { name: 'Transportation', icon: Globe },
+              { name: 'Professional Services', icon: Users },
+              { name: 'Telecommunications', icon: Phone },
+              { name: 'Energy & Utilities', icon: Zap },
+              { name: 'Education', icon: Award },
+              { name: 'Media', icon: MessageSquare },
+              { name: 'Automotive', icon: Settings },
+              { name: 'Food & Beverage', icon: Coffee },
+            ].map((industry, idx) => (
+              <div
+                key={idx}
+                className="group flex flex-col items-center justify-center rounded-xl border border-gray-100 bg-gray-50/50 p-6 text-center transition-all hover:border-primary-100 hover:bg-white hover:shadow-sm"
+              >
+                {/* Note: Some icons might be repetitive as we don't have specific icons for all industries in the import list yet, but this structure is better */}
+                <span className="mb-3 font-medium text-gray-700 group-hover:text-primary-700">
+                  {industry.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection dict={dict} />
+
+      {/* CTA Section - Improved */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-primary-900">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+        </div>
+        
+        <div className="container relative mx-auto px-4">
+          <div className="mx-auto max-w-4xl text-center text-white">
+            <h2 className="mb-6 font-serif text-3xl font-bold md:text-5xl">
+              Ready to Join Our Success Story?
+            </h2>
+            <p className="mb-10 text-xl text-primary-100 leading-relaxed">
+              Whether you're a multinational corporation or a growing business in the UAE,
+              we deliver the same level of excellence. Let's discuss how we can support your goals.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-secondary-500 text-primary-900 hover:bg-secondary-600 font-bold h-14 px-8 text-lg">
+                <Link href={`/${locale}/contact`}>
+                  <Phone className="mr-2 h-5 w-5" />
+                  Schedule Consultation
+                </Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href={`/${locale}/services`}>Explore Our Services</Link>
+              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary-900 h-14 px-8 text-lg bg-transparent">
+                <Link href={`/${locale}/services`}>
+                  <Briefcase className="mr-2 h-5 w-5" />
+                  Explore Services
+                </Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
     </div>
+  )
+}
+
+// Helper icons for the industry map
+function Settings(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  )
+}
+
+function Coffee(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+      <line x1="6" x2="6" y1="2" y2="4" />
+      <line x1="10" x2="10" y1="2" y2="4" />
+      <line x1="14" x2="14" y1="2" y2="4" />
+    </svg>
   )
 }

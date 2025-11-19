@@ -18,7 +18,7 @@ import { FAQSchema } from '@/components/seo/schemas/FAQSchema';
  * Displays frequently asked questions with structured data
  */
 
-export function FAQSection() {
+export function FAQSection({ dict }: { dict: any }) {
   // Prepare FAQ data for schema
   const faqSchemaData = HOMEPAGE_FAQ.map((faq) => ({
     question: faq.question,

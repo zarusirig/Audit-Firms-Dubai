@@ -314,6 +314,18 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             </h4>
             <ul className="space-y-2">
               <li>
+                <Link href={`/${locale}/free-zones`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  Free Zones
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/glossary`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  Glossary
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/resources/guides`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
                   <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
                   {dict.footer.guides}

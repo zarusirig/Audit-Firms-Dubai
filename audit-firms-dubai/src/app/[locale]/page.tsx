@@ -29,6 +29,8 @@ export async function generateMetadata({
   const resolvedParams = await params
   const locale = resolvedParams.locale as Locale
 
+  const safeLocale = (['en', 'ar'].includes(locale) ? locale : 'en') as 'en' | 'ar'
+
   const metadata = {
     en: {
       title: 'Audit Firms Dubai | Ministry Approved Auditors Since 1985 | Farahat & Co',
@@ -67,9 +69,9 @@ export async function generateMetadata({
   }
 
   return {
-    title: metadata[locale].title,
-    description: metadata[locale].description,
-    keywords: metadata[locale].keywords,
+    title: metadata[safeLocale].title,
+    description: metadata[safeLocale].description,
+    keywords: metadata[safeLocale].keywords,
     alternates: {
       canonical: `${SITE_CONFIG.url}/${locale}`,
       languages: {

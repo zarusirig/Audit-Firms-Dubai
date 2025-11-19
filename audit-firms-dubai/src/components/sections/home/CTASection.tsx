@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Phone, Calculator, Clock, CheckCircle } from 'lucide-react';
 import { CTA_CONFIG } from '@/lib/constants/brand';
 
-export function CTASection() {
+export function CTASection({ dict }: { dict: any }) {
   const cleanPhone = CTA_CONFIG.primary.phone.replace(/\s/g, '');
   
   return (

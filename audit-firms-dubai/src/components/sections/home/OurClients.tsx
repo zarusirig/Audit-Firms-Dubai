@@ -48,7 +48,7 @@ const clientLogos = [
   'thermote-vanhalst-belgium.png',
 ];
 
-export function OurClients() {
+export function OurClients({ dict }: { dict: any }) {
   // Duplicate the logos array to create seamless infinite scroll
   const duplicatedLogos = [...clientLogos, ...clientLogos];
 

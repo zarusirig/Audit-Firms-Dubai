@@ -87,6 +87,7 @@ export default async function ForensicAuditPage({
         subheadline={serviceData.heroSubheadline}
         painPoint={serviceData.heroPainPoint}
         usp={serviceData.heroUSP}
+        image={serviceData.heroImage}
       />
 
       <ServiceOverview

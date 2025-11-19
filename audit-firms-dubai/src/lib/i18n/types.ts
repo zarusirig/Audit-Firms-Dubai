@@ -41,6 +41,8 @@ export interface NavigationDictionary {
   tools: string;
   blog: string;
   locations: string;
+  freeZones: string;
+  glossary: string;
 }
 
 export interface HeroDictionary {

@@ -29,7 +29,7 @@ const iconMap = {
   Star,
 };
 
-export function WhyChooseUs() {
+export function WhyChooseUs({ dict }: { dict: any }) {
   return (
     <section className="bg-gradient-to-br from-neutral-50 to-primary-50 py-16 lg:py-24">
       <div className="container mx-auto px-4">

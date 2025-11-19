@@ -6,6 +6,7 @@
 export interface GuideSection {
   title: string
   content: string[]
+  subsections?: string[]
 }
 
 export interface Guide {
@@ -1512,35 +1513,49 @@ export const GUIDES: Record<string, Guide> = {
       'Expert insights and best practices',
     ],
     introduction: [
-      'The UAE audit landscape continues to evolve with new regulations and requirements introduced regularly. This comprehensive guide provides businesses with everything they need to understand and comply with UAE audit requirements in 2025.',
-      'Covering federal laws, Ministry of Economy regulations, and industry-specific requirements, this guide serves as your complete reference for audit compliance in the UAE.',
+      'The UAE audit landscape continues to evolve with new regulations and requirements introduced regularly. This comprehensive guide provides businesses with everything they need to understand and comply with UAE audit requirements in 2025.\n\nCovering federal laws, Ministry of Economy regulations, and industry-specific requirements, this guide serves as your complete reference for audit compliance in the UAE.',
     ],
     sections: [
       {
         title: 'Federal Audit Requirements',
         content: [
-          'UAE businesses must comply with various federal audit requirements depending on their legal structure, industry, and activities. The primary legislation governing audit requirements includes Federal Law No. 32 of 2021 on Commercial Companies.',
-          'All companies must maintain proper accounting records and have their financial statements audited by licensed auditors approved by the Ministry of Economy.',
+          'UAE businesses must comply with various federal audit requirements depending on their legal structure, industry, and activities. The primary legislation governing audit requirements includes Federal Law No. 32 of 2021 on Commercial Companies.\n\nAll companies must maintain proper accounting records and have their financial statements audited by licensed auditors approved by the Ministry of Economy. The audit requirements vary based on company size, legal structure, and industry sector.',
+          'Key federal requirements include annual financial statement audits, maintenance of proper accounting records, compliance with International Financial Reporting Standards (IFRS), and timely filing of audited financial statements with relevant authorities. Failure to comply can result in significant penalties and business restrictions.',
         ],
       },
       {
         title: 'Industry-Specific Requirements',
         content: [
-          'Different industries face unique audit requirements in the UAE. Real estate companies must comply with RERA regulations, while financial services firms follow DFSA or Central Bank guidelines.',
-          'Understanding your industry-specific requirements is crucial for maintaining compliance and avoiding penalties.',
+          'Different industries face unique audit requirements in the UAE. Real estate companies must comply with RERA regulations, including escrow account audits and service charge verification. Financial services firms follow DFSA or Central Bank guidelines, which include additional compliance and risk management requirements.',
+          'Understanding your industry-specific requirements is crucial for maintaining compliance and avoiding penalties. Each sector has specialized audit procedures, reporting formats, and compliance deadlines that must be carefully followed.',
         ],
       },
       {
         title: 'Compliance Standards',
         content: [
-          'UAE businesses must follow International Financial Reporting Standards (IFRS) for financial reporting. The implementation of these standards requires careful attention to detail and regular updates.',
-          'This section covers the key IFRS requirements and their practical implementation in the UAE context.',
+          'UAE businesses must follow International Financial Reporting Standards (IFRS) for financial reporting. The implementation of these standards requires careful attention to detail and regular updates to ensure compliance with the latest accounting requirements.',
+          'This section covers the key IFRS requirements and their practical implementation in the UAE context, including revenue recognition, lease accounting, financial instrument classification, and disclosure requirements specific to UAE business environment.',
         ],
       },
     ],
     conclusion: [
       'Staying compliant with UAE audit requirements requires ongoing attention and expert guidance. This guide provides the foundation for understanding your obligations, but professional advice is essential for complex situations.',
       'Regular updates to regulations mean businesses must stay informed about changes that may affect their compliance requirements. Working with experienced audit professionals ensures you remain compliant while focusing on your core business activities.',
+    ],
+    relatedGuides: [
+      'federal-law-32-2021-explained',
+    ],
+    relatedServices: [
+      {
+        title: 'External Audit Services',
+        slug: 'external-audit',
+        description: 'Professional audit services compliant with UAE regulations',
+      },
+      {
+        title: 'VAT Audit Services',
+        slug: 'vat-audit',
+        description: 'FTA compliance and VAT return verification',
+      },
     ],
   },
 
@@ -1618,6 +1633,21 @@ export const GUIDES: Record<string, Guide> = {
     conclusion: [
       'Federal Law No. 32 of 2021 represents a significant step forward in UAE business regulation modernization. While the changes may seem complex, proper understanding and implementation can provide competitive advantages and improved operational efficiency.',
       'Professional guidance is recommended for businesses navigating these changes, especially for complex structures or unique situations that may require specialized interpretation.',
+    ],
+    relatedGuides: [
+      'complete-audit-requirements-uae-2025',
+    ],
+    relatedServices: [
+      {
+        title: 'External Audit Services',
+        slug: 'external-audit',
+        description: 'Professional audit services compliant with UAE regulations',
+      },
+      {
+        title: 'VAT Audit Services',
+        slug: 'vat-audit',
+        description: 'FTA compliance and VAT return verification',
+      },
     ],
   },
 }

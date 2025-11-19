@@ -14,7 +14,6 @@ import {
   BookOpen,
   ExternalLink,
   Info,
-  List,
 } from 'lucide-react'
 import { BLOG_POSTS, BlogPost } from '@/lib/content/blog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -24,17 +23,18 @@ import { Separator } from '@/components/ui/separator'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Components } from 'react-markdown'
+import { DesktopTableOfContents, MobileTableOfContents } from '@/components/blog/TableOfContents'
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>
 }
 
-// Generate static params for all blog posts
-export async function generateStaticParams() {
-  return Object.keys(BLOG_POSTS).map((slug) => ({
-    slug,
-  }))
-}
+// Temporarily disable static generation to avoid SSR issues
+// export async function generateStaticParams() {
+//   return Object.keys(BLOG_POSTS).map((slug) => ({
+//     slug,
+//   }))
+// }
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -183,12 +183,12 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
 
               {/* Title */}
-              <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight text-gray-900 md:text-6xl md:leading-tight">
+              <h1 className="mb-8 font-serif text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl md:leading-tight">
                 {post.title}
               </h1>
 
               {/* Excerpt */}
-              <p className="mb-8 text-xl leading-relaxed text-gray-600 max-w-3xl mx-auto">{post.excerpt}</p>
+              <p className="mb-12 text-xl leading-relaxed text-gray-600 max-w-3xl mx-auto text-center">{post.excerpt}</p>
 
               {/* Meta Information */}
               <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
@@ -222,44 +222,27 @@ export default async function BlogPostPage({ params }: Props) {
               {/* Main Content */}
               <div className="min-w-0">
                 {/* Mobile Table of Contents */}
-                <div className="lg:hidden mb-8">
-                   {headings.length > 0 && (
-                    <Card className="bg-gray-50 border-gray-200">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg flex items-center gap-2">
-                          <List className="h-5 w-5" />
-                          Table of Contents
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <nav className="space-y-2">
-                          {headings.map((heading, idx) => (
-                            <a
-                              key={idx}
-                              href={`#${heading.id}`}
-                              className={`block text-sm text-gray-600 hover:text-blue-600 ${
-                                heading.level === 3 ? 'pl-4' : ''
-                              }`}
-                            >
-                              {heading.text}
-                            </a>
-                          ))}
-                        </nav>
-                      </CardContent>
-                    </Card>
-                  )}
+                <div className="lg:hidden mb-12">
+                   <MobileTableOfContents headings={headings} />
                 </div>
 
-                <div className="prose prose-lg prose-blue max-w-none 
+                <div className="prose prose-lg prose-blue max-w-none
                   prose-headings:scroll-mt-24 
                   prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 
+                  prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-0
                   prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-3xl 
                   prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-2xl 
-                  prose-p:text-gray-700 prose-p:leading-8 prose-p:mb-6
-                  prose-ul:my-6 prose-li:my-2 prose-li:leading-7
+                  prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-xl
+                  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+                  prose-ul:my-6 prose-li:my-3 prose-li:leading-relaxed
+                  prose-ol:my-6 prose-ol:ml-6
                   prose-strong:text-gray-900 prose-strong:font-semibold
-                  prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:rounded-r-lg
-                  prose-img:rounded-xl prose-img:shadow-md">
+                  prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:rounded-r-lg prose-blockquote:my-8
+                  prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
+                  prose-hr:my-8 prose-hr:border-gray-200
+                  prose-table:my-8 prose-th:bg-gray-50 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900
+                  prose-td:px-4 prose-td:py-3 prose-td:border prose-td:border-gray-200
+                  prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
                   <ReactMarkdown 
                     remarkPlugins={[remarkGfm]}
                     components={markdownComponents}
@@ -311,26 +294,7 @@ export default async function BlogPostPage({ params }: Props) {
                 <div className="lg:sticky lg:top-24 space-y-8">
                   
                   {/* Desktop Table of Contents (Hidden on Mobile) */}
-                  {headings.length > 0 && (
-                    <div className="hidden lg:block rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                      <h3 className="mb-4 text-lg font-bold text-gray-900">Table of Contents</h3>
-                      <nav className="space-y-2 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-                        {headings.map((heading, idx) => (
-                          <a
-                            key={idx}
-                            href={`#${heading.id}`}
-                            className={`block text-sm transition-colors hover:text-blue-600 ${
-                              heading.level === 3 
-                                ? 'pl-4 text-gray-500 border-l-2 border-gray-100' 
-                                : 'text-gray-600 font-medium'
-                            }`}
-                          >
-                            {heading.text}
-                          </a>
-                        ))}
-                      </nav>
-                    </div>
-                  )}
+                  <DesktopTableOfContents headings={headings} />
 
                   {/* Verified & Reviewed Box */}
                   {post.reviewer && (

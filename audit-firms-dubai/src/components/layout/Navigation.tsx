@@ -149,12 +149,16 @@ function NavItem({
       'guides': dict.navigation.guides,
       'tools': dict.navigation.tools,
       'blog': dict.navigation.blog,
+      'free-zones': dict.navigation.freeZones,
+      'glossary': dict.navigation.glossary,
     };
 
     // Handle special cases
     if (href === '/services') return dict.navigation.services;
     if (href === '/industries') return dict.navigation.industries;
     if (href === '/locations') return dict.navigation.locations;
+    if (href === '/free-zones') return dict.navigation.freeZones;
+    if (href === '/glossary') return dict.navigation.glossary;
     if (href === '/resources') return dict.navigation.resources;
     if (href === '/about') return dict.navigation.about;
     if (href === '/contact') return dict.navigation.contact;
@@ -261,12 +265,16 @@ function MobileNav({
       'guides': dict.navigation.guides,
       'tools': dict.navigation.tools,
       'blog': dict.navigation.blog,
+      'free-zones': dict.navigation.freeZones,
+      'glossary': dict.navigation.glossary,
     };
 
     // Handle special cases
     if (href === '/services') return dict.navigation.services;
     if (href === '/industries') return dict.navigation.industries;
     if (href === '/locations') return dict.navigation.locations;
+    if (href === '/free-zones') return dict.navigation.freeZones;
+    if (href === '/glossary') return dict.navigation.glossary;
     if (href === '/resources') return dict.navigation.resources;
     if (href === '/about') return dict.navigation.about;
     if (href === '/contact') return dict.navigation.contact;

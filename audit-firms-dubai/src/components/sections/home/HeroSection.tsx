@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, Phone, Calculator, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BRAND_STATS, CTA_CONFIG } from '@/lib/constants/brand';
 import type { Locale } from '@/lib/i18n/config';
 
@@ -21,6 +21,17 @@ interface HeroSectionProps {
 export function HeroSection({ dict, locale }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 pt-20 pb-16 lg:pt-28 lg:pb-24">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero/home-hero.jpg"
+          alt="Dubai Skyline"
+          fill
+          className="object-cover object-center opacity-5 mix-blend-darken grayscale-[20%]"
+          priority
+        />
+      </div>
+
       {/* Mobile Floating CTA */}
       <div className="md:hidden fixed bottom-4 right-4 z-50">
         <a
@@ -59,7 +70,7 @@ export function HeroSection({ dict, locale }: HeroSectionProps) {
         className="absolute top-1/2 -left-24 h-64 w-64 rounded-full bg-secondary-100/40 blur-3xl"
       />
       
-      <div className="container relative mx-auto px-4">
+      <div className="container relative mx-auto px-4 z-10">
         <div className="mx-auto max-w-5xl text-center">
           {/* Ministry Approved Badge */}
           <motion.div

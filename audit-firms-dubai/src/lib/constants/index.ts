@@ -57,6 +57,14 @@ export const MAIN_NAVIGATION: NavigationItems = [
     href: '/locations',
   },
   {
+    label: 'Free Zones',
+    href: '/free-zones',
+  },
+  {
+    label: 'Glossary',
+    href: '/glossary',
+  },
+  {
     label: 'Resources',
     href: '/resources',
     children: [

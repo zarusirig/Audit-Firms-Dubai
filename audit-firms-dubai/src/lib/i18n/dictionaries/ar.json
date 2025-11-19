@@ -37,7 +37,9 @@
     "guides": "الأدلة",
     "tools": "الأدوات",
     "blog": "المدونة",
-    "locations": "المواقع"
+    "locations": "المواقع",
+    "freeZones": "المناطق الحرة",
+    "glossary": "المسرد"
   },
   "services": {
     "externalAudit": "التدقيق الخارجي",

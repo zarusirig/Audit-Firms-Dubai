@@ -6,6 +6,7 @@
 
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Phone, Mail, MapPin, ArrowRight, Award, Users, Globe, Shield, CheckCircle2 } from 'lucide-react'
@@ -74,13 +75,25 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 px-4 py-20 text-white md:py-24">
+      <section className="relative overflow-hidden bg-primary-900 px-4 py-20 text-white md:py-24">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero/about-hero.jpg"
+            alt="About Farahat & Co Team"
+            fill
+            className="object-cover object-center opacity-20"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-primary-800/90 to-primary-900/95" />
+        </div>
+        
         {/* Background Pattern & Blobs */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-700/50 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-900/50 rounded-full blur-3xl" />
 
-        <div className="container relative mx-auto max-w-6xl">
+        <div className="container relative mx-auto max-w-6xl z-10">
           <div className="text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
               <Award className="h-4 w-4 text-secondary-400" />

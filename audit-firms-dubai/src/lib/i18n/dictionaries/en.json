@@ -37,7 +37,9 @@
     "guides": "Guides",
     "tools": "Tools",
     "blog": "Blog",
-    "locations": "Locations"
+    "locations": "Locations",
+    "freeZones": "Free Zones",
+    "glossary": "Glossary"
   },
   "services": {
     "externalAudit": "External Audit",
@@ -58,7 +60,7 @@
     "ecommerce": "E-commerce"
   },
   "hero": {
-    "badge": "Ministry of Economy Approved Auditors Since 1985",
+    "badge": "Ministry of Economy Approved Auditors Since 1985 in Dubai",
     "title": "Get Your Audit Done Right",
     "titleHighlight": "Before Deadlines Hit",
     "subtitle": "Ministry-approved auditors with guaranteed 7-day delivery. Avoid penalties with our expert team.",

@@ -29,6 +29,11 @@ const servicePages = [
   'rera-audit',
   'vat-audit',
   'special-purpose-audits',
+  // Related Layer Services (New)
+  'tax-consultation',
+  'business-valuation',
+  'cfo-services',
+  'ifrs-implementation',
 ].map((slug) => ({
   path: `services/${slug}`,
   priority: 0.9,
@@ -69,7 +74,18 @@ const locationPages = [
 const guidePages = [
   { path: 'guides/uae-audit-requirements', priority: 0.85, changeFreq: 'monthly' as const },
   { path: 'guides/ifrs-implementation', priority: 0.85, changeFreq: 'monthly' as const },
-];
+]
+
+// Compliance hub pages - high SEO value
+const compliancePages = [
+  'ifrs-standards',
+  'uae-federal-laws',
+  'ministry-requirements',
+].map((slug) => ({
+  path: `compliance/${slug}`,
+  priority: 0.9,
+  changeFreq: 'monthly' as const,
+}));
 
 // Combine all pages
 const allPages = [
@@ -78,6 +94,7 @@ const allPages = [
   ...industryPages,
   ...locationPages,
   ...guidePages,
+  ...compliancePages,
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

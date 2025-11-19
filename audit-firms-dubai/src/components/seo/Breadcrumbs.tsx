@@ -20,7 +20,7 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, locale = 'en' }: BreadcrumbsProps) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsindubai.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsdubai.ae';
   
   // Add home to the beginning
   const fullItems: BreadcrumbItem[] = [

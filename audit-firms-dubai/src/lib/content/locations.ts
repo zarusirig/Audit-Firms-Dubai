@@ -56,6 +56,180 @@ export interface LocationPageContent {
 }
 
 export const LOCATIONS: Record<string, LocationPageContent> = {
+  'dubai': {
+    slug: 'dubai',
+    title: 'Dubai Head Office - Deira',
+    metaTitle: 'Audit Firm in Dubai - Head Office Deira | Farahat & Co',
+    metaDescription: 'Head Office of Farahat & Co in Dubai. Located at Rigga Road, Deira. Comprehensive audit, tax, and advisory services. Call +971 4 250 0251',
+    keywords: [
+      'audit firm dubai head office',
+      'auditors in deira',
+      'rigga road auditors',
+      'farahat co head office',
+      'dubai audit firm main office',
+      'tax consultants deira',
+    ],
+
+    heroHeadline: 'Dubai Head Office',
+    heroSubheadline: 'Rigga Road, Deira',
+    heroDescription: 'Our main headquarters located in the heart of Deira at Rigga Road. Serving businesses across Dubai with certified audit, tax, and advisory services since 1985.',
+
+    location: {
+      name: 'Farahat & Co - Dubai Head Office',
+      address: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road Dubai, P.O. Box 4647, U.A.E',
+      phone: '+971 4 250 0251',
+      email: 'sales@farahatco.com',
+      hours: 'Monday - Friday: 9:00 AM - 7:00 PM',
+      coordinates: { lat: 25.2643, lng: 55.3153 },
+      mapUrl: 'https://maps.google.com/?q=25.2643,55.3153',
+    },
+
+    aboutTitle: 'About Our Dubai Head Office',
+    aboutContent: [
+      'Our Head Office on Rigga Road in Deira serves as the central hub for Farahat & Co operations. From this strategic location, we oversee our network of branches and provide high-level advisory and audit services to key clients.',
+      'Located in one of Dubai\'s most established commercial districts, our Deira office is easily accessible and houses our senior partners and core audit teams.',
+      'We offer a full range of services including external audit, internal audit, VAT consultancy, and liquidation services, supported by a multilingual team of experts.',
+    ],
+
+    whyThisLocation: [
+      {
+        title: 'Central Hub',
+        description: 'The heart of our operations, housing senior leadership and specialized departments.',
+      },
+      {
+        title: 'Long-Standing Presence',
+        description: 'Established in Deira since 1985, deeply rooted in Dubai\'s business history.',
+      },
+      {
+        title: 'Comprehensive Services',
+        description: 'Access to our full range of audit, tax, and advisory specialists under one roof.',
+      },
+      {
+        title: 'Easy Access',
+        description: 'Centrally located on Rigga Road with excellent public transport and metro connectivity.',
+      },
+    ],
+
+    nearbyLandmarks: [
+      'Al Rigga Metro Station - 5 min walk',
+      'Al Ghurair Centre - 10 min walk',
+      'City Centre Deira - 5 min drive',
+      'Dubai Creek - 10 min drive',
+      'Dubai International Airport - 15 min drive',
+    ],
+
+    directions: {
+      byMetro: 'Take the Red Line to Al Rigga Metro Station. Our office is a short walk from the station, located in the IBIS Hotel Building.',
+      byCar: 'From Sheikh Zayed Road, take the Garhoud Bridge towards Deira. Follow signs for Al Rigga Road. The IBIS Hotel Building is prominent on the main road.',
+      parking: 'Public parking is available along Al Rigga Road. Paid parking zones are active. Some buildings may offer visitor parking.',
+    },
+
+    servicesOffered: [
+      'External Audit & Assurance',
+      'Internal Audit',
+      'VAT & Tax Consultancy',
+      'Liquidation Services',
+      'Business Setup & Registration',
+      'Feasibility Studies',
+      'Accounting & Bookkeeping',
+      'Forensic Accounting',
+    ],
+
+    clientFocus: [
+      'Trading & Contracting Companies',
+      'Retail & Wholesale Businesses',
+      'Manufacturing Units',
+      'Service Providers',
+      'Family Businesses',
+      'International Branches',
+    ],
+  },
+
+  'sharjah': {
+    slug: 'sharjah',
+    title: 'Sharjah Office',
+    metaTitle: 'Audit Firm in Sharjah - Certified Auditors | Farahat & Co',
+    metaDescription: 'Leading audit firm in Sharjah. Located at Clock Tower. providing audit, tax, and accounting services to Sharjah businesses. Call +971 6 5637720',
+    keywords: [
+      'audit firm sharjah',
+      'auditors in sharjah',
+      'accounting firm sharjah',
+      'sharjah tax consultants',
+      'clock tower sharjah auditors',
+      'external audit sharjah',
+    ],
+
+    heroHeadline: 'Audit Firm in Sharjah',
+    heroSubheadline: 'Serving Sharjah & Northern Emirates',
+    heroDescription: 'Professional audit and accounting services for businesses in Sharjah. Conveniently located near the iconic Clock Tower, we serve companies across industrial, trading, and service sectors.',
+
+    location: {
+      name: 'Farahat & Co - Sharjah Office',
+      address: 'Clock Tower, Sharjah, P.O. Box 3035, U.A.E',
+      phone: '+971 6 5637720',
+      email: 'sales@farahatco.com',
+      hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM',
+      coordinates: { lat: 25.3571, lng: 55.3910 },
+      mapUrl: 'https://maps.google.com/?q=25.3571,55.3910',
+    },
+
+    aboutTitle: 'About Our Sharjah Office',
+    aboutContent: [
+      'Our Sharjah office is strategically positioned to serve the growing business community in Sharjah and the Northern Emirates. Located near the Clock Tower, we provide accessible professional services.',
+      'Sharjah represents a vital industrial and cultural hub in the UAE. Our team understands the specific local regulations and business environment, offering tailored support to industrial zones, free zones (like SAIF Zone, Hamriyah), and mainland companies.',
+      'We bring the same high standards of quality and compliance to our Sharjah clients, ensuring their financial statements meet all regulatory requirements.',
+    ],
+
+    whyThisLocation: [
+      {
+        title: 'Local Expertise',
+        description: 'Deep understanding of Sharjah Economic Development Department (SEDD) regulations.',
+      },
+      {
+        title: 'Industrial Focus',
+        description: 'Specialized experience with Sharjah\'s robust industrial and manufacturing sectors.',
+      },
+      {
+        title: 'Free Zone Knowledge',
+        description: 'Expertise in SAIF Zone and Hamriyah Free Zone audits and compliance.',
+      },
+      {
+        title: 'Northern Emirates Reach',
+        description: 'Serving clients in Ajman, Umm Al Quwain, Ras Al Khaimah, and Fujairah from this hub.',
+      },
+    ],
+
+    nearbyLandmarks: [
+      'Sharjah Clock Tower - Adjacent',
+      'Sharjah Rolla Square - 5 min drive',
+      'Sharjah Corniche - 10 min drive',
+      'King Faisal Mosque - 10 min drive',
+    ],
+
+    directions: {
+      byMetro: 'Sharjah does not have a metro system. Public buses and taxis are available. The Clock Tower is a well-known landmark.',
+      byCar: 'The office is located at the Clock Tower roundabout area. Accessible from Al Wahda Street or Corniche Road.',
+      parking: 'Public parking is available in the area. Mawaqif paid parking zones apply.',
+    },
+
+    servicesOffered: [
+      'Statutory Audit (SEDD)',
+      'Free Zone Audit (SAIF/Hamriyah)',
+      'VAT Compliance & Tax Agent Services',
+      'Industrial Accounting',
+      'Inventory Audit',
+      'Cost Audit',
+    ],
+
+    clientFocus: [
+      'Industrial & Manufacturing',
+      'Import/Export & Trading',
+      'Construction & Contracting',
+      'Logistics & Warehousing',
+      'Real Estate',
+    ],
+  },
+
   'difc': {
     slug: 'difc',
     title: 'DIFC Office - Dubai International Financial Centre',
@@ -617,12 +791,12 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
 
     location: {
       name: 'Farahat & Co - Abu Dhabi Office',
-      address: 'Al Manara Tower, Floor 15, Corniche Road West, Abu Dhabi, UAE',
-      phone: '+971 2 555 1234',
-      email: 'abudhabi@farahatco.com',
+      address: 'No 16, 3rd Floor, Baynunah 2 Tower, Corniche Street, Next to British Embassy, Al-Hosn Area – Abu Dhabi, P.O. Box 107020, U.A.E.',
+      phone: '+971 4 250 0251',
+      email: 'sales@farahatco.com',
       hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM',
-      coordinates: { lat: 24.4762, lng: 54.3220 },
-      mapUrl: 'https://maps.google.com/?q=24.4762,54.3220',
+      coordinates: { lat: 24.4739, lng: 54.3457 },
+      mapUrl: 'https://maps.google.com/?q=24.4739,54.3457',
     },
 
     aboutTitle: 'About Our Abu Dhabi Office',

@@ -332,9 +332,9 @@ export const contactInfo = {
   },
   
   email: {
-    main: "info@auditfirmsindubai.com",
-    support: "support@auditfirmsindubai.com",
-    urgent: "urgent@auditfirmsindubai.com"
+    main: "info@auditfirmsdubai.ae",
+    support: "support@auditfirmsdubai.ae",
+    urgent: "urgent@auditfirmsdubai.ae"
   },
   
   offices: {
@@ -535,8 +535,8 @@ export const BrandHeader = () => (
       <span style="color: #666; font-size: 13px;">
         📞 +971 42 500 251<br>
         📱 +971 52 6922 588<br>
-        ✉️ info@auditfirmsindubai.com<br>
-        🌐 www.auditfirmsindubai.com
+        ✉️ info@auditfirmsdubai.ae<br>
+        🌐 www.auditfirmsdubai.ae
       </span><br><br>
       
       <span style="color: #C9A961; font-size: 12px;">

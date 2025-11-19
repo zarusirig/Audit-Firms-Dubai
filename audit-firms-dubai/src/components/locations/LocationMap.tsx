@@ -26,7 +26,7 @@ export function LocationMap({ mapUrl, coordinates, landmarks }: LocationMapProps
 
               <div className="bg-gray-200 rounded-lg overflow-hidden shadow-lg aspect-square">
                 <iframe
-                  src={`https://maps.google.com/maps?q=${coordinates.lat},${coordinates.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1599400072037!2d55.32106289999999!3d25.265204600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5ccebf52f08f%3A0x9abd5d8d2b10a61!2sFarahat%20%26%20Co.%20-%20Auditing%20Firm%20and%20TAX%20Consultants!5e0!3m2!1sen!2snp!4v1763555876751!5m2!1sen!2snp"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

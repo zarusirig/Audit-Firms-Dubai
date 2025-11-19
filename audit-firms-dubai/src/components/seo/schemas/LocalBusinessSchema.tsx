@@ -5,6 +5,8 @@
  * Optimized for local SEO in Dubai, UAE
  */
 
+import { SITE_CONFIG, COMPANY_STATS } from '@/lib/constants';
+
 interface LocalBusinessSchemaProps {
   location?: {
     name: string;
@@ -16,8 +18,8 @@ interface LocalBusinessSchemaProps {
 
 export function LocalBusinessSchema({ location }: LocalBusinessSchemaProps = {}) {
   const defaultLocation = {
-    name: 'Audit Firms Dubai - Business Bay Office',
-    address: 'Business Bay, Dubai, UAE',
+    name: `${SITE_CONFIG.name} - Business Bay Office`,
+    address: SITE_CONFIG.address,
     latitude: 25.1872,
     longitude: 55.2631,
   };
@@ -27,12 +29,12 @@ export function LocalBusinessSchema({ location }: LocalBusinessSchemaProps = {})
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    '@id': 'https://auditfirmsindubai.com/#localbusiness',
+    '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: loc.name,
-    image: 'https://auditfirmsindubai.com/office.jpg',
-    url: 'https://auditfirmsindubai.com',
-    telephone: '+971-42-500-251',
-    email: 'info@auditfirmsindubai.com',
+    image: `${SITE_CONFIG.url}/office.jpg`,
+    url: SITE_CONFIG.url,
+    telephone: SITE_CONFIG.phone,
+    email: SITE_CONFIG.email,
     priceRange: 'AED 15,000 - AED 100,000',
     address: {
       '@type': 'PostalAddress',
@@ -60,7 +62,7 @@ export function LocalBusinessSchema({ location }: LocalBusinessSchemaProps = {})
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '1247',
+      reviewCount: COMPANY_STATS.clientsServed.toString(),
     },
     hasMap: 'https://goo.gl/maps/example',
   };

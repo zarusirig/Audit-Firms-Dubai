@@ -1,4 +1,4 @@
-# Elite Audit Dubai - Next.js Website
+# Audit Firms Dubai - Next.js Website
 
 A premium, SEO-optimized website for Dubai's leading audit firm, built with Next.js 16+ and modern web technologies.
 

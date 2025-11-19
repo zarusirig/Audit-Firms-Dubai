@@ -1,12 +1,29 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Calendar, Clock, User, Tag, ArrowLeft, Share2 } from 'lucide-react'
+import {
+  Calendar,
+  Clock,
+  User,
+  Tag,
+  ArrowLeft,
+  Share2,
+  ArrowRight,
+  CheckCircle,
+  Shield,
+  BookOpen,
+  ExternalLink,
+  Info,
+  List,
+} from 'lucide-react'
 import { BLOG_POSTS, BlogPost } from '@/lib/content/blog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { Components } from 'react-markdown'
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>
@@ -69,6 +86,34 @@ export default async function BlogPostPage({ params }: Props) {
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   }
 
+  const slugify = (text: string) => {
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+  }
+
+  // Extract headings for Table of Contents
+  const headings = post.content.match(/^#{2,3}\s+.+$/gm)?.map((match) => {
+    const level = match.startsWith('###') ? 3 : 2
+    const text = match.replace(/^#{2,3}\s+/, '')
+    const id = slugify(text)
+    return { level, text, id }
+  }) || []
+
+  const markdownComponents: Components = {
+    h2: ({ children, ...props }) => {
+      const text = children?.toString() || ''
+      const id = slugify(text)
+      return <h2 id={id} {...props}>{children}</h2>
+    },
+    h3: ({ children, ...props }) => {
+      const text = children?.toString() || ''
+      const id = slugify(text)
+      return <h3 id={id} {...props}>{children}</h3>
+    },
+  }
+
   return (
     <>
       {/* Article Schema */}
@@ -85,13 +130,20 @@ export default async function BlogPostPage({ params }: Props) {
               name: post.author.name,
               jobTitle: post.author.title,
             },
+            reviewer: post.reviewer
+              ? {
+                  '@type': 'Person',
+                  name: post.reviewer.name,
+                  jobTitle: post.reviewer.title,
+                }
+              : undefined,
             datePublished: post.publishDate,
             dateModified: post.lastUpdated,
             keywords: post.keywords.join(', '),
             articleSection: post.category,
             publisher: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
               logo: {
                 '@type': 'ImageObject',
                 url: 'https://eliteauditdubai.com/logo.png',
@@ -115,118 +167,280 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Article Header */}
-        <header className="border-b bg-gradient-to-b from-gray-50 to-white py-12">
+        <header className="border-b bg-gradient-to-b from-gray-50 to-white py-16">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-4xl text-center">
               {/* Category & Featured Badge */}
-              <div className="mb-4 flex items-center gap-2">
-                <Badge variant="default" className="capitalize">
+              <div className="mb-6 flex items-center justify-center gap-2">
+                <Badge variant="secondary" className="capitalize px-3 py-1 text-sm">
                   {post.category}
                 </Badge>
                 {post.featured && (
-                  <Badge variant="default" className="bg-amber-500">
-                    Featured Article
+                  <Badge variant="default" className="bg-amber-500 px-3 py-1 text-sm hover:bg-amber-600">
+                    Featured
                   </Badge>
                 )}
               </div>
 
               {/* Title */}
-              <h1 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
+              <h1 className="mb-6 font-serif text-4xl font-bold tracking-tight text-gray-900 md:text-6xl md:leading-tight">
                 {post.title}
               </h1>
 
               {/* Excerpt */}
-              <p className="mb-6 text-xl text-gray-600">{post.excerpt}</p>
+              <p className="mb-8 text-xl leading-relaxed text-gray-600 max-w-3xl mx-auto">{post.excerpt}</p>
 
               {/* Meta Information */}
-              <div className="flex flex-wrap items-center gap-6 text-gray-600">
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <User className="h-5 w-5" />
-                  <div>
+                  <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold">
+                    {post.author.name.charAt(0)}
+                  </div>
+                  <div className="text-left">
                     <div className="font-medium text-gray-900">{post.author.name}</div>
-                    <div className="text-sm">{post.author.title}</div>
+                    <div>{post.author.title}</div>
                   </div>
                 </div>
-                <Separator orientation="vertical" className="h-12" />
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-5 w-5" />
+                <Separator orientation="vertical" className="hidden h-10 md:block" />
+                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
+                  <Calendar className="h-4 w-4 text-gray-400" />
                   <span>{formatDate(post.publishDate)}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5" />
+                <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
+                  <Clock className="h-4 w-4 text-gray-400" />
                   <span>{post.readTime} min read</span>
                 </div>
-              </div>
-
-              {/* Tags */}
-              <div className="mt-6 flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="outline" className="gap-1">
-                    <Tag className="h-3 w-3" />
-                    {tag}
-                  </Badge>
-                ))}
               </div>
             </div>
           </div>
         </header>
 
         {/* Article Content */}
-        <div className="py-12">
+        <div className="py-16">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <div className="prose prose-lg prose-blue max-w-none">
-                {/* Render markdown content as HTML - using dangerouslySetInnerHTML for now */}
-                {/* In production, you'd use a markdown parser like react-markdown or remark */}
-                <div
-                  className="markdown-content"
-                  style={{ whiteSpace: 'pre-wrap' }}
-                  dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }}
-                />
-              </div>
+            <div className="grid gap-12 lg:grid-cols-[1fr_360px] max-w-7xl mx-auto">
+              {/* Main Content */}
+              <div className="min-w-0">
+                {/* Mobile Table of Contents */}
+                <div className="lg:hidden mb-8">
+                   {headings.length > 0 && (
+                    <Card className="bg-gray-50 border-gray-200">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg flex items-center gap-2">
+                          <List className="h-5 w-5" />
+                          Table of Contents
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <nav className="space-y-2">
+                          {headings.map((heading, idx) => (
+                            <a
+                              key={idx}
+                              href={`#${heading.id}`}
+                              className={`block text-sm text-gray-600 hover:text-blue-600 ${
+                                heading.level === 3 ? 'pl-4' : ''
+                              }`}
+                            >
+                              {heading.text}
+                            </a>
+                          ))}
+                        </nav>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
 
-              {/* Share Buttons */}
-              <div className="mt-12 border-t pt-8">
-                <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium text-gray-600">Share this article:</div>
-                  <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Share2 className="h-4 w-4" />
-                      LinkedIn
-                    </Button>
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Share2 className="h-4 w-4" />
-                      Twitter
-                    </Button>
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Share2 className="h-4 w-4" />
-                      Facebook
-                    </Button>
+                <div className="prose prose-lg prose-blue max-w-none 
+                  prose-headings:scroll-mt-24 
+                  prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 
+                  prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-3xl 
+                  prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-2xl 
+                  prose-p:text-gray-700 prose-p:leading-8 prose-p:mb-6
+                  prose-ul:my-6 prose-li:my-2 prose-li:leading-7
+                  prose-strong:text-gray-900 prose-strong:font-semibold
+                  prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:rounded-r-lg
+                  prose-img:rounded-xl prose-img:shadow-md">
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={markdownComponents}
+                  >
+                    {post.content}
+                  </ReactMarkdown>
+                </div>
+
+                {/* Legal Disclaimer (Bottom of Content) */}
+                <div className="mt-12 rounded-lg bg-gray-50 p-6 text-sm text-gray-600 border border-gray-100">
+                  <div className="flex gap-3">
+                    <Info className="h-5 w-5 shrink-0 text-blue-600" />
+                    <div>
+                      <h4 className="mb-1 font-semibold text-gray-900">Legal Disclaimer</h4>
+                      <p>
+                        This content is for informational purposes only and reflects regulations as of{' '}
+                        {new Date().getFullYear()}. For specific legal advice or disputes, please consult with
+                        an auditor or legal consultant.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Related Services */}
-              {post.relatedServices.length > 0 && (
+                {/* Share Buttons */}
                 <div className="mt-12 border-t pt-8">
-                  <h3 className="mb-6 text-2xl font-bold text-gray-900">Related Services</h3>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {post.relatedServices.map((service) => (
-                      <Card key={service.slug} className="transition-shadow hover:shadow-md">
-                        <CardHeader>
-                          <CardTitle className="text-lg">{service.title}</CardTitle>
-                          <CardDescription>{service.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <Button asChild variant="outline" size="sm">
-                            <Link href={`/services/${service.slug}`}>Learn More →</Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    ))}
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-medium text-gray-600">Share this article:</div>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="sm" className="gap-2">
+                        <Share2 className="h-4 w-4" />
+                        LinkedIn
+                      </Button>
+                      <Button variant="outline" size="sm" className="gap-2">
+                        <Share2 className="h-4 w-4" />
+                        Twitter
+                      </Button>
+                      <Button variant="outline" size="sm" className="gap-2">
+                        <Share2 className="h-4 w-4" />
+                        Facebook
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              )}
+              </div>
+
+              {/* Sidebar */}
+              <aside className="space-y-8">
+                {/* Sticky Wrapper */}
+                <div className="lg:sticky lg:top-24 space-y-8">
+                  
+                  {/* Desktop Table of Contents (Hidden on Mobile) */}
+                  {headings.length > 0 && (
+                    <div className="hidden lg:block rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                      <h3 className="mb-4 text-lg font-bold text-gray-900">Table of Contents</h3>
+                      <nav className="space-y-2 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                        {headings.map((heading, idx) => (
+                          <a
+                            key={idx}
+                            href={`#${heading.id}`}
+                            className={`block text-sm transition-colors hover:text-blue-600 ${
+                              heading.level === 3 
+                                ? 'pl-4 text-gray-500 border-l-2 border-gray-100' 
+                                : 'text-gray-600 font-medium'
+                            }`}
+                          >
+                            {heading.text}
+                          </a>
+                        ))}
+                      </nav>
+                    </div>
+                  )}
+
+                  {/* Verified & Reviewed Box */}
+                  {post.reviewer && (
+                    <Card className="border-blue-100 bg-blue-50/50 shadow-sm">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-center gap-2 text-blue-700">
+                          <Shield className="h-5 w-5" />
+                          <span className="font-semibold">Reviewed & Verified</span>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-start gap-3">
+                          <div className="h-10 w-10 rounded-full bg-blue-200 flex items-center justify-center text-blue-700 font-bold">
+                            {post.reviewer.name.charAt(0)}
+                          </div>
+                          <div>
+                            <div className="font-semibold text-gray-900">{post.reviewer.name}</div>
+                            <div className="text-xs text-gray-600 mb-2">{post.reviewer.title}</div>
+                            <div className="flex items-center gap-1 text-xs text-green-700 font-medium">
+                              <CheckCircle className="h-3 w-3" />
+                              Verified Content
+                            </div>
+                            <div className="text-xs text-gray-500 mt-1">
+                              Updated: {formatDate(post.reviewer.lastReviewed)}
+                            </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Official Sources */}
+                  {post.sources && post.sources.length > 0 && (
+                    <Card className="shadow-sm">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-center gap-2 text-gray-900">
+                          <BookOpen className="h-5 w-5" />
+                          <span className="font-semibold">Official Sources</span>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {post.sources.map((source, idx) => (
+                            <li key={idx} className="text-sm">
+                              <a 
+                                href={source.url || '#'} 
+                                className="group flex items-start gap-2 text-gray-600 hover:text-blue-600"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <ExternalLink className="h-4 w-4 shrink-0 mt-0.5 opacity-50 group-hover:opacity-100" />
+                                <span>{source.title}</span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Related Services Card */}
+                  {post.relatedServices.length > 0 && (
+                    <Card className="border-primary-100 shadow-md">
+                      <CardHeader className="bg-primary-50/50 pb-3">
+                        <CardTitle className="text-lg text-primary-900">
+                          Related Services
+                        </CardTitle>
+                        <CardDescription>
+                          Expert assistance for your business
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="pt-4">
+                        <div className="space-y-4">
+                          {post.relatedServices.map((service) => (
+                            <div key={service.slug} className="space-y-2">
+                              <h4 className="font-medium text-gray-900">{service.title}</h4>
+                              <p className="text-xs text-gray-500 line-clamp-2">
+                                {service.description}
+                              </p>
+                              <Button asChild variant="link" className="h-auto p-0 text-primary-600">
+                                <Link href={`/services/${service.slug}`}>
+                                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                                </Link>
+                              </Button>
+                              <Separator className="mt-2" />
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Newsletter / Contact CTA */}
+                  <Card className="bg-neutral-900 text-white">
+                    <CardHeader>
+                      <CardTitle className="text-lg text-white">
+                        Need Expert Advice?
+                      </CardTitle>
+                      <CardDescription className="text-neutral-300">
+                        Our auditors are ready to help you navigate UAE regulations.
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Button className="w-full bg-white text-neutral-900 hover:bg-neutral-100" asChild>
+                        <Link href="/contact">Get a Free Quote</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
+              </aside>
             </div>
           </div>
         </div>
@@ -236,7 +450,13 @@ export default async function BlogPostPage({ params }: Props) {
           <section className="border-t bg-gray-50 py-12">
             <div className="container mx-auto px-4">
               <div className="mx-auto max-w-6xl">
-                <h3 className="mb-8 text-2xl font-bold text-gray-900">Related Articles</h3>
+                <div className="flex items-center justify-between mb-8">
+                   <h3 className="text-2xl font-bold text-gray-900">Related Articles</h3>
+                   <Link href="/resources/blog" className="text-blue-600 hover:underline flex items-center gap-1">
+                     View All Guides <ArrowRight className="h-4 w-4" />
+                   </Link>
+                </div>
+                
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {relatedPosts.map((relatedPost) => (
                     <RelatedPostCard key={relatedPost.id} post={relatedPost} />

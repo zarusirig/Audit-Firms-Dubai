@@ -1,6 +1,6 @@
 /**
  * Privacy Policy Page
- * Comprehensive privacy policy for Elite Audit Dubai (Farahat & Co subsidiary)
+ * Comprehensive privacy policy for Audit Firms Dubai (Farahat & Co subsidiary)
  * GDPR compliant and UAE law compliant
  */
 
@@ -11,12 +11,12 @@ import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Elite Audit Dubai | Farahat & Co',
+  title: 'Privacy Policy | Audit Firms Dubai | Farahat & Co',
   description:
-    'Privacy Policy for Elite Audit Dubai. Learn how we collect, use, protect, and manage your personal information in accordance with UAE data protection laws and GDPR standards.',
+    'Privacy Policy for Audit Firms Dubai. Learn how we collect, use, protect, and manage your personal information in accordance with UAE data protection laws and GDPR standards.',
   robots: 'index, follow',
   openGraph: {
-    title: 'Privacy Policy | Elite Audit Dubai',
+    title: 'Privacy Policy | Audit Firms Dubai',
     description: 'Our commitment to protecting your personal data and privacy.',
     type: 'website',
   },
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
               Privacy Policy
             </h1>
             <p className="mb-4 text-xl text-neutral-700">
-              Elite Audit Dubai - A Division of Farahat Office & Co.
+              Audit Firms Dubai - A Division of Farahat Office & Co.
             </p>
             <p className="text-lg text-neutral-600">
               Your privacy is important to us. This policy explains how we collect, use, protect,
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
             <div className="not-prose mb-12 rounded-lg border border-primary-200 bg-primary-50 p-6">
               <h2 className="mb-3 text-2xl font-bold text-primary-900">Our Commitment</h2>
               <p className="text-neutral-700">
-                <strong>Elite Audit Dubai</strong>, operating as a division of{' '}
+                <strong>Audit Firms Dubai</strong>, operating as a division of{' '}
                 <strong>Farahat Office & Co.</strong> (established 1985), is committed to
                 protecting your privacy and ensuring the security of your personal information. We
                 adhere to the highest standards of data protection in accordance with UAE Federal
@@ -565,7 +565,7 @@ export default function PrivacyPolicyPage() {
               <div className="not-prose my-6 space-y-4">
                 <div className="rounded-lg border border-primary-200 bg-primary-50 p-6">
                   <h3 className="mb-4 text-xl font-bold text-primary-900">
-                    Farahat Office & Co. (Elite Audit Dubai)
+                    Farahat Office & Co. (Audit Firms Dubai)
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">

@@ -13,21 +13,21 @@ npm install next-seo
 import { DefaultSeoProps } from 'next-seo'
 
 const config: DefaultSeoProps = {
-  titleTemplate: '%s | Elite Audit Dubai',
-  defaultTitle: 'Elite Audit Dubai - Leading Audit Firm in UAE',
+  titleTemplate: '%s | Audit Firms Dubai',
+  defaultTitle: 'Audit Firms Dubai - Leading Audit Firm in UAE',
   description: 'Premier audit firm in Dubai offering external audit, internal audit, and advisory services. Ministry of Economy approved.',
   canonical: 'https://dubaieliteaudit.com',
   openGraph: {
     type: 'website',
     locale: 'en_AE',
     url: 'https://dubaieliteaudit.com',
-    siteName: 'Elite Audit Dubai',
+    siteName: 'Audit Firms Dubai',
     images: [
       {
         url: 'https://dubaieliteaudit.com/og-default.jpg',
         width: 1200,
         height: 630,
-        alt: 'Elite Audit Dubai - Trusted Auditors',
+        alt: 'Audit Firms Dubai - Trusted Auditors',
       },
     ],
   },

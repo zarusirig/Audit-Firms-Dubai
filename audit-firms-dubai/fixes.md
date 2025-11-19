@@ -1,7 +1,7 @@
 # 🔧 Project Fixes & Development Guidelines
 
 ## 📋 Overview
-This document outlines critical fixes applied to the Elite Audit Dubai Next.js project and establishes development standards that all team members must follow.
+This document outlines critical fixes applied to the Audit Firms Dubai Next.js project and establishes development standards that all team members must follow.
 
 ## ✅ **Completed Fixes**
 

@@ -2,7 +2,7 @@
 
 ## At a Glance
 
-- **Project**: Elite Audit Dubai (rank-and-rent SEO site)
+- **Project**: Audit Firms Dubai (rank-and-rent SEO site)
 - **Framework**: Next.js 16.0.3 with TypeScript
 - **Status**: Foundation Phase Complete (v0.1.0)
 - **Pages**: 22 main pages (7 core + 6 services + 6 locations + 5 industries)
@@ -112,7 +112,7 @@ Footer
 
 ## Company Profile
 
-- **Name**: Elite Audit Dubai
+- **Name**: Audit Firms Dubai
 - **Parent**: Farahat & Co (Est. 1985)
 - **Experience**: 37 years
 - **Clients**: 28,058+

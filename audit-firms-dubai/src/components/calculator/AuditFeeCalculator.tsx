@@ -168,13 +168,13 @@ export function AuditFeeCalculator({ initialData }: AuditFeeCalculatorProps) {
             transition={{ duration: 0.3 }}
           >
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                <Calculator className="h-8 w-8 text-primary" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-50 mb-4 shadow-sm">
+                <Calculator className="h-8 w-8 text-primary-600" />
               </div>
-              <h2 className="text-3xl font-bold mb-2">Calculate Your Audit Fee</h2>
-              <p className="text-muted-foreground max-w-2xl w-full mx-auto text-center px-4 whitespace-normal">
-                Get an instant estimate of your audit costs in just 3 simple steps. Our calculator
-                considers all relevant factors to provide you with an accurate price range.
+              <h2 className="text-3xl font-bold mb-3 text-gray-900">Calculate Your Audit Fee</h2>
+              <p className="text-gray-600 max-w-2xl w-full mx-auto text-center px-4 whitespace-normal text-lg">
+                Get an instant estimate of your audit costs in just 3 simple steps. Our AI-powered calculator
+                analyzes your business parameters to provide an accurate price range.
               </p>
             </div>
 
@@ -183,6 +183,23 @@ export function AuditFeeCalculator({ initialData }: AuditFeeCalculatorProps) {
               initialData={initialData}
               isLoading={isCalculating}
             />
+            
+            {/* Loading Overlay */}
+            {isCalculating && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute inset-0 bg-white/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center rounded-xl"
+              >
+                <div className="relative w-20 h-20 mb-4">
+                  <div className="absolute inset-0 border-4 border-primary-100 rounded-full"></div>
+                  <div className="absolute inset-0 border-4 border-primary-600 rounded-full border-t-transparent animate-spin"></div>
+                  <Calculator className="absolute inset-0 m-auto h-8 w-8 text-primary-600 animate-pulse" />
+                </div>
+                <h3 className="text-xl font-bold text-primary-900">Crunching the numbers...</h3>
+                <p className="text-gray-500">Analyzing your requirements</p>
+              </motion.div>
+            )}
           </motion.div>
         ) : (
           <motion.div

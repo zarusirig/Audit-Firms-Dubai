@@ -33,9 +33,9 @@ export function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-4 font-serif text-3xl font-bold md:text-4xl lg:text-5xl"
+            className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl leading-tight"
           >
-            Ready to Get Your Audit Done Right?
+            Don't Wait for <span className="text-secondary-400">Audit Deadlines</span> to Hit
           </motion.h2>
 
           <motion.p
@@ -45,9 +45,9 @@ export function CTASection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-8 text-lg text-primary-100 md:text-xl"
           >
-            Join 28,000+ businesses that trust Farahat & Co for their audit needs.
+            Join 28,000+ businesses that avoid penalties with our expert audit services.
             <br />
-            Get started with a free consultation today.
+            <strong className="text-secondary-300">Free consultation • 7-day delivery • Fixed pricing • Zero surprises</strong>
           </motion.p>
 
           <motion.div
@@ -72,6 +72,24 @@ export function CTASection() {
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-secondary-400" />
               <span>98% Satisfaction</span>
+            </div>
+          </motion.div>
+
+          {/* Urgency Timer */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mb-8 inline-block"
+          >
+            <div className="relative bg-red-600 text-white px-8 py-4 rounded-full text-center shadow-lg overflow-hidden">
+              <div className="absolute inset-0 bg-white/20 animate-[pulse_2s_infinite]"></div>
+              <div className="relative">
+                <div className="text-sm font-bold mb-1 uppercase tracking-widest text-red-100">⏰ Limited Time Offer</div>
+                <div className="text-xl md:text-2xl font-bold mb-1">Free Consultation + Audit Readiness Assessment</div>
+                <div className="text-xs font-medium opacity-90">Book within 24 hours for priority scheduling</div>
+              </div>
             </div>
           </motion.div>
 

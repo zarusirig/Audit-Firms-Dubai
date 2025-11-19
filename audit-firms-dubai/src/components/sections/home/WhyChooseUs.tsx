@@ -74,17 +74,21 @@ function USPCard({ item, index }: USPCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="group rounded-lg border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-primary-300 hover:shadow-md"
+      className="group relative overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-primary-200 hover:shadow-lg hover:-translate-y-1"
     >
-      <div className="mb-4 inline-flex rounded-full bg-primary-100 p-3 transition-colors duration-300 group-hover:bg-primary-200">
-        <Icon className="h-6 w-6 text-primary-700" />
+      <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-primary-50 opacity-0 transition-all duration-500 group-hover:scale-150 group-hover:opacity-100" />
+      
+      <div className="relative">
+        <div className="mb-4 inline-flex rounded-xl bg-primary-50 p-3 transition-all duration-300 group-hover:bg-primary-600 group-hover:scale-110 group-hover:rotate-3">
+          <Icon className="h-6 w-6 text-primary-600 transition-colors duration-300 group-hover:text-white" />
+        </div>
+        <h3 className="mb-2 font-serif text-lg font-bold text-neutral-900 transition-colors group-hover:text-primary-700">
+          {item.title}
+        </h3>
+        <p className="text-sm text-neutral-600 leading-relaxed">
+          {item.description}
+        </p>
       </div>
-      <h3 className="mb-2 font-semibold text-primary-900">
-        {item.title}
-      </h3>
-      <p className="text-sm text-neutral-600">
-        {item.description}
-      </p>
     </motion.div>
   );
 }

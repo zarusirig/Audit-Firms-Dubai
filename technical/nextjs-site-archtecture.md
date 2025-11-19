@@ -102,8 +102,8 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://dubaieliteaudit.com'),
   title: {
-    default: 'Elite Audit Dubai - Leading Audit Firm in UAE',
-    template: '%s | Elite Audit Dubai'
+    default: 'Audit Firms Dubai - Leading Audit Firm in UAE',
+    template: '%s | Audit Firms Dubai'
   },
   description: 'Premier audit firm in Dubai offering external audit, internal audit, and advisory services. Ministry of Economy approved. IFRS experts.',
   keywords: ['audit firm dubai', 'audit services uae', 'external audit', 'internal audit'],
@@ -111,12 +111,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AE',
     alternateLocale: 'ar_AE',
-    siteName: 'Elite Audit Dubai',
+    siteName: 'Audit Firms Dubai',
     images: [{
       url: '/og-image.jpg',
       width: 1200,
       height: 630,
-      alt: 'Elite Audit Dubai'
+      alt: 'Audit Firms Dubai'
     }]
   },
   twitter: {
@@ -288,7 +288,7 @@ export async function POST(request: NextRequest) {
     // Send thank you email to lead
     await sendEmail({
       to: validatedData.email,
-      subject: 'Thank you for contacting Elite Audit Dubai',
+      subject: 'Thank you for contacting Audit Firms Dubai',
       template: 'thank-you',
       data: { name: validatedData.name },
     })

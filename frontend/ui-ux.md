@@ -1,4 +1,4 @@
-# UI/UX Strategy for Lead Generation - Elite Audit Dubai
+# UI/UX Strategy for Lead Generation - Audit Firms Dubai
 
 ## Lead Generation Philosophy
 

@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Phone, Mail, MapPin, ArrowRight, Award, Users, Globe, Shield } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowRight, Award, Users, Globe, Shield, CheckCircle2 } from 'lucide-react'
 import {
   CompanyTimeline,
   TeamGrid,
@@ -74,39 +74,43 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 px-4 py-20 text-white">
-        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] opacity-10" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 px-4 py-20 text-white md:py-24">
+        {/* Background Pattern & Blobs */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-700/50 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-900/50 rounded-full blur-3xl" />
+
         <div className="container relative mx-auto max-w-6xl">
           <div className="text-center">
-            <Badge variant="secondary" className="mb-4 bg-white/20 text-white">
-              <Award className="mr-1 h-3 w-3" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+              <Award className="h-4 w-4 text-secondary-400" />
               Established 1985 - 37+ Years of Excellence
-            </Badge>
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-              About Farahat & Co
+            </div>
+            <h1 className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl leading-tight">
+              About <span className="text-secondary-400">Farahat & Co</span>
             </h1>
-            <p className="mx-auto mb-8 max-w-3xl text-lg text-white/90 md:text-xl">
+            <p className="mx-auto mb-8 max-w-3xl text-lg text-primary-100 md:text-xl leading-relaxed">
               A legacy of trust and professional excellence in audit and assurance services.
               Ministry-approved auditors serving the UAE business community since 1985.
             </p>
 
             {/* Quick Stats */}
             <div className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-4">
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-3xl font-bold">37+</div>
-                <div className="text-sm text-white/80">Years Experience</div>
+              <div className="group rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+                <div className="mb-2 text-3xl font-bold text-white group-hover:text-secondary-400 transition-colors">37+</div>
+                <div className="text-sm font-medium text-primary-200">Years Experience</div>
               </div>
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-3xl font-bold">28K+</div>
-                <div className="text-sm text-white/80">Clients Served</div>
+              <div className="group rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+                <div className="mb-2 text-3xl font-bold text-white group-hover:text-secondary-400 transition-colors">28K+</div>
+                <div className="text-sm font-medium text-primary-200">Clients Served</div>
               </div>
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-3xl font-bold">140</div>
-                <div className="text-sm text-white/80">Countries</div>
+              <div className="group rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+                <div className="mb-2 text-3xl font-bold text-white group-hover:text-secondary-400 transition-colors">140</div>
+                <div className="text-sm font-medium text-primary-200">Countries</div>
               </div>
-              <div className="rounded-lg bg-white/10 p-4 backdrop-blur-sm">
-                <div className="mb-1 text-3xl font-bold">150+</div>
-                <div className="text-sm text-white/80">Professionals</div>
+              <div className="group rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:-translate-y-1">
+                <div className="mb-2 text-3xl font-bold text-white group-hover:text-secondary-400 transition-colors">150+</div>
+                <div className="text-sm font-medium text-primary-200">Professionals</div>
               </div>
             </div>
           </div>
@@ -140,31 +144,39 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white p-6">
-              <Shield className="mb-3 h-12 w-12 text-primary" />
-              <h3 className="mb-2 font-bold text-gray-900">Ministry Approved</h3>
-              <p className="text-sm text-gray-600">
+            <div className="group rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary-100">
+              <div className="mb-4 inline-flex rounded-lg bg-primary-50 p-3 group-hover:bg-primary-600 transition-colors duration-300">
+                <Shield className="h-6 w-6 text-primary-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="mb-2 font-bold text-gray-900 group-hover:text-primary-700 transition-colors">Ministry Approved</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Licensed by UAE Ministry of Economy since 1990
               </p>
             </div>
-            <div className="rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white p-6">
-              <Award className="mb-3 h-12 w-12 text-primary" />
-              <h3 className="mb-2 font-bold text-gray-900">112+ Awards</h3>
-              <p className="text-sm text-gray-600">
+            <div className="group rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary-100">
+              <div className="mb-4 inline-flex rounded-lg bg-primary-50 p-3 group-hover:bg-primary-600 transition-colors duration-300">
+                <Award className="h-6 w-6 text-primary-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="mb-2 font-bold text-gray-900 group-hover:text-primary-700 transition-colors">112+ Awards</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Recognition for professional excellence and innovation
               </p>
             </div>
-            <div className="rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white p-6">
-              <Users className="mb-3 h-12 w-12 text-primary" />
-              <h3 className="mb-2 font-bold text-gray-900">95% Certified</h3>
-              <p className="text-sm text-gray-600">
+            <div className="group rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary-100">
+              <div className="mb-4 inline-flex rounded-lg bg-primary-50 p-3 group-hover:bg-primary-600 transition-colors duration-300">
+                <Users className="h-6 w-6 text-primary-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="mb-2 font-bold text-gray-900 group-hover:text-primary-700 transition-colors">95% Certified</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Team holds CPA, CA, ACCA, CIA, and CFE certifications
               </p>
             </div>
-            <div className="rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white p-6">
-              <Globe className="mb-3 h-12 w-12 text-primary" />
-              <h3 className="mb-2 font-bold text-gray-900">International</h3>
-              <p className="text-sm text-gray-600">
+            <div className="group rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary-100">
+              <div className="mb-4 inline-flex rounded-lg bg-primary-50 p-3 group-hover:bg-primary-600 transition-colors duration-300">
+                <Globe className="h-6 w-6 text-primary-600 group-hover:text-white transition-colors" />
+              </div>
+              <h3 className="mb-2 font-bold text-gray-900 group-hover:text-primary-700 transition-colors">International</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Serving clients across 140 countries worldwide
               </p>
             </div>
@@ -391,10 +403,10 @@ export default function AboutPage() {
               <Mail className="mb-2 h-6 w-6" />
               <p className="text-sm text-white/80">Email Us</p>
               <a
-                href="mailto:info@auditfirmsindubai.com"
+                href="mailto:info@auditfirmsdubai.ae"
                 className="font-semibold hover:underline"
               >
-                info@auditfirmsindubai.com
+                info@auditfirmsdubai.ae
               </a>
             </div>
             <div className="flex flex-col items-center">

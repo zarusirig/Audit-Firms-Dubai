@@ -5,7 +5,7 @@ import { MetadataRoute } from 'next';
  * Controls search engine crawling behavior
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsindubai.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsdubai.ae';
 
 export default function robots(): MetadataRoute.Robots {
   return {

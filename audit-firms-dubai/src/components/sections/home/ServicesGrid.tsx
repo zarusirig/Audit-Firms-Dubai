@@ -93,34 +93,34 @@ function ServiceCard({ service, index }: ServiceCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Link href={service.href}>
-        <div className="group relative h-full overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl">
+        <div className="group relative h-full overflow-hidden rounded-xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary-500/50 hover:shadow-xl hover:shadow-primary-500/10">
           {/* Gradient Overlay on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-secondary-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-secondary-50/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           
           {/* Content */}
-          <div className="relative">
+          <div className="relative z-10">
             {/* Icon */}
-            <div className="mb-4 inline-flex rounded-lg bg-primary-100 p-3 transition-colors duration-300 group-hover:bg-primary-200">
-              <Icon className="h-6 w-6 text-primary-700" />
+            <div className="mb-4 inline-flex rounded-lg bg-primary-50 p-3 transition-all duration-300 group-hover:bg-primary-500 group-hover:text-white">
+              <Icon className="h-6 w-6 text-primary-600 transition-colors duration-300 group-hover:text-white" />
             </div>
 
             {/* Service Name */}
-            <h3 className="mb-2 font-serif text-xl font-bold text-primary-900">
+            <h3 className="mb-2 font-serif text-xl font-bold text-neutral-900 transition-colors duration-300 group-hover:text-primary-700">
               {service.name}
             </h3>
 
             {/* Description */}
-            <p className="mb-4 text-sm text-neutral-600 line-clamp-3">
+            <p className="mb-4 text-sm text-neutral-600 line-clamp-3 transition-colors duration-300 group-hover:text-neutral-700">
               {service.description}
             </p>
 
             {/* Features */}
-            <div className="mb-4 flex flex-wrap gap-2">
+            <div className="mb-6 flex flex-wrap gap-2">
               {service.features.map((feature) => (
                 <Badge 
                   key={feature} 
                   variant="secondary" 
-                  className="text-xs"
+                  className="bg-neutral-100 text-neutral-600 hover:bg-white hover:text-primary-700 transition-colors"
                 >
                   {feature}
                 </Badge>
@@ -128,9 +128,9 @@ function ServiceCard({ service, index }: ServiceCardProps) {
             </div>
 
             {/* Learn More Link */}
-            <div className="flex items-center text-sm font-semibold text-primary-700 transition-colors group-hover:text-primary-900">
+            <div className="mt-auto flex items-center text-sm font-bold text-primary-600 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary-700">
               Learn More
-              <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </div>
         </div>

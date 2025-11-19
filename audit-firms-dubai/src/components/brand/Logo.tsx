@@ -11,7 +11,7 @@ interface LogoProps {
 }
 
 /**
- * Elite Audit Dubai Logo Component
+ * Audit Firms Dubai Logo Component
  * Supports multiple variants and sizes
  * Can be linked or static
  */
@@ -79,7 +79,7 @@ export function Logo({
       <Link
         href={href}
         className="inline-block transition-opacity hover:opacity-80"
-        aria-label="Elite Audit Dubai - Home"
+        aria-label="Audit Firms Dubai - Home"
       >
         <LogoContent />
       </Link>

@@ -8,7 +8,7 @@
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  HEADER (Sticky)                                                           │
-│  ├── Logo (Elite Audit Dubai)                                              │
+│  ├── Logo (Audit Firms Dubai)                                              │
 │  ├── Main Menu (Desktop: Hover Dropdowns | Mobile: Drawer)                │
 │  │   ├── Services ▼                                                        │
 │  │   │   ├── External Audit                                                │
@@ -242,7 +242,7 @@
 │ COMPANY PROFILE & BRANDING                                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  Company Name        Elite Audit Dubai                                      │
+│  Company Name        Audit Firms Dubai                                      │
 │  Parent Company      Farahat & Co (Est. 1985)                              │
 │  Experience          37 years in audit services                            │
 │  Clients Served      28,058+                                               │

@@ -58,10 +58,24 @@
     "ecommerce": "E-commerce"
   },
   "hero": {
-    "title": "Dubai's Most Trusted Audit Partner",
-    "subtitle": "Professional audit services ensuring compliance and adding value. Get your statutory audit completed in just 7 days.",
-    "cta": "Get Free Consultation",
-    "secondaryCta": "View Our Services"
+    "badge": "Ministry of Economy Approved Auditors Since 1985",
+    "title": "Get Your Audit Done Right",
+    "titleHighlight": "Before Deadlines Hit",
+    "subtitle": "Ministry-approved auditors with guaranteed 7-day delivery. Avoid penalties with our expert team.",
+    "stats": "28,000+ clients | 140 countries | 98% satisfaction",
+    "cta": "Call Now - Free Consultation",
+    "secondaryCta": "Get Instant Quote",
+    "whatsappCta": "WhatsApp Chat",
+    "urgency": "⚠️ Audit deadlines approaching - Get started today!",
+    "supportLabel": "24/7 Support",
+    "guaranteedLabel": "Guaranteed",
+    "deliveryTime": "7-Day Delivery",
+    "businessHoursLabel": "Business Hours",
+    "businessHours": "Sun - Thu, 9 AM - 6 PM",
+    "experienceLabel": "Experience",
+    "clientsLabel": "Clients Served",
+    "countriesLabel": "Countries",
+    "successRateLabel": "Success Rate"
   },
   "trust": {
     "ministryApproved": "Ministry of Economy Approved",
@@ -138,5 +152,36 @@
     "tags": "Tags",
     "relatedArticles": "Related Articles",
     "tableOfContents": "Table of Contents"
+  },
+  "statistics": {
+    "title": "Trusted by Thousands of Businesses",
+    "subtitle": "Our track record speaks for itself - delivering excellence since 1985"
+  },
+  "servicesSection": {
+    "title": "Comprehensive Audit Services",
+    "subtitle": "Professional audit solutions tailored to your business needs",
+    "viewAll": "View All Services"
+  },
+  "whyUs": {
+    "title": "Why Choose Us",
+    "subtitle": "What sets us apart from other audit firms"
+  },
+  "clientsSection": {
+    "title": "Trusted by Leading Companies",
+    "subtitle": "Join thousands of satisfied clients across UAE"
+  },
+  "testimonialsSection": {
+    "title": "What Our Clients Say",
+    "subtitle": "Real feedback from real businesses"
+  },
+  "ctaSection": {
+    "title": "Ready to Get Started?",
+    "subtitle": "Get your audit completed in 7 days with guaranteed quality",
+    "button": "Schedule Free Consultation",
+    "secondaryButton": "Calculate Fees"
+  },
+  "faqSection": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common audit questions"
   }
 }

@@ -8,7 +8,7 @@ export default function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     "@id": "https://dubaieliteaudit.com/#organization",
-    "name": "Elite Audit Dubai",
+    "name": "Audit Firms Dubai",
     "alternateName": "Elite Audit Partners UAE",
     "description": "Leading audit firm in Dubai providing external audit, internal audit, and advisory services to businesses across UAE",
     "url": "https://dubaieliteaudit.com",
@@ -17,7 +17,7 @@ export default function OrganizationSchema() {
       "url": "https://dubaieliteaudit.com/logo.png",
       "width": 600,
       "height": 200,
-      "caption": "Elite Audit Dubai Logo"
+      "caption": "Audit Firms Dubai Logo"
     },
     "image": [
       "https://dubaieliteaudit.com/images/office-1.jpg",
@@ -139,7 +139,7 @@ export default function LocalBusinessSchema({ location }: LocalBusinessProps) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `https://dubaieliteaudit.com/locations/${location.name.toLowerCase()}`,
-    "name": `Elite Audit Dubai - ${location.name}`,
+    "name": `Audit Firms Dubai - ${location.name}`,
     "image": "https://dubaieliteaudit.com/images/office.jpg",
     "address": {
       "@type": "PostalAddress",
@@ -218,7 +218,7 @@ export default function ServiceSchema({ service }: ServiceSchemaProps) {
     "serviceType": service.name,
     "provider": {
       "@type": "AccountingService",
-      "name": "Elite Audit Dubai"
+      "name": "Audit Firms Dubai"
     },
     "areaServed": service.areaServed.map(area => ({
       "@type": "City",
@@ -325,7 +325,7 @@ export default function ArticleSchema({ article }: ArticleSchemaProps) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Elite Audit Dubai",
+      "name": "Audit Firms Dubai",
       "logo": {
         "@type": "ImageObject",
         "url": "https://dubaieliteaudit.com/logo.png"
@@ -391,7 +391,7 @@ export default function ProfessionalServiceSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Elite Audit Dubai Professional Services",
+    "name": "Audit Firms Dubai Professional Services",
     "description": "Professional audit and assurance services in Dubai",
     "url": "https://dubaieliteaudit.com",
     "serviceType": [
@@ -467,7 +467,7 @@ export default function ReviewSchema({ review }: ReviewSchemaProps) {
     "@type": "Review",
     "itemReviewed": {
       "@type": "AccountingService",
-      "name": "Elite Audit Dubai"
+      "name": "Audit Firms Dubai"
     },
     "author": {
       "@type": "Person",
@@ -528,7 +528,7 @@ export default function EventSchema({ event }: EventSchemaProps) {
     },
     "organizer": {
       "@type": "Organization",
-      "name": "Elite Audit Dubai",
+      "name": "Audit Firms Dubai",
       "url": "https://dubaieliteaudit.com"
     },
     "offers": {

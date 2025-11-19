@@ -76,7 +76,7 @@ export default async function MaterialityCalculatorPage({ params }: Props) {
             },
             provider: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
             },
           }),
         }}
@@ -234,4 +234,6 @@ export default async function MaterialityCalculatorPage({ params }: Props) {
     </>
   )
 }
+
+
 

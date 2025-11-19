@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { OFFICE_LOCATIONS } from '@/lib/constants'
 import {
   Phone,
   Mail,
@@ -20,6 +21,7 @@ import {
   Globe,
   Calendar,
   ArrowRight,
+  CheckCircle2,
 } from 'lucide-react'
 import { QuickContactForm } from '@/components/forms/QuickContactForm'
 
@@ -27,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Contact Farahat & Co | Get Expert Audit Consultation | Dubai, UAE',
     description:
-      'Contact Farahat & Co for professional audit services in Dubai, UAE. Call +971 4 250 0251 or email info@auditfirmsindubai.com. Free consultation available. Business Bay office.',
+      'Contact Farahat & Co for professional audit services in Dubai, UAE. Call +971 4 250 0251 or email info@auditfirmsdubai.ae. Free consultation available. Business Bay office.',
     keywords: [
       'contact audit firm dubai',
       'farahat co contact',
@@ -71,23 +73,27 @@ export default async function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary to-primary/80 px-4 py-20 text-white">
-        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] opacity-10" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 px-4 py-20 text-white md:py-24">
+        {/* Background Pattern & Blobs */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-700/50 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary-900/50 rounded-full blur-3xl" />
+
         <div className="container relative mx-auto max-w-6xl">
           <div className="text-center">
-            <Badge variant="secondary" className="mb-4 bg-white/20 text-white">
-              <MessageSquare className="mr-1 h-3 w-3" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+              <MessageSquare className="h-4 w-4 text-secondary-400" />
               We're Here to Help
-            </Badge>
-            <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
-              Get in Touch
+            </div>
+            <h1 className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl leading-tight">
+              Get in <span className="text-secondary-400">Touch</span>
             </h1>
-            <p className="mx-auto mb-8 max-w-3xl text-lg text-white/90 md:text-xl">
+            <p className="mx-auto mb-8 max-w-3xl text-lg text-primary-100 md:text-xl leading-relaxed">
               Have questions about our audit services? Need a quote? Our team of certified
               professionals is ready to assist you with expert guidance.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button size="lg" variant="secondary" asChild>
+              <Button size="lg" className="bg-secondary-500 text-primary-900 hover:bg-secondary-600 font-bold h-14 px-8" asChild>
                 <a href="tel:+97142500251">
                   <Phone className="mr-2 h-5 w-5" />
                   +971 4 250 0251
@@ -96,10 +102,10 @@ export default async function ContactPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white text-white hover:bg-white hover:text-primary-900 h-14 px-8"
                 asChild
               >
-                <a href="mailto:info@auditfirmsindubai.com">
+                <a href="mailto:sales@farahatco.com">
                   <Mail className="mr-2 h-5 w-5" />
                   Email Us
                 </a>
@@ -109,109 +115,81 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Information Cards */}
+      {/* Office Locations */}
       <section className="container mx-auto max-w-6xl px-4 py-16">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {/* Phone */}
-          <Card className="border-t-4 border-t-primary">
-            <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <Phone className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg">Call Us</CardTitle>
-              <CardDescription>Speak with our team</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <a
-                href="tel:+97142500251"
-                className="text-lg font-semibold text-primary hover:underline"
-              >
-                +971 4 250 0251
-              </a>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Sunday - Thursday
-                <br />
-                9:00 AM - 6:00 PM GST
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Email */}
-          <Card className="border-t-4 border-t-primary">
-            <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <Mail className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg">Email Us</CardTitle>
-              <CardDescription>Get a detailed response</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <a
-                href="mailto:info@auditfirmsindubai.com"
-                className="break-all text-lg font-semibold text-primary hover:underline"
-              >
-                info@auditfirmsindubai.com
-              </a>
-              <p className="mt-2 text-sm text-muted-foreground">
-                We respond within 24 hours
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Location */}
-          <Card className="border-t-4 border-t-primary">
-            <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <MapPin className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg">Visit Us</CardTitle>
-              <CardDescription>Our office location</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm font-semibold text-gray-900">
-                Business Bay
-                <br />
-                Dubai, UAE
-              </p>
-              <Button variant="link" className="mt-2 h-auto p-0" asChild>
-                <a
-                  href="https://maps.google.com/?q=Business+Bay+Dubai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Directions
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Office Hours */}
-          <Card className="border-t-4 border-t-primary">
-            <CardHeader>
-              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                <Clock className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle className="text-lg">Office Hours</CardTitle>
-              <CardDescription>When we're available</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between">
-                  <span className="font-medium">Sun - Thu:</span>
-                  <span className="text-muted-foreground">9AM - 6PM</span>
+        <div className="grid gap-6 md:grid-cols-3">
+          {OFFICE_LOCATIONS.map((office) => (
+            <Card key={office.id} className="group border-0 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary-50 group-hover:bg-primary-600 transition-colors duration-300">
+                  <MapPin className="h-7 w-7 text-primary-600 group-hover:text-white transition-colors" />
                 </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Friday:</span>
-                  <span className="text-muted-foreground">Closed</span>
+                <CardTitle className="text-xl font-bold text-gray-900">{office.name}</CardTitle>
+                <CardDescription className="text-gray-600">
+                  {office.id === 'dubai' ? 'Head Office' : 'Branch Office'}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-primary-600 mt-1 shrink-0" />
+                  <p className="text-sm text-gray-600 leading-relaxed">{office.address}</p>
                 </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Saturday:</span>
-                  <span className="text-muted-foreground">Closed</span>
+
+                <div className="flex items-center gap-3">
+                  <Phone className="h-5 w-5 text-primary-600 shrink-0" />
+                  <a
+                    href={`tel:${office.phone.replace(/\s/g, '')}`}
+                    className="text-sm font-semibold text-gray-900 hover:text-primary-600 transition-colors"
+                  >
+                    {office.phone}
+                  </a>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+
+                {office.whatsapp && (
+                  <div className="flex items-center gap-3">
+                    <MessageSquare className="h-5 w-5 text-green-600 shrink-0" />
+                    <a
+                      href={`https://wa.me/${office.whatsapp.replace(/\D/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-gray-900 hover:text-green-600 transition-colors"
+                    >
+                      WhatsApp: {office.whatsapp}
+                    </a>
+                  </div>
+                )}
+
+                <div className="flex items-center gap-3">
+                  <Mail className="h-5 w-5 text-primary-600 shrink-0" />
+                  <a
+                    href={`mailto:${office.email}`}
+                    className="text-sm font-semibold text-gray-900 hover:text-primary-600 transition-colors"
+                  >
+                    {office.email}
+                  </a>
+                </div>
+
+                {office.emailConsultation && (
+                   <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-secondary-600 shrink-0" />
+                    <a
+                      href={`mailto:${office.emailConsultation}`}
+                      className="text-sm font-semibold text-gray-900 hover:text-secondary-600 transition-colors"
+                    >
+                      Consultation: {office.emailConsultation}
+                    </a>
+                  </div>
+                )}
+
+                {office.hours && (
+                  <div className="flex items-start gap-3 border-t pt-4 mt-4">
+                    <Clock className="h-5 w-5 text-primary-600 mt-1 shrink-0" />
+                    <p className="text-sm text-gray-600">{office.hours}</p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -314,20 +292,20 @@ export default async function ContactPage() {
               </Card>
 
               {/* Emergency Contact */}
-              <Card className="border-l-4 border-l-orange-500 bg-orange-50">
+              <Card className="border-l-4 border-l-orange-500 bg-orange-50 shadow-sm">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-orange-900">
-                    <Phone className="h-5 w-5" />
+                  <CardTitle className="flex items-center gap-2 text-orange-900 text-xl">
+                    <Phone className="h-6 w-6 animate-pulse" />
                     Need Urgent Assistance?
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-3 text-sm text-orange-800">
+                  <p className="mb-4 text-base text-orange-800 font-medium">
                     For urgent audit matters or time-sensitive inquiries, call us directly:
                   </p>
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700" asChild>
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg h-12 shadow-md hover:shadow-lg transition-all" asChild>
                     <a href="tel:+97142500251">
-                      <Phone className="mr-2 h-4 w-4" />
+                      <Phone className="mr-2 h-5 w-5" />
                       Call Now: +971 4 250 0251
                     </a>
                   </Button>
@@ -341,22 +319,22 @@ export default async function ContactPage() {
       {/* Map Section */}
       <section className="container mx-auto max-w-6xl px-4 py-16">
         <div className="mb-8 text-center">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900">Our Location</h2>
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 font-serif">Our Head Office Location</h2>
           <p className="text-lg text-gray-600">
-            Visit our office in the heart of Dubai's business district
+            Visit us at our main office in Rigga Road, Dubai
           </p>
         </div>
-        <div className="overflow-hidden rounded-xl border border-gray-200 shadow-lg">
-          <div className="aspect-video w-full bg-gray-100">
+        <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-2xl bg-white p-2">
+          <div className="aspect-video w-full bg-gray-100 rounded-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14443.943941653708!2d55.25782!3d25.186111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682829c85bf%3A0x7c7d8e3c769e0e49!2sBusiness%20Bay%2C%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.685686632145!2d55.31532201501056!3d25.26432698386526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5ccd76075061%3A0x89b2b94870189189!2sIbis%20Hotel%20-%20Al%20Rigga!5e0!3m2!1sen!2sae!4v1631234567890!5m2!1sen!2sae"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Farahat & Co Office Location - Business Bay, Dubai"
+              title="Farahat & Co Head Office - Rigga Road, Dubai"
             />
           </div>
         </div>
@@ -464,7 +442,7 @@ export default async function ContactPage() {
               (Sunday to Thursday, 9:00 AM to 6:00 PM GST)
             </li>
             <li>
-              <strong>Email:</strong> Send detailed inquiries to info@auditfirmsindubai.com - we
+              <strong>Email:</strong> Send detailed inquiries to info@auditfirmsdubai.ae - we
               respond within 24 hours
             </li>
             <li>
@@ -503,18 +481,16 @@ export default async function ContactPage() {
             </li>
           </ul>
 
-          <h3>Our Business Bay Office Location</h3>
+          <h3>Our Dubai Head Office Location</h3>
           <p>
-            Our office is strategically located in Business Bay, Dubai's premier commercial
-            district. The location offers easy access via Sheikh Zayed Road and is well-served by
-            Dubai Metro (Business Bay station). Free parking is available for clients visiting our
-            office.
+            Our head office is strategically located in the IBIS Hotel Building on Rigga Road, Dubai.
+            This central location offers easy access for our clients.
           </p>
 
           <h3>Service Areas</h3>
           <p>
-            While our main office is in Business Bay, Dubai, we serve clients throughout the UAE
-            including Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. We
+            With offices in Dubai, Abu Dhabi, and Sharjah, we serve clients throughout the UAE
+            including Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. We
             also provide audit services to companies in Dubai's various free zones including DIFC,
             DMCC, JAFZA, and others.
           </p>
@@ -538,8 +514,8 @@ export default async function ContactPage() {
             mainEntity: {
               '@type': 'Organization',
               name: 'Farahat & Co',
-              url: 'https://auditfirmsindubai.com',
-              logo: 'https://auditfirmsindubai.com/logo.png',
+              url: 'https://auditfirmsdubai.ae',
+              logo: 'https://auditfirmsdubai.ae/logo.png',
               contactPoint: {
                 '@type': 'ContactPoint',
                 telephone: '+971-4-250-0251',
@@ -548,15 +524,15 @@ export default async function ContactPage() {
                 availableLanguage: ['English', 'Arabic'],
                 hoursAvailable: {
                   '@type': 'OpeningHoursSpecification',
-                  dayOfWeek: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
                   opens: '09:00',
-                  closes: '18:00',
+                  closes: '19:00',
                 },
               },
-              email: 'info@auditfirmsindubai.com',
+              email: 'sales@farahatco.com',
               address: {
                 '@type': 'PostalAddress',
-                streetAddress: 'Business Bay',
+                streetAddress: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road',
                 addressLocality: 'Dubai',
                 addressCountry: 'AE',
               },

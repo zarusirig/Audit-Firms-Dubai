@@ -173,6 +173,7 @@ export function QuickContactForm({
                       placeholder="John Smith"
                       {...field}
                       disabled={submissionStatus === 'submitting'}
+                      className="focus-visible:ring-primary-500 focus-visible:border-primary-500 transition-all duration-200"
                     />
                   </FormControl>
                   <FormMessage />
@@ -193,6 +194,7 @@ export function QuickContactForm({
                       placeholder="john@company.com"
                       {...field}
                       disabled={submissionStatus === 'submitting'}
+                      className="focus-visible:ring-primary-500 focus-visible:border-primary-500 transition-all duration-200"
                     />
                   </FormControl>
                   <FormMessage />
@@ -213,6 +215,7 @@ export function QuickContactForm({
                       placeholder="+971 50 123 4567"
                       {...field}
                       disabled={submissionStatus === 'submitting'}
+                      className="focus-visible:ring-primary-500 focus-visible:border-primary-500 transition-all duration-200"
                     />
                   </FormControl>
                   <FormMessage />
@@ -233,7 +236,7 @@ export function QuickContactForm({
                     disabled={submissionStatus === 'submitting'}
                   >
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className="focus-visible:ring-primary-500 focus-visible:border-primary-500 transition-all duration-200">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                     </FormControl>
@@ -264,6 +267,7 @@ export function QuickContactForm({
                         rows={isInline ? 2 : 3}
                         {...field}
                         disabled={submissionStatus === 'submitting'}
+                        className="focus-visible:ring-primary-500 focus-visible:border-primary-500 transition-all duration-200 resize-none"
                       />
                     </FormControl>
                     <FormMessage />
@@ -275,7 +279,7 @@ export function QuickContactForm({
             {/* Submit Button */}
             <Button
               type="submit"
-              className="w-full"
+              className="w-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               disabled={submissionStatus === 'submitting'}
               size={isCompact ? 'default' : 'lg'}
             >

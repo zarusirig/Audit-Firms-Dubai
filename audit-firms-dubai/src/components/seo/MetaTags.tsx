@@ -20,7 +20,7 @@ interface MetaTagsProps {
   noindex?: boolean;
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsindubai.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsdubai.ae';
 const SITE_NAME = 'Audit Firms Dubai - Farahat & Co';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 

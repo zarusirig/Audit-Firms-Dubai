@@ -1,4 +1,4 @@
-// Core type definitions for the Elite Audit Dubai website
+// Core type definitions for the Audit Firms Dubai website
 
 /**
  * Service Types

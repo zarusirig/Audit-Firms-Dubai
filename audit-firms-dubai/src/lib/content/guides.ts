@@ -1465,4 +1465,159 @@ export const GUIDES: Record<string, Guide> = {
       },
     ],
   },
+
+  // Additional guides from content calendar
+  'complete-audit-requirements-uae-2025': {
+    id: 'complete-audit-requirements-uae-2025',
+    slug: 'complete-audit-requirements-uae-2025',
+    title: 'Complete Guide to Audit Requirements in UAE 2025',
+    description:
+      'Comprehensive guide covering all audit requirements in UAE for 2025. Federal laws, Ministry regulations, compliance standards, and implementation guidelines.',
+    metaTitle: 'Complete UAE Audit Requirements Guide 2025 | Federal Laws & Compliance',
+    metaDescription:
+      'Complete guide to UAE audit requirements 2025. Federal laws, Ministry regulations, compliance standards, and implementation guidelines. Expert resource.',
+    keywords: [
+      'uae audit requirements 2025',
+      'federal law audit requirements',
+      'uae audit compliance',
+      'ministry of economy audit',
+      'audit law uae 2025',
+    ],
+    category: 'compliance',
+    format: 'pdf',
+    fileSize: '2.8 MB',
+    fileUrl: '/guides/complete-audit-requirements-uae-2025.pdf',
+    pageCount: 45,
+    lastUpdated: '2025-01-15',
+    downloadCount: 1250,
+    access: 'free',
+    featured: true,
+    tags: ['audit requirements', 'uae', '2025', 'federal law', 'compliance'],
+    author: {
+      name: 'Farahat & Co Legal Team',
+      title: 'UAE Audit Law Specialists',
+    },
+    tableOfContents: [
+      { section: 'Federal Audit Requirements', subsections: ['Commercial Companies Law', 'Ministry of Economy Regulations', 'Free Zone Requirements'] },
+      { section: 'Industry-Specific Requirements', subsections: ['Real Estate', 'Trading', 'Manufacturing', 'Financial Services'] },
+      { section: 'Compliance Standards', subsections: ['IFRS Requirements', 'UAE GAAP', 'International Standards'] },
+      { section: 'Implementation Guidelines', subsections: ['Timeline', 'Documentation', 'Reporting'] },
+    ],
+    benefits: [
+      'Complete understanding of UAE audit requirements',
+      'Federal law compliance guidelines',
+      'Industry-specific requirements',
+      'Implementation timeline and checklist',
+      'Penalty avoidance strategies',
+      'Expert insights and best practices',
+    ],
+    introduction: [
+      'The UAE audit landscape continues to evolve with new regulations and requirements introduced regularly. This comprehensive guide provides businesses with everything they need to understand and comply with UAE audit requirements in 2025.',
+      'Covering federal laws, Ministry of Economy regulations, and industry-specific requirements, this guide serves as your complete reference for audit compliance in the UAE.',
+    ],
+    sections: [
+      {
+        title: 'Federal Audit Requirements',
+        content: [
+          'UAE businesses must comply with various federal audit requirements depending on their legal structure, industry, and activities. The primary legislation governing audit requirements includes Federal Law No. 32 of 2021 on Commercial Companies.',
+          'All companies must maintain proper accounting records and have their financial statements audited by licensed auditors approved by the Ministry of Economy.',
+        ],
+      },
+      {
+        title: 'Industry-Specific Requirements',
+        content: [
+          'Different industries face unique audit requirements in the UAE. Real estate companies must comply with RERA regulations, while financial services firms follow DFSA or Central Bank guidelines.',
+          'Understanding your industry-specific requirements is crucial for maintaining compliance and avoiding penalties.',
+        ],
+      },
+      {
+        title: 'Compliance Standards',
+        content: [
+          'UAE businesses must follow International Financial Reporting Standards (IFRS) for financial reporting. The implementation of these standards requires careful attention to detail and regular updates.',
+          'This section covers the key IFRS requirements and their practical implementation in the UAE context.',
+        ],
+      },
+    ],
+    conclusion: [
+      'Staying compliant with UAE audit requirements requires ongoing attention and expert guidance. This guide provides the foundation for understanding your obligations, but professional advice is essential for complex situations.',
+      'Regular updates to regulations mean businesses must stay informed about changes that may affect their compliance requirements. Working with experienced audit professionals ensures you remain compliant while focusing on your core business activities.',
+    ],
+  },
+
+  'federal-law-32-2021-explained': {
+    id: 'federal-law-32-2021-explained',
+    slug: 'federal-law-32-2021-explained',
+    title: 'Federal Law No. 32 of 2021 Explained: Complete Business Guide',
+    description:
+      'Detailed explanation of Federal Law No. 32 of 2021 on Commercial Companies. Impact on businesses, audit requirements, and compliance obligations.',
+    metaTitle: 'Federal Law 32 of 2021 Explained | UAE Commercial Companies Guide',
+    metaDescription:
+      'Complete guide to Federal Law No. 32 of 2021 on Commercial Companies. Audit requirements, business impact, and compliance obligations explained.',
+    keywords: [
+      'federal law 32 of 2021',
+      'uae commercial companies law',
+      'law 32 2021 explained',
+      'uae company law',
+      'commercial companies law uae',
+    ],
+    category: 'compliance',
+    format: 'pdf',
+    fileSize: '1.9 MB',
+    fileUrl: '/guides/federal-law-32-2021-explained.pdf',
+    pageCount: 32,
+    lastUpdated: '2025-01-18',
+    downloadCount: 890,
+    access: 'free',
+    featured: true,
+    tags: ['federal law', 'law 32 2021', 'commercial companies', 'uae', 'compliance'],
+    author: {
+      name: 'Farahat & Co Legal Team',
+      title: 'UAE Corporate Law Experts',
+    },
+    tableOfContents: [
+      { section: 'Law Overview', subsections: ['Key Changes', 'Implementation Timeline', 'Business Impact'] },
+      { section: 'Audit Requirements', subsections: ['Mandatory Audits', 'Exemptions', 'Reporting Requirements'] },
+      { section: 'Compliance Obligations', subsections: ['Documentation', 'Deadlines', 'Penalties'] },
+      { section: 'Practical Implementation', subsections: ['Step-by-Step Guide', 'Best Practices', 'Common Mistakes'] },
+    ],
+    benefits: [
+      'Complete understanding of Federal Law No. 32 of 2021',
+      'Clear explanation of audit requirements',
+      'Compliance obligation guidelines',
+      'Practical implementation steps',
+      'Risk mitigation strategies',
+      'Expert legal insights',
+    ],
+    introduction: [
+      'Federal Law No. 32 of 2021 on Commercial Companies represents a significant update to UAE company law, introducing new requirements and modernizing business regulations. This guide provides a comprehensive explanation of the law and its practical implications for businesses.',
+      'Understanding these changes is essential for maintaining compliance and optimizing your business operations in the UAE.',
+    ],
+    sections: [
+      {
+        title: 'Law Overview',
+        content: [
+          'Federal Law No. 32 of 2021 introduces significant changes to the UAE commercial landscape, including updated audit requirements, enhanced corporate governance standards, and streamlined business processes.',
+          'The law aims to modernize business regulations and align UAE practices with international standards while maintaining the unique aspects of the local business environment.',
+        ],
+      },
+      {
+        title: 'Audit Requirements',
+        content: [
+          'The law establishes clear audit requirements for different types of companies, including mandatory audit thresholds, reporting standards, and compliance deadlines.',
+          'Understanding these requirements helps businesses plan their audit activities and ensure timely compliance with all obligations.',
+        ],
+      },
+      {
+        title: 'Compliance Obligations',
+        content: [
+          'Businesses must maintain proper documentation, meet reporting deadlines, and follow prescribed procedures to remain compliant with the new law.',
+          'Failure to comply can result in penalties, business restrictions, and other legal consequences that can significantly impact operations.',
+        ],
+      },
+    ],
+    conclusion: [
+      'Federal Law No. 32 of 2021 represents a significant step forward in UAE business regulation modernization. While the changes may seem complex, proper understanding and implementation can provide competitive advantages and improved operational efficiency.',
+      'Professional guidance is recommended for businesses navigating these changes, especially for complex structures or unique situations that may require specialized interpretation.',
+    ],
+  },
 }

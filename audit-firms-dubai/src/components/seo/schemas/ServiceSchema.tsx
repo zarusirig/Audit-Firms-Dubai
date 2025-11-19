@@ -5,6 +5,8 @@
  * Helps search engines understand service offerings
  */
 
+import { SITE_CONFIG } from '@/lib/constants';
+
 export interface ServiceSchemaProps {
   name: string;
   description: string;
@@ -20,7 +22,7 @@ export function ServiceSchema({
   description,
   serviceType,
   areaServed = 'Dubai, UAE',
-  provider = 'Farahat & Co',
+  provider = SITE_CONFIG.name,
   priceRange,
   url,
 }: ServiceSchemaProps) {
@@ -33,7 +35,7 @@ export function ServiceSchema({
     provider: {
       '@type': 'Organization',
       name: provider,
-      url: 'https://auditfirmsindubai.com',
+      url: SITE_CONFIG.url,
     },
     areaServed: {
       '@type': 'City',
@@ -43,10 +45,10 @@ export function ServiceSchema({
     ...(url && { url }),
     availableChannel: {
       '@type': 'ServiceChannel',
-      serviceUrl: url || 'https://auditfirmsindubai.com/contact',
+      serviceUrl: url || `${SITE_CONFIG.url}/contact`,
       servicePhone: {
         '@type': 'ContactPoint',
-        telephone: '+971-42-500-251',
+        telephone: SITE_CONFIG.phone,
         contactType: 'Customer Service',
         areaServed: 'AE',
         availableLanguage: ['English', 'Arabic'],

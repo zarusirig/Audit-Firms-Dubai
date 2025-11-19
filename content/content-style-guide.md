@@ -1,4 +1,4 @@
-# Content Style Guide - Elite Audit Dubai
+# Content Style Guide - Audit Firms Dubai
 
 ## Brand Voice & Tone
 
@@ -148,7 +148,7 @@ Primary Pattern: "[Service] in Dubai | [Benefit] | Elite Audit"
 Alternative: "[Service] Dubai - [USP] | Elite Audit UAE"
 
 #### Location Pages
-Primary: "Audit Firm in [Location] | Elite Audit Dubai"
+Primary: "Audit Firm in [Location] | Audit Firms Dubai"
 Alternative: "[Location] Auditors | Audit Services | Elite Audit"
 
 #### Guide Pages

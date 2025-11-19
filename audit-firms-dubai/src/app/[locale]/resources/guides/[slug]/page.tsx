@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ArrowLeft,
   Share2,
+  ArrowRight,
 } from 'lucide-react'
 import { GUIDES, Guide } from '@/lib/content/guides'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -110,7 +111,7 @@ export default async function GuidePage({ params }: Props) {
             articleSection: guide.category,
             publisher: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
               logo: {
                 '@type': 'ImageObject',
                 url: 'https://eliteauditdubai.com/logo.png',
@@ -154,7 +155,7 @@ export default async function GuidePage({ params }: Props) {
               </div>
 
               {/* Title */}
-              <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+              <h1 className="mb-4 font-serif text-4xl font-bold text-gray-900 md:text-5xl">
                 {guide.title}
               </h1>
 
@@ -231,168 +232,211 @@ export default async function GuidePage({ params }: Props) {
         </header>
 
         {/* Guide Content */}
-        <div className="py-12">
+        <div className="py-16">
           <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-4xl">
-              <div className="prose prose-lg prose-blue max-w-none">
-                {/* Table of Contents */}
-                <Card className="mb-8 border-blue-200 bg-blue-50/30">
-                  <CardHeader>
-                    <CardTitle className="text-xl">What's Inside This Guide</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ol className="space-y-2">
-                      {guide.tableOfContents.map((item, index) => (
-                        <li key={index} className="font-medium text-gray-900">
-                          {item.section}
-                          {item.subsections && item.subsections.length > 0 && (
-                            <ul className="mt-1 space-y-1 font-normal text-gray-600">
-                              {item.subsections.map((sub, subIndex) => (
-                                <li key={subIndex}>{sub}</li>
-                              ))}
-                            </ul>
-                          )}
-                        </li>
-                      ))}
-                    </ol>
-                  </CardContent>
-                </Card>
-
-                {/* Introduction */}
-                <div className="mb-8">
-                  {guide.introduction.map((para, index) => (
-                    <p key={index} className="mb-4">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Main Sections */}
-                <div className="space-y-8">
-                  {guide.sections.map((section, index) => (
-                    <section key={index} className="scroll-mt-8" id={`section-${index}`}>
-                      <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                        {section.title}
-                      </h2>
-                      <div className="space-y-3">
-                        {section.content.map((content, contentIndex) => (
-                          <p key={contentIndex} className="text-gray-700">
-                            {content}
-                          </p>
-                        ))}
-                      </div>
-                    </section>
-                  ))}
-                </div>
-
-                {/* Conclusion */}
-                <div className="mt-12 border-t pt-8">
-                  <h2 className="mb-4 text-2xl font-bold text-gray-900">Conclusion</h2>
-                  {guide.conclusion.map((para, index) => (
-                    <p key={index} className="mb-4">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Benefits Highlight */}
-              {guide.benefits && guide.benefits.length > 0 && (
-                <Card className="mt-8 border-green-200 bg-green-50/30">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-green-600" />
-                      Key Takeaways
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {guide.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-600" />
-                          <span className="text-gray-700">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )}
-
-              {/* Download CTA (Repeat) */}
-              <Card className="mt-8 border-2 border-blue-200 bg-blue-50">
-                <CardContent className="p-6">
-                  <div className="text-center">
-                    <h3 className="mb-2 text-2xl font-bold text-gray-900">
-                      Download the Complete Guide
-                    </h3>
-                    <p className="mb-6 text-gray-600">
-                      Get the full {guide.pageCount}-page PDF guide delivered to your inbox
-                    </p>
-                    {guide.access === 'gated' ? (
-                      <Button size="lg" className="gap-2" asChild>
-                        <Link href={`/${locale}/resources/guides/${guide.slug}/download`}>
-                          <Lock className="h-5 w-5" />
-                          Get Free Access
-                        </Link>
-                      </Button>
-                    ) : (
-                      <Button size="lg" className="gap-2" asChild>
-                        <Link href={guide.fileUrl} target="_blank">
-                          <Download className="h-5 w-5" />
-                          Download PDF
-                        </Link>
-                      </Button>
-                    )}
+            <div className="grid gap-12 lg:grid-cols-[1fr_360px] max-w-7xl mx-auto">
+              {/* Main Content */}
+              <div className="min-w-0">
+                <div className="prose prose-lg prose-blue max-w-none">
+                  {/* Table of Contents (Mobile Only) */}
+                  <div className="lg:hidden">
+                    <Card className="mb-8 border-gray-200 bg-gray-50">
+                      <CardHeader className="pb-3">
+                        <CardTitle className="text-lg">What's Inside</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <nav className="space-y-2">
+                          {guide.tableOfContents.map((item, index) => (
+                            <a
+                              key={index}
+                              href={`#section-${index}`}
+                              className="block py-1 text-sm font-medium text-gray-600 hover:text-blue-600"
+                            >
+                              {item.section}
+                            </a>
+                          ))}
+                        </nav>
+                      </CardContent>
+                    </Card>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* Share Buttons */}
-              <div className="mt-8 border-t pt-8">
-                <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium text-gray-600">
-                    Found this guide helpful? Share it:
+                  {/* Introduction */}
+                  <div className="mb-12">
+                    {guide.introduction.map((para, index) => (
+                      <p key={index} className="mb-6 text-xl leading-relaxed text-gray-600">
+                        {para}
+                      </p>
+                    ))}
                   </div>
-                  <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Share2 className="h-4 w-4" />
-                      LinkedIn
-                    </Button>
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Share2 className="h-4 w-4" />
-                      Twitter
-                    </Button>
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Share2 className="h-4 w-4" />
-                      Email
-                    </Button>
-                  </div>
-                </div>
-              </div>
 
-              {/* Related Services */}
-              {guide.relatedServices.length > 0 && (
-                <div className="mt-12 border-t pt-8">
-                  <h3 className="mb-6 text-2xl font-bold text-gray-900">Related Services</h3>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {guide.relatedServices.map((service) => (
-                      <Card key={service.slug} className="transition-shadow hover:shadow-md">
-                        <CardHeader>
-                          <CardTitle className="text-lg">{service.title}</CardTitle>
-                          <CardDescription>{service.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <Button asChild variant="outline" size="sm">
-                            <Link href={`/${locale}/services/${service.slug}`}>
-                              Learn More →
-                            </Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
+                  {/* Main Sections */}
+                  <div className="space-y-16">
+                    {guide.sections.map((section, index) => (
+                      <section key={index} className="scroll-mt-24" id={`section-${index}`}>
+                        <h2 className="mb-6 font-serif text-3xl font-bold tracking-tight text-gray-900">
+                          {section.title}
+                        </h2>
+                        <div className="space-y-6">
+                          {section.content.map((content, contentIndex) => (
+                            <p key={contentIndex} className="text-gray-700 leading-8 text-lg">
+                              {content}
+                            </p>
+                          ))}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+
+                  {/* Conclusion */}
+                  <div className="mt-16 border-t pt-12">
+                    <h2 className="mb-6 font-serif text-3xl font-bold tracking-tight text-gray-900">Conclusion</h2>
+                    {guide.conclusion.map((para, index) => (
+                      <p key={index} className="mb-6 text-gray-700 leading-8 text-lg">
+                        {para}
+                      </p>
                     ))}
                   </div>
                 </div>
-              )}
+
+                {/* Benefits Highlight */}
+                {guide.benefits && guide.benefits.length > 0 && (
+                  <Card className="mt-12 border-green-200 bg-green-50/50 shadow-sm">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-green-800">
+                        <CheckCircle2 className="h-6 w-6 text-green-600" />
+                        Key Takeaways
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="grid gap-4 sm:grid-cols-2">
+                        {guide.benefits.map((benefit, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-green-600" />
+                            <span className="text-gray-800 font-medium">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {/* Mobile CTA (Repeat) */}
+                <div className="lg:hidden mt-8">
+                  <Card className="border-2 border-blue-200 bg-blue-50">
+                    <CardContent className="p-6">
+                      <div className="text-center">
+                        <h3 className="mb-2 text-xl font-bold text-gray-900">
+                          Download Full Guide
+                        </h3>
+                        <p className="mb-6 text-sm text-gray-600">
+                          Get the {guide.pageCount}-page PDF
+                        </p>
+                        {guide.access === 'gated' ? (
+                          <Button size="lg" className="w-full gap-2" asChild>
+                            <Link href={`/${locale}/resources/guides/${guide.slug}/download`}>
+                              <Lock className="h-4 w-4" />
+                              Get Free Access
+                            </Link>
+                          </Button>
+                        ) : (
+                          <Button size="lg" className="w-full gap-2" asChild>
+                            <Link href={guide.fileUrl} target="_blank">
+                              <Download className="h-4 w-4" />
+                              Download PDF
+                            </Link>
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Share Buttons */}
+                <div className="mt-8 border-t pt-8">
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm font-medium text-gray-600">
+                      Found this guide helpful?
+                    </div>
+                    <div className="flex gap-2">
+                      <Button variant="outline" size="icon" className="rounded-full">
+                        <Share2 className="h-4 w-4" />
+                        <span className="sr-only">Share</span>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sidebar (Desktop Only) */}
+              <aside className="hidden lg:block">
+                <div className="sticky top-24 space-y-8">
+                  {/* Table of Contents */}
+                  <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+                    <h3 className="mb-4 font-bold text-neutral-900">Table of Contents</h3>
+                    <nav className="space-y-2">
+                      {guide.tableOfContents.map((item, index) => (
+                        <a
+                          key={index}
+                          href={`#section-${index}`}
+                          className="block text-sm text-neutral-600 transition-colors hover:text-primary-600 hover:underline"
+                        >
+                          {item.section}
+                        </a>
+                      ))}
+                    </nav>
+                  </div>
+
+                  {/* Download CTA */}
+                  <Card className="border-2 border-primary-100 bg-primary-50/50 shadow-md">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg">Get the Full Guide</CardTitle>
+                      <CardDescription>
+                        Download the complete {guide.pageCount}-page PDF reference.
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {guide.access === 'gated' ? (
+                        <Button className="w-full gap-2" asChild>
+                          <Link href={`/${locale}/resources/guides/${guide.slug}/download`}>
+                            <Lock className="h-4 w-4" />
+                            Download Now
+                          </Link>
+                        </Button>
+                      ) : (
+                        <Button className="w-full gap-2" asChild>
+                          <Link href={guide.fileUrl} target="_blank">
+                            <Download className="h-4 w-4" />
+                            Download Now
+                          </Link>
+                        </Button>
+                      )}
+                    </CardContent>
+                  </Card>
+
+                  {/* Related Services Mini-List */}
+                  {guide.relatedServices.length > 0 && (
+                    <div className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+                      <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-neutral-500">
+                        Related Services
+                      </h3>
+                      <div className="space-y-3">
+                        {guide.relatedServices.map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/${locale}/services/${service.slug}`}
+                            className="group flex items-center justify-between rounded-lg p-2 transition-colors hover:bg-neutral-50"
+                          >
+                            <span className="text-sm font-medium text-neutral-700 group-hover:text-primary-700">
+                              {service.title}
+                            </span>
+                            <ArrowRight className="h-4 w-4 text-neutral-400 transition-transform group-hover:translate-x-1 group-hover:text-primary-500" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </aside>
             </div>
           </div>
         </div>

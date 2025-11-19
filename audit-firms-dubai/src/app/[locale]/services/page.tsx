@@ -129,27 +129,33 @@ export default async function ServicesHubPage({
       <Breadcrumbs items={breadcrumbItems} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 py-16 text-white lg:py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 py-16 text-white lg:py-24">
+        {/* Background Pattern & Blobs */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-700/50 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-900/50 rounded-full blur-3xl" />
+
+        <div className="container relative mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <Badge variant="secondary" className="mb-4">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+              <CheckCircle2 className="h-4 w-4 text-secondary-400" />
               Ministry Approved Auditors Since 1985
-            </Badge>
-            <h1 className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl">
-              Comprehensive Audit Services in Dubai
+            </div>
+            <h1 className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl leading-tight">
+              Comprehensive <span className="text-secondary-400">Audit Services</span> in Dubai
             </h1>
-            <p className="mb-8 text-xl text-primary-100 md:text-2xl">
+            <p className="mb-8 text-xl text-primary-100 md:text-2xl leading-relaxed">
               From statutory compliance to specialized audits, we provide complete audit solutions
               tailored to your business needs
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" variant="secondary">
+              <Button asChild size="lg" className="bg-secondary-500 text-primary-900 hover:bg-secondary-600 font-bold">
                 <Link href={`/${locale}/contact`}>
                   <Phone className="mr-2 h-5 w-5" />
                   Get Free Consultation
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20">
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary-900">
                 <Link href={`/${locale}/tools/audit-cost-comparison`}>
                   <Calculator className="mr-2 h-5 w-5" />
                   Calculate Audit Fees
@@ -178,27 +184,31 @@ export default async function ServicesHubPage({
               const Icon = iconMap[service.icon as keyof typeof iconMap]
               return (
                 <Link key={service.id} href={`/${locale}${service.href}`}>
-                  <Card className="group h-full transition-all duration-300 hover:-translate-y-1 hover:border-primary-300 hover:shadow-xl">
+                  <Card className="group h-full relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border-gray-200 hover:border-primary-200">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary-50 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform" />
+                    
                     <CardHeader>
-                      <div className="mb-4 inline-flex rounded-lg bg-primary-100 p-3 transition-colors duration-300 group-hover:bg-primary-200">
-                        <Icon className="h-6 w-6 text-primary-700" />
+                      <div className="mb-4 inline-flex rounded-xl bg-primary-50 p-3 transition-all duration-300 group-hover:bg-primary-600 group-hover:text-white">
+                        <Icon className="h-8 w-8 text-primary-600 group-hover:text-white transition-colors" />
                       </div>
-                      <CardTitle className="font-serif text-xl">{service.name}</CardTitle>
-                      <CardDescription className="line-clamp-3">
+                      <CardTitle className="font-serif text-xl text-gray-900 group-hover:text-primary-700 transition-colors">
+                        {service.name}
+                      </CardTitle>
+                      <CardDescription className="line-clamp-3 text-gray-600 leading-relaxed">
                         {service.description}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="mb-4 flex flex-wrap gap-2">
+                      <div className="mb-6 flex flex-wrap gap-2">
                         {service.features.map((feature) => (
-                          <Badge key={feature} variant="secondary" className="text-xs">
+                          <Badge key={feature} variant="secondary" className="bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-700 transition-colors font-normal">
                             {feature}
                           </Badge>
                         ))}
                       </div>
-                      <div className="flex items-center text-sm font-semibold text-primary-700 transition-colors group-hover:text-primary-900">
+                      <div className="flex items-center text-sm font-bold text-primary-600 transition-colors group-hover:text-primary-800">
                         Learn More
-                        <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
                     </CardContent>
                   </Card>

@@ -98,7 +98,7 @@ export const LEADERSHIP_TEAM = [
     experience: '30+ years',
     image: '/images/team/MA-Farahat.jpg',
     linkedin: '#',
-    email: 'info@auditfirmsindubai.com',
+    email: 'info@auditfirmsdubai.ae',
   },
   {
     id: 'abdulla-al-shamssi',
@@ -110,7 +110,7 @@ export const LEADERSHIP_TEAM = [
     experience: '15+ years',
     image: '/images/team/Abdulla-Al-Shamssi.jpg',
     linkedin: '#',
-    email: 'info@auditfirmsindubai.com',
+    email: 'info@auditfirmsdubai.ae',
   },
   {
     id: 'jose-varghese',
@@ -122,7 +122,7 @@ export const LEADERSHIP_TEAM = [
     experience: '25+ years',
     image: '/images/team/Jose-Varghese.jpg',
     linkedin: '#',
-    email: 'info@auditfirmsindubai.com',
+    email: 'info@auditfirmsdubai.ae',
   },
   {
     id: 'bilal-al-abdulla',
@@ -134,7 +134,7 @@ export const LEADERSHIP_TEAM = [
     experience: '25+ years',
     image: '/images/team/Bilal-Al-Abdulla.jpg',
     linkedin: '#',
-    email: 'info@auditfirmsindubai.com',
+    email: 'info@auditfirmsdubai.ae',
   },
 ] as const
 

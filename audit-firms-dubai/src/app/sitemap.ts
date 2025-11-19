@@ -6,7 +6,7 @@ import { MetadataRoute } from 'next';
  * Includes all pages with proper priority and change frequency
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsindubai.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsdubai.ae';
 
 // Supported locales
 const locales = ['en', 'ar'] as const;

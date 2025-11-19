@@ -19,10 +19,15 @@ const iconMap = {
   Shield,
 };
 
-export function StatisticsSection() {
+export function StatisticsSection({ dict }: { dict: any }) {
   return (
-    <section className="bg-primary-900 py-16 text-white lg:py-24">
-      <div className="container mx-auto px-4">
+    <section className="relative bg-primary-900 py-16 text-white lg:py-24 overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-800 rounded-full blur-3xl opacity-30" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-900 rounded-full blur-3xl opacity-20" />
+
+      <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,10 +36,10 @@ export function StatisticsSection() {
           className="mb-12 text-center"
         >
           <h2 className="mb-4 font-serif text-3xl font-bold md:text-4xl">
-            Trusted by Thousands of Businesses
+            {dict.statistics.title}
           </h2>
           <p className="text-lg text-primary-200">
-            Our track record speaks for itself - delivering excellence since 1985
+            {dict.statistics.subtitle}
           </p>
         </motion.div>
 

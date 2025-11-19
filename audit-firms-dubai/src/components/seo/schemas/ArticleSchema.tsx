@@ -41,7 +41,7 @@ export function ArticleSchema({
       name: 'Farahat & Co',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://auditfirmsindubai.com/logo.png',
+        url: 'https://auditfirmsdubai.ae/logo.png',
       },
     },
     mainEntityOfPage: {

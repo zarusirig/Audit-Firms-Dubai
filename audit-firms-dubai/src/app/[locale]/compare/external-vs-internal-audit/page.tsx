@@ -74,7 +74,7 @@ export default async function ExternalVsInternalAuditPage({ params }: Props) {
               'Comprehensive comparison of external and internal audit in UAE including key differences, costs, benefits, and when you need each type.',
             publisher: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
             },
           }),
         }}

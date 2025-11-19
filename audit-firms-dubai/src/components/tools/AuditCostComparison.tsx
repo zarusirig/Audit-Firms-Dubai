@@ -215,7 +215,7 @@ export default function AuditCostComparison() {
             Compare Audit Costs
           </CardTitle>
           <CardDescription>
-            Get realistic pricing estimates for Big 4, local firms, and Elite Audit Dubai
+            Get realistic pricing estimates for Big 4, local firms, and Audit Firms Dubai
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -380,7 +380,7 @@ export default function AuditCostComparison() {
                     <tr className="bg-blue-50">
                       <td className="border border-gray-200 p-4 font-medium flex items-center gap-2">
                         <TrendingUp className="h-5 w-5 text-blue-600" />
-                        Elite Audit Dubai (Recommended)
+                        Audit Firms Dubai (Recommended)
                       </td>
                       <td className="border border-gray-200 p-4 text-center bg-blue-100">
                         {formatCurrency(result.elite.range.min)} - {formatCurrency(result.elite.range.max)}
@@ -412,7 +412,7 @@ export default function AuditCostComparison() {
           {/* Value Proposition */}
           <Card>
             <CardHeader>
-              <CardTitle>Why Choose Elite Audit Dubai?</CardTitle>
+              <CardTitle>Why Choose Audit Firms Dubai?</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid gap-4 md:grid-cols-2">
@@ -495,4 +495,6 @@ export default function AuditCostComparison() {
     </div>
   )
 }
+
+
 

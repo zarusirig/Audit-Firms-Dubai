@@ -1,5 +1,7 @@
 'use client';
 
+import { SITE_CONFIG, COMPANY_STATS } from '@/lib/constants';
+
 /**
  * Organization Schema for Audit Firms Dubai (Farahat & Co)
  * Implements schema.org/Organization for brand recognition
@@ -9,16 +11,15 @@ export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://auditfirmsindubai.com/#organization',
-    name: 'Farahat & Co',
+    '@id': `${SITE_CONFIG.url}/#organization`,
+    name: SITE_CONFIG.name,
     alternateName: 'Audit Firms Dubai',
-    url: 'https://auditfirmsindubai.com',
-    logo: 'https://auditfirmsindubai.com/logo.png',
-    description:
-      'Leading audit and accounting firm in Dubai, UAE since 1985. Ministry-approved auditors providing external audit, internal audit, and advisory services.',
-    foundingDate: '1985',
-    email: 'info@auditfirmsindubai.com',
-    telephone: '+971-42-500-251',
+    url: SITE_CONFIG.url,
+    logo: `${SITE_CONFIG.url}/logo.png`,
+    description: SITE_CONFIG.description,
+    foundingDate: SITE_CONFIG.foundedYear,
+    email: SITE_CONFIG.email,
+    telephone: SITE_CONFIG.phone,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Business Bay',
@@ -35,7 +36,7 @@ export function OrganizationSchema() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '1247',
+      reviewCount: COMPANY_STATS.clientsServed.toString(),
       bestRating: '5',
       worstRating: '1',
     },

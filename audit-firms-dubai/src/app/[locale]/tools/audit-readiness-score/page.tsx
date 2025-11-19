@@ -18,7 +18,7 @@ export async function generateMetadata({
   const locale = resolvedParams.locale as Locale
 
   return {
-    title: 'Audit Readiness Score | Free Assessment Tool | Elite Audit Dubai',
+    title: 'Audit Readiness Score | Free Assessment Tool | Audit Firms Dubai',
     description:
       'Assess your company\'s audit readiness with our free 15-question evaluation. Get a personalized score, recommendations, and detailed report. Prepare for external audit with confidence.',
     keywords: [
@@ -43,7 +43,7 @@ export async function generateMetadata({
           url: `${SITE_CONFIG.url}/og-audit-readiness.jpg`,
           width: 1200,
           height: 630,
-          alt: 'Audit Readiness Assessment - Elite Audit Dubai',
+          alt: 'Audit Readiness Assessment - Audit Firms Dubai',
         },
       ],
       locale: locale,
@@ -105,7 +105,7 @@ export default async function AuditReadinessScorePage({
             },
             provider: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
               url: SITE_CONFIG.url,
             },
           }),

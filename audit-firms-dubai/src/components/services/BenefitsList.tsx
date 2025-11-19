@@ -58,18 +58,18 @@ export function BenefitsList({ title, benefits }: BenefitsListProps) {
               return (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary-300 hover:shadow-lg transition-all group"
+                  className="group border-0 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-600 transition-colors">
-                        <Icon className="h-6 w-6 text-primary-600 group-hover:text-white transition-colors" />
+                  <CardContent className="p-8">
+                    <div className="flex items-start gap-5">
+                      <div className="flex-shrink-0 w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center group-hover:bg-primary-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <Icon className="h-7 w-7 text-primary-600 group-hover:text-white transition-colors" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors">
                           {benefit.title}
                         </h3>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-gray-600 text-base leading-relaxed">
                           {benefit.description}
                         </p>
                       </div>

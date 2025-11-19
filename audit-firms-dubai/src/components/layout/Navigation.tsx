@@ -7,6 +7,12 @@ import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Logo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
 import { cn } from '@/lib/utils';
 import { MAIN_NAVIGATION, SITE_CONFIG } from '@/lib/constants';
@@ -226,8 +232,6 @@ function MobileNav({
   dict: Dictionary
   onClose: () => void
 }) {
-  const [openSection, setOpenSection] = useState<string | null>(null);
-
   // Remove locale prefix from pathname for comparison
   const pathWithoutLocale = pathname.replace(`/${locale}`, '');
 
@@ -279,49 +283,42 @@ function MobileNav({
 
       {/* Navigation Items */}
       <div className="flex-1 overflow-y-auto py-6">
-        <nav className="space-y-1">
+        <Accordion type="single" collapsible className="space-y-1">
           {MAIN_NAVIGATION.map((item) => (
-            <div key={item.href}>
-              {item.children && item.children.length > 0 ? (
-                <div>
-                  <button
-                    onClick={() => setOpenSection(openSection === item.href ? null : item.href)}
-                    className={cn(
-                      'flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors',
-                      pathWithoutLocale.startsWith(item.href)
-                        ? 'bg-primary-50 text-primary-600'
-                        : 'text-neutral-700 hover:bg-neutral-50'
-                    )}
-                  >
-                    {getLabel(item.href)}
-                    <ChevronDown
-                      className={cn(
-                        'h-4 w-4 transition-transform',
-                        openSection === item.href && 'rotate-180'
-                      )}
-                    />
-                  </button>
-                  {openSection === item.href && (
-                    <div className="ml-4 mt-1 space-y-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={`/${locale}${child.href}`}
-                          onClick={onClose}
-                          className={cn(
-                            'block rounded-lg px-4 py-2 text-sm transition-colors',
-                            pathWithoutLocale === child.href
-                              ? 'bg-primary-50 text-primary-600 font-medium'
-                              : 'text-neutral-600 hover:bg-neutral-50 hover:text-primary-600'
-                          )}
-                        >
-                          {getLabel(child.href)}
-                        </Link>
-                      ))}
-                    </div>
+            item.children && item.children.length > 0 ? (
+              <AccordionItem key={item.href} value={item.href} className="border-0">
+                <AccordionTrigger
+                  className={cn(
+                    "px-4 py-3 text-sm font-medium hover:no-underline hover:bg-neutral-50 rounded-lg transition-colors",
+                    pathWithoutLocale.startsWith(item.href)
+                      ? "bg-primary-50 text-primary-600"
+                      : "text-neutral-700"
                   )}
-                </div>
-              ) : (
+                >
+                  {getLabel(item.href)}
+                </AccordionTrigger>
+                <AccordionContent className="pb-0">
+                  <div className="ml-4 mt-1 space-y-1 border-l border-neutral-100 pl-2">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={`/${locale}${child.href}`}
+                        onClick={onClose}
+                        className={cn(
+                          'block rounded-lg px-4 py-2 text-sm transition-colors',
+                          pathWithoutLocale === child.href
+                            ? 'bg-primary-50 text-primary-600 font-medium'
+                            : 'text-neutral-600 hover:bg-neutral-50 hover:text-primary-600'
+                        )}
+                      >
+                        {getLabel(child.href)}
+                      </Link>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ) : (
+              <div key={item.href}>
                 <Link
                   href={`/${locale}${item.href}`}
                   onClick={onClose}
@@ -334,10 +331,10 @@ function MobileNav({
                 >
                   {getLabel(item.href)}
                 </Link>
-              )}
-            </div>
+              </div>
+            )
           ))}
-        </nav>
+        </Accordion>
       </div>
 
       {/* Mobile CTA */}

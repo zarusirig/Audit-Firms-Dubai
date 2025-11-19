@@ -76,7 +76,7 @@ export default async function MainlandVsFreezoneAuditPage({ params }: Props) {
               'Comprehensive comparison of audit requirements for UAE mainland and free zone companies.',
             publisher: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
             },
           }),
         }}

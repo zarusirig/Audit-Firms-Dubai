@@ -1,18 +1,18 @@
 /**
- * Site-wide constants for Elite Audit Dubai
+ * Site-wide constants for Audit Firms Dubai
  */
 
 import type { NavigationItems } from '@/types';
 
 // Site Configuration
 export const SITE_CONFIG = {
-  name: 'Elite Audit Dubai',
+  name: 'Audit Firms Dubai',
   tagline: 'Dubai\'s Most Trusted Audit Firm',
   description: 'Leading audit firm in Dubai offering external audit, internal audit, and advisory services. Ministry of Economy approved. IFRS experts.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsdubai.com',
-  email: 'info@auditfirmsdubai.com',
-  phone: '+971-4-XXX-XXXX',
-  address: 'Business Bay, Bay Square Building 1, Dubai, UAE',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://auditfirmsdubai.ae',
+  email: 'sales@farahatco.com',
+  phone: '+971 4 250 0251',
+  address: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road Dubai, P.O. Box 4647, U.A.E',
   foundedYear: 1985,
   parentCompany: 'Farahat & Co',
 } as const;
@@ -134,7 +134,44 @@ export const INDUSTRIES = [
   { id: 'ecommerce', name: 'E-commerce', slug: 'ecommerce', icon: 'ShoppingCart' },
 ] as const;
 
-// Locations
+// Office Locations
+export const OFFICE_LOCATIONS = [
+  {
+    id: 'dubai',
+    name: 'Dubai Head Office',
+    phone: '+971 4 250 0251',
+    whatsapp: '+971 52 6922588',
+    email: 'sales@farahatco.com',
+    emailConsultation: 'consultant@farahatco.com',
+    address: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road Dubai, P.O. Box 4647, U.A.E',
+    hours: '9AM – 7PM GMT+4 – Monday to Friday',
+    coordinates: { lat: 25.2643, lng: 55.3153 } // Approximate for Rigga Road
+  },
+  {
+    id: 'abu-dhabi',
+    name: 'Abu Dhabi Office',
+    phone: '+971 4 250 0251',
+    whatsapp: undefined,
+    email: 'sales@farahatco.com',
+    emailConsultation: undefined,
+    address: 'No 16, 3rd Floor, Baynunah 2 Tower, Corniche Street, Next to British Embassy, Al-Hosn Area – Abu Dhabi, P.O. Box 107020, U.A.E.',
+    hours: undefined,
+    coordinates: { lat: 24.4739, lng: 54.3457 } // Approximate for Corniche
+  },
+  {
+    id: 'sharjah',
+    name: 'Sharjah Office',
+    phone: '+971 6 5637720',
+    whatsapp: undefined,
+    email: 'sales@farahatco.com',
+    emailConsultation: undefined,
+    address: 'Clock Tower, Sharjah, P.O. Box 3035, U.A.E',
+    hours: undefined,
+    coordinates: { lat: 25.3571, lng: 55.3910 } // Approximate for Clock Tower
+  }
+] as const;
+
+// Locations (SEO Pages)
 export const LOCATIONS = [
   {
     id: 'difc',

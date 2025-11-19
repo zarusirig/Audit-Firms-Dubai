@@ -84,10 +84,10 @@ export default function NotFound() {
             </a>
             <span className="hidden sm:inline text-neutral-400">|</span>
             <a
-              href="mailto:info@auditfirmsindubai.com"
+              href="mailto:info@auditfirmsdubai.ae"
               className="text-lg font-semibold text-primary-700 hover:text-primary-900"
             >
-              ✉️ info@auditfirmsindubai.com
+              ✉️ info@auditfirmsdubai.ae
             </a>
           </div>
         </div>

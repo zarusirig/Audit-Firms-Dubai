@@ -1,6 +1,6 @@
 /**
  * Terms of Service Page
- * Comprehensive terms and conditions for Elite Audit Dubai (Farahat & Co subsidiary)
+ * Comprehensive terms and conditions for Audit Firms Dubai (Farahat & Co subsidiary)
  * Legally binding agreement for service engagement
  */
 
@@ -11,12 +11,12 @@ import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Elite Audit Dubai | Farahat & Co',
+  title: 'Terms of Service | Audit Firms Dubai | Farahat & Co',
   description:
-    'Terms of Service for Elite Audit Dubai professional audit services. Review our service terms, conditions, engagement agreements, and legal obligations.',
+    'Terms of Service for Audit Firms Dubai professional audit services. Review our service terms, conditions, engagement agreements, and legal obligations.',
   robots: 'index, follow',
   openGraph: {
-    title: 'Terms of Service | Elite Audit Dubai',
+    title: 'Terms of Service | Audit Firms Dubai',
     description: 'Our service terms, conditions, and professional engagement agreements.',
     type: 'website',
   },
@@ -51,7 +51,7 @@ export default function TermsOfServicePage() {
               Terms of Service
             </h1>
             <p className="mb-4 text-xl text-neutral-700">
-              Elite Audit Dubai - A Division of Farahat Office & Co.
+              Audit Firms Dubai - A Division of Farahat Office & Co.
             </p>
             <p className="text-lg text-neutral-600">
               Please read these terms carefully before using our professional audit services.
@@ -70,11 +70,11 @@ export default function TermsOfServicePage() {
             <AlertCircle className="mt-1 h-6 w-6 flex-shrink-0 text-amber-600" />
             <div>
               <p className="mb-2 font-semibold text-amber-900">
-                By using Elite Audit Dubai services, you agree to these Terms
+                By using Audit Firms Dubai services, you agree to these Terms
               </p>
               <p className="text-sm text-amber-800">
                 These Terms of Service constitute a legally binding agreement between you and
-                Farahat Office & Co. (operating as Elite Audit Dubai). If you do not agree to these
+                Farahat Office & Co. (operating as Audit Firms Dubai). If you do not agree to these
                 terms, please do not use our services.
               </p>
             </div>
@@ -123,10 +123,10 @@ export default function TermsOfServicePage() {
             {/* Introduction */}
             <div className="not-prose mb-12 rounded-lg border border-primary-200 bg-primary-50 p-6">
               <h2 className="mb-3 text-2xl font-bold text-primary-900">
-                Welcome to Elite Audit Dubai
+                Welcome to Audit Firms Dubai
               </h2>
               <p className="text-neutral-700">
-                Thank you for choosing <strong>Elite Audit Dubai</strong>, a premier audit division
+                Thank you for choosing <strong>Audit Firms Dubai</strong>, a premier audit division
                 of <strong>Farahat Office & Co.</strong> (established 1985). These Terms of Service
                 ("Terms") govern your use of our professional audit, assurance, tax, and advisory
                 services. By engaging our services, signing an engagement letter, or using our
@@ -178,7 +178,7 @@ export default function TermsOfServicePage() {
 
               <h3>2.1 Scope of Services</h3>
               <p>
-                Elite Audit Dubai provides the following professional services through qualified,
+                Audit Firms Dubai provides the following professional services through qualified,
                 licensed auditors and consultants:
               </p>
               <ul>
@@ -239,7 +239,7 @@ export default function TermsOfServicePage() {
 
               <h3>2.3 Not Legal Advice</h3>
               <p>
-                The information and services provided by Elite Audit Dubai relate to{' '}
+                The information and services provided by Audit Firms Dubai relate to{' '}
                 <strong>accounting, auditing, and financial advisory</strong>. While we may address
                 regulatory compliance and tax matters, <strong>we do not provide legal advice</strong>.
                 For legal matters, we recommend consulting qualified legal counsel licensed in the
@@ -425,7 +425,7 @@ export default function TermsOfServicePage() {
 
               <h3>4.2 Accuracy of Information</h3>
               <p>
-                You represent and warrant that all information provided to Elite Audit Dubai is:
+                You represent and warrant that all information provided to Audit Firms Dubai is:
               </p>
               <ul>
                 <li>Accurate, complete, and not misleading</li>
@@ -647,7 +647,7 @@ export default function TermsOfServicePage() {
                   <strong>AED 5,000 (Five Thousand Dirhams)</strong>, or
                 </li>
                 <li>
-                  <strong>The total fees paid by you</strong> to Elite Audit Dubai for the specific
+                  <strong>The total fees paid by you</strong> to Audit Firms Dubai for the specific
                   engagement giving rise to the claim
                 </li>
               </ul>
@@ -746,7 +746,7 @@ export default function TermsOfServicePage() {
                 </li>
               </ul>
 
-              <h3>9.2 Termination by Elite Audit Dubai</h3>
+              <h3>9.2 Termination by Audit Firms Dubai</h3>
               <p>
                 We reserve the right to terminate or suspend services immediately without prior
                 notice if:
@@ -879,7 +879,7 @@ export default function TermsOfServicePage() {
               </p>
               <div className="not-prose my-6 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
                 <p className="mb-2 font-semibold text-neutral-900">
-                  Farahat Office & Co. (Elite Audit Dubai)
+                  Farahat Office & Co. (Audit Firms Dubai)
                 </p>
                 <p className="mb-1 text-neutral-700">
                   Rigga Street, IBIS Hotel Building, Offices Entrance, 5th Floor

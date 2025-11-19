@@ -1,13 +1,13 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Calendar, Clock, Tag, TrendingUp } from 'lucide-react'
+import { Calendar, Clock, Tag, TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react'
 import { BLOG_POSTS, BlogPost } from '@/lib/content/blog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Audit & Compliance Blog | Expert Insights | Elite Audit Dubai',
+  title: 'Audit & Compliance Blog | Expert Insights | Audit Firms Dubai',
   description:
     'Latest insights on audit, compliance, VAT, RERA, and financial regulations in UAE. Expert guidance from Farahat & Co certified auditors.',
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'accounting blog dubai',
   ],
   openGraph: {
-    title: 'Audit & Compliance Blog | Elite Audit Dubai',
+    title: 'Audit & Compliance Blog | Audit Firms Dubai',
     description:
       'Expert insights on audit, tax, compliance, and financial regulations in UAE',
     type: 'website',
@@ -60,13 +60,22 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-16 text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 py-16 text-white lg:py-24">
+        {/* Background Pattern & Blobs */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary-700/50 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary-900/50 rounded-full blur-3xl" />
+
+        <div className="container relative mx-auto px-4">
           <div className="max-w-3xl">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
-              Audit & Compliance Insights
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
+              <TrendingUp className="h-4 w-4 text-secondary-400" />
+              Expert Insights & Updates
+            </div>
+            <h1 className="mb-6 font-serif text-4xl font-bold md:text-5xl lg:text-6xl leading-tight">
+              Audit & Compliance <span className="text-secondary-400">Insights</span>
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-primary-100 leading-relaxed">
               Expert guidance on audit, tax, compliance, and financial regulations in the UAE.
               Stay informed with insights from our certified professionals.
             </p>
@@ -162,49 +171,50 @@ function BlogPostCard({ post, featured = false }: { post: BlogPost; featured?: b
 
   return (
     <Card
-      className={`group flex h-full flex-col overflow-hidden transition-all hover:shadow-lg ${
-        featured ? 'border-blue-200 bg-blue-50/50' : ''
+      className={`group flex h-full flex-col overflow-hidden border-0 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+        featured ? 'bg-primary-50/50 border-primary-100' : 'bg-white'
       }`}
     >
-      <CardHeader>
-        <div className="mb-3 flex items-center gap-2">
-          <Badge variant={featured ? 'default' : 'secondary'} className="capitalize">
+      <CardHeader className="pb-4">
+        <div className="mb-4 flex items-center justify-between">
+          <Badge variant={featured ? 'default' : 'secondary'} className="capitalize font-medium">
             {post.category}
           </Badge>
           {featured && (
-            <Badge variant="default" className="bg-amber-500">
+            <div className="flex items-center gap-1 text-xs font-bold text-amber-600 uppercase tracking-wider">
+              <CheckCircle2 className="h-3 w-3" />
               Featured
-            </Badge>
+            </div>
           )}
         </div>
-        <CardTitle className="line-clamp-2 text-xl transition-colors group-hover:text-blue-600">
-          <Link href={`/resources/blog/${post.slug}`}>{post.title}</Link>
+        <CardTitle className="line-clamp-2 text-xl font-serif font-bold text-gray-900 group-hover:text-primary-700 transition-colors">
+          <Link href={`/resources/blog/${post.slug}`}>
+            <span className="absolute inset-0" />
+            {post.title}
+          </Link>
         </CardTitle>
-        <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
+        <CardDescription className="line-clamp-3 text-base text-gray-600 mt-2">
+          {post.excerpt}
+        </CardDescription>
       </CardHeader>
-      <CardContent className="mt-auto">
-        <div className="mb-4 flex flex-wrap gap-2">
+      <CardContent className="mt-auto pt-0">
+        <div className="mb-6 flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
-            <Badge key={tag} variant="outline" className="text-xs">
+            <Badge key={tag} variant="outline" className="text-xs text-gray-500 border-gray-200 font-normal">
               {tag}
             </Badge>
           ))}
         </div>
-        <div className="flex items-center justify-between text-sm text-gray-600">
-          <div className="flex items-center gap-1">
-            <Calendar className="h-4 w-4" />
-            <span>{formatDate(post.publishDate)}</span>
+        <div className="flex items-center justify-between text-sm text-gray-500 border-t border-gray-100 pt-4">
+          <div className="flex items-center gap-1.5">
+            <Calendar className="h-4 w-4 text-primary-400" />
+            <span className="font-medium">{formatDate(post.publishDate)}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Clock className="h-4 w-4" />
-            <span>{post.readTime} min read</span>
+          <div className="flex items-center gap-1.5">
+            <Clock className="h-4 w-4 text-primary-400" />
+            <span className="font-medium">{post.readTime} min read</span>
           </div>
         </div>
-        <Button asChild variant="ghost" className="mt-4 w-full justify-start p-0">
-          <Link href={`/resources/blog/${post.slug}`} className="text-blue-600">
-            Read Article →
-          </Link>
-        </Button>
       </CardContent>
     </Card>
   )

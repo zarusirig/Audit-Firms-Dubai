@@ -15,7 +15,7 @@ export function ProfessionalServiceSchema({
     '@type': 'ProfessionalService',
     '@id': `${SITE_CONFIG.url}/#professionalservice`,
     name: `${SITE_CONFIG.name} - ${serviceName}`,
-    alternateName: 'Elite Audit Dubai',
+    alternateName: 'Audit Firms Dubai',
     url: SITE_CONFIG.url,
     logo: {
       '@type': 'ImageObject',

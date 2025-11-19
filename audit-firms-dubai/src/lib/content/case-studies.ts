@@ -334,4 +334,221 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     publishDate: '2025-01-17',
     featured: true,
   },
+
+  // Additional case studies from content calendar
+  'manufacturing-audit-efficiency': {
+    id: 'manufacturing-audit-efficiency',
+    slug: 'manufacturing-audit-efficiency',
+    title: 'Manufacturing Company Achieves 40% Audit Efficiency Improvement',
+    excerpt:
+      'How a leading Dubai manufacturing company streamlined their audit process, reduced costs by 30%, and improved compliance through our specialized manufacturing audit services.',
+    metaTitle: 'Manufacturing Audit Success Story Dubai | Efficiency & Cost Reduction',
+    metaDescription:
+      'Manufacturing audit success story in Dubai. 40% efficiency improvement, 30% cost reduction, enhanced compliance. Expert manufacturing audit services.',
+    keywords: [
+      'manufacturing audit success story',
+      'dubai manufacturing audit',
+      'audit efficiency improvement',
+      'manufacturing compliance dubai',
+      'cost reduction audit',
+    ],
+    industry: 'Manufacturing',
+    service: 'External Audit',
+    location: 'Dubai Industrial City',
+    companySize: 'Large Enterprise',
+    duration: '3 Months',
+    heroTitle: '40% Audit Efficiency Improvement',
+    heroSubtitle: 'Streamlined manufacturing audit process delivers exceptional results',
+    challenge: 'Complex manufacturing operations with multiple product lines, inventory valuation challenges, and compliance with international standards required a comprehensive audit approach.',
+    situation: [
+      'A leading Dubai-based manufacturing company with operations across multiple facilities faced significant challenges in their annual audit process. The company produces automotive components and industrial equipment with complex supply chains spanning multiple countries.',
+      'Previous audit processes were time-consuming, costly, and often revealed compliance issues that required extensive remediation. The company needed a more efficient, cost-effective approach that would provide better insights and ensure robust compliance.',
+      'Management recognized that their existing audit approach was not optimized for manufacturing operations and lacked the industry-specific expertise needed for their complex business model.',
+    ],
+    challenges: [
+      {
+        title: 'Complex Inventory Valuation',
+        description: 'Multiple product lines with varying cost structures and international supply chains made inventory valuation complex and time-consuming.',
+      },
+      {
+        title: 'Multi-Location Operations',
+        description: 'Operations across multiple facilities in Dubai Industrial City required coordinated audit approaches and consistent standards.',
+      },
+      {
+        title: 'International Compliance',
+        description: 'Compliance with both UAE regulations and international automotive industry standards created additional complexity.',
+      },
+      {
+        title: 'Supply Chain Complexity',
+        description: 'Global supply chain with suppliers in 15 countries required extensive documentation and verification processes.',
+      },
+    ],
+    solution: [
+      'We implemented a specialized manufacturing audit approach that combined industry expertise with advanced audit technologies. Our team included certified manufacturing auditors with automotive industry experience.',
+      'The solution involved developing customized audit programs for each product line, implementing automated testing procedures, and creating real-time reporting dashboards for management oversight.',
+      'We established clear communication protocols with all facility managers and implemented standardized documentation requirements that streamlined the audit process while maintaining thoroughness.',
+    ],
+    approach: [
+      {
+        title: 'Industry-Specific Methodology',
+        description: 'Developed manufacturing-specific audit programs that addressed unique industry challenges including inventory valuation, cost accounting, and supply chain verification.',
+      },
+      {
+        title: 'Technology Integration',
+        description: 'Implemented audit management software that automated routine procedures, reduced manual testing time, and provided real-time progress tracking.',
+      },
+      {
+        title: 'Team Specialization',
+        description: 'Assigned audit team members with specific manufacturing expertise and automotive industry knowledge to ensure relevant insights and recommendations.',
+      },
+      {
+        title: 'Risk-Based Approach',
+        description: 'Focused audit efforts on high-risk areas including inventory management, cost allocation, and international compliance requirements.',
+      },
+    ],
+    results: [
+      {
+        metric: 'Audit Efficiency',
+        value: '40% Improvement',
+        description: 'Reduced audit completion time from 4 months to 2.4 months through streamlined processes and automation.',
+      },
+      {
+        metric: 'Cost Reduction',
+        value: '30% Savings',
+        description: 'Lower audit costs through efficiency improvements and reduced manual effort requirements.',
+      },
+      {
+        metric: 'Compliance Score',
+        value: '98% Rating',
+        description: 'Achieved highest compliance rating with zero material findings for the first time in five years.',
+      },
+      {
+        metric: 'Management Satisfaction',
+        value: '95% Score',
+        description: 'Senior management rated audit process as excellent, citing improved insights and recommendations.',
+      },
+      {
+        metric: 'Issue Resolution',
+        value: '85% Faster',
+        description: 'Reduced time to resolve audit findings by 85% through better documentation and proactive recommendations.',
+      },
+    ],
+    testimonial: {
+      quote: 'The manufacturing audit expertise demonstrated by Farahat & Co transformed our annual audit process. Their industry knowledge and systematic approach delivered results that exceeded our expectations while reducing costs and improving compliance.',
+      author: 'Ahmed Al-Rashid',
+      position: 'Chief Financial Officer',
+      company: 'Dubai Manufacturing Solutions',
+    },
+    tags: ['Manufacturing', 'External Audit', 'Efficiency', 'Cost Reduction', 'Compliance', 'Success Story'],
+    publishDate: '2025-01-28',
+    featured: true,
+  },
+
+  'financial-services-dfsa-compliance': {
+    id: 'financial-services-dfsa-compliance',
+    slug: 'financial-services-dfsa-compliance',
+    title: 'DFSA Compliance Success: Financial Services Firm Streamlines Regulatory Reporting',
+    excerpt:
+      'How a DIFC-based financial services firm achieved full DFSA compliance, reduced regulatory reporting time by 50%, and enhanced risk management through our specialized audit approach.',
+    metaTitle: 'DFSA Compliance Success Story | Financial Services Audit DIFC',
+    metaDescription:
+      'DFSA compliance success story for DIFC financial services firm. 50% reporting time reduction, enhanced risk management, regulatory excellence.',
+    keywords: [
+      'dfsa compliance success story',
+      'difc financial services audit',
+      'dfsa regulatory reporting',
+      'financial services compliance',
+      'difc audit success',
+    ],
+    industry: 'Financial Services',
+    service: 'External Audit',
+    location: 'DIFC, Dubai',
+    companySize: 'Medium Enterprise',
+    duration: '4 Months',
+    heroTitle: '50% Regulatory Reporting Time Reduction',
+    heroSubtitle: 'DFSA compliance excellence through specialized audit approach',
+    challenge: 'Complex DFSA regulatory requirements, extensive reporting obligations, and sophisticated financial instruments required specialized expertise and systematic approach.',
+    situation: [
+      'A mid-sized investment management firm based in DIFC was struggling with complex DFSA compliance requirements and extensive regulatory reporting obligations. The firm manages diverse investment portfolios including alternative investments and structured products.',
+      'Previous audit approaches lacked the specialized DFSA expertise needed for their sophisticated operations, resulting in extended audit timelines, compliance issues, and regulatory queries that required significant management attention.',
+      'The company needed an audit partner with deep DFSA knowledge and proven experience in financial services to streamline their compliance processes and provide strategic insights.',
+    ],
+    challenges: [
+      {
+        title: 'Complex Regulatory Framework',
+        description: 'DFSA regulations require extensive documentation, sophisticated risk assessments, and detailed compliance reporting across multiple regulatory categories.',
+      },
+      {
+        title: 'Sophisticated Financial Instruments',
+        description: 'Alternative investments and structured products required specialized valuation expertise and complex accounting treatments.',
+      },
+      {
+        title: 'Multi-Jurisdictional Operations',
+        description: 'Operations spanning multiple jurisdictions required coordination of regulatory requirements across different financial authorities.',
+      },
+      {
+        title: 'Risk Management Complexity',
+        description: 'Comprehensive risk management framework needed validation across market, credit, operational, and liquidity risk categories.',
+      },
+    ],
+    solution: [
+      'We deployed a specialized financial services audit team with deep DFSA expertise and investment management experience. Our approach combined regulatory compliance with strategic business insights.',
+      'The solution involved implementing automated regulatory reporting systems, developing customized audit programs for complex financial instruments, and creating integrated compliance monitoring dashboards.',
+      'We established direct communication channels with DFSA regulators and implemented proactive compliance monitoring that identified and addressed potential issues before they became regulatory concerns.',
+    ],
+    approach: [
+      {
+        title: 'DFSA Specialization',
+        description: 'Assigned audit team with specific DFSA expertise and investment management background to ensure comprehensive regulatory understanding.',
+      },
+      {
+        title: 'Technology Integration',
+        description: 'Implemented regulatory technology solutions that automated reporting processes and provided real-time compliance monitoring capabilities.',
+      },
+      {
+        title: 'Risk-Based Methodology',
+        description: 'Developed risk-based audit approach that focused on high-risk areas including complex valuations, regulatory compliance, and operational controls.',
+      },
+      {
+        title: 'Regulatory Liaison',
+        description: 'Established direct communication with DFSA regulators and implemented proactive regulatory relationship management.',
+      },
+    ],
+    results: [
+      {
+        metric: 'Reporting Efficiency',
+        value: '50% Improvement',
+        description: 'Reduced regulatory reporting time by 50% through automation and streamlined processes.',
+      },
+      {
+        metric: 'Compliance Score',
+        value: '100% Rating',
+        description: 'Achieved perfect compliance score with zero regulatory queries or findings.',
+      },
+      {
+        metric: 'Audit Timeline',
+        value: '30% Faster',
+        description: 'Completed audit process 30% faster than previous year through improved efficiency.',
+      },
+      {
+        metric: 'Risk Management',
+        value: 'Enhanced',
+        description: 'Significantly enhanced risk management framework with improved monitoring and reporting capabilities.',
+      },
+      {
+        metric: 'Management Time',
+        value: '60% Reduced',
+        description: 'Reduced management time spent on compliance issues by 60% through proactive approach.',
+      },
+    ],
+    testimonial: {
+      quote: 'Farahat & Co DFSA expertise transformed our compliance approach. Their deep regulatory knowledge and systematic methodology delivered exceptional results while reducing our compliance burden significantly.',
+      author: 'Sarah Johnson',
+      position: 'Chief Compliance Officer',
+      company: 'DIFC Investment Management',
+    },
+    tags: ['DFSA', 'Financial Services', 'DIFC', 'Compliance', 'Regulatory Reporting', 'Success Story'],
+    publishDate: '2025-01-30',
+    featured: true,
+  },
 }

@@ -1,6 +1,6 @@
 /**
  * Cookie Policy Page
- * Comprehensive cookie and tracking policy for Elite Audit Dubai
+ * Comprehensive cookie and tracking policy for Audit Firms Dubai
  * GDPR compliant cookie disclosure
  */
 
@@ -11,12 +11,12 @@ import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Elite Audit Dubai | Farahat & Co',
+  title: 'Cookie Policy | Audit Firms Dubai | Farahat & Co',
   description:
-    'Cookie Policy for Elite Audit Dubai. Learn about the cookies and tracking technologies we use, how to manage your preferences, and protect your privacy.',
+    'Cookie Policy for Audit Firms Dubai. Learn about the cookies and tracking technologies we use, how to manage your preferences, and protect your privacy.',
   robots: 'index, follow',
   openGraph: {
-    title: 'Cookie Policy | Elite Audit Dubai',
+    title: 'Cookie Policy | Audit Firms Dubai',
     description: 'How we use cookies and tracking technologies on our website.',
     type: 'website',
   },
@@ -51,7 +51,7 @@ export default function CookiePolicyPage() {
               Cookie Policy
             </h1>
             <p className="mb-4 text-xl text-neutral-700">
-              Elite Audit Dubai - A Division of Farahat Office & Co.
+              Audit Firms Dubai - A Division of Farahat Office & Co.
             </p>
             <p className="text-lg text-neutral-600">
               This policy explains how we use cookies and similar tracking technologies on our
@@ -120,7 +120,7 @@ export default function CookiePolicyPage() {
               <h3>1.2 First-Party vs. Third-Party Cookies</h3>
               <ul>
                 <li>
-                  <strong>First-Party Cookies:</strong> Set directly by Elite Audit Dubai to
+                  <strong>First-Party Cookies:</strong> Set directly by Audit Firms Dubai to
                   remember your preferences and improve functionality
                 </li>
                 <li>
@@ -630,7 +630,7 @@ export default function CookiePolicyPage() {
 
               <div className="not-prose my-6 rounded-lg border border-primary-200 bg-primary-50 p-6">
                 <h3 className="mb-4 text-xl font-bold text-primary-900">
-                  Farahat Office & Co. (Elite Audit Dubai)
+                  Farahat Office & Co. (Audit Firms Dubai)
                 </h3>
                 <div className="space-y-2 text-neutral-700">
                   <p>

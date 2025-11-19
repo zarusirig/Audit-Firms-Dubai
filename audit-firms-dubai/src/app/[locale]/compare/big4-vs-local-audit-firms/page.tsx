@@ -73,7 +73,7 @@ export default async function Big4VsLocalPage({ params }: Props) {
               'Comprehensive comparison of Big 4 vs local audit firms including costs, service quality, and best fit for different business sizes.',
             publisher: {
               '@type': 'Organization',
-              name: 'Elite Audit Dubai (Farahat & Co)',
+              name: 'Audit Firms Dubai (Farahat & Co)',
             },
           }),
         }}

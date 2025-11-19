@@ -1933,4 +1933,536 @@ export const SERVICES: Record<string, ServicePageContent> = {
       },
     ],
   },
+
+  'cfo-services': {
+    slug: 'cfo-services',
+    title: 'CFO Services',
+    metaTitle: 'CFO Services Dubai | Part-time CFO, Virtual CFO, Interim CFO | Farahat & Co',
+    metaDescription: 'Expert CFO services in Dubai. Part-time, virtual, interim CFO for growing businesses. Strategic financial leadership, fundraising support, 15+ years experience.',
+    keywords: [
+      'cfo services dubai',
+      'part time cfo uae',
+      'virtual cfo dubai',
+      'interim cfo services',
+      'outsourced cfo dubai',
+      'fractional cfo uae',
+      'financial controller dubai',
+      'startup cfo services',
+    ],
+
+    heroHeadline: 'CFO Services in Dubai',
+    heroSubheadline: 'Strategic Financial Leadership for Growing Businesses',
+    heroPainPoint: 'Get senior financial expertise without full-time CFO costs. Our experienced CFOs provide strategic financial leadership, fundraising support, and operational excellence.',
+    heroUSP: 'Experienced CFOs with 15+ years in UAE market. Flexible engagement models. Available when you need us.',
+    heroImage: '/images/services/cfo-services-hero.jpg',
+
+    overviewTitle: 'Professional CFO Services',
+    overviewContent: [
+      'Not every business can afford or needs a full-time CFO, but every growing business needs CFO-level financial leadership. Our CFO services provide you with experienced financial executives who understand the UAE market and can guide your business through growth, fundraising, and strategic decisions.',
+      'Our CFOs have led finance functions at companies ranging from startups to enterprises, across multiple industries. They bring strategic thinking, financial discipline, and operational expertise to help you make better decisions, secure funding, and scale efficiently.',
+      'Whether you need a part-time CFO for ongoing support, an interim CFO during transition, or virtual CFO services for specific projects, we provide flexible solutions tailored to your needs and budget.',
+    ],
+    whoNeedsIt: [
+      'Startups and scale-ups seeking funding',
+      'Companies experiencing rapid growth',
+      'Businesses undergoing restructuring or turnaround',
+      'Organizations preparing for IPO or acquisition',
+      'Companies needing financial expertise during CFO transition',
+      'SMEs requiring strategic financial guidance',
+    ],
+
+    methodologyTitle: 'Our CFO Service Approach',
+    processSteps: [
+      {
+        week: 'Week 1',
+        title: 'Assessment & Onboarding',
+        description: 'Understand your business model, financial challenges, strategic objectives, and immediate priorities.',
+        deliverables: [
+          'Business and financial assessment',
+          'Priority action items identified',
+          'Quick wins roadmap',
+          'Stakeholder meetings completed',
+        ],
+      },
+      {
+        week: 'Weeks 2-4',
+        title: 'Foundation Building',
+        description: 'Establish financial processes, reporting systems, and controls. Address critical gaps and set up proper infrastructure.',
+        deliverables: [
+          'Financial reporting framework',
+          'KPI dashboard implementation',
+          'Process improvements',
+          'Team training and development',
+        ],
+      },
+      {
+        week: 'Month 2+',
+        title: 'Strategic Leadership',
+        description: 'Provide ongoing strategic guidance, board reporting, fundraising support, and financial leadership.',
+        deliverables: [
+          'Monthly board reports',
+          'Strategic financial planning',
+          'Investor relations support',
+          'Continuous process optimization',
+        ],
+      },
+    ],
+
+    benefitsTitle: 'Why Engage Part-time or Virtual CFO?',
+    benefits: [
+      {
+        title: 'Cost Effective',
+        description: 'Get senior CFO expertise at fraction of full-time cost. Pay only for time you need, with flexibility to scale.',
+        icon: 'DollarSign',
+      },
+      {
+        title: 'Immediate Expertise',
+        description: 'No recruitment delays. Experienced CFO starts immediately with proven track record and industry knowledge.',
+        icon: 'Zap',
+      },
+      {
+        title: 'Fundraising Support',
+        description: 'Expert guidance through fundraising process: financial modeling, investor materials, valuation negotiations.',
+        icon: 'TrendingUp',
+      },
+      {
+        title: 'Strategic Planning',
+        description: 'Data-driven strategic planning, scenario modeling, and decision support for major business decisions.',
+        icon: 'Target',
+      },
+      {
+        title: 'Operational Excellence',
+        description: 'Implement best-practice financial processes, controls, and systems that scale with your growth.',
+        icon: 'Settings',
+      },
+      {
+        title: 'Board & Investor Relations',
+        description: 'Professional board reporting, investor communications, and stakeholder management.',
+        icon: 'Users',
+      },
+      {
+        title: 'Cash Flow Management',
+        description: 'Proactive cash flow forecasting and management to prevent crises and optimize working capital.',
+        icon: 'Coins',
+      },
+      {
+        title: 'M&A Support',
+        description: 'Financial due diligence, integration planning, and value realization for acquisitions.',
+        icon: 'Handshake',
+      },
+    ],
+
+    industriesTitle: 'Industries We Serve',
+    industries: [
+      {
+        name: 'Technology & SaaS',
+        description: 'Revenue recognition, burn rate management, unit economics, and venture funding support.',
+        icon: 'Laptop',
+      },
+      {
+        name: 'E-commerce & Retail',
+        description: 'Inventory management, marketplace accounting, customer acquisition economics, and expansion planning.',
+        icon: 'ShoppingCart',
+      },
+      {
+        name: 'Healthcare',
+        description: 'Payer management, regulatory compliance, capex planning, and healthcare-specific financial analysis.',
+        icon: 'Heart',
+      },
+      {
+        name: 'Real Estate',
+        description: 'Project finance, development accounting, escrow management, and investor reporting.',
+        icon: 'Building',
+      },
+      {
+        name: 'Manufacturing',
+        description: 'Cost accounting, inventory optimization, capacity planning, and supply chain finance.',
+        icon: 'Factory',
+      },
+      {
+        name: 'Professional Services',
+        description: 'Resource planning, project profitability, billing optimization, and partner compensation.',
+        icon: 'Briefcase',
+      },
+    ],
+
+    pricingTitle: 'CFO Services Pricing',
+    pricingIntro: 'Flexible pricing based on engagement model and time commitment. All engagements include access to our full team and resources.',
+    pricingTiers: [
+      {
+        name: 'Virtual CFO',
+        range: 'AED 15,000 - 25,000/month',
+        ideal: 'Startups and small businesses needing periodic guidance',
+        features: [
+          '2-3 days per month on-site/remote',
+          'Monthly financial reporting',
+          'Strategic advisory calls',
+          'Board report preparation',
+          'Email/phone support',
+          'Annual planning session',
+        ],
+      },
+      {
+        name: 'Part-time CFO',
+        range: 'AED 30,000 - 45,000/month',
+        ideal: 'Growing companies needing regular CFO presence',
+        features: [
+          '8-12 days per month',
+          'Weekly management meetings',
+          'Comprehensive financial oversight',
+          'Team management and development',
+          'Fundraising and M&A support',
+          'Unlimited advisory access',
+        ],
+      },
+      {
+        name: 'Interim CFO',
+        range: 'AED 50,000 - 80,000/month',
+        ideal: 'Full-time temporary CFO during transition or crisis',
+        features: [
+          'Full-time dedicated presence',
+          'Complete CFO responsibilities',
+          'Team building and restructuring',
+          'Crisis management',
+          'Succession planning',
+          'Knowledge transfer included',
+        ],
+      },
+    ],
+    pricingFactors: [
+      'Time commitment required (days per month)',
+      'Company size and complexity',
+      'Industry and specific challenges',
+      'Team size and management needs',
+      'Special projects (fundraising, M&A, IPO)',
+      'Duration of engagement',
+    ],
+
+    faqs: [
+      {
+        question: 'What\'s the difference between part-time, virtual, and interim CFO?',
+        answer: 'Virtual CFO works remotely with periodic on-site visits (2-3 days/month). Part-time CFO is on-site regularly (8-12 days/month). Interim CFO is full-time temporary appointment during transition or crisis. All provide strategic CFO leadership.',
+      },
+      {
+        question: 'How quickly can CFO services start?',
+        answer: 'We can typically start within 1-2 weeks. For urgent situations (interim CFO for sudden departure), we can mobilize within 48 hours with our available executives.',
+      },
+      {
+        question: 'Can the CFO manage my finance team?',
+        answer: 'Yes, part-time and interim CFOs can manage your finance team, including hiring, training, performance management, and development. Virtual CFO provides guidance but less direct management.',
+      },
+      {
+        question: 'Do you help with fundraising?',
+        answer: 'Yes, we provide comprehensive fundraising support: financial model building, investor deck development, valuation analysis, due diligence preparation, term sheet negotiation, and investor introductions where appropriate.',
+      },
+      {
+        question: 'What if we decide to hire full-time CFO later?',
+        answer: 'We support the transition. Many clients start with part-time CFO then hire full-time as they scale. We can help with recruitment, and our CFO can stay on during transition to ensure continuity.',
+      },
+      {
+        question: 'Can CFO help with bank relationships?',
+        answer: 'Yes, CFO services include bank relationship management: facility negotiations, covenant compliance, financial reporting to banks, and optimizing banking arrangements.',
+      },
+      {
+        question: 'Is there a minimum engagement period?',
+        answer: 'We recommend minimum 6-month engagement for part-time/virtual CFO to deliver meaningful impact. Interim CFO engagements are project-specific (typically 3-12 months). Month-to-month thereafter.',
+      },
+      {
+        question: 'What financial systems and tools do you work with?',
+        answer: 'We work with all major accounting systems (QuickBooks, Xero, SAP, Oracle, NetSuite), FP&A tools (Adaptive, Anaplan), and can recommend and implement systems if needed.',
+      },
+      {
+        question: 'Can you help with IPO or M&A transactions?',
+        answer: 'Yes, we have extensive experience with IPO preparation (financial controls, reporting, audit readiness) and M&A transactions (buy-side/sell-side due diligence, integration, valuation).',
+      },
+      {
+        question: 'What makes your CFOs qualified?',
+        answer: 'All our CFOs have 15+ years finance leadership experience, many from Big 4 backgrounds, with track records in fundraising, M&A, and scaling companies. Industry-specific expertise available.',
+      },
+    ],
+
+    relatedServices: [
+      {
+        title: 'Business Valuation',
+        slug: 'business-valuation',
+        description: 'Professional business and startup valuation',
+      },
+      {
+        title: 'Due Diligence',
+        slug: 'due-diligence',
+        description: 'Financial due diligence for M&A',
+      },
+      {
+        title: 'External Audit',
+        slug: 'external-audit',
+        description: 'Statutory financial statement audits',
+      },
+    ],
+  },
+
+  'ifrs-implementation': {
+    slug: 'ifrs-implementation',
+    title: 'IFRS Implementation Services',
+    metaTitle: 'IFRS Implementation Services Dubai | IFRS Compliance Consulting | Farahat & Co',
+    metaDescription: 'Expert IFRS implementation and compliance services. Gap analysis, conversion, training. IFRS 15, 16, 9 specialists. 37 years UAE experience.',
+    keywords: [
+      'ifrs implementation dubai',
+      'ifrs consulting uae',
+      'ifrs compliance services',
+      'ifrs conversion dubai',
+      'ifrs 15 implementation',
+      'ifrs 16 leases uae',
+      'ifrs gap analysis',
+      'ifrs training dubai',
+    ],
+
+    heroHeadline: 'IFRS Implementation Services in Dubai',
+    heroSubheadline: 'Expert IFRS Compliance & Implementation Support',
+    heroPainPoint: 'Transitioning to IFRS or implementing new standards? Our specialists guide you through gap analysis, conversion, and ongoing compliance.',
+    heroUSP: 'IFRS-certified consultants with Big 4 experience. All standards covered. Training included.',
+    heroImage: '/images/services/ifrs-implementation-hero.jpg',
+
+    overviewTitle: 'Comprehensive IFRS Implementation',
+    overviewContent: [
+      'International Financial Reporting Standards (IFRS) are mandatory for UAE companies preparing financial statements. Whether you\'re converting from UAE GAAP to IFRS, implementing new IFRS standards, or ensuring ongoing compliance, proper implementation is critical for audit success and stakeholder confidence.',
+      'Our IFRS specialists have extensive experience implementing complex standards including IFRS 15 (Revenue), IFRS 16 (Leases), IFRS 9 (Financial Instruments), and IFRS 17 (Insurance Contracts). We provide end-to-end support from gap analysis through implementation, training, and ongoing compliance.',
+      'With backgrounds from Big 4 firms and deep UAE market knowledge, we understand both the technical requirements and practical challenges of IFRS implementation in the local context.',
+    ],
+    whoNeedsIt: [
+      'Companies converting from UAE GAAP to IFRS',
+      'Businesses implementing new IFRS standards',
+      'Organizations preparing for first-time audit',
+      'Companies with complex IFRS scenarios',
+      'Businesses expanding internationally',
+      'Finance teams needing IFRS training',
+    ],
+
+    methodologyTitle: 'Our IFRS Implementation Process',
+    processSteps: [
+      {
+        week: 'Weeks 1-2',
+        title: 'Gap Analysis & Planning',
+        description: 'Assess current accounting policies, identify gaps against IFRS, and develop detailed implementation plan.',
+        deliverables: [
+          'IFRS gap analysis report',
+          'Impact assessment by standard',
+          'Implementation roadmap',
+          'Resource requirements plan',
+        ],
+      },
+      {
+        week: 'Weeks 3-6',
+        title: 'Policy Development & Conversion',
+        description: 'Develop IFRS-compliant accounting policies, convert opening balances, and prepare transition disclosures.',
+        deliverables: [
+          'IFRS accounting policy manual',
+          'Opening balance sheet conversion',
+          'Technical memorandums',
+          'Disclosure templates',
+        ],
+      },
+      {
+        week: 'Weeks 7-8',
+        title: 'Training & Go-Live',
+        description: 'Train finance team, implement controls, and support first IFRS reporting period.',
+        deliverables: [
+          'Comprehensive team training',
+          'First IFRS financial statements',
+          'Process documentation',
+          'Ongoing support plan',
+        ],
+      },
+    ],
+
+    benefitsTitle: 'Benefits of Professional IFRS Implementation',
+    benefits: [
+      {
+        title: 'Audit Success',
+        description: 'Proper IFRS implementation ensures smooth audit process without qualification or material adjustments.',
+        icon: 'CheckCircle',
+      },
+      {
+        title: 'Regulatory Compliance',
+        description: 'Meet Ministry of Economy and regulatory requirements for IFRS-compliant financial reporting.',
+        icon: 'Shield',
+      },
+      {
+        title: 'Investor Confidence',
+        description: 'IFRS-compliant financials provide transparency and comparability that investors and lenders require.',
+        icon: 'TrendingUp',
+      },
+      {
+        title: 'Technical Expertise',
+        description: 'Access to IFRS specialists with Big 4 background and deep knowledge of complex standards.',
+        icon: 'Award',
+      },
+      {
+        title: 'Efficient Implementation',
+        description: 'Structured approach minimizes business disruption and accelerates implementation timeline.',
+        icon: 'Zap',
+      },
+      {
+        title: 'Team Capability',
+        description: 'Comprehensive training builds internal IFRS capability for ongoing compliance.',
+        icon: 'GraduationCap',
+      },
+      {
+        title: 'Risk Mitigation',
+        description: 'Identify and address complex technical issues before audit, preventing costly restatements.',
+        icon: 'AlertTriangle',
+      },
+      {
+        title: 'Ongoing Support',
+        description: 'Continued access to technical expertise for new standards and complex transactions.',
+        icon: 'HeadphonesIcon',
+      },
+    ],
+
+    industriesTitle: 'Industry-Specific IFRS Expertise',
+    industries: [
+      {
+        name: 'Real Estate',
+        description: 'IFRS 15 revenue recognition for developers, IFRS 16 for operating leases, investment property measurement.',
+        icon: 'Building',
+      },
+      {
+        name: 'Financial Services',
+        description: 'IFRS 9 for banks and investment firms, IFRS 17 for insurance, complex financial instruments.',
+        icon: 'LineChart',
+      },
+      {
+        name: 'Telecommunications',
+        description: 'IFRS 15 for bundled offerings, network infrastructure capitalization, subscriber acquisition costs.',
+        icon: 'Radio',
+      },
+      {
+        name: 'Manufacturing',
+        description: 'Inventory valuation, revenue recognition timing, leased equipment, foreign currency.',
+        icon: 'Factory',
+      },
+      {
+        name: 'Retail & E-commerce',
+        description: 'Variable consideration, loyalty programs, returns provisions, multi-element arrangements.',
+        icon: 'ShoppingBag',
+      },
+      {
+        name: 'Oil & Gas',
+        description: 'Exploration costs, joint arrangements, decommissioning provisions, revenue recognition.',
+        icon: 'Fuel',
+      },
+    ],
+
+    pricingTitle: 'IFRS Implementation Fees',
+    pricingIntro: 'Pricing depends on company size, complexity, number of standards requiring implementation, and timeline. We provide fixed-fee proposals.',
+    pricingTiers: [
+      {
+        name: 'IFRS Gap Analysis',
+        range: 'AED 15,000 - 30,000',
+        ideal: 'Assessment-only or planning phase',
+        features: [
+          'Comprehensive gap analysis',
+          'Standard-by-standard assessment',
+          'Impact quantification',
+          'Implementation roadmap',
+          'Management presentation',
+          'Written report',
+        ],
+      },
+      {
+        name: 'Single Standard Implementation',
+        range: 'AED 30,000 - 80,000',
+        ideal: 'Implementing specific new standard (IFRS 15, 16, etc.)',
+        features: [
+          'Technical analysis',
+          'Policy development',
+          'Financial impact calculation',
+          'Disclosure preparation',
+          'Team training',
+          'First-year support',
+        ],
+      },
+      {
+        name: 'Full IFRS Conversion',
+        range: 'AED 80,000 - 250,000',
+        ideal: 'Complete conversion from UAE GAAP to IFRS',
+        features: [
+          'Comprehensive gap analysis',
+          'All standards implementation',
+          'Opening balance conversion',
+          'Policy manual development',
+          'Extensive team training',
+          '12-month support period',
+        ],
+      },
+    ],
+    pricingFactors: [
+      'Number of standards requiring implementation',
+      'Company size and transaction volume',
+      'Complexity of operations and arrangements',
+      'Quality of existing accounting records',
+      'Internal team capability and availability',
+      'Timeline and urgency requirements',
+    ],
+
+    faqs: [
+      {
+        question: 'What is IFRS and why is it required in UAE?',
+        answer: 'IFRS (International Financial Reporting Standards) are global accounting standards that provide transparency and comparability. UAE Federal Law requires mainland companies to prepare IFRS-compliant financial statements for statutory audit.',
+      },
+      {
+        question: 'How long does IFRS implementation take?',
+        answer: 'Single standard implementation: 4-8 weeks. Full IFRS conversion: 2-4 months depending on complexity. New standards with long lead times (like IFRS 9, 15, 16) may require 3-6 months for complex entities.',
+      },
+      {
+        question: 'What is IFRS 15 and how does it affect revenue recognition?',
+        answer: 'IFRS 15 establishes 5-step model for revenue recognition. It affects timing and amount of revenue, especially for contracts with multiple elements, variable consideration, or extended payment terms. Impact varies significantly by industry.',
+      },
+      {
+        question: 'What is IFRS 16 and how does it affect leases?',
+        answer: 'IFRS 16 requires lessees to recognize most leases on balance sheet as right-of-use assets and lease liabilities. This significantly impacts companies with operating leases (real estate, equipment, vehicles) by bringing them on-balance sheet.',
+      },
+      {
+        question: 'Do you provide IFRS training to our team?',
+        answer: 'Yes, comprehensive training is included in all implementations. We provide both general IFRS training and standard-specific deep dives, tailored to your industry and specific scenarios. Training can be in-person or virtual.',
+      },
+      {
+        question: 'Can you help with first-time IFRS adoption?',
+        answer: 'Yes, we specialize in first-time adoption per IFRS 1. This includes exemptions analysis, comparative period restatements, opening balance sheet preparation, and extensive transition disclosures required in first IFRS financial statements.',
+      },
+      {
+        question: 'What if we made IFRS errors in previous years?',
+        answer: 'We assess errors and determine if correction required per IAS 8. For material errors, we prepare prior period restatements. If errors identified before audit, we work with you to correct them proactively.',
+      },
+      {
+        question: 'Do you stay updated on new IFRS standards?',
+        answer: 'Yes, we monitor IASB developments continuously. We provide clients with updates on new standards, amendments, and interpretations that may affect them, including transition planning for upcoming changes.',
+      },
+      {
+        question: 'Can you support us during external audit?',
+        answer: 'Yes, we provide technical support during external audit, including responding to auditor queries, preparing technical memorandums, and resolving complex IFRS matters that arise during audit.',
+      },
+      {
+        question: 'What\'s included in IFRS policy manual?',
+        answer: 'Comprehensive accounting policy manual covering all relevant IFRS standards, industry-specific treatments, company elections and judgments, measurement methodologies, and disclosure requirements. Serves as internal IFRS reference guide.',
+      },
+    ],
+
+    relatedServices: [
+      {
+        title: 'External Audit',
+        slug: 'external-audit',
+        description: 'IFRS-compliant statutory audit',
+      },
+      {
+        title: 'CFO Services',
+        slug: 'cfo-services',
+        description: 'Strategic financial leadership',
+      },
+      {
+        title: 'Tax Consultation',
+        slug: 'tax-consultation',
+        description: 'Tax implications of IFRS choices',
+      },
+    ],
+  },
 }

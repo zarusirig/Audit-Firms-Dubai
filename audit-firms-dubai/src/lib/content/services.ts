@@ -1393,4 +1393,544 @@ export const SERVICES: Record<string, ServicePageContent> = {
       },
     ],
   },
+
+  // ============================================================================
+  // RELATED LAYER: Advisory Services
+  // ============================================================================
+
+  'tax-consultation': {
+    slug: 'tax-consultation',
+    title: 'Tax Consultation Services',
+    metaTitle: 'Tax Consultation Services Dubai | VAT, Corporate Tax Advisory | Farahat & Co',
+    metaDescription: 'Expert tax consultation for UAE businesses. VAT advisory, corporate tax planning, transfer pricing, international tax. FTA-registered tax consultants. Free consultation.',
+    keywords: [
+      'tax consultation dubai',
+      'tax advisory services uae',
+      'vat consultant dubai',
+      'corporate tax consultant',
+      'transfer pricing uae',
+      'international tax dubai',
+      'fta tax advisor',
+      'tax planning dubai',
+    ],
+
+    heroHeadline: 'Tax Consultation Services in Dubai',
+    heroSubheadline: 'Strategic Tax Advisory for UAE Businesses',
+    heroPainPoint: 'Navigate complex UAE tax regulations with confidence. Our tax consultants help you optimize tax positions, ensure compliance, and minimize risks.',
+    heroUSP: 'FTA-registered tax advisors with 37 years experience. VAT, Corporate Tax, International Tax expertise.',
+    heroImage: '/images/services/tax-consultation-hero.jpg',
+
+    overviewTitle: 'Comprehensive Tax Advisory Services',
+    overviewContent: [
+      'Tax consultation goes beyond simple compliance to help you make strategic business decisions with tax implications in mind. Our FTA-registered tax consultants provide comprehensive tax advisory services covering VAT, Corporate Tax, Excise Tax, Transfer Pricing, and International Tax matters.',
+      'With the introduction of Corporate Tax in UAE from June 2023 and ongoing VAT complexity, businesses need proactive tax advice to optimize their tax position while ensuring full compliance. We help you navigate the evolving UAE tax landscape.',
+      'Our tax consultants work closely with your finance team to provide practical, business-oriented tax advice that protects your interests and supports your growth objectives.',
+    ],
+    whoNeedsIt: [
+      'Businesses with annual revenue over AED 50 million',
+      'Companies preparing for Corporate Tax implementation',
+      'Multinational companies with transfer pricing requirements',
+      'Businesses with complex VAT scenarios',
+      'Companies facing FTA audits or disputes',
+      'Businesses expanding regionally or internationally',
+    ],
+
+    methodologyTitle: 'Our Tax Consultation Approach',
+    processSteps: [
+      {
+        week: 'Week 1',
+        title: 'Tax Assessment & Analysis',
+        description: 'We analyze your current tax position, review historical returns, identify risks, and understand your business model.',
+        deliverables: [
+          'Tax health check report',
+          'Risk assessment matrix',
+          'Compliance gap analysis',
+          'Preliminary recommendations',
+        ],
+      },
+      {
+        week: 'Weeks 2-3',
+        title: 'Tax Planning & Strategy',
+        description: 'Develop comprehensive tax strategy aligned with business objectives, including optimization opportunities and compliance roadmap.',
+        deliverables: [
+          'Tax planning memorandum',
+          'Implementation roadmap',
+          'Potential savings quantification',
+          'Compliance calendar',
+        ],
+      },
+      {
+        week: 'Week 4+',
+        title: 'Implementation & Ongoing Support',
+        description: 'Assist with implementation of tax strategies, provide ongoing advisory, and ensure continuous compliance.',
+        deliverables: [
+          'Implementation support',
+          'Quarterly tax reviews',
+          'FTA correspondence support',
+          'Technical guidance as needed',
+        ],
+      },
+    ],
+
+    benefitsTitle: 'Benefits of Professional Tax Consultation',
+    benefits: [
+      {
+        title: 'Tax Optimization',
+        description: 'Identify legitimate tax savings opportunities and optimize your overall tax position across VAT, Corporate Tax, and other levies.',
+        icon: 'TrendingDown',
+      },
+      {
+        title: 'Risk Mitigation',
+        description: 'Proactively identify and address tax risks before they become FTA audits or penalties. Stay ahead of compliance issues.',
+        icon: 'Shield',
+      },
+      {
+        title: 'Strategic Business Decisions',
+        description: 'Make informed business decisions with clear understanding of tax implications for transactions, restructuring, and expansion.',
+        icon: 'Target',
+      },
+      {
+        title: 'Corporate Tax Readiness',
+        description: 'Prepare for UAE Corporate Tax requirements with proper structure, documentation, and compliance systems.',
+        icon: 'Building2',
+      },
+      {
+        title: 'FTA Audit Defense',
+        description: 'Strong defense during FTA audits with proper documentation, technical arguments, and experienced representation.',
+        icon: 'Gavel',
+      },
+      {
+        title: 'Transfer Pricing Compliance',
+        description: 'Meet arm\'s length requirements for related party transactions and prepare compliant transfer pricing documentation.',
+        icon: 'ArrowRightLeft',
+      },
+      {
+        title: 'International Tax Planning',
+        description: 'Optimize cross-border transactions, leverage tax treaties, and structure international operations tax-efficiently.',
+        icon: 'Globe',
+      },
+      {
+        title: 'Ongoing Support',
+        description: 'Continuous access to tax expertise for technical questions, FTA queries, and evolving regulatory requirements.',
+        icon: 'HeadphonesIcon',
+      },
+    ],
+
+    industriesTitle: 'Industries We Serve',
+    industries: [
+      {
+        name: 'E-commerce & Digital',
+        description: 'VAT on digital services, cross-border sales, marketplace rules, and international VAT compliance.',
+        icon: 'ShoppingCart',
+      },
+      {
+        name: 'Real Estate',
+        description: 'Property VAT treatment, commercial vs residential, first supply rules, and real estate corporate tax.',
+        icon: 'Building',
+      },
+      {
+        name: 'Financial Services',
+        description: 'Exempt financial services, input tax recovery, DFSA regulations, and financial sector tax optimization.',
+        icon: 'LineChart',
+      },
+      {
+        name: 'Manufacturing & Trading',
+        description: 'Import VAT, customs duty optimization, designated zones, and supply chain tax efficiency.',
+        icon: 'Package',
+      },
+      {
+        name: 'Healthcare',
+        description: 'Healthcare exemptions, zero-rating rules, medical equipment VAT, and healthcare corporate tax.',
+        icon: 'Heart',
+      },
+      {
+        name: 'Hospitality & Tourism',
+        description: 'Tourism VAT refunds, hotel supplies, F&B VAT treatment, and industry-specific compliance.',
+        icon: 'Plane',
+      },
+    ],
+
+    pricingTitle: 'Tax Consultation Fees',
+    pricingIntro: 'Our tax consultation fees are based on engagement scope, complexity, and business size. We offer project-based fees for specific matters and retainer arrangements for ongoing advisory.',
+    pricingTiers: [
+      {
+        name: 'Tax Health Check',
+        range: 'AED 10,000 - 25,000',
+        ideal: 'Startups and SMEs needing initial tax assessment',
+        features: [
+          'Comprehensive tax review',
+          'Risk identification',
+          'Compliance gap analysis',
+          '2-3 hour consultation',
+          'Written recommendations',
+          'Priority FTA questions (5)',
+        ],
+      },
+      {
+        name: 'Tax Advisory Retainer',
+        range: 'AED 5,000 - 15,000/month',
+        ideal: 'Growing businesses needing ongoing tax support',
+        features: [
+          'Unlimited tax consultations',
+          'Quarterly compliance reviews',
+          'FTA correspondence support',
+          'Tax planning advisory',
+          'Dedicated tax consultant',
+          'Technical research included',
+        ],
+      },
+      {
+        name: 'Corporate Tax Implementation',
+        range: 'AED 30,000 - 150,000',
+        ideal: 'Companies preparing for Corporate Tax compliance',
+        features: [
+          'CT readiness assessment',
+          'Structure optimization',
+          'Systems & documentation setup',
+          'First CT return preparation',
+          'Transfer pricing documentation',
+          '12 months post-implementation support',
+        ],
+      },
+    ],
+    pricingFactors: [
+      'Business complexity and transaction volume',
+      'Number of entities and jurisdictions',
+      'Specific tax matters (VAT, CT, Transfer Pricing, etc.)',
+      'Urgency and timeline requirements',
+      'Ongoing vs project-based engagement',
+      'Industry-specific complexities',
+    ],
+
+    faqs: [
+      {
+        question: 'What\'s the difference between tax consultation and tax audit?',
+        answer: 'Tax consultation is proactive advisory to optimize your tax position and ensure compliance, while tax audit is a retrospective examination of tax returns and compliance. Consultation prevents issues; audit identifies them after the fact.',
+      },
+      {
+        question: 'Do I need a tax consultant if I have an accountant?',
+        answer: 'Yes. While accountants handle bookkeeping and basic tax compliance, tax consultants provide strategic tax planning, technical interpretations, FTA dispute resolution, and optimization strategies. They complement your accounting team.',
+      },
+      {
+        question: 'When is the best time to engage tax consultant?',
+        answer: 'Ideally, before major business decisions (restructuring, M&A, expansion), when implementing new UAE Corporate Tax, if facing FTA audit, or quarterly for ongoing advisory. Proactive consultation prevents costly mistakes.',
+      },
+      {
+        question: 'Can you help with FTA tax disputes?',
+        answer: 'Yes, we provide full FTA dispute resolution including technical analysis, response preparation, objection filing, negotiation, and Tax Disputes Resolution Committee representation. Our success rate in reducing assessments is over 80%.',
+      },
+      {
+        question: 'What is UAE Corporate Tax and how should I prepare?',
+        answer: 'UAE Corporate Tax is 9% tax on business profits effective from June 2023. Preparation includes: reviewing entity structure, implementing accounting systems, preparing transfer pricing documentation, and establishing compliance processes.',
+      },
+      {
+        question: 'Do you provide tax consultation in Arabic?',
+        answer: 'Yes, we have bilingual tax consultants fluent in English and Arabic. All technical tax advice, FTA correspondence, and documentation can be provided in your preferred language.',
+      },
+      {
+        question: 'How do retainer tax services work?',
+        answer: 'Monthly retainer provides unlimited consultations, quarterly compliance reviews, FTA query support, and technical research. You have a dedicated tax consultant who understands your business and provides proactive guidance.',
+      },
+      {
+        question: 'Can you review my historical tax returns for errors?',
+        answer: 'Yes, we conduct historical tax compliance reviews covering VAT returns, corporate tax filings, and other tax matters. If errors found, we prepare voluntary disclosure to FTA to minimize penalties.',
+      },
+      {
+        question: 'What is transfer pricing and do I need it?',
+        answer: 'Transfer pricing ensures related party transactions are conducted at arm\'s length prices. Required for UAE Corporate Tax if you have related entities or transactions. We prepare compliant transfer pricing documentation.',
+      },
+      {
+        question: 'Can you help optimize our group structure for tax efficiency?',
+        answer: 'Yes, we provide tax-efficient structure design considering UAE Corporate Tax, VAT, international tax treaties, and commercial objectives. We model different scenarios to identify the optimal structure.',
+      },
+    ],
+
+    relatedServices: [
+      {
+        title: 'VAT Audit',
+        slug: 'vat-audit',
+        description: 'Comprehensive VAT compliance audit',
+      },
+      {
+        title: 'External Audit',
+        slug: 'external-audit',
+        description: 'Statutory financial statement audits',
+      },
+      {
+        title: 'CFO Services',
+        slug: 'cfo-services',
+        description: 'Strategic financial leadership',
+      },
+    ],
+  },
+
+  'business-valuation': {
+    slug: 'business-valuation',
+    title: 'Business Valuation Services',
+    metaTitle: 'Business Valuation Services Dubai | Company Valuation, M&A | Farahat & Co',
+    metaDescription: 'Professional business valuation services in Dubai. IVS compliant valuations for M&A, investments, disputes, IFRS 3. Expert valuators with 37 years experience.',
+    keywords: [
+      'business valuation dubai',
+      'company valuation uae',
+      'm&a valuation',
+      'business appraisal dubai',
+      'enterprise valuation',
+      'ifrs 3 valuation',
+      'shareholder dispute valuation',
+      'startup valuation dubai',
+    ],
+
+    heroHeadline: 'Business Valuation Services in Dubai',
+    heroSubheadline: 'IVS-Compliant Business Valuations for M&A, Investments & More',
+    heroPainPoint: 'Make informed business decisions with professional, defensible valuations. Whether selling, buying, raising capital, or resolving disputes, accurate valuation is critical.',
+    heroUSP: 'Expert valuators with M&A, investment, and dispute experience across all industries. IVS and IFRS compliant.',
+    heroImage: '/images/services/business-valuation-hero.jpg',
+
+    overviewTitle: 'Professional Business Valuation Services',
+    overviewContent: [
+      'Business valuation is the process of determining the economic value of a business or company. Our professional valuation services provide credible, defensible valuations for mergers and acquisitions, investment decisions, shareholder disputes, financial reporting, and tax purposes.',
+      'We employ internationally recognized valuation methodologies including Discounted Cash Flow (DCF), Market Multiples, Asset-based approaches, and industry-specific methods. Our valuations comply with International Valuation Standards (IVS) and IFRS requirements.',
+      'With 37 years of experience in the UAE market and deep industry expertise, we provide valuations that stand up to scrutiny from investors, banks, courts, and regulators. Our team has valued businesses ranging from startups to enterprises worth hundreds of millions.',
+    ],
+    whoNeedsIt: [
+      'Business owners planning to sell or acquire companies',
+      'Investors evaluating investment opportunities',
+      'Shareholders in dispute requiring independent valuation',
+      'Companies needing IFRS 3 purchase price allocation',
+      'Family businesses planning succession',
+      'Companies raising capital from investors',
+      'Businesses requiring valuation for tax or estate purposes',
+      'Courts requiring expert valuation testimony',
+    ],
+
+    methodologyTitle: 'Our Valuation Methodology',
+    processSteps: [
+      {
+        week: 'Week 1',
+        title: 'Engagement & Information Gathering',
+        description: 'Define valuation purpose, gather financial data, understand business model, and conduct management interviews.',
+        deliverables: [
+          'Engagement letter',
+          'Information request list',
+          'Business understanding memo',
+          'Valuation approach selection',
+        ],
+      },
+      {
+        week: 'Weeks 2-3',
+        title: 'Analysis & Valuation',
+        description: 'Perform financial analysis, build valuation models, conduct market research, and determine value range.',
+        deliverables: [
+          'Financial normalization',
+          'DCF model & assumptions',
+          'Market comparables analysis',
+          'Preliminary valuation range',
+        ],
+      },
+      {
+        week: 'Week 4',
+        title: 'Reporting & Presentation',
+        description: 'Prepare comprehensive valuation report, present findings to stakeholders, and provide ongoing support.',
+        deliverables: [
+          'Detailed valuation report',
+          'Executive summary',
+          'Sensitivity analysis',
+          'Management presentation',
+        ],
+      },
+    ],
+
+    benefitsTitle: 'Why Professional Business Valuation Matters',
+    benefits: [
+      {
+        title: 'Defensible Valuations',
+        description: 'IVS and IFRS-compliant valuations that withstand scrutiny from investors, banks, courts, and regulatory bodies.',
+        icon: 'Shield',
+      },
+      {
+        title: 'Transaction Support',
+        description: 'Critical input for M&A negotiations, providing seller and buyer with realistic expectations and negotiating positions.',
+        icon: 'Handshake',
+      },
+      {
+        title: 'Investment Decisions',
+        description: 'Help investors evaluate opportunities, determine fair pricing, and assess return potential objectively.',
+        icon: 'TrendingUp',
+      },
+      {
+        title: 'Dispute Resolution',
+        description: 'Independent expert valuation for shareholder disputes, divorce proceedings, and partnership dissolutions.',
+        icon: 'Scale',
+      },
+      {
+        title: 'IFRS Compliance',
+        description: 'Purchase price allocation for business combinations, impairment testing, and fair value measurements per IFRS 3, 13, and 36.',
+        icon: 'FileCheck',
+      },
+      {
+        title: 'Strategic Planning',
+        description: 'Understand your company\'s value drivers and factors impacting valuation to inform strategic decisions.',
+        icon: 'Target',
+      },
+      {
+        title: 'Fundraising Support',
+        description: 'Credible valuation supporting funding rounds, demonstrating value to investors and justifying equity dilution.',
+        icon: 'DollarSign',
+      },
+      {
+        title: 'Expert Witness Testimony',
+        description: 'Experienced valuators available to provide expert witness testimony in court proceedings and arbitration.',
+        icon: 'Gavel',
+      },
+    ],
+
+    industriesTitle: 'Industries We Value',
+    industries: [
+      {
+        name: 'Technology & Startups',
+        description: 'Valuation of early-stage companies, SaaS businesses, and technology companies with complex revenue models.',
+        icon: 'Laptop',
+      },
+      {
+        name: 'Real Estate',
+        description: 'Property development companies, REITs, property management firms, and real estate portfolios.',
+        icon: 'Building',
+      },
+      {
+        name: 'Healthcare',
+        description: 'Hospitals, clinics, medical centers, pharmaceutical distributors, and healthcare service providers.',
+        icon: 'Heart',
+      },
+      {
+        name: 'Manufacturing',
+        description: 'Manufacturing operations, industrial businesses, and companies with significant fixed assets.',
+        icon: 'Factory',
+      },
+      {
+        name: 'Financial Services',
+        description: 'Banks, insurance companies, investment firms, and financial technology companies.',
+        icon: 'LineChart',
+      },
+      {
+        name: 'Retail & E-commerce',
+        description: 'Retail operations, online businesses, franchise operations, and omnichannel retailers.',
+        icon: 'ShoppingBag',
+      },
+    ],
+
+    pricingTitle: 'Business Valuation Fees',
+    pricingIntro: 'Valuation fees depend on business size, complexity, valuation purpose, and timeline. We provide fixed-fee quotes after understanding your requirements.',
+    pricingTiers: [
+      {
+        name: 'SME Valuation',
+        range: 'AED 20,000 - 50,000',
+        ideal: 'Small to medium businesses (revenue < AED 50M)',
+        features: [
+          'Single valuation methodology',
+          '3-5 year historical analysis',
+          'Management interviews',
+          'Market research',
+          'Comprehensive report (30-40 pages)',
+          '1 revision cycle',
+        ],
+      },
+      {
+        name: 'Mid-Market Valuation',
+        range: 'AED 50,000 - 120,000',
+        ideal: 'Mid-size companies (revenue AED 50-200M)',
+        features: [
+          'Multiple valuation methodologies',
+          '5 year historical & forecast analysis',
+          'Detailed market comparables',
+          'Sensitivity & scenario analysis',
+          'Comprehensive report (50-70 pages)',
+          '2 revision cycles',
+        ],
+      },
+      {
+        name: 'Enterprise Valuation',
+        range: 'AED 120,000 - 300,000',
+        ideal: 'Large enterprises, complex structures',
+        features: [
+          'Full valuation methodology suite',
+          'Comprehensive due diligence',
+          'Complex financial modeling',
+          'Expert witness capability',
+          'Detailed report (80+ pages)',
+          'Unlimited revisions',
+          'Court testimony if needed',
+        ],
+      },
+    ],
+    pricingFactors: [
+      'Company size and complexity',
+      'Number of business units or subsidiaries',
+      'Valuation purpose (M&A, dispute, IFRS, etc.)',
+      'Timeline and urgency',
+      'Availability of financial information',
+      'Industry complexity and available data',
+      'Need for expert witness testimony',
+    ],
+
+    faqs: [
+      {
+        question: 'What valuation methodologies do you use?',
+        answer: 'We use Income Approach (DCF), Market Approach (comparable companies and transactions), and Asset-based Approach. The methodology selection depends on business nature, data availability, and valuation purpose. Often we use multiple methods.',
+      },
+      {
+        question: 'How long does business valuation take?',
+        answer: 'Typical timeline is 3-4 weeks from information receipt to final report. Express valuations possible in 7-10 days for simple businesses. Complex enterprises with multiple divisions may require 6-8 weeks.',
+      },
+      {
+        question: 'What information do you need for valuation?',
+        answer: 'We need 3-5 years historical financials, current management accounts, business plan/forecast, shareholder information, customer/supplier concentration data, asset registers, and details of any pending litigation or contingencies.',
+      },
+      {
+        question: 'Is your valuation accepted by banks and investors?',
+        answer: 'Yes, our valuations comply with International Valuation Standards (IVS) and are accepted by UAE banks, international investors, and financial institutions. We can coordinate directly with your bank if needed.',
+      },
+      {
+        question: 'Can you value a startup with no profits?',
+        answer: 'Yes, startup valuation uses different approaches including Venture Capital Method, Scorecard Method, First Chicago Method, and comparable startup transactions. We consider growth metrics, market potential, and traction indicators.',
+      },
+      {
+        question: 'What is IFRS 3 valuation and when is it needed?',
+        answer: 'IFRS 3 requires purchase price allocation in business combinations. We identify and value all acquired assets (including intangibles) and liabilities at fair value. Required when one company acquires another and prepares consolidated accounts.',
+      },
+      {
+        question: 'Can you provide expert witness testimony in disputes?',
+        answer: 'Yes, our senior valuators serve as expert witnesses in shareholder disputes, divorce proceedings, arbitration, and court cases. We prepare expert reports and provide testimony explaining valuation methodology and conclusions.',
+      },
+      {
+        question: 'How do you value intangible assets like brands and customer relationships?',
+        answer: 'We use Relief from Royalty method for brands, Multi-Period Excess Earnings for customer relationships, and other income-based approaches. This is common in IFRS 3 purchase price allocations and brand valuations.',
+      },
+      {
+        question: 'What\'s the difference between enterprise value and equity value?',
+        answer: 'Enterprise Value is the total business value (debt + equity). Equity Value is the value attributable to shareholders after subtracting net debt. We clearly specify which value we\'re calculating based on your needs.',
+      },
+      {
+        question: 'Can valuation report be used for multiple purposes?',
+        answer: 'Valuations are purpose-specific. A valuation for negotiating sale may differ from one for tax or IFRS purposes due to different assumptions and standards. Clearly define all intended uses upfront to ensure appropriate approach.',
+      },
+    ],
+
+    relatedServices: [
+      {
+        title: 'Due Diligence',
+        slug: 'due-diligence',
+        description: 'Comprehensive M&A due diligence',
+      },
+      {
+        title: 'CFO Services',
+        slug: 'cfo-services',
+        description: 'Financial planning and analysis',
+      },
+      {
+        title: 'External Audit',
+        slug: 'external-audit',
+        description: 'Audited financial statements',
+      },
+    ],
+  },
 }

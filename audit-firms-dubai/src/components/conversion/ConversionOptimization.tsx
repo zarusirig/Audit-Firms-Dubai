@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { LiveChatWidget } from './LiveChatWidget';
 import { ExitIntentPopup } from './ExitIntentPopup';
 import { StickyCTABar } from './StickyCTABar';
 import { FloatingTrustBar } from './FloatingTrustBar';
@@ -11,7 +10,6 @@ import { FloatingTrustBar } from './FloatingTrustBar';
  * Combines all conversion optimization components
  *
  * Features:
- * - Live Chat Widget
  * - Exit Intent Popup
  * - Sticky CTA Bar
  * - Floating Trust Bar (Social Proof)
@@ -21,8 +19,6 @@ import { FloatingTrustBar } from './FloatingTrustBar';
  */
 
 interface ConversionOptimizationProps {
-  /** Enable/disable live chat */
-  enableLiveChat?: boolean;
   /** Enable/disable exit intent popup */
   enableExitIntent?: boolean;
   /** Enable/disable sticky CTA bar */
@@ -44,7 +40,6 @@ interface ConversionOptimizationProps {
 }
 
 export function ConversionOptimization({
-  enableLiveChat = true,
   enableExitIntent = true,
   enableStickyCTA = true,
   enableTrustBar = true,
@@ -52,8 +47,6 @@ export function ConversionOptimization({
 }: ConversionOptimizationProps = {}) {
   return (
     <>
-      {/* Live Chat Widget - Bottom right */}
-      {enableLiveChat && <LiveChatWidget />}
 
       {/* Exit Intent Popup - Shows when user tries to leave */}
       {enableExitIntent && (
@@ -85,7 +78,6 @@ export function ConversionOptimization({
 export function MinimalConversionOptimization() {
   return (
     <>
-      <LiveChatWidget />
       <FloatingTrustBar />
     </>
   );

@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import { OrganizationSchema } from '@/components/seo/schemas/OrganizationSchema'
 import { inter, playfair } from '@/app/fonts'
 import '../globals.css'
+import Script from 'next/script'
 
 // Generate static params for all locales
 export async function generateStaticParams() {
@@ -119,6 +120,22 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${playfair.variable} font-sans`}
       suppressHydrationWarning
     >
+      <head>
+        <Script id="chatpilot-config" strategy="beforeInteractive">
+          {`
+            window.chatpilotConfig = {
+              chatbotId: "950504931c274fe18d462ac867415204",
+              domain: "https://www.newoaks.ai",
+              chatModeOnly: true
+            }
+          `}
+        </Script>
+        <Script
+          src="https://www.newoaks.ai/embed.min.js"
+          strategy="afterInteractive"
+          defer
+        />
+      </head>
       <body className="font-sans antialiased">
         <OrganizationSchema />
         <div className="flex min-h-screen flex-col">

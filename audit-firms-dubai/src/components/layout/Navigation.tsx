@@ -55,7 +55,9 @@ export function Navigation({ locale, dict }: { locale: Locale; dict: Dictionary 
       <nav className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
-          <Logo size="md" />
+          <div className="flex items-center">
+            <Logo size="md" />
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">

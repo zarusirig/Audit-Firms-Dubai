@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 interface LogoProps {
@@ -23,17 +24,17 @@ export function Logo({
   href = '/',
 }: LogoProps) {
   const sizeClasses = {
-    sm: 'text-xl',
-    md: 'text-2xl',
-    lg: 'text-3xl',
-    xl: 'text-4xl',
+    sm: 'h-10 w-auto max-w-[160px]',
+    md: 'h-24 w-auto max-w-[400px]',
+    lg: 'h-28 w-auto max-w-[440px]',
+    xl: 'h-32 w-auto max-w-[500px]',
   };
 
   const variantClasses = {
-    primary: 'text-primary-600',
-    white: 'text-white',
-    dark: 'text-neutral-900',
-    mark: 'text-primary-600', // Mark variant for icon only
+    primary: '',
+    white: '',
+    dark: '',
+    mark: '',
   };
 
   const taglineSizes = {
@@ -44,30 +45,20 @@ export function Logo({
   };
 
   const LogoContent = () => (
-    <div className={cn('flex flex-col', className)}>
-      <div className={cn('font-serif font-bold tracking-tight', sizeClasses[size], variantClasses[variant])}>
-        {variant === 'mark' ? (
-          // Icon/Mark version - initials in a circle
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-600 text-white">
-            <span className="text-lg font-bold">EA</span>
-          </div>
-        ) : (
-          // Full logo
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary-600 text-white">
-              <span className="text-sm font-bold">EA</span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-bold">Elite Audit</span>
-              <span className={cn('font-normal', variant === 'primary' ? 'text-neutral-600' : 'opacity-80')}>
-                Dubai
-              </span>
-            </div>
-          </div>
-        )}
+    <div className={cn('flex flex-col items-start', className)}>
+      <div className={cn(sizeClasses[size], 'relative flex items-center')}>
+        <Image
+          src="/images/hero/audit-firms-dubai-faraht-co.png"
+          alt="Audit Firms Dubai - Elite Audit Dubai"
+          width={400}
+          height={96}
+          className="object-contain"
+          style={{ width: 'auto', height: '100%' }}
+          priority
+        />
       </div>
-      {showTagline && variant !== 'mark' && (
-        <p className={cn('mt-1 font-medium text-neutral-600', taglineSizes[size], variantClasses[variant])}>
+      {showTagline && (
+        <p className={cn('mt-1 font-medium text-neutral-600', taglineSizes[size])}>
           Dubai's Most Trusted Audit Firm
         </p>
       )}
@@ -78,7 +69,7 @@ export function Logo({
     return (
       <Link
         href={href}
-        className="inline-block transition-opacity hover:opacity-80"
+        className="inline-flex items-center transition-opacity hover:opacity-80"
         aria-label="Audit Firms Dubai - Home"
       >
         <LogoContent />

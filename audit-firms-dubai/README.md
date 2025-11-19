@@ -2,12 +2,33 @@
 
 A premium, SEO-optimized website for Dubai's leading audit firm, built with Next.js 16+ and modern web technologies.
 
+## 📋 Table of Contents
+
+- [Project Overview](#-project-overview)
+- [Tech Stack](#️-tech-stack)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Recent Updates](#-recent-updates)
+- [Configuration](#-configuration)
+- [Development Guide](#-development-guide)
+- [Deployment](#-deployment)
+- [Troubleshooting](#-troubleshooting)
+
 ## 🚀 Project Overview
 
 This is a rank-and-rent SEO website targeting audit services in Dubai, UAE. The project aims to achieve:
 - **Traffic Goal**: 10,000+ organic visitors/month by month 6
 - **Revenue Target**: $8,000/month rental income by month 18
 - **Ranking Goal**: Top 3 for 50+ high-commercial-value keywords
+
+### Key Features
+
+- ✅ **Bilingual Support**: English and Arabic (RTL support)
+- ✅ **SEO Optimized**: Schema markup, dynamic sitemaps, optimized meta tags
+- ✅ **Performance**: Image optimization, code splitting, lazy loading
+- ✅ **Accessibility**: WCAG 2.1 AA compliant
+- ✅ **Lead Generation**: Contact forms, calculators, quote requests
+- ✅ **Conversion Optimization**: Exit intent popups, sticky CTAs, trust bars
 
 ## 🛠️ Tech Stack
 
@@ -17,107 +38,31 @@ This is a rank-and-rent SEO website targeting audit services in Dubai, UAE. The 
 - **UI Components**: Radix UI Primitives + shadcn/ui
 - **Icons**: Lucide React
 - **Animations**: Framer Motion
-- **SEO**: next-seo
 - **Forms**: React Hook Form + Zod
-- **AI Image Generation**: Fal AI (Flux Pro v1.1)
+- **Internationalization**: Custom i18n solution (EN/AR)
 - **Package Manager**: npm
 
-## 📁 Project Structure
-
-```
-audit-firms-dubai/
-├── src/
-│   ├── app/                  # Next.js app directory (App Router)
-│   │   ├── [locale]/         # Internationalized routes
-│   │   │   ├── about/        # About page
-│   │   │   ├── services/     # Service pages (external-audit, internal-audit, etc.)
-│   │   │   ├── industries/   # Industry-specific pages
-│   │   │   ├── locations/    # Location-specific pages
-│   │   │   ├── free-zones/   # Free zones pages
-│   │   │   ├── glossary/     # Glossary page
-│   │   │   ├── resources/    # Resources (guides, blog)
-│   │   │   ├── tools/        # Interactive tools
-│   │   │   ├── team/         # Team member pages
-│   │   │   └── ...           # Other pages (contact, pricing, etc.)
-│   │   ├── api/              # API routes
-│   │   ├── layout.tsx        # Root layout
-│   │   ├── globals.css       # Global styles with Tailwind v4
-│   │   └── fonts.ts          # Font loading configuration
-│   ├── components/
-│   │   ├── ui/               # shadcn/ui components (200+ components)
-│   │   ├── seo/              # SEO components and JSON-LD schemas
-│   │   ├── layout/           # Navigation, Footer, LanguageSwitcher
-│   │   ├── sections/         # Page sections (home, services, etc.)
-│   │   ├── forms/            # Contact forms, quote forms
-│   │   ├── brand/            # Logo component
-│   │   ├── calculator/       # Audit fee calculator
-│   │   ├── faq/              # FAQ components
-│   │   ├── glossary/         # Glossary components
-│   │   ├── industries/       # Industry-specific components
-│   │   ├── locations/        # Location-specific components
-│   │   ├── resources/        # Resources components
-│   │   ├── services/         # Service-specific components
-│   │   ├── tools/            # Interactive tools
-│   │   └── conversion/       # Conversion optimization components
-│   ├── lib/
-│   │   ├── constants/        # Site-wide constants and navigation
-│   │   ├── content/          # Content data (services, guides, blog posts)
-│   │   ├── data/             # Static data (team, clients, etc.)
-│   │   ├── email/            # Email templates and utilities
-│   │   ├── i18n/             # Internationalization (EN/AR dictionaries)
-│   │   ├── icons/            # Custom SVG icons
-│   │   ├── resources/        # Resource utilities
-│   │   ├── utils.ts          # Utility functions
-│   │   └── utils/            # Additional utilities
-│   ├── middleware.ts         # Next.js middleware (i18n, redirects)
-│   └── types/                # TypeScript type definitions
-├── scripts/                  # Utility scripts
-│   ├── generate-images.ts    # AI image generation for services
-│   ├── generate-home-image.ts # Home page hero image
-│   └── generate-about-image.ts # About page hero image
-├── public/
-│   ├── images/
-│   │   ├── hero/             # AI-generated hero images
-│   │   ├── services/         # Service landing page images
-│   │   ├── team/             # Team member photos
-│   │   └── clients/          # Client logos and testimonials
-│   └── fonts/                # Custom font files
-├── package.json              # Dependencies and scripts
-├── next.config.ts            # Next.js configuration
-├── tailwind.config.ts        # Tailwind CSS configuration
-├── tsconfig.json             # TypeScript configuration
-├── eslint.config.mjs         # ESLint configuration
-└── README.md                 # This file
-```
-
-## 🎨 Brand Identity
-
-### Colors
-- **Primary Blue**: #0066FF (Professional authority)
-- **Secondary Gold**: #FFC233 (Trust and prestige)
-- **Neutral**: Grayscale palette for balance
-- **Semantic**: Success, Warning, Error colors
-
-### Typography
-- **Headings**: Playfair Display (serif, professional)
-- **Body**: Inter (sans-serif, readable)
-- **Mono**: UI Monospace (code/technical)
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 22.x
-- npm 10.x
+
+- **Node.js**: 22.x or higher
+- **npm**: 10.x or higher
+- **Git**: Latest version
 
 ### Installation
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd audit-firms-dubai
+
 # Install dependencies
 npm install
 
 # Set up environment variables
 cp .env.local.example .env.local
-# Edit .env.local with your configuration
+# Edit .env.local with your configuration (see Configuration section)
 
 # Run development server
 npm run dev
@@ -132,170 +77,270 @@ npm run dev          # Start development server (Turbopack)
 npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # Run ESLint
+npm run type-check   # Run TypeScript type checking
 ```
 
-### AI Image Generation Scripts
+## 📁 Project Structure
 
-Custom scripts for generating professional imagery using Fal AI:
+```
+audit-firms-dubai/
+├── src/
+│   ├── app/                  # Next.js app directory (App Router)
+│   │   ├── [locale]/         # Internationalized routes (en, ar)
+│   │   │   ├── about/        # About page
+│   │   │   ├── services/     # Service pages (external-audit, internal-audit, etc.)
+│   │   │   ├── industries/   # Industry-specific pages
+│   │   │   ├── locations/    # Location-specific pages
+│   │   │   ├── free-zones/   # Free zones pages
+│   │   │   ├── glossary/     # Glossary page
+│   │   │   ├── resources/    # Resources (guides, blog)
+│   │   │   ├── tools/        # Interactive tools
+│   │   │   ├── team/         # Team member pages
+│   │   │   └── ...           # Other pages (contact, pricing, etc.)
+│   │   ├── api/              # API routes
+│   │   │   ├── contact/      # Contact form submission
+│   │   │   ├── quote/        # Quote request submission
+│   │   │   └── newsletter/   # Newsletter subscription
+│   │   ├── layout.tsx        # Root layout
+│   │   ├── globals.css       # Global styles with Tailwind v4
+│   │   └── fonts.ts          # Font loading configuration
+│   ├── components/
+│   │   ├── ui/               # shadcn/ui components (200+ components)
+│   │   ├── seo/              # SEO components and JSON-LD schemas
+│   │   ├── layout/           # Navigation, Footer, LanguageSwitcher
+│   │   ├── sections/         # Page sections (home, services, etc.)
+│   │   ├── forms/            # Contact forms, quote forms
+│   │   ├── brand/            # Logo component
+│   │   ├── calculator/       # Audit fee calculator
+│   │   ├── conversion/       # Conversion optimization components
+│   │   └── ...               # Other component categories
+│   ├── lib/
+│   │   ├── constants/        # Site-wide constants and navigation
+│   │   ├── content/          # Content data (services, guides, blog posts)
+│   │   ├── data/             # Static data (team, clients, etc.)
+│   │   ├── email/            # Email templates and utilities
+│   │   ├── i18n/             # Internationalization (EN/AR dictionaries)
+│   │   └── utils.ts          # Utility functions
+│   ├── middleware.ts         # Next.js middleware (i18n, redirects)
+│   └── types/                # TypeScript type definitions
+├── public/
+│   ├── images/
+│   │   ├── hero/             # Hero images (including logo)
+│   │   ├── services/         # Service landing page images
+│   │   ├── team/             # Team member photos
+│   │   └── clients/          # Client logos
+│   └── ...                   # Other static assets
+├── scripts/                  # Utility scripts
+│   ├── generate-images.ts    # AI image generation for services
+│   └── ...                   # Other utility scripts
+├── package.json              # Dependencies and scripts
+├── next.config.ts            # Next.js configuration
+├── tsconfig.json             # TypeScript configuration
+├── eslint.config.mjs         # ESLint configuration
+└── README.md                 # This file
+```
+
+## 📝 Recent Updates
+
+### 🎨 Logo Integration (Latest - November 2024)
+
+**Status**: ✅ Complete
+
+- **Logo File**: `/public/images/hero/audit-firms-dubai-faraht-co.png`
+- **Format**: PNG with transparency (1024×1024px)
+- **Implementation**: 
+  - Logo component updated to use Next.js Image component
+  - Size: 96px height (h-24) for navigation, responsive scaling
+  - Used in Navigation bar and Footer
+- **Component**: `src/components/brand/Logo.tsx`
+- **Note**: Logo is optimized for performance and maintains aspect ratio
+
+### 💬 Chatbot Integration (Latest - November 2024)
+
+**Status**: ✅ Complete
+
+- **Provider**: NewOaks.ai ChatPilot
+- **Implementation**: 
+  - Removed old LiveChatWidget component
+  - Added ChatPilot script in `src/app/[locale]/layout.tsx`
+  - Configuration: `chatbotId: "950504931c274fe18d462ac867415204"`
+  - Domain: `https://www.newoaks.ai`
+  - Mode: Chat mode only
+- **Location**: Scripts added in `<head>` section of layout
+- **Files Changed**:
+  - `src/app/[locale]/layout.tsx` - Added chatbot scripts
+  - `src/components/conversion/ConversionOptimization.tsx` - Removed LiveChatWidget
+  - Deleted `src/components/conversion/LiveChatWidget.tsx`
+
+### 🎯 Navigation Enhancement
+
+- Added "Free Zones" and "Glossary" as top-level navigation items
+- Bilingual support (English/Arabic) for all navigation items
+- Updated Navigation and Footer components
+
+### 🎨 AI-Generated Professional Imagery
+
+- Hero images for home, about, and all service pages
+- Generated using Fal AI Flux Pro v1.1
+- Optimized with Next.js Image component
+
+### ✅ TypeScript Type Safety
+
+- Complete type safety across all components
+- Proper Dictionary interface for i18n
+- Type-safe API routes
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# API Keys (if needed)
+FAL_KEY=your_fal_ai_key_here
+
+# Email Configuration (if using email service)
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_email@example.com
+SMTP_PASS=your_password
+
+# Site Configuration (if needed)
+NEXT_PUBLIC_SITE_URL=https://www.auditfirmsdubai.ae
+```
+
+### Next.js Configuration
+
+- Security headers configured in `next.config.ts`
+- Image optimization enabled
+- Redirects and rewrites configured
+- Internationalization routing enabled
+
+### Tailwind CSS Configuration
+
+- Brand colors, typography, and design tokens defined in `src/app/globals.css`
+- Uses Tailwind v4's `@theme inline` configuration
+- Custom utilities and responsive breakpoints configured
+
+### Brand Identity
+
+**Colors**:
+- Primary Blue: `#0066FF`
+- Secondary Gold: `#FFC233`
+- Neutral grayscale palette
+
+**Typography**:
+- Headings: Playfair Display (serif)
+- Body: Inter (sans-serif)
+
+## 💻 Development Guide
+
+### Adding a New Page
+
+1. Create a new directory in `src/app/[locale]/`
+2. Add `page.tsx` with metadata and content
+3. Update navigation in `src/lib/constants/index.ts`
+4. Add translations to `src/lib/i18n/dictionaries/en.json` and `ar.json`
+
+### Adding a New Component
+
+1. Create component in appropriate `src/components/` subdirectory
+2. Use TypeScript with proper types
+3. Follow existing component patterns
+4. Ensure accessibility (aria-labels, keyboard navigation)
+
+### Internationalization
+
+- All content should support both English and Arabic
+- Use `getDictionary(locale)` to get translations
+- Add new translations to both `en.json` and `ar.json`
+- Test RTL layout for Arabic content
+
+### Styling Guidelines
+
+- Use Tailwind CSS utility classes
+- Follow existing design patterns
+- Ensure responsive design (mobile-first)
+- Maintain brand consistency
+
+### Code Quality
+
+- TypeScript strict mode enabled
+- ESLint configured
+- Follow existing code patterns
+- Write semantic HTML
+- Ensure accessibility compliance
+
+## 🚀 Deployment
+
+### Vercel Deployment (Recommended)
+
+1. Connect repository to Vercel
+2. Configure environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+4. Preview deployments for pull requests
+
+### Build for Production
 
 ```bash
-# Generate service landing page images
-npx tsx scripts/generate-images.ts
-
-# Generate home and about page images
-npx tsx scripts/generate-home-image.ts
-npx tsx scripts/generate-about-image.ts
+npm run build
+npm run start
 ```
 
-**Requirements**: Set `FAL_KEY` environment variable with your Fal AI API key
+### Environment Variables in Production
 
-## 🔧 Recent Fixes & Improvements
+Ensure all required environment variables are set in your deployment platform:
+- `NEXT_PUBLIC_SITE_URL` - Your production URL
+- Any API keys needed for functionality
 
-### 🐛 **Bug Fixes & Stability Improvements**
-- **Objective**: Resolve runtime errors and missing asset issues to ensure a stable user experience
-- **Fixes Implemented**:
-  - **Metadata Crash Fix**: Added safety check for locale validation in `src/app/[locale]/page.tsx` to prevent `TypeError` on invalid locales.
-  - **Client Component Event Handlers**: Extracted interactive Table of Contents logic into a dedicated Client Component (`src/components/blog/TableOfContents.tsx`) to resolve Server Component event handler errors.
-  - **Missing Assets**: Restored missing hero and service images to `public/images/` to fix 404 errors on landing pages.
-- **Impact**: Eliminated application crashes, resolved console errors, and ensured all visual assets load correctly.
+## 🐛 Troubleshooting
 
-### 🎯 **Navigation Enhancement - Free Zones & Glossary** (Latest)
-- **Objective**: Improve site navigation and user experience by adding key content sections
-- **Implementation**:
-  - Added "Free Zones" and "Glossary" as top-level navigation items
-  - Updated main navigation menu with new links
-  - Added links to footer resources section
-  - Implemented bilingual support (English/Arabic) for new navigation items
-- **Technical Details**:
-  - Updated `MAIN_NAVIGATION` constant with new entries
-  - Added translations to English and Arabic dictionary files
-  - Modified Navigation component `getLabel` functions for desktop and mobile
-  - Updated Footer component to include new resource links
-  - Added TypeScript interface updates for navigation dictionary
-- **Impact**: Enhanced site structure, better content discoverability, improved user navigation experience
+### Logo Not Displaying
 
-### 🎨 **AI-Generated Professional Imagery**
-- **Objective**: Enhance trust and credibility with professional, Dubai-contextual images
-- **Technology**: Fal AI Flux Pro v1.1 for photorealistic 8K images
-- **Coverage**:
-  - **Home Page**: Futuristic Dubai skyline with digital network connections
-  - **About Page**: Professional team photograph symbolizing 37 years of excellence
-  - **6 Service Pages**: Context-aware hero images for each audit service:
-    - External Audit: Modern boardroom with Burj Khalifa view
-    - Internal Audit: Close-up financial analysis on tablet
-    - VAT Audit: Professional desk with UAE tax documents
-    - RERA Audit: Real estate blueprints and financial reports
-    - Due Diligence: M&A handshake silhouette
-    - Forensic Audit: Digital investigation abstract theme
-- **Technical Implementation**:
-  - Added hero image support to ServiceHero component
-  - Enhanced ServicePageContent interface with optional heroImage property
-  - Updated all service pages with dynamic background images
-  - Integrated Next.js Image component for optimal performance
-- **Impact**: Significantly improved visual appeal, professional credibility, and user engagement
+- **Check**: Logo file exists at `/public/images/hero/audit-firms-dubai-faraht-co.png`
+- **Verify**: File is PNG format with transparency
+- **Solution**: Ensure file is in correct location and Next.js Image component is configured properly
 
-### ✅ **Build Optimization & SSR Fixes**
-- **Issue**: TypeScript compilation errors and SSR prerendering conflicts
-- **Solutions**:
-  - Added missing `keyTakeaways` property to CaseStudy interface
-  - Added missing `relatedGuides` and `relatedServices` to Guide interface
-  - Fixed dict prop passing to home page components
-  - Resolved blog post SSR issues by switching to dynamic rendering
-  - Added getDictionary import to clients page
-- **Impact**: Successful production builds, eliminated TypeScript errors, optimized rendering
+### Chatbot Not Appearing
 
-### ✅ **TypeScript Type Safety Overhaul**
-- **Issue**: Multiple 'any' types throughout codebase causing type safety issues
-- **Solution**:
-  - Created comprehensive `/lib/i18n/types.ts` with proper Dictionary interface
-  - Updated Footer.tsx and Navigation.tsx to use typed Dictionary instead of 'any'
-  - Fixed API route spam detection with proper `QuoteApiRequest` and `ContactApiRequest` interfaces
-  - Improved utility functions with better generic constraints (`unknown[]` instead of `any[]`)
-- **Impact**: Complete type safety across components, API routes, and utilities
+- **Check**: Scripts are added in `src/app/[locale]/layout.tsx`
+- **Verify**: Chatbot ID and domain are correct
+- **Solution**: Check browser console for errors, verify script loading
 
-### ✅ **Next.js Image Optimization**
-- **Issue**: Regular `<img>` tags not optimized for performance
-- **Solution**:
-  - Replaced 2 `<img>` tags with Next.js `<Image>` components
-  - TeamGrid.tsx: Added fill + object-cover for responsive team photos
-  - CertificationsShowcase.tsx: Added explicit width/height + object-contain for logos
-- **Impact**: Automatic image optimization, lazy loading, and better Core Web Vitals
+### Build Errors
 
-### ✅ **Accessibility Audit & Improvements**
-- **Issue**: Missing aria-labels on icon-only interactive elements
-- **Solution**: Added `aria-label="LinkedIn profile"` to icon-only LinkedIn buttons
-- **Impact**: WCAG 2.1 AA compliance improvements, better screen reader support
+- **TypeScript Errors**: Run `npm run type-check` to identify issues
+- **Missing Dependencies**: Run `npm install`
+- **Environment Variables**: Ensure `.env.local` is configured
 
-### ✅ **Tailwind CSS v4 Max-Width Fix**
-- **Issue**: `max-w-2xl` was compiling to 48px instead of 672px due to missing max-width definitions
-- **Solution**: Added complete max-width scale to `@theme inline` configuration in `globals.css`
-- **Impact**: Proper text wrapping and layout consistency across all pages
+### Internationalization Issues
 
-### ✅ **Site-wide Text Centering**
-- **Issue**: Description paragraphs had inconsistent alignment and poor readability
-- **Solution**: Added `text-center`, `max-w-2xl`, `w-full`, and `mx-auto` classes to all description paragraphs
-- **Locations Updated**:
-  - Calculator page (hero, sections, factors)
-  - Home sections (hero, services, testimonials, FAQ, why choose us)
-- **Impact**: Improved visual hierarchy, better readability, professional appearance
+- **Check**: Locale is valid (`en` or `ar`)
+- **Verify**: Translations exist in both dictionary files
+- **Solution**: Add missing translations to `en.json` and `ar.json`
 
-## 🎯 Key Features
+### Performance Issues
 
-### SEO Optimized
-- Schema markup (Organization, LocalBusiness, Service, FAQ, Article)
-- Dynamic sitemap.xml generation
-- Optimized meta tags and Open Graph
-- Automatic canonical URLs
-- Hreflang support for bilingual content (EN/AR)
-
-### Performance
-- Image optimization (AVIF/WebP)
-- Code splitting and lazy loading
-- Optimized font loading
-- Security headers (HSTS, CSP, X-Frame-Options)
-- Static page generation + ISR
-
-### Accessibility
-- WCAG 2.1 AA compliant (target)
-- Keyboard navigation
-- Screen reader optimized
-- Focus indicators
-- Semantic HTML
-
-### Lead Generation
-- Multi-step contact forms
-- Audit fee calculator
-- Quote request system
-- Email notifications
-- CRM integration ready
+- **Images**: Ensure using Next.js Image component
+- **Bundle Size**: Check for unnecessary imports
+- **Lazy Loading**: Verify components are lazy-loaded where appropriate
 
 ## 📊 SEO Strategy
 
 ### Primary Keywords
+
 - audit firms in uae (150 SV, KD 49)
 - audit firm in dubai (150 SV, KD 54)
 - best audit firm in dubai (100 SV, KD 52)
 
 ### Content Strategy
+
 - 100+ pages (services, locations, industries, free zones, guides, glossary)
 - Pillar content (5,000+ words)
 - Blog articles
 - Interactive tools
 - FAQ pages
-
-## 🔧 Configuration
-
-### Environment Variables
-
-See `.env.local.example` for all available environment variables.
-
-### Next.js Configuration
-
-Security headers, image optimization, and redirects are configured in `next.config.ts`.
-
-### Tailwind Configuration
-
-Brand colors, typography, design tokens, and custom max-width scale are defined in `src/app/globals.css` using Tailwind v4's `@theme inline` configuration for optimal performance and custom utility generation.
 
 ## 📈 Performance Targets
 
@@ -307,40 +352,10 @@ Brand colors, typography, design tokens, and custom max-width scale are defined 
 
 ## 🔒 Security
 
-- Security headers (HSTS, CSP, X-Frame-Options, etc.)
+- Security headers (HSTS, CSP, X-Frame-Options)
 - Input validation with Zod
-- Rate limiting on API routes (planned)
 - Environment variable protection
 - TypeScript strict mode
-
-## 📝 Development Workflow
-
-1. Create feature branch
-2. Develop with TypeScript strict mode
-3. Write semantic, accessible HTML
-4. Test on multiple browsers/devices
-5. Run linting and type checking
-6. Commit and push changes
-
-## 🌐 Deployment
-
-Optimized for deployment on Vercel:
-- Automatic HTTPS
-- Global CDN
-- Edge Functions
-- Analytics
-- Preview deployments
-
-## 📚 Documentation
-
-Project documentation is located in the parent directory:
-- [Detailed Execution Timeline](../DETAILED_EXECUTION_TIMELINE.md) - Complete 12-week plan
-- [Brand Guidelines](../brand-guidelines.md) - Visual identity
-- [Content Strategy](../content/content-style-guide.md) - Writing standards
-- [SEO Framework](../strategy/semantic-seo-framework.md) - SEO methodology
-
-### 🚨 **Critical Development Guidelines**
-- **[Fixes & Standards](./fixes.md)** - **REQUIRED READING** - All fixes applied, development rules, and troubleshooting guide
 
 ## 👥 Company Background
 
@@ -350,18 +365,29 @@ Project documentation is located in the parent directory:
 - **Countries**: 140+
 - **Awards**: 112+
 
+## 📚 Additional Documentation
+
+Project documentation is located in the parent directory:
+- [Detailed Execution Timeline](../DETAILED_EXECUTION_TIMELINE.md) - Complete 12-week plan
+- [Brand Guidelines](../brand-guidelines.md) - Visual identity
+- [Content Strategy](../content/content-style-guide.md) - Writing standards
+- [SEO Framework](../strategy/semantic-seo-framework.md) - SEO methodology
+- [Fixes & Standards](./fixes.md) - Development rules and troubleshooting
+
+## 🤝 Support & Contact
+
+For technical support or questions:
+1. Check this README and troubleshooting section
+2. Review project documentation in parent directory
+3. Check `fixes.md` for common issues and solutions
+
 ## 📄 License
 
 Proprietary - All rights reserved
 
-## 🤝 Support
-
-For technical support or questions, refer to project documentation in the parent directory.
-
 ---
 
-**Created**: November 15, 2024
-**Version**: 0.4.2 (Stability Fixes)
-**Status**: 🛡️ Stability Improved - Critical bugs fixed, Assets restored, Navigation Complete, Production Ready
-**Last Updated**: November 19, 2025
-**Next Steps**: Generate images for blog posts and downloadable guides, implement rate limiting, deploy to production
+**Version**: 1.0.0  
+**Last Updated**: November 2024  
+**Status**: ✅ Production Ready  
+**Next Developer**: See "Recent Updates" section for latest changes and "Development Guide" for workflow

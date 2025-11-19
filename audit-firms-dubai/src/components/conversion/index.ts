@@ -3,7 +3,6 @@
  * Export all conversion-focused components
  */
 
-export { LiveChatWidget } from './LiveChatWidget';
 export { ExitIntentPopup } from './ExitIntentPopup';
 export { StickyCTABar } from './StickyCTABar';
 export { FloatingTrustBar } from './FloatingTrustBar';

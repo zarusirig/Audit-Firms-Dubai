@@ -524,7 +524,7 @@ export const uaeFederalLawsEAV: AuditEntityEAV = {
 
   values: {
     applicability: "all UAE mainland companies",
-    enforcing Authority: "Ministry of Economy",
+    enforcingAuthority: "Ministry of Economy",
     updateFrequency: "annual",
     language: ["English", "Arabic"]
   },
@@ -545,6 +545,10 @@ export const uaeFederalLawsEAV: AuditEntityEAV = {
       "External Audit",
       "Legal Advisory",
       "Compliance Services"
+    ],
+    complementaryTo: [
+      "Local Authority Requirements",
+      "Industry Specific Regulations"
     ]
   },
 
@@ -603,6 +607,10 @@ export const ministryRequirementsEAV: AuditEntityEAV = {
       "Audit Services",
       "PRO Services",
       "Filing Services"
+    ],
+    complementaryTo: [
+      "Tax Compliance",
+      "Insurance Requirements"
     ]
   },
 
@@ -856,6 +864,11 @@ export const auditSoftwareEAV: AuditEntityEAV = {
       "Internal Audit",
       "External Audit"
     ],
+    requiredFor: [
+      "Digital Transformation",
+      "Process Automation",
+      "Quality Assurance"
+    ],
     enabledBy: [
       "Cloud Infrastructure",
       "AI/ML Technology",
@@ -916,6 +929,11 @@ export const dataAnalyticsAuditEAV: AuditEntityEAV = {
       "Forensic Audit",
       "Internal Audit",
       "Audit Software"
+    ],
+    requiredFor: [
+      "Modern Audit Standards",
+      "Regulatory Compliance",
+      "Risk Management"
     ],
     enabledBy: [
       "Big Data",

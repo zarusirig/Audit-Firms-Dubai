@@ -1,13 +1,30 @@
 /**
  * Font Configuration using next/font
  * Optimized font loading with proper subsetting and display settings
+ * Using local fonts to avoid network dependency during build
  */
 
-import { Inter, Playfair_Display, IBM_Plex_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 
-// Primary body font - Inter
-export const inter = Inter({
-  subsets: ['latin'],
+// Primary body font - Inter (local)
+export const inter = localFont({
+  src: [
+    {
+      path: '../../public/fonts/inter/inter-400.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter/inter-500.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/inter/inter-600.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
   variable: '--font-inter',
   preload: true,
@@ -18,29 +35,61 @@ export const inter = Inter({
     'Roboto',
     'sans-serif',
   ],
-  adjustFontFallback: true,
 });
 
-// Heading font - Playfair Display (professional, established)
-export const playfair = Playfair_Display({
-  subsets: ['latin'],
+// Heading font - Playfair Display (local)
+export const playfair = localFont({
+  src: [
+    {
+      path: '../../public/fonts/playfair-display/playfair-display-400.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/playfair-display/playfair-display-500.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/playfair-display/playfair-display-600.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/playfair-display/playfair-display-700.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
   variable: '--font-playfair',
-  weight: ['400', '500', '600', '700'],
   preload: true,
   fallback: ['Georgia', 'Times New Roman', 'serif'],
-  adjustFontFallback: true,
 });
 
-// Monospace font for numbers and code - IBM Plex Mono
-export const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
+// Monospace font for numbers and code - IBM Plex Mono (local)
+export const ibmPlexMono = localFont({
+  src: [
+    {
+      path: '../../public/fonts/ibm-plex-mono/ibm-plex-mono-400.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/ibm-plex-mono/ibm-plex-mono-500.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/ibm-plex-mono/ibm-plex-mono-600.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
   variable: '--font-ibm-plex-mono',
-  weight: ['400', '500', '600'],
   preload: false, // Not critical for LCP
   fallback: ['Monaco', 'Courier New', 'monospace'],
-  adjustFontFallback: true,
 });
 
 // Combined font variables for easy application

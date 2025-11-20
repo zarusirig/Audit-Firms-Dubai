@@ -121,7 +121,8 @@ export default async function IFRSStandardsPage({
         title="Key IFRS Standards"
         benefits={complianceData.keyItems.map(item => ({
           title: item.title,
-          description: item.description
+          description: item.description,
+          icon: 'briefcase' as const // Default icon for standards
         }))}
       />
 

@@ -6866,7 +6866,6 @@ Determine whether population is materially misstated.
       },
     ],
   },
-}
   // ============================================================================
   // PROBLEM-SOLUTION ARTICLES (High-Intent, High-Conversion)
   // Identified in topical map as critical gaps
@@ -7182,7 +7181,6 @@ Don't let embarrassment or delay fears prevent you from acting. Call an emergenc
       },
     ],
   },
-}
   'audit-report-qualification-received': {
     id: 'audit-report-qualification-received',
     slug: 'audit-report-qualification-received',

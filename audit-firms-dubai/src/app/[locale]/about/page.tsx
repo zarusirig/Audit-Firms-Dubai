@@ -9,6 +9,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { SITE_CONFIG } from '@/lib/constants'
+import { Locale } from '@/lib/i18n/config'
 import { Phone, Mail, MapPin, ArrowRight, Award, Users, Globe, Shield, CheckCircle2 } from 'lucide-react'
 import {
   CompanyTimeline,
@@ -31,44 +33,62 @@ import {
   PARENT_COMPANY_SERVICES,
 } from '@/lib/data/about'
 
-export const metadata: Metadata = {
-  title: 'About Farahat & Co | Ministry-Approved Audit Firm Since 1985 | Dubai, UAE',
-  description:
-    'Learn about Farahat & Co - Established 1985 with 37+ years of audit excellence. Serving 28,000+ clients across 140 countries. Ministry-approved auditors with 150+ CPA/CA certified professionals in Dubai, UAE.',
-  keywords: [
-    'about farahat co',
-    'audit firm dubai',
-    'established 1985',
-    'ministry approved auditors',
-    'dubai audit company history',
-    'certified auditors uae',
-    'audit team dubai',
-    'audit firm certifications',
-    'professional audit services',
-    'uae audit experience',
-    'audit firm awards dubai',
-    'trusted auditors uae',
-  ],
-  openGraph: {
-    title: 'About Farahat & Co | 37+ Years of Audit Excellence in Dubai',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const resolvedParams = await params
+  const locale = resolvedParams.locale as Locale
+
+  return {
+    title: 'About Farahat & Co | Ministry-Approved Audit Firm Since 1985 | Dubai, UAE',
     description:
-      '28,000+ clients served across 140 countries. Ministry-approved with 150+ certified professionals. Established 1985.',
-    type: 'website',
-    images: [
-      {
-        url: '/og-about.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Farahat & Co - About Us',
-      },
+      'Learn about Farahat & Co - Established 1985 with 37+ years of audit excellence. Serving 28,000+ clients across 140 countries. Ministry-approved auditors with 150+ CPA/CA certified professionals in Dubai, UAE.',
+    keywords: [
+      'about farahat co',
+      'audit firm dubai',
+      'established 1985',
+      'ministry approved auditors',
+      'dubai audit company history',
+      'certified auditors uae',
+      'audit team dubai',
+      'audit firm certifications',
+      'professional audit services',
+      'uae audit experience',
+      'audit firm awards dubai',
+      'trusted auditors uae',
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Farahat & Co | Ministry-Approved Auditors Since 1985',
-    description:
-      '37+ years of excellence. 28,000+ clients. 140 countries. Leading audit firm in Dubai, UAE.',
-  },
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/${locale}/about`,
+      languages: {
+        en: `${SITE_CONFIG.url}/en/about`,
+        ar: `${SITE_CONFIG.url}/ar/about`,
+      },
+    },
+    openGraph: {
+      title: 'About Farahat & Co | 37+ Years of Audit Excellence in Dubai',
+      description:
+        '28,000+ clients served across 140 countries. Ministry-approved with 150+ certified professionals. Established 1985.',
+      type: 'website',
+      url: `${SITE_CONFIG.url}/${locale}/about`,
+      locale: locale,
+      images: [
+        {
+          url: '/og-about.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Farahat & Co - About Us',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'About Farahat & Co | Ministry-Approved Auditors Since 1985',
+      description:
+        '37+ years of excellence. 28,000+ clients. 140 countries. Leading audit firm in Dubai, UAE.',
+    },
+  }
 }
 
 export default function AboutPage() {
@@ -82,10 +102,10 @@ export default function AboutPage() {
             src="/images/hero/about-hero.jpg"
             alt="About Farahat & Co Team"
             fill
-            className="object-cover object-center opacity-20"
+            className="object-cover object-center opacity-60"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-primary-800/90 to-primary-900/95" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/40 via-primary-800/30 to-primary-900/50" />
         </div>
         
         {/* Background Pattern & Blobs */}

@@ -23,6 +23,9 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 
+// Make team page dynamic to avoid context issues
+export const dynamic = 'force-dynamic'
+
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }))
 }

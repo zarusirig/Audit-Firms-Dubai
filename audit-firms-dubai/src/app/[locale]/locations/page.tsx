@@ -22,7 +22,7 @@ export async function generateMetadata({
 
   return {
     title: 'Our Locations in UAE - Dubai & Abu Dhabi Offices | Farahat & Co',
-    description: 'Find our audit and accounting offices across UAE. Dubai offices: DIFC, Business Bay, Dubai Marina, JLT, Downtown. Abu Dhabi Corniche office. Call +971 42 500 251',
+    description: 'Find our audit and accounting offices across UAE. Dubai offices: DIFC, Business Bay, Dubai Marina, JLT, Downtown. Abu Dhabi Corniche office. Call +971 4 250 0251',
     keywords: [
       'audit firm dubai locations',
       'audit firm abu dhabi',
@@ -201,7 +201,7 @@ export default async function LocationsPage({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary">
                 <Phone className="mr-2 h-5 w-5" />
-                +971 42 500 251
+                +971 4 250 0251
               </Button>
               <Button size="lg" variant="outline" className="bg-white text-primary-600 hover:bg-gray-100">
                 Schedule Consultation

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { BreadcrumbSchema, type BreadcrumbItem as BreadcrumbSchemaItem } from './schemas/BreadcrumbSchema';

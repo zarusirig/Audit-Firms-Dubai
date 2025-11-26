@@ -123,7 +123,7 @@ export function StickyCTABar({
             </span>
             {showTimer && (
               <>
-                <span className="hidden lg:block text-sm opacity-90">|</span>
+                <span className="hidden lg:block text-sm text-white/90">|</span>
                 <div className="hidden lg:flex items-center gap-2 text-sm">
                   <Clock className="w-4 h-4" />
                   <span className="font-mono font-semibold">
@@ -136,8 +136,8 @@ export function StickyCTABar({
             )}
             {urgencyMessage && !showTimer && (
               <>
-                <span className="hidden md:block text-sm opacity-90">|</span>
-                <span className="hidden md:block text-sm opacity-90">
+                <span className="hidden md:block text-sm text-white/90">|</span>
+                <span className="hidden md:block text-sm text-white/90">
                   {urgencyMessage}
                 </span>
               </>
@@ -179,7 +179,7 @@ export function StickyCTABar({
               {String(timeLeft.minutes).padStart(2, '0')}:
               {String(timeLeft.seconds).padStart(2, '0')}
             </span>
-            <span className="text-xs opacity-90 ml-2">left</span>
+            <span className="text-xs text-white/90 ml-2">left</span>
           </div>
         )}
       </div>

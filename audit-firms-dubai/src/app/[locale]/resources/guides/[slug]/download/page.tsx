@@ -7,22 +7,11 @@ import { SITE_CONFIG } from '@/lib/constants'
 import GatedDownloadForm from '@/components/resources/GatedDownloadForm'
 import GuideDownloadClient from './client'
 
+// Make this page dynamic to avoid build-time errors with forms
+export const dynamic = 'force-dynamic'
+
 type Props = {
   params: Promise<{ slug: string; locale: string }>
-}
-
-// Generate static params for all gated guides
-export async function generateStaticParams() {
-  const gatedGuides = Object.values(GUIDES).filter(guide => guide.access === 'gated')
-  const locales = i18n.locales
-
-  const params = []
-  for (const locale of locales) {
-    for (const guide of gatedGuides) {
-      params.push({ locale, slug: guide.slug })
-    }
-  }
-  return params
 }
 
 // Generate metadata

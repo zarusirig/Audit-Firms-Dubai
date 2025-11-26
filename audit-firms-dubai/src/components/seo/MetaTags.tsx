@@ -121,7 +121,7 @@ export const defaultMetadata: Metadata = {
     template: '%s | Audit Firms Dubai',
   },
   description:
-    'Leading audit firm in Dubai since 1985. Ministry-approved auditors with 28,000+ clients across 140 countries. ✓ External audit ✓ Internal audit ✓ RERA audit ✓ VAT compliance. Call +971 42 500 251',
+    'Leading audit firm in Dubai since 1985. Ministry-approved auditors with 28,000+ clients across 140 countries. ✓ External audit ✓ Internal audit ✓ RERA audit ✓ VAT compliance. Call +971 4 250 0251',
   keywords: [
     'audit firms in dubai',
     'audit firm dubai',

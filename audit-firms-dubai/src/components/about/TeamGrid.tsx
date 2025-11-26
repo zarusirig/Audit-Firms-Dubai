@@ -5,9 +5,9 @@
  * Displays team members in a responsive grid
  */
 
-import React from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { OptimizedImage } from '@/components/ui/OptimizedImage'
+import { motion, LazyMotion, domAnimation } from 'framer-motion'
 import { Mail, Linkedin } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -36,18 +36,32 @@ export default function TeamGrid({
   variant = 'leadership',
   className = '',
 }: TeamGridProps) {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   return (
-    <div
-      className={`grid gap-8 ${
-        variant === 'leadership'
-          ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-          : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-      } ${className}`}
-    >
-      {members.map((member, index) => (
-        <TeamMemberCard key={member.id || member.name} member={member} variant={variant} index={index} />
-      ))}
-    </div>
+    <LazyMotion features={domAnimation}>
+      <div
+        className={`grid gap-8 ${
+          variant === 'leadership'
+            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+        } ${className}`}
+      >
+        {members.map((member, index) => (
+          <TeamMemberCard
+            key={member.id || member.name}
+            member={member}
+            variant={variant}
+            index={index}
+            isMounted={isMounted}
+          />
+        ))}
+      </div>
+    </LazyMotion>
   )
 }
 
@@ -55,26 +69,34 @@ interface TeamMemberCardProps {
   member: TeamMember
   variant: 'leadership' | 'senior'
   index: number
+  isMounted: boolean
 }
 
-function TeamMemberCard({ member, variant, index }: TeamMemberCardProps) {
+function TeamMemberCard({ member, variant, index, isMounted }: TeamMemberCardProps) {
+  const cardClassName = "group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
+
   if (variant === 'leadership') {
+    const CardWrapper = isMounted ? motion.div : 'div'
+    const motionProps = isMounted ? {
+      initial: { opacity: 0, y: 30 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true },
+      transition: { duration: 0.5, delay: index * 0.1 }
+    } : {}
+
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg"
+      <CardWrapper
+        {...motionProps}
+        className={cardClassName}
       >
         {/* Image */}
         <div className="relative h-80 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
           {member.image ? (
-            <Image
+            <OptimizedImage
               src={member.image}
               alt={member.name}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
             <div className="flex h-full items-center justify-center">
@@ -150,17 +172,22 @@ function TeamMemberCard({ member, variant, index }: TeamMemberCardProps) {
             )}
           </div>
         </div>
-      </motion.div>
+      </CardWrapper>
     )
   }
 
   // Senior team variant (more compact)
+  const CardWrapper = isMounted ? motion.div : 'div'
+  const motionProps = isMounted ? {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.4, delay: index * 0.05 }
+  } : {}
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+    <CardWrapper
+      {...motionProps}
       className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
     >
       {/* Credentials */}
@@ -190,6 +217,6 @@ function TeamMemberCard({ member, variant, index }: TeamMemberCardProps) {
           </span>
         ))}
       </div>
-    </motion.div>
+    </CardWrapper>
   )
 }

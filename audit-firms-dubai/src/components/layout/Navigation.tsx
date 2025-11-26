@@ -56,7 +56,7 @@ export function Navigation({ locale, dict }: { locale: Locale; dict: Dictionary 
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Logo size="md" />
+            <Logo size="sm" />
           </div>
 
           {/* Desktop Navigation */}
@@ -89,7 +89,7 @@ export function Navigation({ locale, dict }: { locale: Locale; dict: Dictionary 
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side={locale === 'ar' ? 'left' : 'right'} className="w-[300px] sm:w-[400px]">
               <MobileNav
                 pathname={pathname}
                 locale={locale}
@@ -138,6 +138,10 @@ function NavItem({
       'forensic-audit': dict.navigation.forensicAudit,
       'vat-audit': dict.navigation.vatAudit,
       'rera-audit': dict.navigation.reraAudit,
+      'business-valuation': dict.navigation.businessValuation,
+      'cfo-services': dict.navigation.cfoServices,
+      'ifrs-implementation': dict.navigation.ifrsImplementation,
+      'tax-consultation': dict.navigation.taxConsultation,
       'industries': dict.navigation.industries,
       'real-estate': dict.navigation.realEstate,
       'trading': dict.navigation.trading,
@@ -145,6 +149,9 @@ function NavItem({
       'healthcare': dict.navigation.healthcare,
       'hospitality': dict.navigation.hospitality,
       'technology': dict.navigation.technology,
+      'financial-services': dict.navigation.financialServices,
+      'ecommerce': dict.navigation.ecommerce,
+      'clients': dict.navigation.ourClients,
       'about': dict.navigation.about,
       'contact': dict.navigation.contact,
       'resources': dict.navigation.resources,
@@ -158,6 +165,7 @@ function NavItem({
     // Handle special cases
     if (href === '/services') return dict.navigation.services;
     if (href === '/industries') return dict.navigation.industries;
+    if (href === '/clients') return dict.navigation.ourClients;
     if (href === '/locations') return dict.navigation.locations;
     if (href === '/free-zones') return dict.navigation.freeZones;
     if (href === '/glossary') return dict.navigation.glossary;
@@ -254,6 +262,10 @@ function MobileNav({
       'forensic-audit': dict.navigation.forensicAudit,
       'vat-audit': dict.navigation.vatAudit,
       'rera-audit': dict.navigation.reraAudit,
+      'business-valuation': dict.navigation.businessValuation,
+      'cfo-services': dict.navigation.cfoServices,
+      'ifrs-implementation': dict.navigation.ifrsImplementation,
+      'tax-consultation': dict.navigation.taxConsultation,
       'industries': dict.navigation.industries,
       'real-estate': dict.navigation.realEstate,
       'trading': dict.navigation.trading,
@@ -261,6 +273,9 @@ function MobileNav({
       'healthcare': dict.navigation.healthcare,
       'hospitality': dict.navigation.hospitality,
       'technology': dict.navigation.technology,
+      'financial-services': dict.navigation.financialServices,
+      'ecommerce': dict.navigation.ecommerce,
+      'clients': dict.navigation.ourClients,
       'about': dict.navigation.about,
       'contact': dict.navigation.contact,
       'resources': dict.navigation.resources,
@@ -274,6 +289,7 @@ function MobileNav({
     // Handle special cases
     if (href === '/services') return dict.navigation.services;
     if (href === '/industries') return dict.navigation.industries;
+    if (href === '/clients') return dict.navigation.ourClients;
     if (href === '/locations') return dict.navigation.locations;
     if (href === '/free-zones') return dict.navigation.freeZones;
     if (href === '/glossary') return dict.navigation.glossary;

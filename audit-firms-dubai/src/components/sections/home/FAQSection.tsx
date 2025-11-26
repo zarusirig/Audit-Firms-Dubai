@@ -46,7 +46,9 @@ export function FAQSection({ dict }: { dict: any }) {
               Frequently Asked Questions
             </h2>
             <p className="max-w-2xl w-full mx-auto text-center px-4 text-lg text-neutral-700">
-              Get answers to common questions about audit services in Dubai
+              Get answers to common questions about <strong>audit and accounting services</strong> from
+              leading <strong>audit firms in Dubai and UAE</strong>. Our <strong>chartered accountants</strong>{' '}
+              provide expert guidance for businesses across all emirates and free zones.
             </p>
           </motion.div>
 

@@ -42,10 +42,13 @@ export function WhyChooseUs({ dict }: { dict: any }) {
           className="mb-12 text-center"
         >
           <h2 className="mb-4 font-serif text-3xl font-bold text-primary-900 md:text-4xl">
-            Why Choose Farahat & Co?
+            Why Choose Our Audit Firm in Dubai
           </h2>
           <p className="max-w-2xl w-full mx-auto text-center px-4 text-lg text-neutral-700">
-            37 years of excellence, 28,000+ satisfied clients, and unwavering commitment to quality
+            As one of the most trusted <strong>auditing firms in Dubai</strong>, we combine
+            37 years of excellence with 28,000+ satisfied clients across UAE. Our team of
+            <strong> chartered accountants in Dubai</strong> delivers unwavering commitment to
+            quality for businesses in all free zones, Dubai mainland, Abu Dhabi, and Sharjah.
           </p>
         </motion.div>
 

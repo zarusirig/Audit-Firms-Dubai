@@ -64,15 +64,15 @@ export default async function MinistryRequirementsPage({
       <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{complianceData.heroHeadline}</h1>
-          <p className="text-xl md:text-2xl mb-6 opacity-90">{complianceData.heroSubheadline}</p>
-          <p className="text-lg opacity-80 max-w-3xl">{complianceData.heroDescription}</p>
+          <p className="text-xl md:text-2xl mb-6 text-white/90 font-medium">{complianceData.heroSubheadline}</p>
+          <p className="text-lg text-white/90 max-w-3xl">{complianceData.heroDescription}</p>
         </div>
       </section>
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl font-bold mb-6">{complianceData.introductionTitle}</h2>
           {complianceData.introduction.map((paragraph, index) => (
-            <p key={index} className="text-lg text-gray-700 mb-4 leading-relaxed">{paragraph}</p>
+            <p key={index} className="text-lg text-neutral-900 mb-4 leading-relaxed">{paragraph}</p>
           ))}
         </div>
       </section>
@@ -81,7 +81,7 @@ export default async function MinistryRequirementsPage({
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 className="text-3xl font-bold mb-6">{section.title}</h2>
             {section.content.map((paragraph, pIndex) => (
-              <p key={pIndex} className="text-lg text-gray-700 mb-4 leading-relaxed whitespace-pre-line">{paragraph}</p>
+              <p key={pIndex} className="text-lg text-neutral-900 mb-4 leading-relaxed whitespace-pre-line">{paragraph}</p>
             ))}
           </div>
         </section>
@@ -93,7 +93,7 @@ export default async function MinistryRequirementsPage({
             {complianceData.keyItems.map((item, index) => (
               <div key={index} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <h3 className="text-xl font-bold mb-3 text-primary-600">{item.title}</h3>
-                <p className="text-gray-700 mb-4">{item.description}</p>
+                <p className="text-neutral-900 mb-4">{item.description}</p>
                 {item.details && (
                   <ul className="space-y-2">
                     {item.details.map((detail, dIndex) => (
@@ -121,7 +121,7 @@ export default async function MinistryRequirementsPage({
                   </div>
                   <div className="flex-grow border-l-4 border-primary-600 pl-6 pb-8">
                     <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                    <p className="text-gray-700">{event.description}</p>
+                    <p className="text-neutral-900">{event.description}</p>
                   </div>
                 </div>
               ))}
@@ -136,7 +136,7 @@ export default async function MinistryRequirementsPage({
             {complianceData.faqs.map((faq, index) => (
               <div key={index} className="border-b border-gray-200 pb-6">
                 <h3 className="text-xl font-bold mb-3 text-gray-900">{faq.question}</h3>
-                <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                <p className="text-neutral-900 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -149,7 +149,7 @@ export default async function MinistryRequirementsPage({
             {complianceData.relatedPages.map((page, index) => (
               <a key={index} href={`/${locale}${page.slug}`} className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-200">
                 <h3 className="text-xl font-bold mb-3 text-primary-600">{page.title}</h3>
-                <p className="text-gray-700">{page.description}</p>
+                <p className="text-neutral-900">{page.description}</p>
                 <div className="mt-4 text-primary-600 font-semibold">Learn More →</div>
               </a>
             ))}
@@ -159,7 +159,7 @@ export default async function MinistryRequirementsPage({
       <section className="py-16 bg-primary-600 text-white">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-3xl font-bold mb-6">Ready to File with Ministry of Economy?</h2>
-          <p className="text-xl mb-8 opacity-90">Our Ministry-approved auditors handle the entire filing process for you.</p>
+          <p className="text-xl mb-8 text-white/90 font-medium">Our Ministry-approved auditors handle the entire filing process for you.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={`/${locale}/services/external-audit`} className="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors">Start Your Audit</a>
             <a href={`/${locale}/contact`} className="bg-primary-700 text-white px-8 py-4 rounded-lg font-bold hover:bg-primary-800 transition-colors border-2 border-white">Get Free Consultation</a>

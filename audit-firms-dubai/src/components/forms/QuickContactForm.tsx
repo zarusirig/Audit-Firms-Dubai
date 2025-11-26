@@ -7,6 +7,7 @@
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useParams } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Send, Check, AlertCircle, Loader2 } from 'lucide-react'
 
@@ -49,6 +50,9 @@ export function QuickContactForm({
   onSuccess,
   className,
 }: QuickContactFormProps) {
+  const params = useParams()
+  const locale = (params?.locale as string) || 'en'
+  
   const [submissionStatus, setSubmissionStatus] = useState<
     'idle' | 'submitting' | 'success' | 'error'
   >('idle')
@@ -299,7 +303,7 @@ export function QuickContactForm({
             {/* Privacy Notice */}
             <p className="text-xs text-muted-foreground text-center">
               By submitting this form, you agree to our{' '}
-              <a href="/privacy-policy" className="underline hover:text-primary">
+              <a href={`/${locale}/privacy`} className="underline hover:text-primary">
                 Privacy Policy
               </a>
             </p>

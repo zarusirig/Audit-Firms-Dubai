@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-11-25T18:10:22.652Z",
+  "totalFixes": 25,
+  "fixes": [
+    {
+      "file": "src/lib/content/new-blog-posts.ts",
+      "brokenSlug": "small-business-tax-exemption-uae",
+      "correctSlug": "small-business-tax-exemption-uae-qualifying-375000-threshold",
+      "occurrences": 6,
+      "linesFixed": []
+    },
+    {
+      "file": "src/lib/content/new-blog-posts.ts",
+      "brokenSlug": "vat-registration-new-companies-dubai",
+      "correctSlug": "vat-registration-new-companies-dubai",
+      "occurrences": 2,
+      "linesFixed": []
+    },
+    {
+      "file": "src/lib/content/new-blog-posts.ts",
+      "brokenSlug": "mergers-acquisitions-due-diligence-uae",
+      "correctSlug": "mergers-acquisitions-audit-uae-due-diligence-purchase",
+      "occurrences": 2,
+      "linesFixed": []
+    },
+    {
+      "file": "src/lib/content/new-blog-posts.ts",
+      "brokenSlug": "internal-audit-services-uae",
+      "correctSlug": "internal-audit",
+      "occurrences": 2,
+      "linesFixed": []
+    },
+    {
+      "file": "src/lib/content/new-blog-posts.ts",
+      "brokenSlug": "business-setup-dubai-2025-mainland-vs-free-zone-complete-guide",
+      "correctSlug": "business-setup-dubai-2025-mainland-freezone-comparison",
+      "occurrences": 12,
+      "linesFixed": []
+    },
+    {
+      "file": "src/lib/content/new-blog-posts.ts",
+      "brokenSlug": "icv-certificate-requirements-application-process-uae",
+      "correctSlug": "icv-certificate-uae-requirements-process",
+      "occurrences": 1,
+      "linesFixed": []
+    }
+  ],
+  "slugMapping": {
+    "small-business-tax-exemption-uae": "small-business-tax-exemption-uae-qualifying-375000-threshold",
+    "vat-registration-new-companies-dubai": "vat-registration-new-companies-dubai",
+    "mergers-acquisitions-due-diligence-uae": "mergers-acquisitions-audit-uae-due-diligence-purchase",
+    "internal-audit-services-uae": "internal-audit",
+    "business-setup-dubai-2025-mainland-vs-free-zone-complete-guide": "business-setup-dubai-2025-mainland-freezone-comparison",
+    "icv-certificate-requirements-application-process-uae": "icv-certificate-uae-requirements-process"
+  }
+}

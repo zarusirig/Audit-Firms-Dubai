@@ -8,6 +8,8 @@ import { NextResponse } from 'next/server'
 import { quoteFormSchema, formatZodErrors } from '@/components/forms/validation'
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from '@/components/forms/validation'
 import { QuoteApiRequest, SpamDetectionResult } from '../types'
+import { quoteDb } from '@/lib/database'
+import { sendEmailNotification } from '@/lib/email/service'
 
 // Rate limiting
 const rateLimitMap = new Map<string, number[]>()
@@ -146,40 +148,61 @@ export async function POST(request: Request) {
       sanitizedData.urgency === 'within-week' ? 'medium' :
       'normal'
 
-    // TODO: Save to database
-    // await saveQuoteSubmission(submissionId, sanitizedData, {
-    //   ip,
-    //   userAgent: request.headers.get('user-agent'),
-    //   source: body.source,
-    //   priority,
-    //   timestamp: new Date().toISOString(),
-    // })
+    // Save to database
+    try {
+      await quoteDb.create({
+        ...sanitizedData,
+        ip,
+        userAgent: request.headers.get('user-agent') || undefined,
+        source: body.source,
+        priority: priority as 'low' | 'normal' | 'high',
+        status: 'new',
+      })
+    } catch (dbError) {
+      console.error('Database save error:', dbError)
+      // Continue with email sending even if database fails
+    }
 
-    // TODO: Send email notification to sales team
-    // await sendEmailNotification({
-    //   to: ['sales@farahatco.com', 'info@farahatco.com'],
-    //   subject: `New Quote Request [${priority.toUpperCase()}]: ${sanitizedData.companyName}`,
-    //   template: 'quote',
-    //   data: {
-    //     ...sanitizedData,
-    //     submissionId,
-    //     priority,
-    //   },
-    //   replyTo: sanitizedData.email,
-    // })
+    // Send email notification to sales team
+    try {
+      await sendEmailNotification({
+        to: [process.env.SALES_EMAIL || 'info@farahatco.com'],
+        subject: `New Quote Request [${priority.toUpperCase()}]: ${sanitizedData.companyName}`,
+        template: 'quoteNotification',
+        data: {
+          submissionId,
+          companyName: sanitizedData.companyName,
+          contactName: sanitizedData.contactName,
+          email: sanitizedData.email,
+          phone: sanitizedData.phone,
+          services: sanitizedData.services,
+          urgency: sanitizedData.urgency,
+          priority,
+        },
+        replyTo: sanitizedData.email,
+      })
+    } catch (emailError) {
+      console.error('Sales team email notification failed:', emailError)
+    }
 
-    // TODO: Send auto-responder to user
-    // await sendEmailNotification({
-    //   to: [sanitizedData.email],
-    //   subject: 'Quote Request Received - Farahat & Co',
-    //   template: 'quote-confirmation',
-    //   data: {
-    //     ...sanitizedData,
-    //     submissionId,
-    //   },
-    // })
+    // Send auto-responder to user
+    try {
+      await sendEmailNotification({
+        to: [sanitizedData.email],
+        subject: 'Quote Request Received - Farahat & Co',
+        template: 'quoteAutoResponder',
+        data: {
+          contactName: sanitizedData.contactName,
+          companyName: sanitizedData.companyName,
+          services: sanitizedData.services,
+          submissionId,
+        },
+      })
+    } catch (emailError) {
+      console.error('User auto-responder failed:', emailError)
+    }
 
-    // Log for now (temporary)
+    // Log submission
     console.log('Quote Form Submission:', {
       submissionId,
       priority,

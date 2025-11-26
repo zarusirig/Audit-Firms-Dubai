@@ -424,7 +424,7 @@ export default async function CalculatorPage({
               <p className="mb-4 whitespace-normal">
                 Get a customized proposal from our audit specialists within 24 hours. Call us at{' '}
                 <a href="tel:+97142500251" className="text-primary font-semibold">
-                  +971 42 500 251
+                  +971 4 250 0251
                 </a>{' '}
                 or request a quote online.
               </p>

@@ -7,6 +7,7 @@ export interface IndustryPageContent {
   heroHeadline: string
   heroSubheadline: string
   heroDescription: string
+  heroImage?: string
   industryOverview: {
     title: string
     content: string[]
@@ -89,6 +90,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Real Estate & Property Audit Services in Dubai',
     heroSubheadline: 'RERA Compliance | Escrow Account Audits | Developer Certifications',
     heroDescription: 'Navigate Dubai\'s complex real estate regulations with confidence. Our specialized auditors understand RERA requirements, DLD compliance, and the unique challenges of property development, management, and investment in the UAE.',
+    heroImage: '/images/industries/real-estate-hero.jpg',
     industryOverview: {
       title: 'The Real Estate Landscape in Dubai',
       content: [
@@ -388,6 +390,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Trading Company Audit Services in Dubai',
     heroSubheadline: 'Inventory Verification | Multi-Currency | Import/Export Compliance',
     heroDescription: 'Specialized audit services for trading, import, export, wholesale, and distribution businesses. Our auditors understand inventory challenges, transfer pricing, multi-currency transactions, and VAT compliance unique to UAE trading sector.',
+    heroImage: '/images/industries/trading-hero.jpg',
     industryOverview: {
       title: 'Trading Sector in the UAE',
       content: [
@@ -686,6 +689,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Manufacturing Company Audit Services in Dubai',
     heroSubheadline: 'Cost Accounting | Production Cycle | Inventory Controls',
     heroDescription: 'Specialized audit services for manufacturing, industrial production, and assembly operations. Our auditors understand cost accounting systems, work-in-progress valuation, standard costing, and the unique complexities of UAE manufacturing sector.',
+    heroImage: '/images/industries/manufacturing-hero.jpg',
     industryOverview: {
       title: 'Manufacturing Sector in the UAE',
       content: [
@@ -984,6 +988,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Financial Services Audit in Dubai & UAE',
     heroSubheadline: 'DFSA | ADGM | Central Bank Compliance | Regulatory Reporting',
     heroDescription: 'Specialized audit services for banks, insurance companies, investment firms, payment service providers, and fintech companies. Our regulatory compliance experts understand DFSA, ADGM, Central Bank, and UAE regulatory requirements.',
+    heroImage: '/images/industries/financial-services-hero.jpg',
     industryOverview: {
       title: 'Financial Services Sector in the UAE',
       content: [
@@ -1284,6 +1289,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Healthcare Audit Services in Dubai & UAE',
     heroSubheadline: 'Hospitals | Clinics | Medical Centers | DHA/DOH Compliance',
     heroDescription: 'Specialized audit services for healthcare providers including hospitals, medical centers, clinics, diagnostic centers, and pharmaceutical companies. Our healthcare audit experts understand DHA/DOH regulations, insurance claim verification, medical inventory controls, and patient data confidentiality.',
+    heroImage: '/images/industries/healthcare-hero.jpg',
     industryOverview: {
       title: 'Healthcare Sector in the UAE',
       content: [
@@ -1583,6 +1589,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Hospitality & Tourism Audit Services in Dubai',
     heroSubheadline: 'Hotels | Restaurants | Resorts | Catering | Tourism Operators',
     heroDescription: 'Navigate the unique challenges of hospitality accounting with specialized audit services for Dubai\'s dynamic tourism sector. From revenue management to F&B controls, we understand what makes hospitality different.',
+    heroImage: '/images/industries/hospitality-hero.jpg',
     industryOverview: {
       title: 'The Hospitality Landscape in Dubai',
       content: [
@@ -1891,6 +1898,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'Technology & Startup Audit Services in Dubai',
     heroSubheadline: 'SaaS | Fintech | E-commerce | Software Development | Tech Startups',
     heroDescription: 'Specialized audit services for Dubai\'s growing tech ecosystem. From revenue recognition for SaaS to investor readiness audits, we understand the unique challenges of technology businesses.',
+    heroImage: '/images/industries/technology-hero.jpg',
     industryOverview: {
       title: 'The Technology Landscape in Dubai',
       content: [
@@ -2198,6 +2206,7 @@ export const INDUSTRIES: Record<string, IndustryPageContent> = {
     heroHeadline: 'E-commerce & Online Business Audit Services in Dubai',
     heroSubheadline: 'Marketplaces | D2C Brands | Online Retail | Dropshipping | Multi-Channel Sellers',
     heroDescription: 'Specialized audit services for Dubai\'s growing e-commerce sector. From marketplace reconciliation to inventory management, we understand the unique challenges of online businesses.',
+    heroImage: '/images/industries/ecommerce-hero.jpg',
     industryOverview: {
       title: 'The E-commerce Landscape in Dubai',
       content: [

@@ -244,7 +244,7 @@ export async function generateMetadata({
   return {
     title: 'Audit Success Stories & Case Studies Dubai | Farahat & Co',
     description:
-      'Real audit success stories from Dubai businesses: RERA compliance, DFSA approval, inventory optimization, and more. See how our specialized auditors deliver measurable results. Call +971 42 500 251',
+      'Real audit success stories from Dubai businesses: RERA compliance, DFSA approval, inventory optimization, and more. See how our specialized auditors deliver measurable results. Call +971 4 250 0251',
     keywords: [
       'audit case studies dubai',
       'audit success stories uae',
@@ -465,7 +465,7 @@ export default async function CaseStudiesPage({
               <Button asChild size="lg" variant="secondary">
                 <Link href={`/${locale}/contact`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  Call +971 42 500 251
+                  Call +971 4 250 0251
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20">

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Calendar, Clock, Tag, TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Calendar, Clock, Tag, TrendingUp, CheckCircle2, ArrowRight, Briefcase } from 'lucide-react'
 import { BLOG_POSTS, BlogPost } from '@/lib/content/blog'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -49,6 +49,7 @@ const categories = [
   { value: 'compliance', label: 'Compliance', icon: Tag },
   { value: 'tax', label: 'Tax & VAT', icon: Tag },
   { value: 'industry', label: 'Industry Insights', icon: Tag },
+  { value: 'business-setup', label: 'Business Setup', icon: Briefcase },
   { value: 'guides', label: 'Guides', icon: Tag },
   { value: 'news', label: 'News & Updates', icon: Tag },
 ]

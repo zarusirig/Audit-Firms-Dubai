@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react'
-import Image from 'next/image'
+import { OptimizedImage } from '@/components/ui/OptimizedImage'
 import { motion } from 'framer-motion'
 import { Badge, CheckCircle2, Award, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -104,7 +104,7 @@ export default function CertificationsShowcase({
               {/* Logo/Icon */}
               <div className="mb-4 flex h-20 items-center justify-center rounded-lg bg-gradient-to-br from-primary/5 to-primary/10 p-4">
                 {cert.logo ? (
-                  <Image
+                  <OptimizedImage
                     src={cert.logo}
                     alt={cert.name}
                     width={200}

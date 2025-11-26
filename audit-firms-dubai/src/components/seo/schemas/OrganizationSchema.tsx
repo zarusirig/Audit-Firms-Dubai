@@ -22,11 +22,29 @@ export function OrganizationSchema() {
     telephone: SITE_CONFIG.phone,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Business Bay',
+      streetAddress: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road',
       addressLocality: 'Dubai',
       addressRegion: 'Dubai',
+      postalCode: '4647',
       addressCountry: 'AE',
     },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: SITE_CONFIG.phone,
+        contactType: 'customer service',
+        areaServed: 'AE',
+        availableLanguage: ['en', 'ar'],
+        option: 'TollFree',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: '+971 52 6922588',
+        contactType: 'sales',
+        areaServed: 'AE',
+        availableLanguage: ['en', 'ar'],
+      }
+    ],
     sameAs: [
       'https://www.linkedin.com/company/farahat-co',
       'https://twitter.com/auditfirmsdubai',

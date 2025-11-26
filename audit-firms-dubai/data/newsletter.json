@@ -1,0 +1,42 @@
+[
+  {
+    "email": "newsletter@example.com",
+    "firstName": "Test",
+    "ip": "::1",
+    "userAgent": "curl/8.7.1",
+    "status": "pending",
+    "id": "newsletter-1764144009202-t5yxnexw6",
+    "createdAt": "2025-11-26T08:00:09.202Z",
+    "updatedAt": "2025-11-26T08:00:09.202Z"
+  },
+  {
+    "email": "newsletter-test@example.com",
+    "firstName": "Email Test",
+    "ip": "::1",
+    "userAgent": "curl/8.7.1",
+    "status": "pending",
+    "id": "newsletter-1764144374558-q5qbbduyl",
+    "createdAt": "2025-11-26T08:06:14.558Z",
+    "updatedAt": "2025-11-26T08:06:14.558Z"
+  },
+  {
+    "email": "newsletter@system.com",
+    "firstName": "System Test",
+    "ip": "::1",
+    "userAgent": "curl/8.7.1",
+    "status": "pending",
+    "id": "newsletter-1764144855294-g9crq0v0k",
+    "createdAt": "2025-11-26T08:14:15.294Z",
+    "updatedAt": "2025-11-26T08:14:15.294Z"
+  },
+  {
+    "email": "hello@test.com",
+    "source": "exit-intent-popup",
+    "ip": "::1",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "status": "pending",
+    "id": "newsletter-1764146710402-hb907mvdg",
+    "createdAt": "2025-11-26T08:45:10.402Z",
+    "updatedAt": "2025-11-26T08:45:10.402Z"
+  }
+]

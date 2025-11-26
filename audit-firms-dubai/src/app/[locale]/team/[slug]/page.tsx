@@ -18,6 +18,9 @@ import {
   ArrowLeft,
 } from 'lucide-react'
 
+// Make team pages dynamic to avoid context issues
+export const dynamic = 'force-dynamic'
+
 export async function generateStaticParams() {
   const teamMembers = getAllTeamMembers()
   const params: { locale: string; slug: string }[] = []

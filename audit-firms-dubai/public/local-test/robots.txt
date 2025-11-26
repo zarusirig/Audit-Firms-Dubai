@@ -1,0 +1,8 @@
+# Local Testing robots.txt
+User-agent: *
+Allow: /
+
+# Local Sitemaps (for testing with Screaming Frog)
+Sitemap: http://localhost:3000/local-test/sitemap.xml
+Sitemap: http://localhost:3000/local-test/sitemap-en.xml
+Sitemap: http://localhost:3000/local-test/sitemap-ar.xml

@@ -239,7 +239,7 @@ export async function generateMetadata({
   return {
     title: 'Audit Pricing Dubai | Transparent Audit Fees & Packages | Farahat & Co',
     description:
-      'Clear, transparent audit pricing in Dubai. External audit from AED 15,000. No hidden fees. Fixed pricing. Compare packages or get instant quote. Ministry-approved auditors. Call +971 42 500 251',
+      'Clear, transparent audit pricing in Dubai. External audit from AED 15,000. No hidden fees. Fixed pricing. Compare packages or get instant quote. Ministry-approved auditors. Call +971 4 250 0251',
     keywords: [
       'audit fees dubai',
       'audit cost dubai',
@@ -592,7 +592,7 @@ export default async function PricingPage({
               <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20">
                 <Link href={`/${locale}/contact`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  Call +971 42 500 251
+                  Call +971 4 250 0251
                 </Link>
               </Button>
             </div>

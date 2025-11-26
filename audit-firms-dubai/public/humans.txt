@@ -1,0 +1,20 @@
+/* TEAM */
+  Developer: Suraj Giri
+  Role: Lead Developer / Frontend Architect
+  Site: https://auditfirmsdubai.ae
+
+/* SITE */
+  Last update: 2025/09/26
+  Language: English / Arabic
+  Framework: Next.js 15
+  Styling: Tailwind CSS
+  Fonts: Inter, Playfair Display (Local)
+
+/* CREDITS */
+  Design: Audit Firms Dubai Design Team
+  Content: Audit Firms Dubai Editorial Team
+  SEO Strategy: Audit Firms Dubai Marketing
+
+/* THANKS */
+  To all the open source contributors who made this project possible.
+

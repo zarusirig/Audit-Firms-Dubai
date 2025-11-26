@@ -83,6 +83,11 @@ export async function generateMetadata({
     verification: {
       google: 'google-site-verification-code',
     },
+    icons: {
+      icon: '/favicon.png',
+      shortcut: '/favicon.png',
+      apple: '/favicon.png',
+    },
     alternates: {
       canonical: `${SITE_CONFIG.url}/${locale}`,
       languages: {

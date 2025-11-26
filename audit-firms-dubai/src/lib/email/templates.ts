@@ -297,6 +297,131 @@ export function quoteNotification(data: {
   }
 }
 
+// Custom Professional Email Template
+export function customEmailTemplate(data: {
+  recipientName?: string
+  subject: string
+  title: string
+  content: string
+  callToAction?: {
+    text: string
+    url: string
+  }
+  additionalInfo?: string
+}): { subject: string; html: string } {
+  const content = `
+<h2 style="margin: 0 0 20px; color: #1e293b; font-size: 24px;">
+  ${data.title}
+</h2>
+
+${data.recipientName ? `<p style="margin: 0 0 15px; color: #475569; font-size: 16px; line-height: 1.6;">
+  Dear ${data.recipientName},
+</p>` : ''}
+
+<div style="margin: 25px 0;">
+  ${data.content.split('\n').map(line => line.trim() ? `<p style="margin: 0 0 15px; color: #475569; font-size: 16px; line-height: 1.6;">
+    ${line}
+  </p>` : '').join('')}
+</div>
+
+${data.callToAction ? `<div style="text-align: center; margin: 30px 0;">
+  <a href="${data.callToAction.url}" style="display: inline-block; background-color: #1e40af; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
+    ${data.callToAction.text}
+  </a>
+</div>` : ''}
+
+${data.additionalInfo ? `<div style="background-color: #f1f5f9; padding: 20px; border-radius: 6px; margin: 25px 0;">
+  <p style="margin: 0; color: #334155; font-size: 14px; line-height: 1.6;">
+    ${data.additionalInfo}
+  </p>
+</div>` : ''}
+
+<p style="margin: 25px 0 0; color: #475569; font-size: 15px; line-height: 1.6;">
+  Best regards,<br>
+  <strong>The Farahat & Co Team</strong>
+</p>
+  `
+
+  return {
+    subject: data.subject,
+    html: emailWrapper(content, data.title),
+  }
+}
+
+// Audit Firm Professional Email Template
+export function auditFirmEmail(data: {
+  recipientName?: string
+  subject: string
+  greeting?: string
+  introduction: string
+  mainContent: string
+  services?: string[]
+  callToAction?: {
+    text: string
+    url: string
+  }
+  contactInfo?: boolean
+}): { subject: string; html: string } {
+  const greeting = data.greeting || (data.recipientName ? `Dear ${data.recipientName}` : 'Dear Valued Client')
+
+  const servicesSection = data.services ? `
+<h3 style="margin: 30px 0 15px; color: #1e293b; font-size: 18px;">Our Services Include:</h3>
+<ul style="margin: 0 0 20px; padding-left: 20px; color: #475569; font-size: 15px; line-height: 1.8;">
+  ${data.services.map(service => `<li>${service}</li>`).join('')}
+</ul>` : ''
+
+  const contactSection = data.contactInfo !== false ? `
+<div style="background-color: #f8fafc; padding: 20px; border-radius: 6px; margin: 25px 0; border-left: 4px solid #1e40af;">
+  <h3 style="margin: 0 0 10px; color: #1e293b; font-size: 16px;">Contact Us</h3>
+  <p style="margin: 0 0 5px; color: #475569; font-size: 14px;">
+    <strong>Phone:</strong> <a href="tel:+97142500251" style="color: #1e40af; text-decoration: none;">+971 42 500 251</a>
+  </p>
+  <p style="margin: 0 0 5px; color: #475569; font-size: 14px;">
+    <strong>Email:</strong> <a href="mailto:info@auditfirmsdubai.ae" style="color: #1e40af; text-decoration: none;">info@auditfirmsdubai.ae</a>
+  </p>
+  <p style="margin: 0; color: #475569; font-size: 14px;">
+    <strong>Address:</strong> Office 1901, The Prism Tower, Business Bay, Dubai, UAE
+  </p>
+</div>` : ''
+
+  const content = `
+<p style="margin: 0 0 15px; color: #475569; font-size: 16px; line-height: 1.6;">
+  ${greeting},
+</p>
+
+<div style="margin: 25px 0;">
+  <p style="margin: 0 0 15px; color: #475569; font-size: 16px; line-height: 1.6;">
+    ${data.introduction}
+  </p>
+
+  <p style="margin: 0 0 15px; color: #475569; font-size: 16px; line-height: 1.6;">
+    ${data.mainContent}
+  </p>
+</div>
+
+${servicesSection}
+
+${data.callToAction ? `<div style="text-align: center; margin: 30px 0;">
+  <a href="${data.callToAction.url}" style="display: inline-block; background-color: #1e40af; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px;">
+    ${data.callToAction.text}
+  </a>
+</div>` : ''}
+
+${contactSection}
+
+<p style="margin: 25px 0 0; color: #475569; font-size: 15px; line-height: 1.6;">
+  We look forward to serving your audit and financial needs.<br>
+  <strong>Best regards,<br>
+  Farahat & Co Team</strong>
+</p>
+  `
+
+  return {
+    subject: data.subject,
+    html: emailWrapper(content, data.subject),
+  }
+}
+
 // Download Confirmation Email
 export function downloadConfirmation(data: {
   name: string

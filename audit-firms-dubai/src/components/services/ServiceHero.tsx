@@ -1,8 +1,9 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Phone, Calendar } from 'lucide-react'
-import Image from 'next/image'
+import { OptimizedImage } from '@/components/ui/OptimizedImage'
 
 interface ServiceHeroProps {
   headline: string
@@ -19,21 +20,27 @@ export function ServiceHero({
   usp,
   image,
 }: ServiceHeroProps) {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   return (
     <section className="relative overflow-hidden bg-primary-900 py-20 text-white">
       {/* Background Image or Gradient */}
       {image ? (
         <div className="absolute inset-0 z-0">
-          <Image
+          <OptimizedImage
             src={image}
             alt="Background"
             fill
-            className="object-cover object-center"
+            className="w-full h-full object-cover object-center"
             priority
           />
           {/* Overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-primary-900/85 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary-900/50 via-transparent to-primary-900/90" />
+          <div className="absolute inset-0 bg-primary-900/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-900/30 via-primary-900/20 to-primary-900/60" />
         </div>
       ) : (
         <>
@@ -90,7 +97,7 @@ export function ServiceHero({
             >
               <a href="tel:+97142500251">
                 <Phone className="mr-2 h-5 w-5" />
-                Call +971 42 500 251
+                Call +971 4 250 0251
               </a>
             </Button>
           </div>

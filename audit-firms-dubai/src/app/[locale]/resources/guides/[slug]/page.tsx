@@ -11,6 +11,9 @@ import {
   Share2,
   ArrowRight,
 } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import { Components } from 'react-markdown'
 import { GUIDES, Guide } from '@/lib/content/guides'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -89,6 +92,14 @@ export default async function GuidePage({ params }: Props) {
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   }
 
+  const markdownComponents: Components = {
+    strong: ({ children, ...props }) => (
+      <strong className="text-neutral-900 font-semibold" {...props}>
+        {children}
+      </strong>
+    ),
+  }
+
   return (
     <>
       {/* Article Schema */}
@@ -114,7 +125,7 @@ export default async function GuidePage({ params }: Props) {
               name: 'Audit Firms Dubai (Farahat & Co)',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://eliteauditdubai.com/logo.png',
+                url: 'https://auditfirmsdubai.ae/logo.png',
               },
             },
           }),
@@ -238,16 +249,16 @@ export default async function GuidePage({ params }: Props) {
               {/* Main Content */}
               <div className="min-w-0">
                 <div className="prose prose-lg prose-blue max-w-none
-                  prose-headings:scroll-mt-24 
-                  prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 
+                  prose-headings:scroll-mt-24
+                  prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900
                   prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-0
-                  prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-3xl 
-                  prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-2xl 
+                  prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-3xl
+                  prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-2xl
                   prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-xl
-                  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-                  prose-ul:my-6 prose-li:my-3 prose-li:leading-relaxed
+                  prose-p:text-neutral-900 prose-p:leading-relaxed prose-p:mb-6
+                  prose-ul:my-6 prose-li:my-3 prose-li:leading-relaxed prose-li:text-neutral-900
                   prose-ol:my-6 prose-ol:ml-6
-                  prose-strong:text-gray-900 prose-strong:font-semibold
+                  prose-strong:text-neutral-900 prose-strong:font-semibold
                   prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:rounded-r-lg prose-blockquote:my-8
                   prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
                   prose-hr:my-8 prose-hr:border-gray-200">
@@ -276,9 +287,9 @@ export default async function GuidePage({ params }: Props) {
                   {/* Introduction */}
                   <div className="mb-12">
                     {guide.introduction.map((para, index) => (
-                      <p key={index} className="mb-6 text-xl leading-relaxed text-gray-600">
-                        {para}
-                      </p>
+                      <div key={index} className="mb-6 text-xl leading-relaxed text-gray-600 guide-content">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{para}</ReactMarkdown>
+                      </div>
                     ))}
                   </div>
 
@@ -291,12 +302,8 @@ export default async function GuidePage({ params }: Props) {
                         </h2>
                         <div className="space-y-6">
                           {section.content.map((content, contentIndex) => (
-                            <div key={contentIndex} className="text-gray-700 leading-relaxed text-lg">
-                              {content.split('\n\n').map((paragraph, pIndex) => (
-                                <p key={pIndex} className="mb-6 last:mb-0">
-                                  {paragraph}
-                                </p>
-                              ))}
+                            <div key={contentIndex} className="text-neutral-900 leading-relaxed text-lg guide-content">
+                              <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{content}</ReactMarkdown>
                             </div>
                           ))}
                         </div>
@@ -304,8 +311,8 @@ export default async function GuidePage({ params }: Props) {
                           <div className="mt-8 space-y-4">
                             {section.subsections.map((subsection, subIndex) => (
                               <div key={subIndex} className="pl-6 border-l-2 border-blue-200">
-                                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                  {subsection}
+                                <h4 className="text-lg font-semibold text-gray-900 mb-2 guide-content">
+                                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{subsection}</ReactMarkdown>
                                 </h4>
                               </div>
                             ))}
@@ -319,12 +326,8 @@ export default async function GuidePage({ params }: Props) {
                   <div className="mt-16 border-t pt-12">
                     <h2 className="mb-6 font-serif text-3xl font-bold tracking-tight text-gray-900">Conclusion</h2>
                     {guide.conclusion.map((para, index) => (
-                      <div key={index} className="mb-6 text-gray-700 leading-relaxed text-lg">
-                        {para.split('\n\n').map((paragraph, pIndex) => (
-                          <p key={pIndex} className="mb-6 last:mb-0">
-                            {paragraph}
-                          </p>
-                        ))}
+                      <div key={index} className="mb-6 text-neutral-900 leading-relaxed text-lg guide-content">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{para}</ReactMarkdown>
                       </div>
                     ))}
                   </div>

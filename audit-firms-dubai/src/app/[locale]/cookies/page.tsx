@@ -10,6 +10,9 @@ import { Cookie, Settings, Eye, BarChart3, Shield, Mail, Phone } from 'lucide-re
 import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/lib/constants';
 
+// Make legal pages dynamic to avoid context issues
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Cookie Policy | Audit Firms Dubai | Farahat & Co',
   description:

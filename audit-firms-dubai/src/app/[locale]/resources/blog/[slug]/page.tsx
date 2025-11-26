@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { SITE_CONFIG } from '@/lib/constants'
 import {
   Calendar,
   Clock,
@@ -38,7 +39,7 @@ type Props = {
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { slug, locale } = await params
   const post = BLOG_POSTS[slug]
 
   if (!post) {
@@ -52,6 +53,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.metaDescription,
     keywords: post.keywords,
     authors: [{ name: post.author.name }],
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/${locale}/resources/blog/${slug}`,
+      languages: {
+        en: `${SITE_CONFIG.url}/en/resources/blog/${slug}`,
+        ar: `${SITE_CONFIG.url}/ar/resources/blog/${slug}`,
+      },
+    },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
@@ -60,6 +68,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: post.lastUpdated,
       authors: [post.author.name],
       tags: post.tags,
+      url: `${SITE_CONFIG.url}/${locale}/resources/blog/${slug}`,
+      locale: locale,
     },
     twitter: {
       card: 'summary_large_image',
@@ -146,7 +156,7 @@ export default async function BlogPostPage({ params }: Props) {
               name: 'Audit Firms Dubai (Farahat & Co)',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://eliteauditdubai.com/logo.png',
+                url: 'https://auditfirmsdubai.ae/logo.png',
               },
             },
           }),
@@ -226,21 +236,21 @@ export default async function BlogPostPage({ params }: Props) {
                    <MobileTableOfContents headings={headings} />
                 </div>
 
-                <div className="prose prose-lg prose-blue max-w-none
-                  prose-headings:scroll-mt-24 
-                  prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900 
+                <div className="prose prose-lg prose-blue max-w-none guide-content
+                  prose-headings:scroll-mt-24
+                  prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-gray-900
                   prose-h1:text-4xl prose-h1:mb-8 prose-h1:mt-0
-                  prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-3xl 
-                  prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-2xl 
+                  prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-3xl
+                  prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-2xl
                   prose-h4:mt-6 prose-h4:mb-3 prose-h4:text-xl
-                  prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
-                  prose-ul:my-6 prose-li:my-3 prose-li:leading-relaxed
+                  prose-p:text-neutral-900 prose-p:leading-relaxed prose-p:mb-6
+                  prose-ul:my-6 prose-li:my-3 prose-li:leading-relaxed prose-li:text-neutral-900
                   prose-ol:my-6 prose-ol:ml-6
-                  prose-strong:text-gray-900 prose-strong:font-semibold
+                  prose-strong:text-neutral-900 prose-strong:font-semibold
                   prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:rounded-r-lg prose-blockquote:my-8
                   prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
                   prose-hr:my-8 prose-hr:border-gray-200
-                  prose-table:my-8 prose-th:bg-gray-50 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900
+                  prose-table:my-8 prose-th:bg-gray-50 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-neutral-900
                   prose-td:px-4 prose-td:py-3 prose-td:border prose-td:border-gray-200
                   prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm">
                   <ReactMarkdown 

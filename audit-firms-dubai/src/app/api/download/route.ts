@@ -7,6 +7,8 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { getResourceById } from '@/lib/resources/catalog'
+import { downloadDb, newsletterDb } from '@/lib/database'
+import { sendEmailNotification } from '@/lib/email/service'
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -160,48 +162,82 @@ export async function POST(request: Request) {
     // Generate download tracking ID
     const downloadId = `download-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 
-    // TODO: Save to database
-    // await saveDownloadRecord({
-    //   id: downloadId,
-    //   ...sanitizedData,
-    //   ip,
-    //   userAgent: request.headers.get('user-agent'),
-    //   timestamp: new Date().toISOString(),
-    // })
+    // Save to database
+    try {
+      await downloadDb.create({
+        ...sanitizedData,
+        ip,
+        userAgent: request.headers.get('user-agent') || undefined,
+        status: 'completed',
+      })
+    } catch (dbError) {
+      console.error('Database save error:', dbError)
+      // Continue with email sending even if database fails
+    }
 
-    // TODO: Send download confirmation email with link
-    // await sendEmailNotification({
-    //   to: [sanitizedData.email],
-    //   subject: `Your Download: ${resource.title}`,
-    //   template: 'download-confirmation',
-    //   data: {
-    //     name: sanitizedData.name,
-    //     resourceTitle: resource.title,
-    //     downloadUrl: resource.fileUrl,
-    //     downloadId,
-    //   },
-    // })
+    // Send download confirmation email with link
+    try {
+      await sendEmailNotification({
+        to: [sanitizedData.email],
+        subject: `Your Download: ${resource.title}`,
+        template: 'downloadConfirmation',
+        data: {
+          name: sanitizedData.name,
+          resourceTitle: resource.title,
+          downloadUrl: resource.fileUrl,
+          downloadId,
+        },
+      })
+    } catch (emailError) {
+      console.error('Download confirmation email failed:', emailError)
+    }
 
-    // TODO: If marketing consent, add to newsletter/CRM
-    // if (sanitizedData.marketingConsent) {
-    //   await addToNewsletter({
-    //     email: sanitizedData.email,
-    //     firstName: sanitizedData.name.split(' ')[0],
-    //     source: 'resource-download',
-    //     tags: [resource.category, resource.format],
-    //   })
-    // }
+    // If marketing consent, add to newsletter
+    if (sanitizedData.marketingConsent) {
+      try {
+        // Check if email is already subscribed
+        const existing = await newsletterDb.findByEmail(sanitizedData.email)
+        if (existing.length === 0) {
+          await newsletterDb.create({
+            email: sanitizedData.email,
+            firstName: sanitizedData.name.split(' ')[0],
+            interests: [resource.category],
+            source: 'resource-download',
+            ip,
+            userAgent: request.headers.get('user-agent') || undefined,
+            status: 'confirmed', // Direct opt-in from download form
+          })
+        }
+      } catch (newsletterError) {
+        console.error('Newsletter subscription error:', newsletterError)
+      }
+    }
 
-    // TODO: Send internal notification to sales team for high-value leads
-    // if (resource.category === 'audit-checklists' || resource.featured) {
-    //   await notifySalesTeam({
-    //     type: 'resource-download',
-    //     lead: sanitizedData,
-    //     resource: resource.title,
-    //   })
-    // }
+    // Send internal notification to sales team for high-value leads
+    if (resource.category === 'audit-checklists' || resource.featured) {
+      try {
+        await sendEmailNotification({
+          to: [process.env.SALES_EMAIL || 'info@farahatco.com'],
+          subject: `High-Value Lead: Resource Download - ${resource.title}`,
+          template: 'quoteNotification', // Using quote notification as template
+          data: {
+            submissionId: downloadId,
+            companyName: sanitizedData.company || 'N/A',
+            contactName: sanitizedData.name,
+            email: sanitizedData.email,
+            phone: 'N/A',
+            services: [`Resource Download: ${resource.title}`],
+            urgency: 'normal',
+            priority: 'normal',
+          },
+          replyTo: sanitizedData.email,
+        })
+      } catch (salesEmailError) {
+        console.error('Sales team notification failed:', salesEmailError)
+      }
+    }
 
-    // Log for now (temporary until database is set up)
+    // Log download
     console.log('Download Tracked:', {
       downloadId,
       resource: resource.title,

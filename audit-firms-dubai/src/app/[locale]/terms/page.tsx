@@ -10,6 +10,9 @@ import { FileText, Scale, AlertCircle, CheckCircle, Mail, Phone, MapPin, Shield 
 import { Button } from '@/components/ui/button';
 import { SITE_CONFIG } from '@/lib/constants';
 
+// Make legal pages dynamic to avoid context issues
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Terms of Service | Audit Firms Dubai | Farahat & Co',
   description:

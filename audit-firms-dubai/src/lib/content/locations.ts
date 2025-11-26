@@ -24,6 +24,7 @@ export interface LocationPageContent {
   heroHeadline: string
   heroSubheadline: string
   heroDescription: string
+  heroImage?: string
 
   // Location Details
   location: LocationDetails
@@ -73,12 +74,13 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Dubai Head Office',
     heroSubheadline: 'Rigga Road, Deira',
     heroDescription: 'Our main headquarters located in the heart of Deira at Rigga Road. Serving businesses across Dubai with certified audit, tax, and advisory services since 1985.',
+    heroImage: '/images/locations/downtown-dubai-hero.jpg',
 
     location: {
       name: 'Farahat & Co - Dubai Head Office',
       address: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road Dubai, P.O. Box 4647, U.A.E',
       phone: '+971 4 250 0251',
-      email: 'sales@farahatco.com',
+      email: 'info@auditfirmsdubai.ae',
       hours: 'Monday - Friday: 9:00 AM - 7:00 PM',
       coordinates: { lat: 25.2643, lng: 55.3153 },
       mapUrl: 'https://maps.google.com/?q=25.2643,55.3153',
@@ -162,12 +164,13 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in Sharjah',
     heroSubheadline: 'Serving Sharjah & Northern Emirates',
     heroDescription: 'Professional audit and accounting services for businesses in Sharjah. Conveniently located near the iconic Clock Tower, we serve companies across industrial, trading, and service sectors.',
+    heroImage: '/images/locations/sharjah-hero.jpg',
 
     location: {
       name: 'Farahat & Co - Sharjah Office',
       address: 'Clock Tower, Sharjah, P.O. Box 3035, U.A.E',
       phone: '+971 6 5637720',
-      email: 'sales@farahatco.com',
+      email: 'info@auditfirmsdubai.ae',
       hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM',
       coordinates: { lat: 25.3571, lng: 55.3910 },
       mapUrl: 'https://maps.google.com/?q=25.3571,55.3910',
@@ -234,7 +237,7 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     slug: 'difc',
     title: 'DIFC Office - Dubai International Financial Centre',
     metaTitle: 'Audit Firm in DIFC Dubai - DFSA Approved Auditors | Farahat & Co',
-    metaDescription: 'Leading audit firm in DIFC with DFSA expertise. Financial services audit, regulatory compliance, IFRS reporting. Gate Village office. Call +971 42 500 251',
+    metaDescription: 'Leading audit firm in DIFC with DFSA expertise. Financial services audit, regulatory compliance, IFRS reporting. Gate Village office. Call +971 4 250 0251',
     keywords: [
       'audit firm difc',
       'dfsa approved auditors',
@@ -249,6 +252,7 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in DIFC',
     heroSubheadline: 'Dubai International Financial Centre',
     heroDescription: 'Premier audit services for DIFC-registered companies and financial institutions. Our Gate Village office specializes in DFSA compliance, IFRS reporting, and regulatory audits.',
+    heroImage: '/images/locations/difc-hero.jpg',
 
     location: {
       name: 'Farahat & Co - DIFC Office',
@@ -357,6 +361,7 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in Business Bay',
     heroSubheadline: 'Dubai\'s Corporate Business District',
     heroDescription: 'Comprehensive audit and accounting services for businesses in Business Bay. Our Bay Square office provides expert corporate audit, VAT compliance, and financial advisory services.',
+    heroImage: '/images/locations/business-bay-hero.jpg',
 
     location: {
       name: 'Farahat & Co - Business Bay Office',
@@ -464,6 +469,7 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in Dubai Marina',
     heroSubheadline: 'Serving Dubai\'s Waterfront Business Community',
     heroDescription: 'Professional audit and business advisory services for Dubai Marina companies. Convenient Marina Plaza location serving businesses across Marina, JBR, and surrounding areas.',
+    heroImage: '/images/locations/dubai-marina-hero.jpg',
 
     location: {
       name: 'Farahat & Co - Dubai Marina Office',
@@ -572,6 +578,7 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in JLT',
     heroSubheadline: 'Jumeirah Lakes Towers Business District',
     heroDescription: 'Comprehensive audit and business services for JLT companies. Our Cluster J office serves corporates, free zone entities, and SMEs across the JLT business community.',
+    heroImage: '/images/locations/jlt-hero.jpg',
 
     location: {
       name: 'Farahat & Co - JLT Office',
@@ -679,6 +686,7 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in Downtown Dubai',
     heroSubheadline: 'Burj Khalifa District',
     heroDescription: 'Premium audit and advisory services in the heart of Downtown Dubai. Our Boulevard Plaza office provides sophisticated financial services for corporates and high-net-worth clients.',
+    heroImage: '/images/locations/downtown-dubai-hero.jpg',
 
     location: {
       name: 'Farahat & Co - Downtown Dubai Office',
@@ -788,12 +796,13 @@ export const LOCATIONS: Record<string, LocationPageContent> = {
     heroHeadline: 'Audit Firm in Abu Dhabi',
     heroSubheadline: 'Serving the UAE Capital',
     heroDescription: 'Comprehensive audit and assurance services for Abu Dhabi-based businesses. Specialized expertise in government entities, oil & gas, healthcare, and ADGM regulatory compliance.',
+    heroImage: '/images/locations/abu-dhabi-hero.jpg',
 
     location: {
       name: 'Farahat & Co - Abu Dhabi Office',
       address: 'No 16, 3rd Floor, Baynunah 2 Tower, Corniche Street, Next to British Embassy, Al-Hosn Area – Abu Dhabi, P.O. Box 107020, U.A.E.',
       phone: '+971 4 250 0251',
-      email: 'sales@farahatco.com',
+      email: 'info@auditfirmsdubai.ae',
       hours: 'Sunday - Thursday: 8:00 AM - 6:00 PM',
       coordinates: { lat: 24.4739, lng: 54.3457 },
       mapUrl: 'https://maps.google.com/?q=24.4739,54.3457',

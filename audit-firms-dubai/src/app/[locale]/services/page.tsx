@@ -75,7 +75,7 @@ export async function generateMetadata({
   return {
     title: 'Audit Services Dubai | External, Internal, RERA & VAT Audits | Farahat & Co',
     description:
-      'Comprehensive audit services in Dubai by Ministry-approved auditors. External audit, Internal audit, RERA audit, VAT audit, Due diligence & Forensic audit. 37 years experience. Call +971 42 500 251',
+      'Comprehensive audit services in Dubai by Ministry-approved auditors. External audit, Internal audit, RERA audit, VAT audit, Due diligence & Forensic audit. 37 years experience. Call +971 4 250 0251',
     keywords: [
       'audit services dubai',
       'audit firms in dubai',
@@ -424,7 +424,7 @@ export default async function ServicesHubPage({
               <Button asChild size="lg" variant="secondary">
                 <Link href={`/${locale}/contact`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  Call +971 42 500 251
+                  Call +971 4 250 0251
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20">

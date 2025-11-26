@@ -256,6 +256,18 @@ export const HOMEPAGE_FAQ = [
     question: 'Can you help with RERA audit for property developers?',
     answer: 'Absolutely! We specialize in RERA audits for real estate developers, property managers, and owners associations. We audit escrow accounts, service charges, and ensure full DLD compliance.',
   },
+  {
+    question: 'What is the difference between audit firms and accounting firms in Dubai?',
+    answer: 'While many audit firms in Dubai also provide accounting services (like Farahat & Co), the key difference is that audit firms are licensed by the Ministry of Economy to provide statutory audit opinions on financial statements. Accounting firms handle bookkeeping, financial reporting, and advisory. Our firm offers both comprehensive audit and accounting services for UAE businesses.',
+  },
+  {
+    question: 'Do you provide accounting services along with audit services?',
+    answer: 'Yes, as one of the leading accounting and auditing firms in Dubai, we provide complete accounting services including bookkeeping, financial statement preparation, CFO services, tax advisory, and payroll alongside our specialized audit services. This allows clients to work with a single trusted partner for all financial needs across Dubai, Abu Dhabi, Sharjah, and all UAE free zones.',
+  },
+  {
+    question: 'Which free zones do your audit firms serve in Dubai?',
+    answer: 'Our auditing companies in Dubai are approved to serve all major free zones including DIFC, DMCC, JAFZA, Dubai Airport Free Zone, Dubai Silicon Oasis, Dubai South, RAKEZ, Sharjah Airport Free Zone, and more. We also serve Dubai mainland, Business Bay, Abu Dhabi, Sharjah, and businesses across all seven emirates with dedicated teams familiar with each jurisdiction\'s specific requirements.',
+  },
 ] as const;
 
 // Call-to-Action Data
@@ -263,7 +275,7 @@ export const CTA_CONFIG = {
   primary: {
     text: 'Get Free Consultation',
     subtext: 'Speak with our audit experts today',
-    phone: '+971 42 500 251',
+    phone: '+971 4 250 0251',
     href: '/contact',
   },
   secondary: {
@@ -273,7 +285,7 @@ export const CTA_CONFIG = {
   },
   whatsapp: {
     text: 'Chat on WhatsApp',
-    number: '+971526922588',
+    number: '+971 52 6922588',
     href: 'https://wa.me/971526922588',
   },
 } as const;

@@ -3,12 +3,14 @@ import {
   HeroSection,
   StatisticsSection,
   ServicesGrid,
+  AccountingServicesSection,
   WhyChooseUs,
   OurClients,
   TestimonialsSection,
   FAQSection,
   CTASection,
   HomeMapSection,
+  LocationCoverageSection,
 } from '@/components/sections/home'
 import { SITE_CONFIG } from '@/lib/constants'
 import { i18n, type Locale } from '@/lib/i18n/config'
@@ -33,11 +35,16 @@ export async function generateMetadata({
 
   const metadata = {
     en: {
-      title: 'Audit Firms Dubai | Ministry Approved Auditors Since 1985 | Farahat & Co',
+      title: 'Audit Firms in Dubai | Accounting & Auditing Services UAE | Farahat & Co',
       description:
-        'Leading audit firm in Dubai since 1985. Ministry-approved auditors with 28,000+ clients across 140 countries. External audit, Internal audit, RERA audit, VAT compliance. Call +971 42 500 251',
+        'Leading audit & accounting firms in Dubai & UAE. Ministry-approved auditors. ✓ External audit ✓ VAT audit ✓ Accounting services ✓ All free zones ✓ 7-day delivery ✓ 28,000+ clients. +971 4 250 0251',
       keywords: [
         'audit firms in dubai',
+        'audit firms in uae',
+        'auditing firms in dubai',
+        'accounting firms in dubai',
+        'accounting and auditing firms',
+        'chartered accountants dubai',
         'audit firm dubai',
         'external audit dubai',
         'internal audit uae',
@@ -45,14 +52,15 @@ export async function generateMetadata({
         'vat audit dubai',
         'auditors in dubai',
         'ministry approved auditors',
+        'accounting services dubai',
+        'free zone audit',
         'farahat and co',
-        'best audit firm dubai',
       ],
     },
     ar: {
       title: 'شركات التدقيق دبي | مدققون معتمدون منذ 1985 | فرحات وشركاه',
       description:
-        'شركة تدقيق رائدة في دبي منذ 1985. مدققون معتمدون من وزارة الاقتصاد مع أكثر من 28,000 عميل في 140 دولة. التدقيق الخارجي، التدقيق الداخلي، تدقيق ريرا، الامتثال لضريبة القيمة المضافة. اتصل +971 42 500 251',
+        'شركة تدقيق رائدة في دبي منذ 1985. مدققون معتمدون من وزارة الاقتصاد مع أكثر من 28,000 عميل في 140 دولة. التدقيق الخارجي، التدقيق الداخلي، تدقيق ريرا، الامتثال لضريبة القيمة المضافة. اتصل +971 4 250 0251',
       keywords: [
         'شركات تدقيق دبي',
         'شركة تدقيق دبي',
@@ -103,6 +111,8 @@ export default async function HomePage({
 
       <ServicesGrid dict={dict} />
 
+      <AccountingServicesSection dict={dict} />
+
       <WhyChooseUs dict={dict} />
 
       <OurClients dict={dict} />
@@ -114,6 +124,8 @@ export default async function HomePage({
       <FAQSection dict={dict} />
 
       <HomeMapSection />
+
+      <LocationCoverageSection dict={dict} />
     </>
   )
 }

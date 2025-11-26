@@ -23,7 +23,7 @@ export function OptimizedImage({
   const [hasError, setHasError] = useState(false);
 
   return (
-    <div className={cn('relative overflow-hidden', className)}>
+    <div className={cn('relative overflow-hidden', props.fill ? 'w-full h-full' : '', className)}>
       {showLoadingState && isLoading && (
         <div className="absolute inset-0 bg-neutral-200 animate-pulse" />
       )}

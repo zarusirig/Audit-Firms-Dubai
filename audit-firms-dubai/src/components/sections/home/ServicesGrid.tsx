@@ -42,11 +42,13 @@ export function ServicesGrid({ dict }: { dict: any }) {
           className="mb-12 text-center"
         >
           <h2 className="mb-4 font-serif text-3xl font-bold text-primary-900 md:text-4xl">
-            Comprehensive Audit Services
+            Complete Audit & Accounting Services in Dubai
           </h2>
           <p className="max-w-2xl w-full mx-auto text-center px-4 text-lg text-neutral-700">
-            From statutory compliance to specialized audits, we provide complete audit solutions
-            tailored to your business needs
+            As one of the leading <strong>audit firms in Dubai and UAE</strong>, we provide
+            comprehensive <strong>audit and accounting services</strong> from statutory compliance
+            to specialized audits. Our <strong>auditing companies in Dubai</strong> serve businesses
+            across Dubai mainland, all free zones, Abu Dhabi, Sharjah, and throughout the Emirates.
           </p>
         </motion.div>
 

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      # Add your environment variables here
+      # - NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+      # - SMTP_HOST=your-smtp-host
+      # - SMTP_PORT=587
+      # - SMTP_USER=your-email@domain.com
+      # - SMTP_PASS=your-password
+      # - RESEND_API_KEY=your-resend-key
+      # - FAL_KEY=your-fal-ai-key
+      # - GEMINI_API_KEY=your-gemini-key
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - auditfirms-network
+
+networks:
+  auditfirms-network:
+    driver: bridge

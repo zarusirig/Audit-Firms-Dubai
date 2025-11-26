@@ -26,6 +26,10 @@ export interface NavigationDictionary {
   forensicAudit: string;
   vatAudit: string;
   reraAudit: string;
+  businessValuation: string;
+  cfoServices: string;
+  ifrsImplementation: string;
+  taxConsultation: string;
   industries: string;
   realEstate: string;
   trading: string;
@@ -34,6 +38,8 @@ export interface NavigationDictionary {
   hospitality: string;
   technology: string;
   financialServices: string;
+  ecommerce: string;
+  ourClients: string;
   about: string;
   contact: string;
   resources: string;

@@ -98,7 +98,7 @@ export default async function IFRSStandardsPage({
         subheadline={complianceData.heroSubheadline}
         painPoint={complianceData.heroDescription}
         usp="Mandatory UAE Compliance"
-        image="/images/services/audit-services.jpg" // Fallback or specific image
+        image="/images/services/external-audit-hero.jpg"
       />
 
       {/* Introduction */}

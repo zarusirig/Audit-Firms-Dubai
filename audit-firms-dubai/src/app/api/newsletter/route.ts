@@ -7,6 +7,8 @@
 import { NextResponse } from 'next/server'
 import { newsletterSchema, formatZodErrors } from '@/components/forms/validation'
 import { sanitizeEmail, sanitizeInput } from '@/components/forms/validation'
+import { newsletterDb } from '@/lib/database'
+import { sendEmailNotification } from '@/lib/email/service'
 
 // Rate limiting
 const rateLimitMap = new Map<string, number[]>()
@@ -119,38 +121,49 @@ export async function POST(request: Request) {
     // Generate subscriber ID
     const subscriberId = `sub-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 
-    // TODO: Save to newsletter database/mailing list
-    // await saveNewsletterSubscription({
-    //   id: subscriberId,
-    //   email: sanitizedEmail,
-    //   firstName,
-    //   source: body.source,
-    //   interests: body.interests,
-    //   ip,
-    //   subscribedAt: new Date().toISOString(),
-    //   status: 'pending', // Require double opt-in
-    // })
+    // Save to newsletter database
+    try {
+      await newsletterDb.create({
+        email: sanitizedEmail,
+        firstName,
+        interests: body.interests,
+        source: body.source,
+        ip,
+        userAgent: request.headers.get('user-agent') || undefined,
+        status: 'pending', // Require double opt-in
+      })
+    } catch (dbError) {
+      console.error('Database save error:', dbError)
+      // Continue with email sending even if database fails
+    }
 
-    // TODO: Send confirmation email with double opt-in link
-    // await sendEmailNotification({
-    //   to: [sanitizedEmail],
-    //   subject: 'Confirm your subscription - Farahat & Co Newsletter',
-    //   template: 'newsletter-confirm',
-    //   data: {
-    //     firstName,
-    //     confirmationLink: `${process.env.NEXT_PUBLIC_SITE_URL}/newsletter/confirm?token=${subscriberId}`,
-    //   },
-    // })
+    // Send confirmation email with double opt-in link
+    try {
+      await sendEmailNotification({
+        to: [sanitizedEmail],
+        subject: 'Confirm your subscription - Farahat & Co Newsletter',
+        template: 'newsletterConfirmation',
+        data: {
+          email: sanitizedEmail,
+          firstName,
+          confirmationToken: subscriberId,
+        },
+      })
+    } catch (emailError) {
+      console.error('Confirmation email failed:', emailError)
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Failed to send confirmation email. Please try again.',
+        },
+        { status: 500 }
+      )
+    }
 
     // TODO: Add to mailing list service (e.g., Mailchimp, SendGrid, etc.)
-    // await addToMailingList({
-    //   email: sanitizedEmail,
-    //   firstName,
-    //   tags: body.interests || [],
-    //   source: body.source,
-    // })
+    // This would be implemented when integrating with a mailing list service
 
-    // Log for now (temporary)
+    // Log subscription
     console.log('Newsletter Subscription:', {
       subscriberId,
       email: sanitizedEmail,

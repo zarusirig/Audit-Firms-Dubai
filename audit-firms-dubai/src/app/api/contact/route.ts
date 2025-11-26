@@ -8,6 +8,8 @@ import { NextResponse } from 'next/server'
 import { quickContactSchema, contactFormSchema, formatZodErrors } from '@/components/forms/validation'
 import { sanitizeInput, sanitizeEmail, sanitizePhone } from '@/components/forms/validation'
 import { ContactApiRequest } from '../types'
+import { contactDb } from '@/lib/database'
+import { sendEmailNotification } from '@/lib/email/service'
 
 // Rate limiting
 const rateLimitMap = new Map<string, number[]>()
@@ -154,32 +156,59 @@ export async function POST(request: Request) {
     // Generate submission ID
     const submissionId = `contact-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 
-    // TODO: Save to database
-    // await saveContactSubmission(submissionId, sanitizedData, {
-    //   ip,
-    //   userAgent: request.headers.get('user-agent'),
-    //   source: body.source,
-    //   timestamp: new Date().toISOString(),
-    // })
+    // Save to database
+    try {
+      await contactDb.create({
+        ...sanitizedData,
+        formType,
+        ip,
+        userAgent: request.headers.get('user-agent') || undefined,
+        source: body.source,
+        status: 'new',
+      })
+    } catch (dbError) {
+      console.error('Database save error:', dbError)
+      // Continue with email sending even if database fails
+    }
 
-    // TODO: Send email notification
-    // await sendEmailNotification({
-    //   to: ['info@farahatco.com'],
-    //   subject: `New Contact Form Submission: ${sanitizedData.subject || 'Quick Contact'}`,
-    //   template: 'contact',
-    //   data: sanitizedData,
-    //   replyTo: sanitizedData.email,
-    // })
+    // Send email notification to admin
+    try {
+      await sendEmailNotification({
+        to: [process.env.ADMIN_EMAIL || 'info@farahatco.com'],
+        subject: `New Contact Form Submission: ${sanitizedData.subject || 'Quick Contact'}`,
+        template: 'quoteNotification', // Using quote notification as it's similar
+        data: {
+          submissionId,
+          companyName: sanitizedData.company || 'N/A',
+          contactName: sanitizedData.name,
+          email: sanitizedData.email,
+          phone: sanitizedData.phone || 'N/A',
+          services: formType === 'quick-contact' ? ['Quick Contact'] : [sanitizedData.subject || 'General Inquiry'],
+          urgency: 'normal',
+          priority: 'normal',
+        },
+        replyTo: sanitizedData.email,
+      })
+    } catch (emailError) {
+      console.error('Admin email notification failed:', emailError)
+    }
 
-    // TODO: Send auto-responder to user
-    // await sendEmailNotification({
-    //   to: [sanitizedData.email],
-    //   subject: 'Thank you for contacting Farahat & Co',
-    //   template: 'thank-you',
-    //   data: sanitizedData,
-    // })
+    // Send auto-responder to user
+    try {
+      await sendEmailNotification({
+        to: [sanitizedData.email],
+        subject: 'Thank you for contacting Farahat & Co',
+        template: 'contactAutoResponder',
+        data: {
+          name: sanitizedData.name,
+          submissionId,
+        },
+      })
+    } catch (emailError) {
+      console.error('User auto-responder failed:', emailError)
+    }
 
-    // Log for now (temporary until database is set up)
+    // Log submission
     console.log('Contact Form Submission:', {
       submissionId,
       formType,

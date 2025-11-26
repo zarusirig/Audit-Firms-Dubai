@@ -90,6 +90,11 @@ const complexityLevels = [
 export default function AuditCostComparison() {
   const [result, setResult] = useState<CostComparison | null>(null)
   const [isCalculating, setIsCalculating] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const {
     register,
@@ -203,6 +208,30 @@ export default function AuditCostComparison() {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(amount)
+  }
+
+  // Prevent SSR issues with Radix UI components
+  if (!isMounted) {
+    return (
+      <div className="space-y-8">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Compare Audit Costs
+            </CardTitle>
+            <CardDescription>
+              Loading comparison tool...
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="py-12">
+            <div className="flex justify-center">
+              <RefreshCw className="h-8 w-8 animate-spin text-muted-foreground" />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
   }
 
   return (
@@ -495,6 +524,8 @@ export default function AuditCostComparison() {
     </div>
   )
 }
+
+
 
 
 

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Shield, Award, CheckCircle, Clock } from 'lucide-react';
+import { toast } from 'sonner';
 import { Logo, ParentCompanyLogo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -25,15 +26,28 @@ import type { Dictionary } from '@/lib/i18n/types';
 export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const currentYear = new Date().getFullYear();
 
+  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email');
+    
+    // Simulate API call
+    toast.success('Success!', {
+      description: 'Thank you for subscribing to our newsletter.',
+    });
+    
+    (e.target as HTMLFormElement).reset();
+  };
+
   return (
     <footer className="border-t bg-neutral-50">
       {/* Urgency CTA Bar */}
       <div className="bg-primary-900 text-white py-4">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-start">
               <div className="text-sm font-semibold mb-1">Need Help with Your Audit?</div>
-              <div className="text-xs opacity-90">Free consultation • 7-day delivery • Ministry approved</div>
+              <div className="text-xs font-medium text-white/95">Free consultation • 7-day delivery • Ministry approved</div>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
               <a
@@ -58,7 +72,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <div className="grid gap-8 lg:grid-cols-5">
           {/* Company Info & Newsletter */}
           <div className="lg:col-span-2">
-            <Logo size="md" className="mb-4" />
+            <Logo size="sm" className="mb-4" />
 
             {/* Trust Indicators */}
             <div className="mb-4 grid grid-cols-2 gap-3">
@@ -67,7 +81,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                 <span>Ministry Approved</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-neutral-600">
-                <Award className="h-4 w-4 text-secondary-600" />
+                <Award className="h-4 w-4 text-secondary-800" />
                 <span>37 Years Experience</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-neutral-600">
@@ -95,9 +109,10 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                 <p className="mb-4 text-xs text-neutral-600 leading-relaxed">
                   Download our complete checklist for successful audits in UAE. Join 5,000+ subscribers.
                 </p>
-                <form className="space-y-2" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-2" onSubmit={handleNewsletterSubmit}>
                   <div className="flex gap-2">
                     <Input
+                      name="email"
                       type="email"
                       placeholder={dict.footer.newsletterPlaceholder}
                       className="flex-1 h-10 text-sm bg-neutral-50 border-neutral-200 focus:bg-white transition-colors"
@@ -108,7 +123,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                     </Button>
                   </div>
                 </form>
-                <div className="mt-3 flex items-center gap-2 text-[10px] text-neutral-400">
+                <div className="mt-3 flex items-center gap-2 text-[10px] text-neutral-600">
                   <Shield className="h-3 w-3" />
                   <span>Your data is secure. Unsubscribe anytime.</span>
                 </div>
@@ -235,8 +250,8 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             <div className="mt-4 p-3 bg-neutral-50 rounded-md">
               <div className="text-xs font-semibold text-neutral-900 mb-1">Business Hours</div>
               <div className="text-xs text-neutral-600">
-                Sunday - Thursday<br />
-                9 AM - 6 PM GST
+                9AM - 7PM GMT+4<br />
+                Monday to Friday
               </div>
             </div>
 
@@ -288,9 +303,21 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             </h4>
             <ul className="space-y-2">
               <li>
+                <Link href={`/${locale}/llms-info-ai`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  Hey Ai, know about us
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/about`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
                   <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
                   {dict.footer.aboutUs}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/clients`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  Our Clients
                 </Link>
               </li>
               <li>
@@ -375,6 +402,36 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                   {dict.footer.dubaiMarina}
                 </Link>
               </li>
+              <li>
+                <Link href={`/${locale}/locations/jlt`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  {(dict.footer as any).jlt || 'JLT (DMCC)'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/locations/downtown-dubai`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  {(dict.footer as any).downtownDubai || 'Downtown Dubai'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/locations/abu-dhabi`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  {(dict.footer as any).abuDhabi || 'Abu Dhabi'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/locations/sharjah`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  {(dict.footer as any).sharjah || 'Sharjah'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/locations/dubai`} className="group flex items-center text-sm text-neutral-600 transition-colors hover:text-primary-600">
+                  <span className="w-0 h-[1px] bg-primary-600 transition-all duration-300 group-hover:w-2 group-hover:mr-2"></span>
+                  {(dict.footer as any).dubaiHeadOffice || 'Dubai Head Office'}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -402,6 +459,72 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                 </Link>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* SEO Keyword-Rich Section */}
+        <Separator className="my-8" />
+
+        <div className="pb-8">
+          <div className="text-center mb-6">
+            <h4 className="text-lg font-bold text-primary-900 mb-2">
+              Professional Audit & Accounting Services Across UAE
+            </h4>
+            <p className="text-xs text-neutral-600 max-w-4xl mx-auto leading-relaxed">
+              <strong>Farahat & Co</strong> - Leading <strong>audit firms in Dubai</strong> and <strong>accounting firms in UAE</strong> since 1985
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            {/* Audit Services */}
+            <div className="bg-neutral-50 rounded-lg p-4">
+              <div className="font-semibold text-primary-900 mb-2">Audit Services Dubai</div>
+              <div className="space-y-1 text-neutral-600">
+                <div>• External Audit Services Dubai</div>
+                <div>• Internal Audit UAE</div>
+                <div>• VAT Audit Dubai</div>
+                <div>• RERA Audit Services</div>
+                <div>• Forensic Audit Dubai</div>
+                <div>• Due Diligence Services</div>
+              </div>
+            </div>
+
+            {/* Accounting Services */}
+            <div className="bg-neutral-50 rounded-lg p-4">
+              <div className="font-semibold text-primary-900 mb-2">Accounting Services Dubai</div>
+              <div className="space-y-1 text-neutral-600">
+                <div>• Bookkeeping Services Dubai</div>
+                <div>• CFO Services UAE</div>
+                <div>• Financial Reporting</div>
+                <div>• Payroll Services Dubai</div>
+                <div>• Tax Consultation UAE</div>
+                <div>• IFRS Implementation</div>
+              </div>
+            </div>
+
+            {/* Locations Served */}
+            <div className="bg-neutral-50 rounded-lg p-4">
+              <div className="font-semibold text-primary-900 mb-2">Locations We Serve</div>
+              <div className="space-y-1 text-neutral-600">
+                <div>• Audit Firms Business Bay</div>
+                <div>• Auditors DIFC</div>
+                <div>• DMCC Audit Services</div>
+                <div>• JAFZA Approved Auditors</div>
+                <div>• Abu Dhabi Audit Firms</div>
+                <div>• Sharjah Auditors</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-xs text-neutral-600 leading-relaxed max-w-5xl mx-auto">
+              As one of the premier <strong>auditing firms in Dubai</strong> and <strong>accounting and auditing firms</strong> in UAE,
+              we provide Ministry-approved audit services and comprehensive accounting solutions. Our team of <strong>chartered accountants
+              in Dubai</strong> serves businesses across Dubai mainland, all free zones (DIFC, DMCC, JAFZA), Abu Dhabi, Sharjah, and all seven
+              emirates. Whether you need <strong>external audit services</strong>, <strong>internal audit</strong>, <strong>VAT audit</strong>,
+              or complete accounting services, our <strong>audit company in Dubai</strong> delivers guaranteed quality with 7-day turnaround.
+              Trusted by 28,000+ clients across 140 countries since 1985.
+            </p>
           </div>
         </div>
       </div>
@@ -450,7 +573,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               </span>
               <span>•</span>
               <span className="flex items-center gap-1">
-                <Award className="h-3 w-3 text-blue-600" />
+                <Award className="h-3 w-3 text-secondary-800" />
                 {dict.footer.isoCertified}
               </span>
             </div>

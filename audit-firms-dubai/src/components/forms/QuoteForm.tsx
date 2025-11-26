@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { toast } from 'sonner'
 import {
   Briefcase,
   Building2,
@@ -193,10 +194,11 @@ export function QuoteForm() {
       localStorage.removeItem('quote-form-draft')
 
       // Redirect to thank you page
+      toast.success('Quote request submitted successfully!')
       router.push(`/thank-you?type=quote&id=${result.submissionId}`)
     } catch (error) {
       console.error('Form submission error:', error)
-      alert('Failed to submit quote request. Please try again.')
+      toast.error(error instanceof Error ? error.message : 'Failed to submit quote request. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -216,7 +218,7 @@ export function QuoteForm() {
                 className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ${
                   step <= currentStep
                     ? 'border-primary bg-primary text-primary-foreground'
-                    : 'border-muted bg-background text-muted-foreground'
+                    : 'border-neutral-300 bg-background text-neutral-600'
                 }`}
               >
                 {step < currentStep ? (
@@ -236,16 +238,16 @@ export function QuoteForm() {
           ))}
         </div>
         <div className="grid grid-cols-4 gap-4 text-center text-sm">
-          <div className={currentStep === 1 ? 'font-semibold text-primary' : 'text-muted-foreground'}>
+          <div className={currentStep === 1 ? 'font-semibold text-primary' : 'text-neutral-600'}>
             Services
           </div>
-          <div className={currentStep === 2 ? 'font-semibold text-primary' : 'text-muted-foreground'}>
+          <div className={currentStep === 2 ? 'font-semibold text-primary' : 'text-neutral-600'}>
             Company
           </div>
-          <div className={currentStep === 3 ? 'font-semibold text-primary' : 'text-muted-foreground'}>
+          <div className={currentStep === 3 ? 'font-semibold text-primary' : 'text-neutral-600'}>
             Contact
           </div>
-          <div className={currentStep === 4 ? 'font-semibold text-primary' : 'text-muted-foreground'}>
+          <div className={currentStep === 4 ? 'font-semibold text-primary' : 'text-neutral-600'}>
             Details
           </div>
         </div>
@@ -801,7 +803,7 @@ export function QuoteForm() {
             )}
           </div>
 
-          <div className="text-center text-sm text-muted-foreground">
+          <div className="text-center text-sm text-neutral-600">
             Step {currentStep} of {TOTAL_STEPS}
           </div>
         </form>

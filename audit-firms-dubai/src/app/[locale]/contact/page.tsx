@@ -9,7 +9,8 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { OFFICE_LOCATIONS } from '@/lib/constants'
+import { OFFICE_LOCATIONS, SITE_CONFIG } from '@/lib/constants'
+import { Locale } from '@/lib/i18n/config'
 import {
   Phone,
   Mail,
@@ -25,7 +26,14 @@ import {
 } from 'lucide-react'
 import { QuickContactForm } from '@/components/forms/QuickContactForm'
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const resolvedParams = await params
+  const locale = resolvedParams.locale as Locale
+
   return {
     title: 'Contact Farahat & Co | Get Expert Audit Consultation | Dubai, UAE',
     description:
@@ -42,11 +50,20 @@ export async function generateMetadata(): Promise<Metadata> {
       'audit quote request',
       'contact certified auditors uae',
     ],
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/${locale}/contact`,
+      languages: {
+        en: `${SITE_CONFIG.url}/en/contact`,
+        ar: `${SITE_CONFIG.url}/ar/contact`,
+      },
+    },
     openGraph: {
       title: 'Contact Farahat & Co | Professional Audit Services in Dubai',
       description:
         'Get in touch with UAE\'s leading audit firm. Call +971 4 250 0251 or visit our Business Bay office. Free consultation available.',
       type: 'website',
+      url: `${SITE_CONFIG.url}/${locale}/contact`,
+      locale: locale,
       images: [
         {
           url: '/og-contact.jpg',
@@ -105,7 +122,7 @@ export default async function ContactPage() {
                 className="border-white text-white hover:bg-white hover:text-primary-900 h-14 px-8"
                 asChild
               >
-                <a href="mailto:sales@farahatco.com">
+                <a href="mailto:info@auditfirmsdubai.ae">
                   <Mail className="mr-2 h-5 w-5" />
                   Email Us
                 </a>
@@ -439,7 +456,7 @@ export default async function ContactPage() {
           <ul>
             <li>
               <strong>Phone:</strong> Call us directly at +971 4 250 0251 during business hours
-              (Sunday to Thursday, 9:00 AM to 6:00 PM GST)
+              (9AM - 7PM GMT+4 - Monday to Friday)
             </li>
             <li>
               <strong>Email:</strong> Send detailed inquiries to info@auditfirmsdubai.ae - we
@@ -529,7 +546,7 @@ export default async function ContactPage() {
                   closes: '19:00',
                 },
               },
-              email: 'sales@farahatco.com',
+              email: 'info@auditfirmsdubai.ae',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'IBIS Hotel Building Office Entrance 5th Floor, Office No.: 5001, Rigga Road',

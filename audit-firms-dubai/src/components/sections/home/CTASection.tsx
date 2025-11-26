@@ -139,7 +139,7 @@ export function CTASection({ dict }: { dict: any }) {
               {CTA_CONFIG.primary.phone}
             </a>
             <p className="mt-2 text-sm text-primary-200">
-              Available Sunday - Thursday, 9 AM - 6 PM GST
+              Available 9AM - 7PM GMT+4 - Monday to Friday
             </p>
           </motion.div>
         </div>

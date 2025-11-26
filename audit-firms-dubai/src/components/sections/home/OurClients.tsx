@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from '@/components/ui/OptimizedImage';
 
 /**
  * Our Clients Section with Auto-Scrolling Logo Slider
@@ -90,7 +90,7 @@ export function OurClients({ dict }: { dict: any }) {
                   key={`row1-${logo}-${index}`}
                   className="flex h-20 w-32 flex-shrink-0 items-center justify-center grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110"
                 >
-                  <Image
+                  <OptimizedImage
                     src={`/images/clients/${logo}`}
                     alt={`Client logo`}
                     width={128}
@@ -117,7 +117,7 @@ export function OurClients({ dict }: { dict: any }) {
                   key={`row2-${logo}-${index}`}
                   className="flex h-20 w-32 flex-shrink-0 items-center justify-center grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110"
                 >
-                  <Image
+                  <OptimizedImage
                     src={`/images/clients/${logo}`}
                     alt={`Client logo`}
                     width={128}

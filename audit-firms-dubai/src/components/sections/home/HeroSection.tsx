@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Phone, Calculator, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { OptimizedImage } from '@/components/ui/OptimizedImage';
 import { BRAND_STATS, CTA_CONFIG } from '@/lib/constants/brand';
 import type { Locale } from '@/lib/i18n/config';
 
@@ -20,14 +21,14 @@ interface HeroSectionProps {
 
 export function HeroSection({ dict, locale }: HeroSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 pt-20 pb-16 lg:pt-28 lg:pb-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50/20 via-white/10 to-secondary-50/20 pt-20 pb-16 lg:pt-28 lg:pb-24">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <OptimizedImage
           src="/images/hero/home-hero.jpg"
           alt="Dubai Skyline"
           fill
-          className="object-cover object-center opacity-5 mix-blend-darken grayscale-[20%]"
+          className="w-full h-full object-cover object-center opacity-60"
           priority
         />
       </div>
@@ -42,32 +43,32 @@ export function HeroSection({ dict, locale }: HeroSectionProps) {
           Call Now
         </a>
       </div>
-      {/* Background Pattern & Blobs */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.03]" />
-      <motion.div 
-        animate={{ 
+      {/* Background Pattern & Blobs - Reduced opacity */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.01]" />
+      <motion.div
+        animate={{
           scale: [1, 1.1, 1],
-          opacity: [0.3, 0.5, 0.3],
+          opacity: [0.1, 0.2, 0.1],
         }}
-        transition={{ 
+        transition={{
           duration: 8,
           repeat: Infinity,
-          ease: "easeInOut" 
+          ease: "easeInOut"
         }}
-        className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary-100/50 blur-3xl"
+        className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary-100/20 blur-3xl"
       />
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2],
+          opacity: [0.05, 0.1, 0.05],
         }}
-        transition={{ 
+        transition={{
           duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute top-1/2 -left-24 h-64 w-64 rounded-full bg-secondary-100/40 blur-3xl"
+        className="absolute top-1/2 -left-24 h-64 w-64 rounded-full bg-secondary-100/15 blur-3xl"
       />
       
       <div className="container relative mx-auto px-4 z-10">
@@ -263,13 +264,37 @@ function StatCard({
   format?: boolean;
   locale: Locale;
 }) {
-  const displayValue = format ? value.toLocaleString(locale === 'ar' ? 'ar-AE' : 'en-US') : value;
+  // Count-up animation
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepValue = value / steps;
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += stepValue;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  const displayValue = format 
+    ? count.toLocaleString(locale === 'ar' ? 'ar-AE' : 'en-US') 
+    : count;
 
   return (
-    <div className="rounded-lg border bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
-      <div className="text-2xl font-bold text-primary-700 md:text-3xl" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="rounded-lg border bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+      <div className="text-2xl font-bold text-primary-700 md:text-3xl group-hover:text-secondary-600 transition-colors" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         {displayValue}
-        <span className="text-secondary-600">{suffix}</span>
+        <span className="text-secondary-600 group-hover:text-secondary-500">{suffix}</span>
       </div>
       <div className="text-xs text-neutral-600 md:text-sm" dir={locale === 'ar' ? 'rtl' : 'ltr'}>{label}</div>
     </div>

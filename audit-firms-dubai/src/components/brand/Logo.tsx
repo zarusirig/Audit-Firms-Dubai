@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { OptimizedImage } from '@/components/ui/OptimizedImage';
 import { cn } from '@/lib/utils';
 
 interface LogoProps {
@@ -24,10 +24,10 @@ export function Logo({
   href = '/',
 }: LogoProps) {
   const sizeClasses = {
-    sm: 'h-10 w-auto max-w-[160px]',
-    md: 'h-24 w-auto max-w-[400px]',
-    lg: 'h-28 w-auto max-w-[440px]',
-    xl: 'h-32 w-auto max-w-[500px]',
+    sm: 'h-8 w-auto max-w-[120px]',
+    md: 'h-16 w-auto max-w-[280px]',
+    lg: 'h-20 w-auto max-w-[320px]',
+    xl: 'h-24 w-auto max-w-[380px]',
   };
 
   const variantClasses = {
@@ -47,7 +47,7 @@ export function Logo({
   const LogoContent = () => (
     <div className={cn('flex flex-col items-start', className)}>
       <div className={cn(sizeClasses[size], 'relative flex items-center')}>
-        <Image
+        <OptimizedImage
           src="/images/hero/audit-firms-dubai-faraht-co.png"
           alt="Audit Firms Dubai - Elite Audit Dubai"
           width={400}
@@ -58,7 +58,7 @@ export function Logo({
         />
       </div>
       {showTagline && (
-        <p className={cn('mt-1 font-medium text-neutral-600', taglineSizes[size])}>
+        <p className={cn('mt-1 font-medium text-neutral-700', taglineSizes[size])}>
           Dubai's Most Trusted Audit Firm
         </p>
       )}
@@ -103,7 +103,7 @@ export function ParentCompanyLogo({
         <p className={cn('font-semibold', variantClasses[variant])}>
           A Member of Farahat & Co
         </p>
-        <p className={cn('text-xs opacity-75', variantClasses[variant])}>
+        <p className={cn('text-xs font-medium', variantClasses[variant])}>
           Est. 1985 • Serving 140+ Countries
         </p>
       </div>

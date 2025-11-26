@@ -1,6 +1,7 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -17,18 +18,13 @@ interface LanguageSwitcherProps {
 
 export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
   const pathname = usePathname()
-  const router = useRouter()
 
-  const switchLocale = (newLocale: Locale) => {
-    if (newLocale === currentLocale) return
-
+  const getLocalizedPath = (newLocale: Locale) => {
     // Remove current locale from pathname
     const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '')
 
     // Construct new path with new locale
-    const newPath = `/${newLocale}${pathWithoutLocale || ''}`
-
-    router.push(newPath)
+    return `/${newLocale}${pathWithoutLocale || ''}`
   }
 
   return (
@@ -44,15 +40,18 @@ export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
         {i18n.locales.map((locale) => (
           <DropdownMenuItem
             key={locale}
-            onClick={() => switchLocale(locale)}
+            asChild
             className={currentLocale === locale ? 'bg-primary-50' : ''}
           >
-            <span className="flex items-center gap-2">
+            <Link
+              href={getLocalizedPath(locale)}
+              className="flex items-center gap-2 w-full"
+            >
               {localeNames[locale]}
               {currentLocale === locale && (
                 <span className="ml-auto text-primary-600">✓</span>
               )}
-            </span>
+            </Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

@@ -1,5 +1,3 @@
-'use client';
-
 /**
  * Breadcrumb Schema for navigation
  * Implements schema.org/BreadcrumbList

@@ -183,7 +183,7 @@ export async function generateMetadata({
   return {
     title: 'Industry-Specific Audit Services Dubai | All Sectors Covered | Farahat & Co',
     description:
-      'Specialized audit services for all industries in Dubai: Real Estate (RERA), Trading, Manufacturing, Financial Services, Healthcare, Hospitality, Technology & E-commerce. Industry experts. Call +971 42 500 251',
+      'Specialized audit services for all industries in Dubai: Real Estate (RERA), Trading, Manufacturing, Financial Services, Healthcare, Hospitality, Technology & E-commerce. Industry experts. Call +971 4 250 0251',
     keywords: [
       'industry specific audits dubai',
       'sector audit services',
@@ -520,7 +520,7 @@ export default async function IndustriesHubPage({
               <Button asChild size="lg" variant="secondary">
                 <Link href={`/${locale}/contact`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  Call +971 42 500 251
+                  Call +971 4 250 0251
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20">

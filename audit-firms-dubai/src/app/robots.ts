@@ -11,39 +11,77 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
+        // Block Google and Google-related bots
+        userAgent: 'Google*',
+        disallow: '/',
+      },
+      {
+        // Bingbot - allow with restrictions
+        userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/api/', '/admin/', '/dashboard/', '/local-test/'],
+      },
+      {
+        // AhrefsBot - allow with restrictions
+        userAgent: 'AhrefsBot',
+        allow: '/',
+        disallow: ['/api/', '/admin/', '/dashboard/', '/local-test/'],
+        crawlDelay: 10,
+      },
+      {
+        // SEMrushBot - allow with restrictions
+        userAgent: 'SEMrushBot',
+        allow: '/',
+        disallow: ['/api/', '/admin/', '/dashboard/', '/local-test/'],
+        crawlDelay: 10,
+      },
+      {
+        // Block MJ12bot completely
+        userAgent: 'MJ12bot',
+        disallow: '/',
+      },
+      {
+        // Block dotbot completely
+        userAgent: 'dotbot',
+        disallow: '/',
+      },
+      {
+        // General rules for all other bots
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/api/',           // Block API routes
-          '/admin/',         // Block admin routes (if any)
-          '/_next/',         // Block Next.js internals
-          '/private/',       // Block private content
-          '/*?*utm_*',       // Block tracking parameters
-          '/*?*fbclid*',     // Block Facebook click IDs
-          '/*?*gclid*',      // Block Google click IDs
+          '/api/',
+          '/admin/',
+          '/_next/',
+          '/dashboard/',
+          '/account/',
+          '/login',
+          '/logout',
+          '/search',
+          '/checkout/',
+          '/payment/',
+          '/invoice/',
+          '/*?sort=',
+          '/*?filter=',
+          '/*?page=',
+          '/*?utm_',
+          '/*?ref=',
+          '/*&session',
+          '/tag/',
+          '/author/',
+          '/print/',
+          '*/feed',
+          '/local-test/',
+          '/sitemap-0.xml',
+          '/thank-you'
         ],
-        crawlDelay: 0,       // No delay for general crawlers
-      },
-      {
-        // Special rules for Google
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: ['/api/', '/admin/', '/private/'],
-      },
-      {
-        // Special rules for Bing
-        userAgent: 'Bingbot',
-        allow: '/',
-        disallow: ['/api/', '/admin/', '/private/'],
-      },
-      {
-        // Block AI scrapers if needed (can be adjusted based on policy)
-        userAgent: ['GPTBot', 'ChatGPT-User', 'CCBot', 'anthropic-ai'],
-        disallow: '/',
+        crawlDelay: 5,
       },
     ],
     sitemap: [
       `${SITE_URL}/sitemap.xml`,
+      `${SITE_URL}/sitemap-en.xml`,
+      `${SITE_URL}/sitemap-ar.xml`,
     ],
     host: SITE_URL,
   };

@@ -71,7 +71,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next, api, static files, sitemaps, robots.txt)
-    '/((?!api|_next/static|_next/image|favicon.ico|og-image.jpg|sitemap.*\\.xml|robots\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|xml)$).*)',
+    // Only process paths that need internationalization (exclude static files and API routes)
+    '/((?!api/|_next/|favicon\\.ico|robots\\.txt|sitemap.*\\.xml|.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|xml|json)$).*)',
   ],
 }
